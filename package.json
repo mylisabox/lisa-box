@@ -40,6 +40,7 @@
     "trailpack-repl": "^1.0.8",
     "trailpack-router": "^1.0.7",
     "trailpack-sequelize": "^1.0.5",
+    "trails": "^1.0.4",
     "trails-controller": "^1.0.0-beta-2",
     "trails-model": "^1.0.0-beta-2",
     "trails-policy": "^1.0.1",
