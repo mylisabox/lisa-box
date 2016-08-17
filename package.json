@@ -1,0 +1,49 @@
+{
+  "name": "lisabox",
+  "version": "0.0.1",
+  "description": "Home automation system L.I.S.A.",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint . && mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mylisabox/lisabox.git"
+  },
+  "eslintConfig": {
+    "extends": "trails"
+  },
+  "keywords": [
+    "lisa",
+    "mylisabox",
+    "home",
+    "automation"
+  ],
+  "author": "jaumard",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/mylisabox/lisabox/issues"
+  },
+  "homepage": "https://github.com/mylisabox/lisabox#readme",
+  "devDependencies": {
+    "eslint": "^3.3.1",
+    "eslint-config-trails": "^1.0.7",
+    "lodash": "^4.15.0",
+    "mocha": "^3.0.2",
+    "smokesignals": "^1.2.2"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "trailpack-core": "^1.0.1",
+    "trailpack-express": "^1.0.10",
+    "trailpack-realtime": "0.0.3",
+    "trailpack-repl": "^1.0.8",
+    "trailpack-router": "^1.0.7",
+    "trailpack-sequelize": "^1.0.5",
+    "trails-controller": "^1.0.0-beta-2",
+    "trails-model": "^1.0.0-beta-2",
+    "trails-policy": "^1.0.1",
+    "trails-service": "^1.0.0-beta-2",
+    "winston": "^2.2.0"
+  }
+}
