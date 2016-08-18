@@ -17,5 +17,5 @@ deploy:
     secure: 5h3lyk5secyEDk4Gk/Q0/wND9Xf6M53oCssy5AsM/xrclUbwIkf44f6CO2pfoPjBhQST8ZjC8J951KQooFtusREG/NmpN8j/K5sDPb8+FFD+T3mGhsaFxqFcrcbXSyKv8d3+s8qnH5vYETnRHbgjHM57JaC9JHTEMUvGiEa7mpF382vbCJCuDZm75Xnf8GIX9F89UAP8qDbFyVWYppVkbzOiiirsd0POoAQJnaa/51vWG3fmqP1dkOxajFOyrMlqXrECdifAbxyl5co0JAeWnmv4A3bthZtDLT5D3dlcP0SvH0MalGAcJ6nAQsZTqk12Qb9X1CchBLt/nvh2Y0ES/D3VLSlL7Uck4usWytUhPZ+hKyr4N811EZdkUSEP3zsLy1QFlb62xRiA5tmLp3zPeYVIFflSa7lGd/y5uaK3kiZNbDwMKLlwmNx4jvcYPwMEXmTiciqMc1B5MLFtlkArx2pyDuguildUYvKIrYau78eCnHNFm9YbHW5oBKJKKsPdwURODG6BffRcLtOhMDQfQn5CFF1f/hiXERSgnf/vyhSTkyFJ5pNI3usUzHWQpO5CLER/uHBrz9bMY/XGAJDfZyRrvfw7BetCbqS+LZ+z3LNf3KY811z2ABDAteCEEIaV6ffh+2PYnLADaY6CG8nJBb1RpM9icIq6g82TsF9S87Y=
   on:
     tags: true
-    repo: mylisabox/lisabox
+    repo: mylisabox/lisa-box
     node: 6

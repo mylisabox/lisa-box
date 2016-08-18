@@ -1,5 +1,5 @@
 {
-  "name": "lisabox",
+  "name": "lisa-box",
   "version": "0.0.1",
   "description": "Home automation system L.I.S.A.",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mylisabox/lisabox.git"
+    "url": "git+https://github.com/mylisabox/lisa-box.git"
   },
   "eslintConfig": {
     "extends": "trails"
@@ -22,9 +22,9 @@
   "author": "jaumard",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/mylisabox/lisabox/issues"
+    "url": "https://github.com/mylisabox/lisa-box/issues"
   },
-  "homepage": "https://github.com/mylisabox/lisabox#readme",
+  "homepage": "https://github.com/mylisabox/lisa-box#readme",
   "devDependencies": {
     "eslint": "^3.3.1",
     "eslint-config-trails": "^1.0.7",
