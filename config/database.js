@@ -20,14 +20,12 @@ module.exports = {
     /**
      * Define a store called "local" which uses SQLite3 to persist data.
      */
-    /*
     sqlitedev: {
-      database: 'dev',
-      storage: './.tmp/dev.sqlite',
+      database: 'lisa',
+      storage: './lisa.sqlite',
       host: '127.0.0.1',
       dialect: 'sqlite'
     }
-    */
   },
 
   models: {

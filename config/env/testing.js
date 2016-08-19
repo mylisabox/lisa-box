@@ -14,6 +14,11 @@ module.exports = {
         })
       ]
     })
+  },
+  database: {
+    models: {
+      migrate: 'drop'
+    }
   }
 
 }

@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "express": "^4.14.0",
+    "sqlite3": "^3.1.4",
     "trailpack-core": "^1.0.1",
     "trailpack-express": "^1.0.10",
     "trailpack-realtime": "0.0.3",
