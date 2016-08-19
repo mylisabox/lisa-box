@@ -4,7 +4,9 @@
   "description": "Home automation system L.I.S.A.",
   "main": "index.js",
   "scripts": {
-    "test": "eslint . && mocha"
+    "test": "snyk test && eslint . && mocha",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -46,6 +48,8 @@
     "trails-model": "^1.0.0-beta-2",
     "trails-policy": "^1.0.1",
     "trails-service": "^1.0.0-beta-2",
-    "winston": "^2.2.0"
-  }
+    "winston": "^2.2.0",
+    "snyk": "^1.18.0"
+  },
+  "snyk": true
 }

@@ -1,6 +1,7 @@
 # L.I.S.A.
 
 [![Gitter][gitter-image]][gitter-url]
+[![Known Vulnerabilities][snyk-image]][snyk-url]
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][npm-download]][npm-url]
 [![Build Status][ci-image]][ci-url]
@@ -12,6 +13,8 @@ Home automation system L.I.S.A. http://mylisabox.com
 
 WORK IN PROGRESS
 
+[snyk-image]: https://snyk.io/test/github/mylisabox/lisa-box/badge.svg
+[snyk-url]: https://snyk.io/test/github/mylisabox/lisa-box/
 [npm-image]: https://img.shields.io/npm/v/lisa-box.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/lisa-box
 [ci-image]: https://img.shields.io/travis/mylisabox/lisa-box.svg?style=flat-square&label=Linux%20/%20OSX

@@ -1,0 +1,27 @@
+version: v1.5.2
+ignore: {}
+patch:
+  'npm:minimatch:20160620':
+    - sqlite3 > node-pre-gyp > tar-pack > rimraf > glob > minimatch:
+        patched: '2016-08-19T19:16:03.662Z'
+    - sqlite3 > node-pre-gyp > tar-pack > fstream > rimraf > glob > minimatch:
+        patched: '2016-08-19T19:16:03.662Z'
+    - sqlite3 > node-pre-gyp > tar-pack > fstream-ignore > minimatch:
+        patched: '2016-08-19T19:16:03.662Z'
+    - sqlite3 > node-pre-gyp > tar-pack > fstream-ignore > fstream > rimraf > glob > minimatch:
+        patched: '2016-08-19T19:16:03.662Z'
+    - sqlite3 > node-pre-gyp > tar-pack > tar > fstream > rimraf > glob > minimatch:
+        patched: '2016-08-19T19:16:03.662Z'
+    - sqlite3 > node-pre-gyp > rimraf > glob > minimatch:
+        patched: '2016-08-19T19:16:03.662Z'
+    - sqlite3 > node-pre-gyp > tar > fstream > rimraf > glob > minimatch:
+        patched: '2016-08-19T19:16:03.662Z'
+  'npm:negotiator:20160616':
+    - trailpack-realtime > engine.io > accepts > negotiator:
+        patched: '2016-08-19T19:16:03.662Z'
+  'npm:tough-cookie:20160722':
+    - sqlite3 > node-pre-gyp > request > tough-cookie:
+        patched: '2016-08-19T19:16:03.662Z'
+  'npm:ws:20160624':
+    - trailpack-realtime > engine.io > ws:
+        patched: '2016-08-19T19:16:03.662Z'
