@@ -6,7 +6,8 @@
   "scripts": {
     "test": "snyk test && eslint . && mocha",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect",
+    "publish": "npm version patch && git push --tags && git push"
   },
   "repository": {
     "type": "git",
@@ -35,21 +36,25 @@
     "smokesignals": "^1.2.2"
   },
   "dependencies": {
+    "bonjour": "^3.5.0",
     "express": "^4.14.0",
+    "lisa-plugins-manager": "^0.0.1",
+    "mjpeg-proxy": "^0.2.0",
+    "snyk": "^1.18.0",
     "sqlite3": "^3.1.4",
+    "trailpack-bootstrap": "^1.0.1",
     "trailpack-core": "^1.0.1",
     "trailpack-express": "^1.0.10",
-    "trailpack-realtime": "0.0.3",
+    "trailpack-realtime": "^0.0.3",
     "trailpack-repl": "^1.0.8",
     "trailpack-router": "^1.0.7",
     "trailpack-sequelize": "^1.0.5",
     "trails": "^1.0.4",
     "trails-controller": "^1.0.0-beta-2",
     "trails-model": "^1.0.0-beta-2",
-    "trails-policy": "^1.0.1",
+    "trails-policy": "^1.0.2",
     "trails-service": "^1.0.0-beta-2",
-    "winston": "^2.2.0",
-    "snyk": "^1.18.0"
+    "winston": "^2.2.0"
   },
   "snyk": true
 }

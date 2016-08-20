@@ -20,6 +20,8 @@ module.exports = {
     require('trailpack-router'),
     require('trailpack-express'),
     require('trailpack-sequelize'),
+    require('lisa-plugins-manager'),
+    require('trailpack-bootstrap'),
     require('trailpack-realtime')
   ],
 
