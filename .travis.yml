@@ -3,6 +3,16 @@ node_js:
 - 4
 - 5
 - 6
+addons:
+  # Required to compile native modules on newer Node.js versions
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+env:
+  - CXX=g++-4.8
 notifications:
   email: false
   webhooks:
