@@ -22,6 +22,12 @@ module.exports = {
     require('trailpack-sequelize'),
     require('lisa-plugins-manager'),
     require('trailpack-bootstrap'),
+    require('trailpack-email'),
+    require('trailpack-twilio'),
+    require('trailpack-footprints'),
+    //require('../api/trailpacks/trailpack-dynamic-config'),
+    require('trailpack-passport'),
+    require('trailpack-acl'),
     require('trailpack-realtime')
   ],
 

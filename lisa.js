@@ -1,4 +1,5 @@
 'use strict'
+const EventEmitter = require('events')
 
 module.exports = (function () {
   //private
@@ -51,11 +52,13 @@ module.exports = (function () {
     const pathString = getCaller()
     const parts = pathString.split('/')
     parts.pop() // remove script index.js from stack
-    return app.packs.pluginsManager[parts[parts.length - 1]].name
+    const name = parts[parts.length - 1].replace(/lisa\-/, '').replace(/plugin\-/, '').toCamelCase()
+    return app.packs.pluginsManager[name].name || null
   }
 
-  return class LISA {
+  return class LISA extends EventEmitter {
     constructor(currentApp) {
+      super()
       app = currentApp
     }
 
@@ -69,8 +72,13 @@ module.exports = (function () {
     }
 
     findDevices(criteria) {
+      criteria = criteria || {}
       const plugin = getCurrentPlugin()
       this.log.debug(plugin)
+      criteria.plugin = plugin
+      return app.orm.Plugin.findAll({
+        where: criteria
+      })
     }
 
     get log() {

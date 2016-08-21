@@ -4,6 +4,27 @@ const winston = require('winston')
 
 module.exports = {
 
+  database: {
+    stores: {
+
+      /**
+       * Define a store called "local" which uses SQLite3 to persist data.
+       */
+      sqlite: {
+        database: 'lisa',
+        storage: './lisa.sqlite',
+        host: '127.0.0.1',
+        dialect: 'sqlite',
+        logging: false
+      }
+    },
+
+    models: {
+      defaultStore: 'sqlite',
+      migrate: 'none'
+    }
+  },
+
   log: {
     logger: new winston.Logger({
       level: 'info',

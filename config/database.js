@@ -30,6 +30,6 @@ module.exports = {
 
   models: {
     defaultStore: 'sqlitedev',
-    migrate: 'alter'
+    migrate: 'drop'
   }
 }

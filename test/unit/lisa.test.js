@@ -2,6 +2,7 @@
 /* global describe, it */
 
 const assert = require('assert')
+const EventEmitter = require('events')
 const LISA = require('../../lisa')
 
 describe('LISA', () => {
@@ -21,5 +22,10 @@ describe('LISA', () => {
     assert.equal(lisa.bonjour, 'bonjour')
     assert.equal(lisa.serialPort, 'serialPort')
     assert.equal(lisa.log, console.log)
+  })
+  it('should be an event emitter', () => {
+    assert(lisa.emit)
+    assert(lisa.on)
+    assert(lisa instanceof EventEmitter)
   })
 })

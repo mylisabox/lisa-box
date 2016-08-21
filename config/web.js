@@ -23,18 +23,19 @@ module.exports = {
    */
   middlewares: {
 
-    /*
     //middlewares loading order
     order: [
       'addMethods',
       'cookieParser',
+      'passportInit',
       'bodyParser',
+      'compression',
       'methodOverride',
       'www',
       'router',
       '404',
       '500'
-    ]*/
+    ]
 
     /**
      * Middlewares to load for body parsing
