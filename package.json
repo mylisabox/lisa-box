@@ -7,7 +7,7 @@
     "test": "snyk test && eslint --fix . && mocha",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
-    "publish": "npm version patch && git push --tags && git push"
+    "mypublish": "npm version patch && git push --tags && git push"
   },
   "repository": {
     "type": "git",
