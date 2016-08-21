@@ -6,7 +6,8 @@
   "scripts": {
     "test": "snyk test && eslint . && mocha",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect",
+    "publish": "npm version patch && git push --tags && git push"
   },
   "repository": {
     "type": "git",

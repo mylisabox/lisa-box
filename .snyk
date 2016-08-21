@@ -22,6 +22,8 @@ patch:
   'npm:tough-cookie:20160722':
     - sqlite3 > node-pre-gyp > request > tough-cookie:
         patched: '2016-08-19T19:16:03.662Z'
+      serialport > node-pre-gyp > request > tough-cookie:
+        patched: '2016-08-21T12:11:16.586Z'
   'npm:ws:20160624':
     - trailpack-realtime > engine.io > ws:
         patched: '2016-08-19T19:16:03.662Z'
