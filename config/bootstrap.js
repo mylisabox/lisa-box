@@ -3,6 +3,7 @@
  * @param app Trails application
  */
 const LISA = require('../lisa')
+const serialPort = require('serialport')
 const bonjour = require('bonjour')()
 
 module.exports = (app) => {
@@ -12,7 +13,7 @@ module.exports = (app) => {
   app.on('trails:stop', () => {
     bonjour.unpublishAll()
   })
-
+  app.serialPort = serialPort
   app.bonjour = bonjour
   app.lisa = new LISA(app)
 }

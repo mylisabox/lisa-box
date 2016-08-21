@@ -16,7 +16,7 @@ module.exports = {
    */
   packs: [
     require('trailpack-core'),
-    require('trailpack-repl'),//Need to be first to remote it on prod/test env
+    require('trailpack-repl'),
     require('trailpack-router'),
     require('trailpack-express'),
     require('trailpack-sequelize'),

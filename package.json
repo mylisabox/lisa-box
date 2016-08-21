@@ -6,8 +6,7 @@
   "scripts": {
     "test": "snyk test && eslint . && mocha",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect",
-    "publish": "npm version patch && git push --tags && git push"
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -38,8 +37,9 @@
   "dependencies": {
     "bonjour": "^3.5.0",
     "express": "^4.14.0",
-    "lisa-plugins-manager": "^0.0.1",
+    "lisa-plugins-manager": "^0.0.3",
     "mjpeg-proxy": "^0.2.0",
+    "serialport": "^4.0.1",
     "snyk": "^1.18.0",
     "sqlite3": "^3.1.4",
     "trailpack-bootstrap": "^1.0.1",
