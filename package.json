@@ -38,7 +38,7 @@
   "dependencies": {
     "bonjour": "^3.5.0",
     "express": "^4.14.0",
-    "lisa-plugins-manager": "^0.0.3",
+    "lisa-plugins-manager": "^0.0.4",
     "mjpeg-proxy": "^0.2.0",
     "serialport": "^4.0.1",
     "snyk": "^1.18.0",
