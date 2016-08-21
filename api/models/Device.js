@@ -33,6 +33,15 @@ module.exports = class Device extends Model {
       name: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      data: {
+        type: Sequelize.STRING,
+        get: function () {
+          return JSON.parse(this.getDataValue('data'))
+        },
+        set: function (value) {
+          this.setDataValue('data', JSON.stringify(value))
+        }
       }
     }
   }
