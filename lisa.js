@@ -32,9 +32,10 @@ module.exports = (function () {
   const getCaller = () => {
     const stack = getStack()
     stack.shift()
-    for (var i = 0; i < stack.length; i++) {
-      var obj = stack[i]
-      if (obj.getFileName().toLowerCase().indexOf("plugin-") != -1) {
+    let obj
+    for (let i = 0; i < stack.length; i++) {
+      obj = stack[i]
+      if (obj.getFileName().toLowerCase().indexOf('plugin-') != -1) {
         break
       }
     }
@@ -48,7 +49,7 @@ module.exports = (function () {
    */
   const getCurrentPlugin = () => {
     const pathString = getCaller()
-    const parts = pathString.split("/")
+    const parts = pathString.split('/')
     parts.pop() // remove script index.js from stack
     return app.packs.pluginsManager[parts[parts.length - 1]].name
   }

@@ -4,7 +4,7 @@
   "description": "Home automation system L.I.S.A.",
   "main": "index.js",
   "scripts": {
-    "test": "snyk test && eslint . && mocha",
+    "test": "snyk test && eslint --fix . && mocha",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
     "publish": "npm version patch && git push --tags && git push"
