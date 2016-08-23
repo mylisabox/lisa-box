@@ -4,12 +4,20 @@ patch:
   'npm:minimatch:20160620':
     - sqlite3 > node-pre-gyp > tar-pack > rimraf > glob > minimatch:
         patched: '2016-08-19T19:16:03.662Z'
+      preboot > gulp > vinyl-fs > glob-stream > minimatch:
+        patched: '2016-08-23T20:04:39.094Z'
     - sqlite3 > node-pre-gyp > tar-pack > fstream > rimraf > glob > minimatch:
         patched: '2016-08-19T19:16:03.662Z'
+      preboot > gulp > vinyl-fs > glob-stream > glob > minimatch:
+        patched: '2016-08-23T20:04:39.094Z'
     - sqlite3 > node-pre-gyp > tar-pack > fstream-ignore > minimatch:
         patched: '2016-08-19T19:16:03.662Z'
+      preboot > gulp > vinyl-fs > glob-watcher > gaze > globule > glob > minimatch:
+        patched: '2016-08-23T20:04:39.094Z'
     - sqlite3 > node-pre-gyp > tar-pack > fstream-ignore > fstream > rimraf > glob > minimatch:
         patched: '2016-08-19T19:16:03.662Z'
+      preboot > gulp > vinyl-fs > glob-watcher > gaze > globule > minimatch:
+        patched: '2016-08-23T20:04:39.094Z'
     - sqlite3 > node-pre-gyp > tar-pack > tar > fstream > rimraf > glob > minimatch:
         patched: '2016-08-19T19:16:03.662Z'
     - sqlite3 > node-pre-gyp > rimraf > glob > minimatch:
@@ -22,7 +30,7 @@ patch:
   'npm:tough-cookie:20160722':
     - sqlite3 > node-pre-gyp > request > tough-cookie:
         patched: '2016-08-19T19:16:03.662Z'
-      serialport > node-pre-gyp > request > tough-cookie:
+    - serialport > node-pre-gyp > request > tough-cookie:
         patched: '2016-08-21T12:11:16.586Z'
   'npm:ws:20160624':
     - trailpack-realtime > engine.io > ws:
