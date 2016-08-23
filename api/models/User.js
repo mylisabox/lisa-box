@@ -17,6 +17,15 @@ module.exports = class User extends ModelPassport {
           associate: (models) => {
             ModelPassport.config(app, Sequelize).options.classMethods.associate(models)
             ModelPermissions.config(app, Sequelize).options.classMethods.associate(models)
+
+            models.User.hasMany(models.Dashboard, {
+              as: 'dashboards',
+              onDelete: 'CASCADE',
+              foreignKey: {
+                name: 'userId',
+                primaryKey: true
+              }
+            })
           }
         }
       }
@@ -25,9 +34,14 @@ module.exports = class User extends ModelPassport {
 
   static schema (app, Sequelize) {
     const userTrailpackSchema = ModelPassport.schema(app, Sequelize)
-    delete userTrailpackSchema.username //disable username
-
-    const schema = {}
+    const schema = {
+      firstname: {
+        type: Sequelize.STRING
+      },
+      lastname: {
+        type: Sequelize.STRING
+      }
+    }
 
     return _.defaults(userTrailpackSchema, schema)
   }

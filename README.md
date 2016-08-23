@@ -13,6 +13,14 @@ Home automation system L.I.S.A. http://mylisabox.com
 
 WORK IN PROGRESS
 
+## Contributing
+We love contributions! Please see our [Contribution Guide](https://github.com/mylisabox/lisa-box/blob/master/.github/CONTRIBUTING.md)
+for more information.
+
+## License
+[GPL-3.0](https://github.com/mylisabox/lisa-box/blob/master/LICENSE)
+
+
 [snyk-image]: https://snyk.io/test/github/mylisabox/lisa-box/badge.svg
 [snyk-url]: https://snyk.io/test/github/mylisabox/lisa-box/
 [npm-image]: https://img.shields.io/npm/v/lisa-box.svg?style=flat-square

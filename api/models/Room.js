@@ -3,27 +3,27 @@
 const Model = require('trails-model')
 
 /**
- * @module Device
- * @description Device model
+ * @module Room
+ * @description Room model
  */
-module.exports = class Device extends Model {
+module.exports = class Room extends Model {
 
-  static config () {
+  static config (app, Sequelize) {
     return {
       options: {
         classMethods: {
           associate: (models) => {
-            models.Device.belongsTo(models.Plugin, {
-              as: 'plugin',
+            models.Room.hasOne(models.Dashboard, {
+              as: 'dashboard',
               onDelete: 'CASCADE',
               foreignKey: {
-                name: 'pluginName',
+                name: 'roomId',
                 allowNull: false
               }
             })
 
-            models.Device.belongsTo(models.Room, {
-              as: 'room',
+            models.Room.hasMany(models.Device, {
+              as: 'devices',
               foreignKey: {
                 name: 'roomId',
                 allowNull: true
@@ -41,15 +41,6 @@ module.exports = class Device extends Model {
       name: {
         type: Sequelize.STRING,
         allowNull: false
-      },
-      data: {
-        type: Sequelize.STRING,
-        get: function () {
-          return JSON.parse(this.getDataValue('data'))
-        },
-        set: function (value) {
-          this.setDataValue('data', JSON.stringify(value))
-        }
       }
     }
   }

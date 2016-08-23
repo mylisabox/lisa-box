@@ -1,0 +1,13 @@
+{
+  "globalDependencies": {
+    "core-js": "registry:dt/core-js#0.0.0+20160602141332",
+    "express": "github:DefinitelyTyped/DefinitelyTyped/express/express.d.ts#2e7a477ac2b6471055aa6e0e56b333e8f327d6b7",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
+    "mime": "github:DefinitelyTyped/DefinitelyTyped/mime/mime.d.ts#2e7a477ac2b6471055aa6e0e56b333e8f327d6b7",
+    "node": "registry:dt/node#6.0.0+20160621231320",
+    "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts"
+  },
+  "dependencies": {
+    "primus": "registry:npm/primus#4.0.0+20160312192808"
+  }
+}

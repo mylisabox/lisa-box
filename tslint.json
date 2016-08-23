@@ -1,0 +1,23 @@
+{
+  /*
+   * Possible values:
+   * - the name of a built-in config
+   * - the name of an NPM module which has a "main" file that exports a config object
+   * - a relative path to a JSON file
+   */
+  "extends": "tslint:latest",
+  "rules": {
+    /*
+     * Any rules specified here will override those from the base config we are extending
+     */
+    "no-unused-variable": true,
+    "member-access": false,
+    "no-reference": false,
+    "no-empty": false,
+    "quotemark" : "single",
+    "trailing-comma": false,
+    "semicolon": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": false
+  }
+}

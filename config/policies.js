@@ -12,5 +12,7 @@
  * @see http://trailsjs.io/doc/config/policies
  */
 module.exports = {
-
+  'NavigationController': {
+    'privateRoutes': [ 'Passport.jwt' ]
+  }
 }

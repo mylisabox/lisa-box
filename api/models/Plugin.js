@@ -1,6 +1,7 @@
 'use strict'
 
 const Model = require('lisa-plugins-manager/api/models/Plugin')
+const _ = require('lodash')
 
 /**
  * @module Plugin
@@ -27,6 +28,15 @@ module.exports = class Plugin extends Model {
   }
 
   static schema (app, Sequelize) {
-    return Model.schema(app, Sequelize)
+    const defaultSchema = Model.schema(app, Sequelize)
+
+    const schema = {
+      hideNotification: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      }
+    }
+
+    return _.defaults(defaultSchema, schema)
   }
 }
