@@ -90,7 +90,7 @@
     "trailpack-bootstrap": "^1.0.1",
     "trailpack-core": "^1.0.1",
     "trailpack-email": "^1.0.1",
-    "trailpack-express": "^1.0.10",
+    "trailpack-express": "^1.0.14",
     "trailpack-footprints": "^1.0.1",
     "trailpack-passport": "^1.0.0-beta-9",
     "trailpack-realtime": "^0.0.3",
