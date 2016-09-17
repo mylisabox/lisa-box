@@ -1,6 +1,5 @@
 'use strict'
-// Universal
-const ng2U = require('angular2-universal')
+
 /**
  * Server Configuration
  * (app.config.web)
@@ -73,13 +72,7 @@ module.exports = {
   /**
    * Alternate method to add multiple template engine, for single view template use config.views.engine
    */
-  views: {
-    engines: {
-      'ng2.html': ng2U.expressEngine,
-      'ejs': 'ejs'
-    },
-    path: 'app'
-  }
+  //views: {}
 
   /**
    * SSL options

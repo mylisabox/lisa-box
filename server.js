@@ -6,17 +6,9 @@
 
 'use strict'
 
-require('angular2-universal/polyfills')
-const gulp = require('gulp')
-require('./gulpfile')
+const app = require('./')
+const TrailsApp = require('trails')
+const server = new TrailsApp(app)
 
-const run = () => {
-  const app = require('./')
-  const TrailsApp = require('trails')
-  const server = new TrailsApp(app)
-
-  server.start().catch(err => server.stop(err))
-}
-
-gulp.start(process.env.NODE_ENV === 'production' ? 'production' : 'default', run)
+server.start().catch(err => server.stop(err))
 

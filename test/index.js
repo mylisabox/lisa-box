@@ -1,6 +1,5 @@
 'use strict'
 
-require('angular2-universal/polyfills')
 const TrailsApp = require('trails')
 
 before(() => {
