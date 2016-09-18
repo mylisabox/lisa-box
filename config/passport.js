@@ -8,7 +8,7 @@ const EXPIRES_IN_SECONDS = 60 * 60 * 24
 const ALGORITHM = 'HS256'
 const ISSUER = 'localhost'
 const AUDIENCE = 'localhost'
-const SECRET = process.env.TOKEN_SECRET || 'mysupersecuretoken'
+const SECRET = process.env.TOKEN_SECRET || 'mysecuretoken'
 
 module.exports = {
   /**
