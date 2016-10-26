@@ -1,4 +1,7 @@
 exports.bootstrap = require('./bootstrap')
+exports.bots = require('./bots')
+exports.caches = require('./caches')
+exports.chatbot = require('./chatbot')
 exports.database = require('./database')
 exports.email = require('./email')
 exports.env = require('./env')

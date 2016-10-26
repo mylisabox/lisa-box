@@ -21,6 +21,8 @@ module.exports = {
     require('trailpack-express'),
     require('trailpack-sequelize'),
     require('lisa-plugins-manager'),
+    require('trailpack-chatbot'),
+    require('trailpack-cache'),
     require('trailpack-bootstrap'),
     require('trailpack-email'),
     require('trailpack-twilio'),

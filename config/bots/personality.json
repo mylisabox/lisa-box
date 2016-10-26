@@ -1,0 +1,28 @@
+{
+  "name": "Personality",
+  "freeStates": {
+    'LISA_HELLO': {
+      'name': 'Hello',
+      'sentences': {
+        'fr': [
+          '(?:bonjour|hello|salut|bonsoir)'
+        ],
+        'en': [
+          '(?:hello|morning|hi)'
+        ]
+      },
+      'responses': {
+        'fr': [
+          'Salut',
+          'Bonjour'
+        ],
+        'en': [
+          'Hello',
+          'hi'
+        ]
+      }
+    }
+  },
+  "nestedStates": {},
+  "links": []
+}
