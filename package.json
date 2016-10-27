@@ -52,7 +52,7 @@
     "sqlite3": "^3.1.4",
     "trailpack-acl": "^1.1.0",
     "trailpack-bootstrap": "^1.0.1",
-    "trailpack-cache": "^1.0.0",
+    "trailpack-cache": "^1.0.2",
     "trailpack-core": "^1.0.1",
     "trailpack-email": "^1.0.1",
     "trailpack-express": "^1.0.14",
