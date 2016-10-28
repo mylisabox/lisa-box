@@ -10,9 +10,9 @@
  */
 module.exports = [
 
-/**
- * Render the home view
- */
+  /**
+   * Render the home view
+   */
   {
     method: 'GET',
     path: '/isAlive',

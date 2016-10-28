@@ -10,7 +10,7 @@ const ModelPermissions = require('trailpack-acl/api/models/User')
  */
 module.exports = class User extends ModelPassport {
 
-  static config (app, Sequelize) {
+  static config(app, Sequelize) {
     return {
       options: {
         classMethods: {
@@ -26,17 +26,27 @@ module.exports = class User extends ModelPassport {
                 primaryKey: true
               }
             })
+            models.User.hasMany(models.Notification, {
+              as: 'notifications',
+              foreignKey: {
+                name: 'userId'
+              }
+            })
           }
         }
       }
     }
   }
 
-  static schema (app, Sequelize) {
+  static schema(app, Sequelize) {
     const userTrailpackSchema = ModelPassport.schema(app, Sequelize)
     const schema = {
       firstname: {
         type: Sequelize.STRING
+      },
+      lang: {
+        type: Sequelize.STRING,
+        defaultsTo: 'en'
       },
       lastname: {
         type: Sequelize.STRING

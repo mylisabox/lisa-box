@@ -15,5 +15,14 @@ module.exports = class DefaultController extends Controller {
   isAlive(req, res) {
     res.json({alive: true})
   }
+
+  /**
+   * Use for test only
+   * @param req
+   * @param res
+   */
+  test(req, res) {
+    res.json({test: 'ok'})
+  }
 }
 

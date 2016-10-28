@@ -13,6 +13,9 @@
  */
 module.exports = {
   'NavigationController': {
-    'privateRoutes': [ 'Passport.jwt' ]
+    'privateRoutes': ['Passport.jwt']
+  },
+  'DefaultController': {
+    'test': ['Passport.jwt']
   }
 }

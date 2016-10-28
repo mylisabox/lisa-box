@@ -6,7 +6,7 @@ module.exports = {
 
   log: {
     logger: new winston.Logger({
-      level: 'infos',
+      level: 'debug',
       exitOnError: false,
       transports: [
         new winston.transports.Console({
@@ -15,6 +15,13 @@ module.exports = {
       ]
     })
   },
+  routes: [
+    {
+      method: 'GET',
+      path: '/api/v1',
+      handler: 'DefaultController.test'
+    }
+  ],
   database: {
     stores: {
 

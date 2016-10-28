@@ -11,8 +11,8 @@ const defaultBots = require('./bots')
 module.exports = {
   bots: defaultBots,
   allowAnonymousUsers: false,
-  defaultAnswer: (app, data) = > {
-  data.action = 'UNKNOWN'
-return Promise.resolve(data)
-}
+  defaultAnswer: (app, data) => {
+    data.action = 'UNKNOWN'
+    return Promise.resolve(data)
+  }
 }

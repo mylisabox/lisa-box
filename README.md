@@ -13,6 +13,13 @@ Home automation system L.I.S.A. http://mylisabox.com
 
 WORK IN PROGRESS
 
+## Notification
+There multiple template available for notifications. Here there are : 
+
+- Basic with left image, title and message
+- Basic with right button 
+- Basic with two right button 
+
 ## Contributing
 We love contributions! Please see our [Contribution Guide](https://github.com/mylisabox/lisa-box/blob/master/.github/CONTRIBUTING.md)
 for more information.
