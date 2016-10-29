@@ -1,6 +1,6 @@
 {
   "name": "lisa-box",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Home automation system L.I.S.A.",
   "main": "index.js",
   "scripts": {
