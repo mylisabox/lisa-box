@@ -4,7 +4,7 @@
   "description": "Home automation system L.I.S.A.",
   "main": "index.js",
   "scripts": {
-    "test": "snyk test && eslint --fix . && mocha",
+    "test": "snyk test && eslint --fix . && NODE_ENV=testing mocha",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
     "publishPatch": "npm version patch && npm run push",
@@ -16,6 +16,9 @@
     "type": "git",
     "url": "git+https://github.com/mylisabox/lisa-box.git"
   },
+  "pre-commit": [
+    "test"
+  ],
   "eslintConfig": {
     "extends": "trails"
   },
@@ -35,6 +38,7 @@
     "eslint": "^3.3.1",
     "eslint-config-trails": "^1.0.8",
     "mocha": "^3.1.2",
+    "pre-commit": "^1.1.3",
     "smokesignals": "^1.2.2",
     "supertest": "^2.0.1"
   },
@@ -54,15 +58,16 @@
     "trailpack-acl": "^1.1.0",
     "trailpack-bootstrap": "^1.0.1",
     "trailpack-cache": "^1.0.2",
+    "trailpack-chatbot": "^1.0.0-alpha-2",
     "trailpack-core": "^1.0.1",
     "trailpack-email": "^1.0.1",
     "trailpack-express": "^1.0.14",
     "trailpack-footprints": "^1.0.1",
     "trailpack-passport": "^1.0.0-beta-9",
     "trailpack-realtime": "^0.0.3",
-    "trailpack-repl": "^1.1.1",
+    "trailpack-repl": "^1.1.2",
     "trailpack-router": "^1.0.8",
-    "trailpack-sequelize": "^1.1.0",
+    "trailpack-sequelize": "^1.1.1",
     "trailpack-twilio": "^1.0.1",
     "trails": "^1.1.0",
     "trails-controller": "^1.0.0-beta-2",
