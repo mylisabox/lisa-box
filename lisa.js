@@ -158,6 +158,45 @@ module.exports = (function () {
       })
     }
 
+    /**
+     * Retrieve plugin preferences
+     * @returns {Promise} preferences or error
+     */
+    getPreferences() {
+      const plugin = getCurrentPlugin()
+      this.log.debug(plugin)
+      const cache = app.services.CacheService.getCaches('mongo')
+
+      return new Promise((resolve, reject) => {
+        cache.get(plugin + '_prefs', (err, preferences) => {
+          if (err) {
+            reject(err)
+          }
+          resolve(preferences)
+        })
+      })
+    }
+
+    /**
+     * Set plugin preferences
+     * @param preferences to save
+     * @returns {Promise} saved preferences or error
+     */
+    setPreferences(preferences) {
+      const plugin = getCurrentPlugin()
+      this.log.debug(plugin)
+      const cache = app.services.CacheService.getCaches('mongo')
+
+      return new Promise((resolve, reject) => {
+        cache.set(plugin + '_prefs', preferences, err => {
+          if (err) {
+            reject(err)
+          }
+          resolve(preferences)
+        })
+      })
+    }
+
     get log() {
       return app.log
     }
