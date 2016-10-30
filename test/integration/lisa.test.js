@@ -10,6 +10,7 @@ describe('LISA', () => {
 
     return global.app.orm.Plugin.create({
       name: 'unknown',
+      internalName: 'unknown',
       version: '1.0.0',
       camelName: 'unknown'
     })
