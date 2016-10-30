@@ -109,7 +109,7 @@ describe('LISA', () => {
     })
   })
 
-  describe.skip('Preferences management', () => {
+  describe('Preferences management', () => {
     it('should save preferences', () => {
       return lisa.setPreferences({pref: 'ok'})
     })

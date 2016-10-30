@@ -184,7 +184,7 @@ module.exports = (function () {
     getPreferences() {
       const plugin = getCurrentPlugin()
       this.log.debug(plugin)
-      const cache = app.services.CacheService.getCaches('mongo')
+      const cache = app.services.CacheService.getCaches('mongo-store')
 
       return new Promise((resolve, reject) => {
         cache.get(plugin + '_prefs', (err, preferences) => {
@@ -204,7 +204,7 @@ module.exports = (function () {
     setPreferences(preferences) {
       const plugin = getCurrentPlugin()
       this.log.debug(plugin)
-      const cache = app.services.CacheService.getCaches('mongo')
+      const cache = app.services.CacheService.getCaches('mongo-store')
 
       return new Promise((resolve, reject) => {
         cache.set(plugin + '_prefs', preferences, err => {
