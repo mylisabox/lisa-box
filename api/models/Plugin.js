@@ -21,6 +21,13 @@ module.exports = class Plugin extends Model {
                 allowNull: false
               }
             })
+
+            models.Plugin.hasMany(models.Notification, {
+              as: 'notifications',
+              foreignKey: {
+                name: 'pluginName'
+              }
+            })
           }
         }
       }

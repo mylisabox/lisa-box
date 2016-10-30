@@ -17,6 +17,10 @@ module.exports = class Notification extends Model {
               as: 'user',
               onDelete: 'CASCADE'
             })
+            models.Notification.belongsTo(models.Plugin, {
+              as: 'plugin',
+              onDelete: 'CASCADE'
+            })
           }
         }
       }
@@ -25,15 +29,41 @@ module.exports = class Notification extends Model {
 
 
   static schema(app, Sequelize) {
+    const sEnum = Sequelize.ENUM
     const schema = {
       title: {
         type: Sequelize.STRING,
         allowNull: false
       },
+      description: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      image: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      defaultAction: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
+      addAction: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       lang: {
         type: Sequelize.STRING,
         allowNull: false
       },
+      state: {
+        type: sEnum('UNREAD', 'READ'),
+        defaultValue: 'UNREAD',
+        allowNull: false
+      },
+      pluginNotificationId: {
+        type: Sequelize.STRING,
+        allowNull: true
+      }, /*
       data: {
         type: Sequelize.STRING,
         get: function () {
@@ -43,12 +73,10 @@ module.exports = class Notification extends Model {
           this.setDataValue('data', JSON.stringify(value))
         },
         allowNull: false
-      },
-      date: {
-        type: Sequelize.DATE
-      },
+       },*/
       template: {
         type: Sequelize.STRING,
+        defaultValue: 'default',
         allowNull: false
       }
     }

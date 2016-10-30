@@ -26,12 +26,9 @@ describe('LISA', () => {
         assert.equal(device.id, 1)
         assert.equal(device.name, 'test')
         assert.equal(device.pluginName, 'unknown')
-        assert.equal(device.data.name, 'test')
-        assert.equal(device.data.pluginName, 'unknown')
-        assert.equal(device.data.attr1, 'attr1')
-        assert.equal(device.data.attr2, 'attr2')
-        assert(!device.attr1)
-        assert(!device.attr2)
+        assert.equal(device.attr1, 'attr1')
+        assert.equal(device.attr2, 'attr2')
+        assert(device.createdAt)
       })
     })
 
@@ -74,6 +71,53 @@ describe('LISA', () => {
           assert(!device.attr1)
           assert(!device.attr2)
         })
+      })
+    })
+  })
+
+  describe('Notification management', () => {
+    it('should send a notification with an associate user', () => {
+      return lisa.sendNotification(1, 'my title', 'desc', 'img', 'defaultAction', 'action', 'fr', 'template1')
+        .then(result => {
+          assert(result)
+          assert.equal(result.title, 'my title')
+          assert.equal(result.description, 'desc')
+          assert.equal(result.image, 'img')
+          assert.equal(result.defaultAction, 'defaultAction')
+          assert.equal(result.addAction, 'action')
+          assert.equal(result.lang, 'fr')
+          assert.equal(result.template, 'default')
+          assert.equal(result.pluginName, 'unknown')
+          assert.equal(result.userId, 1)
+        })
+    })
+
+    it('should send a notification without an associate user', () => {
+      return lisa.sendNotification(null, 'my title', 'desc', 'img', 'defaultAction', 'action', 'fr', 'template1')
+        .then(result => {
+          assert(result)
+          assert.equal(result.title, 'my title')
+          assert.equal(result.description, 'desc')
+          assert.equal(result.image, 'img')
+          assert.equal(result.defaultAction, 'defaultAction')
+          assert.equal(result.addAction, 'action')
+          assert.equal(result.lang, 'fr')
+          assert.equal(result.template, 'default')
+          assert.equal(result.pluginName, 'unknown')
+          assert.equal(result.userId, undefined)
+        })
+    })
+  })
+
+  describe('Preferences management', () => {
+    it('should save preferences', () => {
+      return lisa.setPreferences({pref: 'ok'})
+    })
+
+    it.skip('should retrieve preferences', () => {
+      return lisa.getPreferences().then(prefs => {
+        assert(prefs)
+        assert.equal(prefs.pref, 'ok')
       })
     })
   })

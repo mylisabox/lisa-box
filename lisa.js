@@ -1,5 +1,6 @@
 'use strict'
 const EventEmitter = require('events')
+const _ = require('lodash')
 
 module.exports = (function () {
   //private
@@ -124,7 +125,8 @@ module.exports = (function () {
         }
       }
 
-      return promise
+      return promise.then(device => _.isArray(device) ? device :
+        _.merge({id: device.id, createdAt: device.createdAt}, device.data))
     }
 
     /**
@@ -156,6 +158,23 @@ module.exports = (function () {
           return devices.data
         }
       })
+    }
+
+    /**
+     * Send notification to the user(s)
+     * @param to @optional user id to send the notif to
+     * @param title of the notif
+     * @param desc of the notif
+     * @param image of the notif
+     * @param defaultAction of the notif
+     * @param action of the notif
+     * @param lang of the notif
+     * @returns Promise - notif data
+     */
+    sendNotification(to, title, desc, image, defaultAction, action, lang) {
+      const plugin = getCurrentPlugin()
+      return app.services.NotificationService.sendNotification(to, plugin, title, desc, image, defaultAction,
+        action, lang, 'default').then(notification => notification.toJSON())
     }
 
     /**
