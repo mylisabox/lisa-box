@@ -9,7 +9,7 @@ module.exports = {
   stores: [
     {
       name: 'mongo',
-      type: 'mongo',
+      type: 'mongodb',
       host: 'loclahost',
       port: '27017',
       database: 'lisa',
@@ -28,5 +28,5 @@ module.exports = {
       ttl: 60
     }
   ],
-  defaults: ['memory']
+  defaults: ['memory'/*, 'mongo'*/]
 }

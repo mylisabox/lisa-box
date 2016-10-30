@@ -93,7 +93,7 @@ describe('LISA', () => {
     })
 
     it('should send a notification without an associate user', () => {
-      return lisa.sendNotification(null, 'my title', 'desc', 'img', 'defaultAction', 'action', 'fr', 'template1')
+      return lisa.sendNotification(null, 'my title', 'desc', 'img', 'defaultAction', 'action', 'fr')
         .then(result => {
           assert(result)
           assert.equal(result.title, 'my title')
@@ -109,12 +109,12 @@ describe('LISA', () => {
     })
   })
 
-  describe('Preferences management', () => {
+  describe.skip('Preferences management', () => {
     it('should save preferences', () => {
       return lisa.setPreferences({pref: 'ok'})
     })
 
-    it.skip('should retrieve preferences', () => {
+    it('should retrieve preferences', () => {
       return lisa.getPreferences().then(prefs => {
         assert(prefs)
         assert.equal(prefs.pref, 'ok')
