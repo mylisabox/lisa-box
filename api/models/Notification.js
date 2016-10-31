@@ -1,6 +1,8 @@
 'use strict'
 
 const Model = require('trails-model')
+const _ = require('lodash')
+const NOTIFICATION_TYPE = require('../utils/enums').NOTIFICATION_TYPE
 
 /**
  * @module Notification
@@ -11,6 +13,15 @@ module.exports = class Notification extends Model {
   static config(app, Sequelize) {
     return {
       options: {
+        hooks: {
+          afterCreate: (values, options, fn) => {
+            app.config.database.stores.sqlite.define.hooks.afterCreate(values, options, fn)
+            app.services.NotificationService
+              .sendNotification(values)
+              .catch(err => app.log.error(err))
+            fn()
+          }
+        },
         classMethods: {
           associate: (models) => {
             models.Notification.belongsTo(models.User, {
@@ -60,19 +71,24 @@ module.exports = class Notification extends Model {
         defaultValue: 'UNREAD',
         allowNull: false
       },
+      type: {
+        type: Sequelize.ENUM,
+        values: _.values(NOTIFICATION_TYPE),
+        defaultValue: NOTIFICATION_TYPE.AUTO
+      },
       pluginNotificationId: {
         type: Sequelize.STRING,
         allowNull: true
       }, /*
-      data: {
-        type: Sequelize.STRING,
-        get: function () {
-          return this.getDataValue('data') ? JSON.parse(this.getDataValue('data')) : undefined
-        },
-        set: function (value) {
-          this.setDataValue('data', JSON.stringify(value))
-        },
-        allowNull: false
+       data: {
+       type: Sequelize.STRING,
+       get: function () {
+       return this.getDataValue('data') ? JSON.parse(this.getDataValue('data')) : undefined
+       },
+       set: function (value) {
+       this.setDataValue('data', JSON.stringify(value))
+       },
+       allowNull: false
        },*/
       template: {
         type: Sequelize.STRING,

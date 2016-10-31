@@ -7,6 +7,7 @@ const serialPort = require('serialport')
 const bonjour = require('bonjour')()
 
 module.exports = (app) => {
+  app.services.WebSocketService.init()
   // advertise an HTTP server on configured port
   bonjour.publish({ name: 'LISA', type: 'http', port: app.config.web.port })
 

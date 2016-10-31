@@ -7,7 +7,7 @@ module.exports = {
   log: {
     logger: new winston.Logger({
       level: 'debug',
-      exitOnError: false,
+      exitOnError: true,
       transports: [
         new winston.transports.Console({
           timestamp: true

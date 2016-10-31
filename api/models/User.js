@@ -50,6 +50,9 @@ module.exports = class User extends ModelPassport {
       },
       lastname: {
         type: Sequelize.STRING
+      },
+      mobile: {
+        type: Sequelize.STRING
       }
     }
 

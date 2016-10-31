@@ -15,8 +15,8 @@ module.exports = {
    * Exposed on app.log
    */
   logger: new winston.Logger({
-    level: 'info',
-    exitOnError: false,
+    level: 'debug',
+    exitOnError: true,
     transports: [
       new (winston.transports.Console)({
         prettyPrint: true,

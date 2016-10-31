@@ -20,16 +20,58 @@ module.exports = {
     /**
      * Define a store called "local" which uses SQLite3 to persist data.
      */
-    sqlitedev: {
+    sqlite: {
       database: 'lisa',
       storage: './lisa.sqlite',
       host: '127.0.0.1',
-      dialect: 'sqlite'
+      dialect: 'sqlite',
+      define: {
+        hooks: {
+          afterCreate: (instance, options, fn) => {
+            const app = instance.sequelize.trailsApp
+            const modelName = instance.Model.name.toLowerCase()
+            //For notification we send event only to user room not globally
+            if (modelName === 'notification') {
+              app.services.NotificationService.sendWebNotification(instance)
+            }
+            else {
+              app.sockets.room(modelName).send('create', instance)
+            }
+            fn()
+          },
+          afterUpdate: (instance, options, fn) => {
+            const app = instance.sequelize.trailsApp
+            const modelName = instance.Model.name.toLowerCase()
+            //For notification we send event only to user room not globally
+            if (modelName === 'notification') {
+              app.services.NotificationService.sendWebNotification(instance)
+            }
+            else {
+              app.sockets.room(modelName).send('update', instance)
+            }
+            fn()
+          },
+          afterDestroy: (instance, options, fn) => {
+            const app = instance.sequelize.trailsApp
+            const modelName = instance.Model.name.toLowerCase()
+            //For notification we send event only to user room not globally
+            if (modelName === 'notification') {
+              instance.getUser().then(user => {
+                app.sockets.room('user_' + user.id).send('destroy', instance)
+              })
+            }
+            else {
+              app.sockets.room(modelName).send('destroy', instance)
+            }
+            fn()
+          }
+        }
+      }
     }
   },
 
   models: {
-    defaultStore: 'sqlitedev',
-    migrate: 'alter'
+    defaultStore: 'sqlite',
+    migrate: 'drop'
   }
 }
