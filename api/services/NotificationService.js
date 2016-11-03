@@ -74,6 +74,7 @@ module.exports = class NotificationService extends Service {
    * @param to @optional associate user id to send the notif to
    * @param pluginName @optional associate plugin with the notif
    * @param title of the notif
+   * @param type of the notification
    * @param description of the notif
    * @param image of the notif
    * @param defaultAction of the notif
@@ -82,7 +83,7 @@ module.exports = class NotificationService extends Service {
    * @param templateName of the notif not supported now
    * @returns Promise - notif data
    */
-  sendNotification(to, pluginName, title, description, image, defaultAction, action, lang, templateName) {
+  sendNotification(to, pluginName, title, type, description, image, defaultAction, action, lang, templateName) {
     if (_.isObject(to)) {
       to = to.id
     }
@@ -90,8 +91,9 @@ module.exports = class NotificationService extends Service {
     return this.dispatchNotification({
       title: title,
       description: description,
-      image: image,
+      icon: image,
       lang: lang,
+      type: type,
       defaultAction: defaultAction,
       addAction: action,
       userId: to,

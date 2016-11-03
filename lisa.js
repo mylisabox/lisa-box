@@ -171,9 +171,9 @@ module.exports = (function () {
      * @param lang of the notif
      * @returns Promise - notif data
      */
-    sendNotification(to, title, desc, image, defaultAction, action, lang) {
+    sendNotification(to, title, type, desc, image, defaultAction, action, lang) {
       const plugin = getCurrentPlugin()
-      return app.services.NotificationService.sendNotification(to, plugin, title, desc, image, defaultAction,
+      return app.services.NotificationService.sendNotification(to, plugin, title, type, desc, image, defaultAction,
         action, lang, 'default').then(notification => notification.toJSON())
     }
 
