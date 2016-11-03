@@ -1,6 +1,7 @@
 'use strict'
 const EventEmitter = require('events')
 const _ = require('lodash')
+const NOTIFICATION_TYPE = require('./api/utils/enums').NOTIFICATION_TYPE
 
 module.exports = (function () {
   //private
@@ -72,6 +73,11 @@ module.exports = (function () {
   }
 
   return class LISA extends EventEmitter {
+    get NOTIFICATION_TYPE () {
+      return NOTIFICATION_TYPE
+    }
+
+
     constructor(currentApp) {
       super()
       app = currentApp

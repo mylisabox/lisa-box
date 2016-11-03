@@ -2,7 +2,6 @@
 /* global describe, it */
 
 const assert = require('assert')
-const NOTIFICATION_TYPE = require('../../api/utils/enums').NOTIFICATION_TYPE
 
 describe('LISA', () => {
   let lisa
@@ -78,7 +77,7 @@ describe('LISA', () => {
 
   describe('Notification management', () => {
     it('should send a notification with an associate user', () => {
-      return lisa.sendNotification(1, 'my title', NOTIFICATION_TYPE.WEB, 'desc', 'img', 'defaultAction', 'action', 'fr', 'default')
+      return lisa.sendNotification(1, 'my title', lisa.NOTIFICATION_TYPE.WEB, 'desc', 'img', 'defaultAction', 'action', 'fr', 'default')
         .then(result => {
           assert(result)
           assert.equal(result.title, 'my title')
@@ -94,7 +93,7 @@ describe('LISA', () => {
     })
 
     it('should send a notification without an associate user', () => {
-      return lisa.sendNotification(null, 'my title', NOTIFICATION_TYPE.WEB, 'desc', 'img', 'defaultAction', 'action', 'fr')
+      return lisa.sendNotification(null, 'my title', lisa.NOTIFICATION_TYPE.WEB, 'desc', 'img', 'defaultAction', 'action', 'fr')
         .then(result => {
           assert(result)
           assert.equal(result.title, 'my title')
