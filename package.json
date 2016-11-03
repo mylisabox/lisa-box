@@ -53,7 +53,7 @@
     "passport-local": "^1.0.0",
     "primus-emitter": "^3.1.1",
     "primus-rooms": "^3.4.1",
-    "serialport": "^4.0.1",
+    "serialport": "^4.0.5",
     "snyk": "^1.18.0",
     "sqlite3": "^3.1.8",
     "trailpack-acl": "^1.1.0",
