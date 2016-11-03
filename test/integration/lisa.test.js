@@ -75,7 +75,7 @@ describe('LISA', () => {
     })
   })
 
-  describe('Notification management', () => {
+  describe.skip('Notification management', () => {
     it('should send a notification with an associate user', () => {
       return lisa.sendNotification(1, 'my title', 'desc', 'img', 'defaultAction', 'action', 'fr', 'template1')
         .then(result => {

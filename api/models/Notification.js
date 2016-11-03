@@ -50,7 +50,7 @@ module.exports = class Notification extends Model {
         type: Sequelize.STRING,
         allowNull: true
       },
-      image: {
+      icon: {
         type: Sequelize.STRING,
         allowNull: true
       },

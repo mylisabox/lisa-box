@@ -1,3 +1,7 @@
 version: v1.5.2
-ignore: {}
+ignore:
+  'npm:jwt-simple:20160804':
+    - trailpack-twilio > twilio > jwt-simple:
+        reason: None given
+        expires: '2016-12-03T20:35:12.773Z'
 patch: {}
