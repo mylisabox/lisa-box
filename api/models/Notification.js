@@ -30,6 +30,10 @@ module.exports = class Notification extends Model {
             })
             models.Notification.belongsTo(models.Plugin, {
               as: 'plugin',
+              foreignKey: {
+                name: 'pluginName',
+                allowNull: true
+              },
               onDelete: 'CASCADE'
             })
           }

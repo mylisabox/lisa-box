@@ -8,11 +8,32 @@ describe('LISA', () => {
   before(() => {
     lisa = global.app.lisa
 
-    return global.app.orm.Plugin.create({
+    return Promise.all([global.app.orm.Plugin.create({
       name: 'unknown',
       internalName: 'unknown',
       version: '1.0.0',
       camelName: 'unknown'
+    }),
+      global.app.orm.Room.create({
+        name: 'bedroom'
+      })
+    ])
+  })
+
+  describe('Rooms management', () => {
+    it('should retrieve rooms', () => {
+      return lisa.getRooms().then(rooms => {
+        assert.equal(rooms.length, 1)
+        assert.equal(rooms[0].name, 'bedroom')
+        assert.equal(rooms[0].id, 1)
+      })
+    })
+
+    it('should create a new room', () => {
+      return lisa.createRoom('kitchen').then(room => {
+        assert.equal(room.name, 'kitchen')
+        assert.equal(room.id, 2)
+      })
     })
   })
 

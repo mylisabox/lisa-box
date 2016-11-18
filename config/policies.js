@@ -17,5 +17,7 @@ module.exports = {
   },
   'DefaultController': {
     'test': ['Passport.jwt']
-  }
+  },
+  'FootprintsController': ['Passport.jwt'],
+  'FavoritesController': ['Passport.jwt']
 }

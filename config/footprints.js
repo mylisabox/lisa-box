@@ -30,7 +30,7 @@ module.exports = {
       /**
        * Whether to populate all model associations by default (for "find")
        */
-      populate: true
+      populate: false
     },
 
     actions: {

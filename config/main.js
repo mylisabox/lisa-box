@@ -26,6 +26,7 @@ module.exports = {
     require('trailpack-bootstrap'),
     require('trailpack-email'),
     require('trailpack-twilio'),
+    require('trailpack-cron'),
     require('trailpack-footprints'),
     //require('../api/trailpacks/trailpack-dynamic-config'),
     require('trailpack-passport'),

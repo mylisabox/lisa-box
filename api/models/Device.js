@@ -8,7 +8,7 @@ const Model = require('trails-model')
  */
 module.exports = class Device extends Model {
 
-  static config () {
+  static config() {
     return {
       options: {
         classMethods: {
@@ -21,7 +21,10 @@ module.exports = class Device extends Model {
                 allowNull: false
               }
             })
-
+            models.Device.belongsToMany(models.User, {
+              as: 'users',
+              through: 'usersFavorites'
+            })
             models.Device.belongsTo(models.Room, {
               as: 'room',
               foreignKey: {
@@ -36,7 +39,7 @@ module.exports = class Device extends Model {
   }
 
 
-  static schema (app, Sequelize) {
+  static schema(app, Sequelize) {
     return {
       name: {
         type: Sequelize.STRING,
@@ -45,10 +48,16 @@ module.exports = class Device extends Model {
       data: {
         type: Sequelize.STRING,
         get: function () {
-          return JSON.parse(this.getDataValue('data'))
+          let data = null
+          if (this.getDataValue('data')) {
+            data = JSON.parse(this.getDataValue('data'))
+          }
+          return data
         },
         set: function (value) {
-          this.setDataValue('data', JSON.stringify(value))
+          if (value) {
+            this.setDataValue('data', JSON.stringify(value))
+          }
         }
       }
     }

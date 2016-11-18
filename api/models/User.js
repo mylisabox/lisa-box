@@ -26,6 +26,10 @@ module.exports = class User extends ModelPassport {
                 primaryKey: true
               }
             })
+            models.User.belongsToMany(models.Device, {
+              as: 'favorites',
+              through: 'usersFavorites'
+            })
             models.User.hasMany(models.Notification, {
               as: 'notifications',
               foreignKey: {

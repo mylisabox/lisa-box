@@ -16,6 +16,7 @@ module.exports = (function () {
     return {
       name: data.name,
       pluginName: data.pluginName,
+      roomId: data.roomId,
       data: data
     }
   }
@@ -66,17 +67,18 @@ module.exports = (function () {
   const getCurrentPlugin = () => {
     const pathString = getCaller()
     const parts = pathString.split('/')
-    if (parts.length > 1)
-      parts.pop() // remove script index.js from stack
-    const name = parts[parts.length - 1].replace(/lisa\-/, '').replace(/plugin\-/, '').toCamelCase()
-    return app.packs.pluginsManager[name] ? app.packs.pluginsManager[name].name : 'unknown'
+    let part = parts.find(part => part.indexOf('lisa-plugin') != -1)
+    if (!part) {
+      part = 'unknown'
+    }
+    const name = part.replace(/lisa\-/, '').replace(/plugin\-/, '').toCamelCase()
+    return app.packs.pluginsManager.plugins[name] ? app.packs.pluginsManager.plugins[name].fullName : 'unknown'
   }
 
   return class LISA extends EventEmitter {
-    get NOTIFICATION_TYPE () {
+    get NOTIFICATION_TYPE() {
       return NOTIFICATION_TYPE
     }
-
 
     constructor(currentApp) {
       super()
@@ -85,6 +87,18 @@ module.exports = (function () {
 
     toCamelCase(input) {
       return input.toCamelCase()
+    }
+
+    getRooms() {
+      return app.orm.Room.findAll().then(rooms => {
+        return Promise.resolve(rooms.map(room => room.toJSON()))
+      })
+    }
+
+    createRoom(name) {
+      return app.orm.Room.create({name: name}).then(room => {
+        return Promise.resolve(room.toJSON())
+      })
     }
 
     createOrUpdateDevices(data, criteria) {
@@ -99,16 +113,13 @@ module.exports = (function () {
         const todo = []
 
         if (toCreate.length > 0) {
-          toCreate.forEach(device => {
-            device.pluginName = plugin
-            device.data = device
-            device.name = device.data.name
-          })
+          toCreate.forEach(device => prepareDeviceData(data))
           todo.push(app.orm.Device.bulkCreate(toCreate))
         }
         if (toUpdate.length > 0) {
           //todo.push(app.orm.Plugin.bulkUpdate(toUpdate))
           this.log.warn('bulk update from array is not supported yet')
+          todo.push(Promise.reject('bulk update from array is not supported yet'))
         }
         promise = Promise.all(todo)
       }

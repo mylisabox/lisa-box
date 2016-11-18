@@ -17,4 +17,12 @@ module.exports = (app) => {
   app.serialPort = serialPort
   app.bonjour = bonjour
   app.lisa = new LISA(app)
+  /*
+   app.services.PluginService._addPlugin('lisa-plugin-hue').then(plugin => {
+   console.log(plugin, app)
+   return app.services.PluginService.enablePlugin('lisa-plugin-hue')
+   }).catch(err => {
+   console.log(err)
+   return app.services.PluginService.enablePlugin('lisa-plugin-hue')
+   })*/
 }
