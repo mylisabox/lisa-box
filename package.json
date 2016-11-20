@@ -47,7 +47,7 @@
     "ejs": "^2.5.2",
     "express": "^4.14.0",
     "joi": "^10.0.1",
-    "lisa-plugins-manager": "^0.0.8",
+    "lisa-plugins-manager": "^0.0.9",
     "lodash": "^4.16.4",
     "mjpeg-proxy": "^0.2.0",
     "passport-jwt": "^2.1.0",
