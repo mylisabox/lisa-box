@@ -10,7 +10,7 @@ module.exports = {
   defaultTimeZone: 'Europe/Paris', // Default timezone use for tasks
   jobs: {
     myJob: {
-      schedule: '*/50 * * * * *',
+      schedule: '*/30 * * * * *',
       onTick: app => {
         app.log.info('I am searching for new devices')
         app.services.PluginService.callOnPlugins('searchDevices')

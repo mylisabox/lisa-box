@@ -9,7 +9,7 @@ const bonjour = require('bonjour')()
 module.exports = (app) => {
   app.services.WebSocketService.init()
   // advertise an HTTP server on configured port
-  bonjour.publish({ name: 'LISA', type: 'http', port: app.config.web.port })
+  bonjour.publish({name: 'LISA', type: 'http', port: app.config.web.port})
 
   app.on('trails:stop', () => {
     bonjour.unpublishAll()

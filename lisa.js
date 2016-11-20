@@ -143,7 +143,7 @@ module.exports = (function () {
       }
 
       return promise.then(device => _.isArray(device) ? device :
-        _.merge({id: device.id, createdAt: device.createdAt}, device.data))
+        _.merge({id: device.id, roomId: device.roomId, createdAt: device.createdAt}, device.toJSON().data))
     }
 
     /**
@@ -166,12 +166,16 @@ module.exports = (function () {
       return promise.then(devices => {
         if (Array.isArray(devices)) {
           return devices.map(device => {
+            device = device.toJSON()
             device.data.id = device.id
+            device.data.roomId = device.roomId
             return device.data
           })
         }
         else {
+          devices = devices.toJSON()
           devices.data.id = devices.id
+          devices.data.roomId = devices.roomId
           return devices.data
         }
       })
