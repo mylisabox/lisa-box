@@ -69,7 +69,7 @@
     "trailpack-passport": "^1.0.0",
     "trailpack-realtime": "^0.0.3",
     "trailpack-repl": "^1.1.2",
-    "trailpack-router": "^1.0.8",
+    "trailpack-router": "^2.0.2",
     "trailpack-sequelize": "^1.1.1",
     "trailpack-twilio": "^1.0.1",
     "trails": "^1.1.0",
