@@ -3,8 +3,8 @@
 
 const assert = require('assert')
 
-describe('NavigationController', () => {
+describe('PluginService', () => {
   it('should exist', () => {
-    assert(global.app.api.controllers['NavigationController'])
+    assert(global.app.api.services['PluginService'])
   })
 })

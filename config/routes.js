@@ -94,5 +94,30 @@ module.exports = [
         })
       }
     }
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/dashboard/room/{roomId?}`,
+    handler: 'DashboardController.getOrderedDeviceForRoom',
+    config: {
+      validate: {
+        params: Joi.object({
+          roomId: Joi.string()
+        })
+      }
+    }
+  },
+  {
+    method: 'POST',
+    path: `${footprintsConfig.prefix}/dashboard/room/{roomId?}`,
+    handler: 'DashboardController.saveDevicesOrderForRoom',
+    config: {
+      validate: {
+        params: Joi.object({
+          roomId: Joi.string()
+        }),
+        payload: Joi.array()
+      }
+    }
   }
 ]

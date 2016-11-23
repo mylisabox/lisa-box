@@ -8,20 +8,6 @@ module.exports = (function () {
   let app
 
   /**
-   * Prepare data like model attributes
-   * @param data to prepare
-   * @returns object new data model
-   */
-  const prepareDeviceData = function (data) {
-    return {
-      name: data.name,
-      pluginName: data.pluginName,
-      roomId: data.roomId,
-      data: data
-    }
-  }
-
-  /**
    * Get native stack
    * @returns array of javascript calls
    */
@@ -101,19 +87,18 @@ module.exports = (function () {
       })
     }
 
-    createOrUpdateDevices(data, criteria) {
+    createOrUpdateDevices(device, criteria) {
       const plugin = getCurrentPlugin()
-      data.pluginName = plugin
+      device.pluginName = plugin
       this.log.debug(plugin)
       let promise
 
-      if (Array.isArray(data)) {
-        const toCreate = data.filter(element => !element.id)
-        const toUpdate = data.filter(element => element.id)
+      if (Array.isArray(device)) {
+        const toCreate = device.filter(element => !element.id)
+        const toUpdate = device.filter(element => element.id)
         const todo = []
 
         if (toCreate.length > 0) {
-          toCreate.forEach(device => prepareDeviceData(data))
           todo.push(app.orm.Device.bulkCreate(toCreate))
         }
         if (toUpdate.length > 0) {
@@ -124,26 +109,40 @@ module.exports = (function () {
         promise = Promise.all(todo)
       }
       else {
-        if (data.id) {
-          promise = app.orm.Device.update(prepareDeviceData(data), {
+        if (device.id) {
+          promise = app.orm.Device.update(device, {
             where: {
-              id: data.id
+              id: device.id
             }
           })
         }
         else if (criteria) {
           criteria.pluginName = plugin
-          promise = app.orm.Device.update(prepareDeviceData(data), {
+          promise = app.orm.Device.update(device, {
             where: criteria
           })
         }
         else {
-          promise = app.orm.Device.create(prepareDeviceData(data))
+          promise = app.orm.Device.create(device)
         }
       }
 
-      return promise.then(device => _.isArray(device) ? device :
-        _.merge({id: device.id, roomId: device.roomId, createdAt: device.createdAt}, device.toJSON().data))
+      return promise.then(device => {
+        if (_.isArray(device)) {
+          return device.map(item => {
+            if (item.toJSON) {
+              return item.toJSON()
+            }
+            return item
+          })
+        }
+        else {
+          if (device.toJSON) {
+            return device.toJSON()
+          }
+          return device
+        }
+      })
     }
 
     /**
@@ -165,18 +164,10 @@ module.exports = (function () {
 
       return promise.then(devices => {
         if (Array.isArray(devices)) {
-          return devices.map(device => {
-            device = device.toJSON()
-            device.data.id = device.id
-            device.data.roomId = device.roomId
-            return device.data
-          })
+          return devices.map(device => device.toJSON())
         }
         else {
-          devices = devices.toJSON()
-          devices.data.id = devices.id
-          devices.data.roomId = devices.roomId
-          return devices.data
+          return devices.toJSON()
         }
       })
     }
@@ -185,6 +176,7 @@ module.exports = (function () {
      * Send notification to the user(s)
      * @param to @optional user id to send the notif to
      * @param title of the notif
+     * @param type
      * @param desc of the notif
      * @param image of the notif
      * @param defaultAction of the notif

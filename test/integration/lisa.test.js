@@ -41,14 +41,18 @@ describe('LISA', () => {
     it('should add a device', () => {
       return lisa.createOrUpdateDevices({
         name: 'test',
-        attr1: 'attr1',
-        attr2: 'attr2'
+        data: {
+          attr1: 'attr1',
+          attr2: 'attr2'
+        },
+        template: 'ok'
       }).then(device => {
         assert.equal(device.id, 1)
         assert.equal(device.name, 'test')
         assert.equal(device.pluginName, 'unknown')
-        assert.equal(device.attr1, 'attr1')
-        assert.equal(device.attr2, 'attr2')
+        assert.equal(device.data.attr1, 'attr1')
+        assert.equal(device.data.attr2, 'attr2')
+        assert.equal(device.template, 'ok')
         assert(device.createdAt)
       })
     })
@@ -58,8 +62,9 @@ describe('LISA', () => {
         assert.equal(devices.length, 1)
         assert.equal(devices[0].name, 'test')
         assert.equal(devices[0].pluginName, 'unknown')
-        assert.equal(devices[0].attr1, 'attr1')
-        assert.equal(devices[0].attr2, 'attr2')
+        assert.equal(devices[0].data.attr1, 'attr1')
+        assert.equal(devices[0].data.attr2, 'attr2')
+        assert.equal(devices[0].template, 'ok')
       })
     })
 
@@ -67,8 +72,9 @@ describe('LISA', () => {
       return lisa.findDevices({id: 1}).then(device => {
         assert.equal(device.name, 'test')
         assert.equal(device.pluginName, 'unknown')
-        assert.equal(device.attr1, 'attr1')
-        assert.equal(device.attr2, 'attr2')
+        assert.equal(device.data.attr1, 'attr1')
+        assert.equal(device.data.attr2, 'attr2')
+        assert.equal(device.template, 'ok')
       })
     })
 
@@ -76,8 +82,11 @@ describe('LISA', () => {
       return lisa.createOrUpdateDevices({
         id: 1,
         name: 'test updated',
-        attr1: 'attr1 updated',
-        attr2: 'attr2 updated'
+        data: {
+          attr1: 'attr1 updated',
+          attr2: 'attr2 updated'
+        },
+        template: 'ok'
       }).then(devices => {
         assert.equal(devices.length, 1)
         assert.equal(devices[0], 1)
@@ -85,10 +94,9 @@ describe('LISA', () => {
           assert.equal(device.id, 1)
           assert.equal(device.name, 'test updated')
           assert.equal(device.pluginName, 'unknown')
-          assert.equal(device.data.name, 'test updated')
-          assert.equal(device.data.pluginName, 'unknown')
           assert.equal(device.data.attr1, 'attr1 updated')
           assert.equal(device.data.attr2, 'attr2 updated')
+          assert.equal(device.template, 'ok')
           assert(!device.attr1)
           assert(!device.attr2)
         })

@@ -45,6 +45,22 @@ module.exports = class Device extends Model {
         type: Sequelize.STRING,
         allowNull: false
       },
+      template: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        get: function () {
+          let data = null
+          if (this.getDataValue('template')) {
+            data = JSON.parse(this.getDataValue('template'))
+          }
+          return data
+        },
+        set: function (value) {
+          if (value) {
+            this.setDataValue('template', JSON.stringify(value))
+          }
+        }
+      },
       data: {
         type: Sequelize.STRING,
         get: function () {

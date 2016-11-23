@@ -13,12 +13,12 @@ module.exports = class Room extends Model {
       options: {
         classMethods: {
           associate: (models) => {
-            models.Room.hasOne(models.Dashboard, {
+            models.Room.hasMany(models.Dashboard, {
               as: 'dashboard',
               onDelete: 'CASCADE',
               foreignKey: {
                 name: 'roomId',
-                allowNull: false
+                allowNull: true
               }
             })
 

@@ -18,6 +18,8 @@ module.exports = {
   'DefaultController': {
     'test': ['Passport.jwt']
   },
-  'FootprintsController': ['Passport.jwt'],
-  'FavoritesController': ['Passport.jwt']
+  'DashboardController': ['Passport.jwt'],
+  'FavoritesController': ['Passport.jwt'],
+  'DeviceController': ['Passport.jwt'],
+  'FootprintsController': ['Passport.jwt']
 }

@@ -1,3 +1,5 @@
+const controllerNames = Object.keys(require('../api/controllers'))
+
 /**
  * Footprints Configuration
  * (config.footprints)
@@ -12,7 +14,7 @@ module.exports = {
   /**
    * Generate routes for controller handlers.
    */
-  controllers: false,
+  controllers: {ignore: controllerNames},
 
   /**
    * Generate conventional Create, Read, Update, and Delete (CRUD) routes for
@@ -25,7 +27,7 @@ module.exports = {
        * The max number of objects to return by default. Can be overridden in
        * the request using the ?limit argument.
        */
-      defaultLimit: 100,
+      defaultLimit: 200,
 
       /**
        * Whether to populate all model associations by default (for "find")

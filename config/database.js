@@ -25,6 +25,7 @@ module.exports = {
       storage: './lisa.sqlite',
       host: '127.0.0.1',
       dialect: 'sqlite',
+      logging: true,
       define: {
         hooks: {
           afterCreate: (instance, options, fn) => {
@@ -50,7 +51,9 @@ module.exports = {
 
             const app = instance.model.sequelize.trailsApp
             const modelName = instance.model.name.toLowerCase()
-            app.sockets.room(modelName).send('update', modelName, instance.attributes)
+            instance.model.find(instance.where).then(model => {
+              app.sockets.room(modelName).send('update', modelName, model)
+            })
             fn()
           },
           afterDestroy: (instance, options, fn) => {

@@ -8,7 +8,7 @@ const Model = require('trails-model')
  */
 module.exports = class Dashboard extends Model {
 
-  static config (app, Sequelize) {
+  static config(app, Sequelize) {
     return {
       options: {
         classMethods: {
@@ -18,7 +18,7 @@ module.exports = class Dashboard extends Model {
               onDelete: 'CASCADE',
               foreignKey: {
                 name: 'roomId',
-                primaryKey: true
+                allowNull: true
               }
             })
             models.Dashboard.belongsTo(models.User, {
@@ -26,7 +26,7 @@ module.exports = class Dashboard extends Model {
               onDelete: 'CASCADE',
               foreignKey: {
                 name: 'userId',
-                primaryKey: true
+                allowNull: false
               }
             })
           }
@@ -36,17 +36,23 @@ module.exports = class Dashboard extends Model {
   }
 
 
-  static schema (app, Sequelize) {
-    const array = Sequelize.ARRAY
+  static schema(app, Sequelize) {
     return {
-      //FIXME Hack into sequelize to make primary key on foreign key
-      action: {
+      widgets: {
         type: Sequelize.STRING,
-        primaryKey: true,
-        defaultValue: 'dashboard'
-      },
-      widget: {
-        type: array(Sequelize.INTEGER)
+        allowNull: false,
+        get: function () {
+          let data = null
+          if (this.getDataValue('widgets')) {
+            data = JSON.parse(this.getDataValue('widgets'))
+          }
+          return data
+        },
+        set: function (value) {
+          if (value) {
+            this.setDataValue('widgets', JSON.stringify(value))
+          }
+        }
       }
     }
   }

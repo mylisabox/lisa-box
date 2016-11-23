@@ -23,7 +23,7 @@ module.exports = class User extends ModelPassport {
               onDelete: 'CASCADE',
               foreignKey: {
                 name: 'userId',
-                primaryKey: true
+                allowNull: false
               }
             })
             models.User.belongsToMany(models.Device, {

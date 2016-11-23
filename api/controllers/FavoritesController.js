@@ -8,32 +8,31 @@ const Controller = require('trails-controller')
  */
 module.exports = class FavoriteController extends Controller {
   getFavorite(req, res) {
-    this.app.services.FootprintService.findAssociation('user', req.user.id, 'favorites').then(devices => {
-      return res.json(devices)
+    this.app.services.FavoritesService.getFavorite(req.user.id).then(devices => {
+      res.json(devices)
     }).catch(err => {
-      return res.serverError(err)
+      res.serverError(err)
     })
   }
 
   putFavorite(req, res) {
-    this.app.orm.User.findById(req.user.id).then(user => {
-      return user.addFavorite(req.body.id).then(fav => {
+    this.app.services.FavoritesService.putFavorite(req.user.id, req.body.id)
+      .then(_ => {
         res.json({})
       })
-    }).catch(err => {
-      return res.serverError(err)
-    })
+      .catch(err => {
+        res.serverError(err)
+      })
   }
 
   destroyFavorite(req, res) {
-    this.app.orm.User.findById(req.user.id).then(user => {
-      return user.removeFavorite(req.params.id).then(fav => {
+    this.app.services.FavoritesService.destroyFavorite(req.user.id, req.params.id)
+      .then(_ => {
         res.json({})
       })
-    }).catch(err => {
-      return res.serverError(err)
-    })
+      .catch(err => {
+        res.serverError(err)
+      })
   }
-
 }
 
