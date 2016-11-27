@@ -38,12 +38,19 @@ module.exports = {
             else {
               app.sockets.room(modelName).send('create', modelName, instance)
             }
+            if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
+              //TODO recompile chatbot
+            }
             fn()
           },
           afterUpdate: (instance, options, fn) => {
             const app = instance.sequelize.trailsApp
             const modelName = instance.Model.name.toLowerCase()
             app.sockets.room(modelName).send('update', modelName, instance)
+
+            if (modelName === 'room' || modelName === 'chatbotparamlist') {
+              //TODO recompile chatbot
+            }
             fn()
           },
           afterBulkUpdate: (instance, fn) => {
@@ -51,6 +58,11 @@ module.exports = {
 
             const app = instance.model.sequelize.trailsApp
             const modelName = instance.model.name.toLowerCase()
+
+            if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
+              //TODO recompile chatbot
+            }
+
             instance.model.find(instance.where).then(model => {
               app.sockets.room(modelName).send('update', modelName, model)
             })
@@ -59,6 +71,10 @@ module.exports = {
           afterDestroy: (instance, options, fn) => {
             const app = instance.sequelize.trailsApp
             const modelName = instance.Model.name.toLowerCase()
+
+            if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
+              //TODO recompile chatbot
+            }
             app.sockets.room(modelName).send('destroy', modelName, instance)
             fn()
           },
@@ -67,6 +83,10 @@ module.exports = {
 
             const app = instance.model.sequelize.trailsApp
             const modelName = instance.model.name.toLowerCase()
+
+            if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
+              //TODO recompile chatbot
+            }
 
             app.sockets.room(modelName).send('destroy', modelName, instance.where.id)
 

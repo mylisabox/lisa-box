@@ -59,6 +59,9 @@ module.exports = class Device extends Model {
           if (value) {
             this.setDataValue('template', JSON.stringify(value))
           }
+          else {
+            this.setDataValue('template', null)
+          }
         }
       },
       data: {

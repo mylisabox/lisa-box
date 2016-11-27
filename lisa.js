@@ -229,6 +229,36 @@ module.exports = (function () {
       })
     }
 
+    addChatBot(botId, botData) {
+      const plugin = getCurrentPlugin()
+      botData.pluginName = plugin
+      return app.services.ChatBotService.addBot(botId, botData).then(chatBot => Promise.resolve(chatBot.toJSON()))
+    }
+
+    getChatBot(botId = null) {
+      const plugin = getCurrentPlugin()
+      const where = {
+        pluginName: plugin
+      }
+      if (botId) {
+        where.name = botId
+      }
+      return app.orm.ChatBot.findAll({
+        where: where
+      }).then(chatBots => Promise.resolve(chatBots.map(bot => bot.toJSON())))
+    }
+
+    updateChatBot(botId, botData) {
+      const plugin = getCurrentPlugin()
+      botData.pluginName = plugin
+      return app.services.ChatBotService.updateBot(botId, botData).then(_ => Promise.resolve())
+    }
+
+    deleteChatBot(botId) {
+      //const plugin = getCurrentPlugin()
+      return app.services.ChatBotService.deleteBot(botId).then(_ => Promise.resolve())
+    }
+
     get log() {
       return app.log
     }

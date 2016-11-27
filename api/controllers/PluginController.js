@@ -16,7 +16,13 @@ module.exports = class PluginController extends Controller {
   }
 
   setValue(req, res) {
-    this.app.services.PluginService.setValue(req.param('device'), req.body)
+    this.app.services.PluginService.setValue(req.param('device'), {
+      key: req.body.key,
+      value: req.body.value,
+      plugin: req.params.plugin,
+      controller: req.params.controller,
+      action: req.params.action
+    })
       .then(device => res.json(device))
       .catch(err => {
         this.log.error(err)

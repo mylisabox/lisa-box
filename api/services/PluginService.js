@@ -1,6 +1,7 @@
 'use strict'
 
 const Service = require('lisa-plugins-manager/api/services/PluginService')
+const _ = require('lodash')
 
 /**
  * @module PluginService
@@ -35,7 +36,7 @@ module.exports = class PluginService extends Service {
           value = false
         }
 
-        return this.app.services.PluginService.callApiOnPlugin(plugin, 'controllers', controller, action,
+        return this.callApiOnPlugin(plugin, 'controllers', controller, action,
           [device.toJSON(), key, value])
           .then(_ => {
             return Promise.resolve(device)
@@ -45,6 +46,70 @@ module.exports = class PluginService extends Service {
         return Promise.reject(new Error('Not found'))
       }
     })
+  }
+
+  interact(infos) {
+    if (infos.action == 'UNKNOWN') {
+      return Promise.resolve(infos)
+    }
+    else {
+      const plugin = infos.bot.pluginName
+      infos.bot = infos.bot.toJSON()
+      const roomPromise = []
+
+      const keys = Object.keys(_.omit(infos.fields, ['room']))
+
+      if (infos.fields.room) {
+        roomPromise.push(this.app.orm.Room.find({
+            where: {
+              name: {
+                $like: infos.fields.room
+              }
+            }
+          })
+        )
+      }
+      keys.forEach(key => {
+        const param = this.app.config.chatbot.params[key]
+        if (param) {
+          if (_.isPlainObject(param)) {
+            roomPromise.push(new Promise((resolve, reject) => {
+              infos.fields[key] = {
+                name: infos.fields[key],
+                value: param[infos.fields[key]]
+              }
+              resolve()
+            }))
+          }
+          else if (_.isFunction(param)) {
+            roomPromise.push(param(this.app).then(result => {
+                if (_.isPlainObject(param)) {
+                  infos.fields[key] = {
+                    name: infos.fields[key],
+                    value: result[infos.fields[key]]
+                  }
+                }
+              })
+            )
+          }
+        }
+      })
+
+      return Promise.all(roomPromise).then(results => {
+        const room = results[0]
+        if (room) {
+          infos.fields.room = room.toJSON()
+        }
+        else {
+          infos.fields.room = null
+        }
+        return this.callOnPlugin('interact', plugin, [infos.action, infos])
+          .then(result => {
+              return Promise.resolve(result)
+            }
+          )
+      })
+    }
   }
 }
 

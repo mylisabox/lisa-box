@@ -29,6 +29,15 @@ module.exports = class Plugin extends Model {
                 allowNull: true
               }
             })
+            models.Plugin.hasMany(models.ChatBot, {
+              as: 'chatbots',
+              onDelete: 'CASCADE',
+              allowNull: true,
+              foreignKey: {
+                name: 'pluginName',
+                allowNull: true
+              }
+            })
           }
         }
       }
