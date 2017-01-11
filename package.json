@@ -66,7 +66,7 @@
     "trailpack-email": "^1.0.1",
     "trailpack-express": "^1.0.15",
     "trailpack-footprints": "^1.0.1",
-    "trailpack-passport": "^1.0.0",
+    "trailpack-passport": "^2.0.1",
     "trailpack-realtime": "^0.0.3",
     "trailpack-repl": "^1.1.2",
     "trailpack-router": "^1.0.8",
