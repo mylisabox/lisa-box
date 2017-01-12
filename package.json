@@ -55,7 +55,7 @@
     "primus-emitter": "^3.1.1",
     "primus-rooms": "^3.4.1",
     "serialport": "^4.0.1",
-    "snyk": "^1.20.0",
+    "snyk": "^1.24.1",
     "sqlite3": "^3.1.8",
     "trailpack-acl": "^1.1.0",
     "trailpack-bootstrap": "^1.0.1",
