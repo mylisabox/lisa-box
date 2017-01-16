@@ -63,7 +63,7 @@
     "trailpack-chatbot": "^1.0.0-alpha-3",
     "trailpack-core": "^1.0.1",
     "trailpack-cron": "^1.1.0",
-    "trailpack-email": "^1.0.1",
+    "trailpack-email": "^2.0.0",
     "trailpack-express": "^1.0.15",
     "trailpack-footprints": "^1.0.1",
     "trailpack-passport": "^1.0.0",
