@@ -58,7 +58,7 @@
     "snyk": "^1.20.0",
     "sqlite3": "^3.1.8",
     "trailpack-acl": "^1.1.0",
-    "trailpack-bootstrap": "^1.0.1",
+    "trailpack-bootstrap": "^2.0.0",
     "trailpack-cache": "^1.0.2",
     "trailpack-chatbot": "^1.0.0-alpha-3",
     "trailpack-core": "^1.0.1",
