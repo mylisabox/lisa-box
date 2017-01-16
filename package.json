@@ -67,7 +67,7 @@
     "trailpack-express": "^1.0.15",
     "trailpack-footprints": "^1.0.1",
     "trailpack-passport": "^1.0.0",
-    "trailpack-realtime": "^0.0.3",
+    "trailpack-realtime": "^2.0.0",
     "trailpack-repl": "^1.1.2",
     "trailpack-router": "^1.0.8",
     "trailpack-sequelize": "^1.1.1",
