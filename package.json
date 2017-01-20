@@ -77,7 +77,7 @@
     "trails-model": "^1.0.0",
     "trails-policy": "^1.0.2",
     "trails-service": "^1.0.0",
-    "winston": "^2.2.0"
+    "winston": "^2.3.1"
   },
   "snyk": true
 }
