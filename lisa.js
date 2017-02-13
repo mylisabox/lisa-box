@@ -130,15 +130,15 @@ module.exports = (function () {
       return promise.then(device => {
         if (_.isArray(device)) {
           return device.map(item => {
-            if (item.toJSON) {
-              return item.toJSON()
+            if (item.toRawData) {
+              return item.toRawData()
             }
             return item
           })
         }
         else {
-          if (device.toJSON) {
-            return device.toJSON()
+          if (device.toRawData) {
+            return device.toRawData()
           }
           return device
         }
@@ -157,17 +157,17 @@ module.exports = (function () {
       criteria.pluginName = plugin
 
       const promise = criteria.id ? app.orm.Device.find({
-        where: criteria
-      }) : app.orm.Device.findAll({
-        where: criteria
-      })
+          where: criteria
+        }) : app.orm.Device.findAll({
+          where: criteria
+        })
 
       return promise.then(devices => {
         if (Array.isArray(devices)) {
-          return devices.map(device => device.toJSON())
+          return devices.map(device => device.toRawData())
         }
         else {
-          return devices.toJSON()
+          return devices.toRawData()
         }
       })
     }

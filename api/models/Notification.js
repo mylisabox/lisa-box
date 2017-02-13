@@ -1,6 +1,6 @@
 'use strict'
 
-const Model = require('trails-model')
+const Model = require('trails/model')
 const _ = require('lodash')
 const NOTIFICATION_TYPE = require('../utils/enums').NOTIFICATION_TYPE
 

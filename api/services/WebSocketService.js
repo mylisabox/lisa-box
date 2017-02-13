@@ -1,6 +1,6 @@
 'use strict'
 
-const Service = require('trails-service')
+const Service = require('trails/service')
 const _ = require('lodash')
 const rooms = require('primus-rooms')
 const emitter = require('primus-emitter')
@@ -49,14 +49,15 @@ module.exports = class WebSocketService extends Service {
     this.app.sockets.on('connection', spark => {
       const user = spark.request.user // Retrieve connected user
       spark.join('user_' + user.id)
-      spark.on('join', (room, fn) => {
+      spark.on('join', (socketRoom, fn) => {
+        //FIXME enable permissions
         /*
-        this.app.services.PermissionService.isUserAllowed(user, room, 'access').then(perm => {
-          if (perm && perm.length > 0) {
+         this.app.services.PermissionService.isUserAllowed(user, socketRoom, 'access').then(perm => {
+         if (perm && perm.length > 0) {
 
-          }
+         }
          }).catch(err => this.log.error(err))*/
-        spark.join(room, fn)
+        spark.join(socketRoom, fn)
       })
       spark.on('leave', (room, fn) => {
         spark.leave(room, fn)
@@ -70,7 +71,7 @@ module.exports = class WebSocketService extends Service {
     })
     this.app.sockets.on('disconnection', spark => {
       const user = spark.request
-      if (spark) {
+      if (spark && spark.leave) {
         spark.leave('user_' + user.id)
       }
     })

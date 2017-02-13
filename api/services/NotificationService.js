@@ -1,6 +1,6 @@
 'use strict'
 
-const Service = require('trails-service')
+const Service = require('trails/service')
 const _ = require('lodash')
 const ejs = require('ejs')
 const path = require('path')

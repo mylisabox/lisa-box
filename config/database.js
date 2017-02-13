@@ -63,10 +63,10 @@ module.exports = {
               //TODO recompile chatbot
             }
 
-            instance.model.find(instance.where).then(model => {
+            instance.model.find({where: instance.where}).then(model => {
               app.sockets.room(modelName).send('update', modelName, model)
+              fn()
             })
-            fn()
           },
           afterDestroy: (instance, options, fn) => {
             const app = instance.sequelize.trailsApp
