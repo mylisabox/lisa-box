@@ -45,7 +45,7 @@
   "dependencies": {
     "bonjour": "^3.5.0",
     "ejs": "^2.5.5",
-    "express": "^4.14.0",
+    "express": "^4.15.0",
     "joi": "^10.2.0",
     "lisa-plugins-manager": "^0.0.10",
     "lodash": "^4.17.4",
