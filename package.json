@@ -71,7 +71,7 @@
     "trailpack-repl": "^2.1.0",
     "trailpack-router": "^2.1.0",
     "trailpack-sequelize": "^2.0.0",
-    "trails": "^2.0.1",
+    "trails": "^2.0.2",
     "winston": "^2.2.0"
   },
   "snyk": true
