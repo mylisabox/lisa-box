@@ -20,6 +20,7 @@ module.exports = {
   },
   'DashboardController': ['Passport.jwt'],
   'FavoritesController': ['Passport.jwt'],
+  'RoomController': ['Passport.jwt'],
   'DeviceController': ['Passport.jwt'],
   'FootprintsController': ['Passport.jwt'],
   'ChatBotController': ['Passport.jwt']

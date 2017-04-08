@@ -49,7 +49,7 @@ module.exports = {
         audience: AUDIENCE,
         jwtFromRequest: ExtractJwt.fromAuthHeader() //Authorization: JWT JSON_WEB_TOKEN_STRING
       }
-    },
+    }, /*
      //Enable twitter strategy
      twitter: {
       name: 'Twitter',
