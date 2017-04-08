@@ -39,9 +39,12 @@ module.exports = {
               app.sockets.room(modelName).send('create', modelName, instance)
             }
             if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
-              //TODO recompile chatbot
+              app.services.ChatBotService.reloadBots().then(() => fn()).catch(err => fn())
             }
-            fn()
+            else {
+              fn()
+            }
+
           },
           afterUpdate: (instance, options, fn) => {
             const app = instance.sequelize.trailsApp
@@ -49,9 +52,11 @@ module.exports = {
             app.sockets.room(modelName).send('update', modelName, instance)
 
             if (modelName === 'room' || modelName === 'chatbotparamlist') {
-              //TODO recompile chatbot
+              app.services.ChatBotService.reloadBots().then(() => fn()).catch(err => fn())
             }
-            fn()
+            else {
+              fn()
+            }
           },
           afterBulkUpdate: (instance, fn) => {
             if (!instance.attributes.id) return fn()
@@ -60,7 +65,9 @@ module.exports = {
             const modelName = instance.model.name.toLowerCase()
 
             if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
-              //TODO recompile chatbot
+              app.services.ChatBotService.reloadBots().then(() => {
+              }).catch(err => {
+              })
             }
 
             instance.model.find({where: instance.where}).then(model => {
@@ -73,7 +80,9 @@ module.exports = {
             const modelName = instance.Model.name.toLowerCase()
 
             if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
-              //TODO recompile chatbot
+              app.services.ChatBotService.reloadBots().then(() => {
+              }).catch(err => {
+              })
             }
             app.sockets.room(modelName).send('destroy', modelName, instance)
             fn()
@@ -85,7 +94,9 @@ module.exports = {
             const modelName = instance.model.name.toLowerCase()
 
             if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
-              //TODO recompile chatbot
+              app.services.ChatBotService.reloadBots().then(() => {
+              }).catch(err => {
+              })
             }
 
             app.sockets.room(modelName).send('destroy', modelName, instance.where.id)

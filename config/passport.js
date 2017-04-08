@@ -26,12 +26,13 @@ module.exports = {
    * Auth strategies allowed
    */
   strategies: {
+    /*
     local: {
       strategy: require('passport-local').Strategy,
       options: {
         usernameField: 'email'// If you want to enable both username and email just remove this field
       }
-    },
+     },*/
     //Enable JWT strategy
     jwt: {
       strategy: JwtStrategy,
@@ -49,7 +50,6 @@ module.exports = {
         jwtFromRequest: ExtractJwt.fromAuthHeader() //Authorization: JWT JSON_WEB_TOKEN_STRING
       }
     },
-    /*
      //Enable twitter strategy
      twitter: {
       name: 'Twitter',
@@ -59,7 +59,8 @@ module.exports = {
         consumerKey: 'your-consumer-key',
         consumerSecret: 'your-consumer-secret'
       }
-    },
+     }
+    /*,
 
      //Enable facebook strategy
      facebook: {

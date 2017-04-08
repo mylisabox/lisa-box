@@ -12,8 +12,8 @@ module.exports = {
     myJob: {
       schedule: '*/30 * * * * *',
       onTick: app => {
-        app.log.info('I am searching for new devices')
-        app.services.PluginService.callOnPlugins('searchDevices')
+        //app.log.info('I am searching for new devices')
+        //app.services.PluginService.callOnPlugins('searchDevices')
       },
       onComplete: app => {
         app.log.info('I am done')

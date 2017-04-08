@@ -3,23 +3,28 @@
 const Controller = require('trails/controller')
 
 /**
- * @module DeviceController
+ * @module RoomController
  * @description REST device actions.
  */
-module.exports = class DeviceController extends Controller {
-  find(req, res) {
+module.exports = class RoomController extends Controller {
+  findAssociation(req, res) {
     const footprintService = this.app.services.FootprintService
     const favoritesService = this.app.services.FavoritesService
     const options = this.app.packs.express.getOptionsFromQuery(req.query)
     const criteria = this.app.packs.express.getCriteriaFromQuery(req.query)
-    const id = req.params.id
+    const parentModel = 'room'
+    const parentId = req.params.id
+    const childAttribute = 'devices'
+    const childId = req.params.childId
     let response
-    if (id) {
-      response = footprintService.find('device', id, options)
+    if (childId) {
+      response = footprintService.findAssociation(parentModel,
+        parentId, childAttribute, childId, options)
         .then(devices => favoritesService.populateFavorite(req.user.id, devices))
     }
     else {
-      response = footprintService.find('device', criteria, options)
+      response = footprintService.findAssociation(parentModel,
+        parentId, childAttribute, criteria, options)
         .then(devices => favoritesService.populateFavorite(req.user.id, devices))
     }
 

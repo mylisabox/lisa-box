@@ -1,0 +1,123 @@
+{
+  "name": "Lights",
+  "freeStates": {
+    "LIGHT_ALL": {
+      "name": "Change light state",
+      "sentences": {
+        "fr": [
+          "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% en %color%(?: +\\w+){0,5} +%number% (?:pourcent|%)",
+          "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% à %number% (?:pourcent|%) %color%"
+        ],
+        "en": [
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %number% (?:percent|%) %color%",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %color%(?: +\\w+){0,5} +%number% (?:percent|%)"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    },
+    "LIGHT_TURN_ON": {
+      "name": "Turn light on",
+      "sentences": {
+        "fr": [
+          "(?:allume|mets|mais|mettre) la lumière",
+          "allume(?: +\\w+){0,2} +lumière(?: +\\w+){0,2} +%room%",
+          "allume(?: +\\w+){0,4} +%room%"
+        ],
+        "en": [
+          "light",
+          "(?:turn|switch) on(?: +\\w+){0,2} +%room%",
+          "(?:turn|switch)(?: +\\w+){0,2} +%room% on"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "La lumière est allumée"
+        ],
+        "en": [
+          "Light is on",
+          "It's done"
+        ]
+      }
+    },
+    "LIGHT_TURN_OFF": {
+      "name": "Turn light off",
+      "sentences": {
+        "fr": [
+          "(?:éteins|éteint|éteindre)(?: +\\w+){0,2} +lumière(?: +\\w+){0,2} +%room%",
+          "(?:éteins|éteint|éteindre)(?: +\\w+){0,4} +%room%"
+        ],
+        "en": [
+          "(?:turn|switch) off(?: +\\w+){0,2} +%room%",
+          "(?:turn|switch)(?: +\\w+){0,2} +%room% off"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "La lumière est éteinte"
+        ],
+        "en": [
+          "Light is off",
+          "It's done"
+        ]
+      }
+    },
+    "LIGHT_BRIGHTNESS": {
+      "name": "Change light's brightness",
+      "sentences": {
+        "fr": [
+          "lumière(?: +\\w+){0,5} +%room% à %number% (?:pourcent|%)",
+          "%room% à %number% (?:pourcent|%)"
+        ],
+        "en": [
+          "light(?: +\\w+){0,5} +%room% to %number% (?:percent|%)",
+          "brightness(?: +\\w+){0,5} +%room% to %number% (?:percent|%)"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    },
+    "LIGHT_COLOR": {
+      "name": "Change light color",
+      "sentences": {
+        "fr": [
+          "change la couleur(?: +\\w+){0,2} +%room% à %color%",
+          "(?:mets|mettre|met|mais|change)(?: +\\w+){0,5} +%room%(?: +\\w+){0,2} +%color%"
+        ],
+        "en": [
+          "(?:turn|switch|change|put|set)(?: +\\w+){0,5} +%room% in %color%"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    }
+  },
+  "nestedStates": {},
+  "links": []
+}

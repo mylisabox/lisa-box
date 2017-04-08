@@ -7,6 +7,7 @@ const Controller = require('trails/controller')
  * @description Default controller.
  */
 module.exports = class DefaultController extends Controller {
+
   /**
    * Simple method to check if server is alive or not
    * @param req

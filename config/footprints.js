@@ -1,5 +1,7 @@
 const controllerNames = Object.keys(require('../api/controllers'))
 
+controllerNames[controllerNames.length] = 'AuthController'
+
 /**
  * Footprints Configuration
  * (config.footprints)

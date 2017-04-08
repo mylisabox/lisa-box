@@ -23,6 +23,16 @@ module.exports = [
     handler: 'FavoritesController.getFavorite'
   },
   {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/room/{id}/devices`,
+    handler: 'RoomController.findAssociation'
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/device`,
+    handler: 'DeviceController.find'
+  },
+  {
     method: 'PUT',
     path: `${footprintsConfig.prefix}/favorite/{id}`,
     handler: 'FavoritesController.putFavorite',

@@ -1,6 +1,7 @@
 'use strict'
 
 const Model = require('trails/model')
+const _ = require('lodash')
 
 /**
  * @module Device
@@ -61,12 +62,18 @@ module.exports = class Device extends Model {
         type: Sequelize.STRING,
         allowNull: false
       },
+      favorite: {
+        type: Sequelize.VIRTUAL,
+        set: function (val) {
+          this.setDataValue('favorite', val);
+        }
+      },
       template: {
         type: Sequelize.STRING,
         allowNull: false,
         get: function () {
-          let data = null
-          if (this.getDataValue('template')) {
+          let data = this.getDataValue('template')
+          if (_.isString(data)) {
             data = JSON.parse(this.getDataValue('template'))
           }
           return data
@@ -83,8 +90,8 @@ module.exports = class Device extends Model {
       data: {
         type: Sequelize.STRING,
         get: function () {
-          let data = null
-          if (this.getDataValue('data')) {
+          let data = this.getDataValue('data')
+          if (_.isString(data)) {
             data = JSON.parse(this.getDataValue('data'))
           }
           return data
@@ -98,8 +105,8 @@ module.exports = class Device extends Model {
       privateData: {
         type: Sequelize.STRING,
         get: function () {
-          let data = null
-          if (this.getDataValue('privateData')) {
+          let data = this.getDataValue('privateData')
+          if (_.isString(data)) {
             data = JSON.parse(this.getDataValue('privateData'))
           }
           return data

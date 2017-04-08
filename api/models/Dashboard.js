@@ -1,6 +1,7 @@
 'use strict'
 
 const Model = require('trails/model')
+const _ = require('lodash')
 
 /**
  * @module Dashboard
@@ -42,8 +43,8 @@ module.exports = class Dashboard extends Model {
         type: Sequelize.STRING,
         allowNull: false,
         get: function () {
-          let data = null
-          if (this.getDataValue('widgets')) {
+          let data = this.getDataValue('widgets')
+          if (_.isString(data)) {
             data = JSON.parse(this.getDataValue('widgets'))
           }
           return data

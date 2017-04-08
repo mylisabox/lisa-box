@@ -16,7 +16,7 @@ module.exports = class FavoriteController extends Controller {
   }
 
   putFavorite(req, res) {
-    this.app.services.FavoritesService.putFavorite(req.user.id, req.body.id)
+    this.app.services.FavoritesService.putFavorite(req.user.id, req.params.id)
       .then(_ => {
         res.json({})
       })

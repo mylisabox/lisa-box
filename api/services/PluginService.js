@@ -17,35 +17,60 @@ module.exports = class PluginService extends Service {
   }
 
   setValue(deviceId, data) {
-    return this.app.orm.Device.findById(deviceId).then(device => {
+    if (process.env.DEMO_MODE) {
+      return this.app.orm.Device.findById(deviceId).then(device => {
+        if (device) {
+          const key = data.key
+          let value = data.value || false
 
-      if (device) {
-        const key = data.key
-        let value = data.value || false
-        const plugin = data.plugin
-        const controller = data.controller
-        const action = data.action
+          if (!isNaN(value)) {
+            value = +value
+          }
+          if (value == 'true') {
+            value = true
+          }
+          if (value == 'false') {
+            value = false
+          }
+          device = device.toRawData()
+          device.data[key] = value
+          return this.app.orm.Device.update(device, {where: {id: device.id}}).then(result => device)
+        }
+        else {
+          return Promise.reject(new Error('Not found'))
+        }
+      });
+    }
+    else {
+      return this.app.orm.Device.findById(deviceId).then(device => {
+        if (device) {
+          const key = data.key
+          let value = data.value || false
+          const plugin = data.plugin
+          const controller = data.controller
+          const action = data.action
 
-        if (!isNaN(value)) {
-          value = +value
-        }
-        if (value == 'true') {
-          value = true
-        }
-        if (value == 'false') {
-          value = false
-        }
+          if (!isNaN(value)) {
+            value = +value
+          }
+          if (value == 'true') {
+            value = true
+          }
+          if (value == 'false') {
+            value = false
+          }
 
-        return this.callApiOnPlugin(plugin, 'controllers', controller, action,
-          [device.toJSON(), key, value])
-          .then(_ => {
-            return Promise.resolve(device)
-          })
-      }
-      else {
-        return Promise.reject(new Error('Not found'))
-      }
-    })
+          return this.callApiOnPlugin(plugin, 'controllers', controller, action,
+            [device.toRawData(), key, value])
+            .then(_ => {
+              return Promise.resolve(device)
+            })
+        }
+        else {
+          return Promise.reject(new Error('Not found'))
+        }
+      })
+    }
   }
 
   interact(infos) {
@@ -103,7 +128,7 @@ module.exports = class PluginService extends Service {
         else {
           infos.fields.room = null
         }
-        return this.callOnPlugin('interact', plugin, [infos.action, infos])
+        return this.callOnPlugins('interact', [infos.action, infos])
           .then(result => {
               return Promise.resolve(result)
             }

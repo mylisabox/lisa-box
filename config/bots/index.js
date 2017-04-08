@@ -1,3 +1,4 @@
 module.exports = {
-  personality: require('./personality')
+  personality: require('./personality'),
+  lights: require('./lights')
 }

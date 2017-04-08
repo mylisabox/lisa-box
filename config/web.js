@@ -1,4 +1,6 @@
 'use strict'
+const proxy = require('http-proxy-middleware')
+const assetsProxy = proxy('/images', {target: 'http://localhost:4200'})
 
 /**
  * Server Configuration
@@ -10,7 +12,9 @@
  */
 module.exports = {
   express: require('express'),
+  init: (app, express) => {
 
+  },
   /**
    * CORS options
    * Can be true/false or an object of CORS options
@@ -22,10 +26,12 @@ module.exports = {
    * Middlewares to load (in order)
    */
   middlewares: {
+    proxyAssets: ['/images', assetsProxy],
 
     //middlewares loading order
     order: [
       'addMethods',
+      'proxyAssets',
       'cookieParser',
       'passportInit',
       'bodyParser',
@@ -39,13 +45,14 @@ module.exports = {
 
     /**
      * Middlewares to load for body parsing
-    bodyParser: [
-      bodyParser.json(),
-      bodyParser.urlencoded({extended: false})
-    ]
+     bodyParser: [
+     bodyParser.json(),
+     bodyParser.urlencoded({extended: false})
+     ]
      */
 
-  },
+  }
+  ,
 
   /***************************************************************************
    *                                                                          *
@@ -72,29 +79,29 @@ module.exports = {
   /**
    * Alternate method to add multiple template engine, for single view template use config.views.engine
    */
-  //views: {}
+//views: {}
 
   /**
    * SSL options
    * Cert and key or pfx to create HTTPS server
    */
   /*
-  ssl: {
-    key: fs.readFileSync('path/to/private.key'),
-    cert: fs.readFileSync('path/to/certificate.pem')
-    //OR pfx: fs.readFileSync('path/to/server.pfx')
-  },
+   ssl: {
+   key: fs.readFileSync('path/to/private.key'),
+   cert: fs.readFileSync('path/to/certificate.pem')
+   //OR pfx: fs.readFileSync('path/to/server.pfx')
+   },
    */
   /**
    * Automatically redirect HTTP to HTTPS
    * Create an HTTP server who redirect to HTTPS server
    * Work only if SSL is enabled
    */
-  //redirectToHttps: false,
+//redirectToHttps: false,
 
   /**
    * Http port to use if you want to enable http and https
    * SSL need to be enabled
    */
-  //portHttp: 80
+//portHttp: 80
 }

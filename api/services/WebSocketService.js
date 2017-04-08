@@ -66,12 +66,12 @@ module.exports = class WebSocketService extends Service {
       spark.on('data', data => {
 
         //spark.room('user_' + user.id).write(data + ' ' + user.email)
-        this.log.debug(spark.id, 'received message:', data, spark.rooms())
+        //this.log.debug(spark.id, 'received message:', data, spark.rooms())
       })
     })
     this.app.sockets.on('disconnection', spark => {
-      const user = spark.request
-      if (spark && spark.leave) {
+      const user = spark.request.user
+      if (user && spark && spark.leave) {
         spark.leave('user_' + user.id)
       }
     })

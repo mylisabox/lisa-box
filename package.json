@@ -16,9 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/mylisabox/lisa-box.git"
   },
-  "pre-commit": [
-
-  ],
+  "pre-commit": [],
   "eslintConfig": {
     "extends": "trails"
   },
@@ -46,6 +44,7 @@
     "bonjour": "^3.5.0",
     "ejs": "^2.5.5",
     "express": "^4.14.0",
+    "http-proxy-middleware": "^0.17.4",
     "joi": "^10.2.0",
     "lisa-plugins-manager": "^0.0.10",
     "lodash": "^4.17.4",
