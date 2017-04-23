@@ -60,7 +60,7 @@
     "trailpack-acl": "^2.0.0",
     "trailpack-bootstrap": "^2.0.0",
     "trailpack-cache": "^2.0.0",
-    "trailpack-chatbot": "^1.0.0-alpha-3",
+    "trailpack-chatbot": "^2.0.0",
     "trailpack-cron": "^2.0.0",
     "trailpack-email": "^2.0.0",
     "trailpack-express": "^2.0.4",
