@@ -12,16 +12,27 @@
  * @see http://trailsjs.io/doc/config/policies
  */
 module.exports = {
-  'NavigationController': {
+  AuthController: {
+    connect: [
+      'Passport.jwt'
+    ],
+    disconnect: [
+      'Passport.jwt'
+    ],
+    logout: [
+      'Passport.jwt'
+    ]
+  },
+  NavigationController: {
     'privateRoutes': ['Passport.jwt']
   },
-  'DefaultController': {
+  DefaultController: {
     'test': ['Passport.jwt']
   },
-  'DashboardController': ['Passport.jwt'],
-  'FavoritesController': ['Passport.jwt'],
-  'RoomController': ['Passport.jwt'],
-  'DeviceController': ['Passport.jwt'],
-  'FootprintsController': ['Passport.jwt'],
-  'ChatBotController': ['Passport.jwt']
+  DashboardController: ['Passport.jwt'],
+  FavoritesController: ['Passport.jwt'],
+  RoomController: ['Passport.jwt'],
+  DeviceController: ['Passport.jwt'],
+  FootprintsController: ['Passport.jwt'],
+  ChatBotController: ['Passport.jwt']
 }

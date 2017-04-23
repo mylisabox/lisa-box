@@ -7,5 +7,10 @@ module.exports = {
     EMAIL: 'email',
     SMS: 'sms',
     PUSH: 'push'
+  },
+  DEVICE_TYPE: {
+    LIGHT: 'light',
+    SENSOR: 'sensor',
+    OTHER: 'other'
   }
 }

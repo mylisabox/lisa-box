@@ -14,8 +14,7 @@ describe('LISA', () => {
       version: '1.0.0',
       camelName: 'unknown'
     }),
-      global.app.orm.Room.destroy({where: {}})
-      ,
+      global.app.orm.Room.destroy({where: {}}),
       global.app.orm.Room.create({
         name: 'bedroom'
       })

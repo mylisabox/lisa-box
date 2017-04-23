@@ -2,6 +2,7 @@
 const EventEmitter = require('events')
 const _ = require('lodash')
 const NOTIFICATION_TYPE = require('./api/utils/enums').NOTIFICATION_TYPE
+const DEVICE_TYPE = require('./api/utils/enums').DEVICE_TYPE
 
 module.exports = (function () {
   //private
@@ -64,6 +65,10 @@ module.exports = (function () {
   return class LISA extends EventEmitter {
     get NOTIFICATION_TYPE() {
       return NOTIFICATION_TYPE
+    }
+
+    get DEVICE_TYPE() {
+      return DEVICE_TYPE
     }
 
     constructor(currentApp) {

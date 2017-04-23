@@ -14,7 +14,7 @@ module.exports = class ChatBotController extends Controller {
       .then(result => {
         result.context = req.body.context
         return this.app.services.PluginService.interact(result).then(results => {
-          return res.json(results)
+          return res.json(result)
         })
       }).catch(err => {
         this.log.error(err)

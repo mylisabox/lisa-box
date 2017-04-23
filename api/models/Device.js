@@ -2,6 +2,7 @@
 
 const Model = require('trails/model')
 const _ = require('lodash')
+const DEVICE_TYPE = require('../utils/enums').DEVICE_TYPE
 
 /**
  * @module Device
@@ -21,7 +22,7 @@ module.exports = class Device extends Model {
             return values
           },
           toRawData: function () {
-            let values = this.dataValues
+            const values = this.dataValues
             values.data = this.data
             values.privateData = this.privateData
             values.template = this.template
@@ -62,10 +63,15 @@ module.exports = class Device extends Model {
         type: Sequelize.STRING,
         allowNull: false
       },
+      type: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: DEVICE_TYPE.OTHER
+      },
       favorite: {
         type: Sequelize.VIRTUAL,
         set: function (val) {
-          this.setDataValue('favorite', val);
+          this.setDataValue('favorite', val)
         }
       },
       template: {

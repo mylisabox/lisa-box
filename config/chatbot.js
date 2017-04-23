@@ -10,7 +10,7 @@ const defaultBots = require('./bots')
  */
 module.exports = {
   bots: defaultBots,
-  allowAnonymousUsers: false,
+  allowAnonymousUsers: true,
   defaultLang: 'fr',
   defaultAnswer: (app, data) => {
     data.action = 'UNKNOWN'
@@ -23,7 +23,7 @@ module.exports = {
   params: {
     room: app => {
       return app.orm.Room.findAll().then(rooms => {
-        return rooms.map(room => room.name);
+        return rooms.map(room => room.name)
       })
     },
     color: {'rouge': '#FF0000', 'bleu': '#0000FF'}

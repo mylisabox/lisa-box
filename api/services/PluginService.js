@@ -39,7 +39,7 @@ module.exports = class PluginService extends Service {
         else {
           return Promise.reject(new Error('Not found'))
         }
-      });
+      })
     }
     else {
       return this.app.orm.Device.findById(deviceId).then(device => {
@@ -78,7 +78,7 @@ module.exports = class PluginService extends Service {
       return Promise.resolve(infos)
     }
     else {
-      const plugin = infos.bot.pluginName
+      //const plugin = infos.bot.pluginName
       infos.bot = infos.bot.toJSON()
       const roomPromise = []
 

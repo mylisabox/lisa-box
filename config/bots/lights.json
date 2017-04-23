@@ -30,12 +30,15 @@
         "fr": [
           "(?:allume|mets|mais|mettre) la lumière",
           "allume(?: +\\w+){0,2} +lumière(?: +\\w+){0,2} +%room%",
-          "allume(?: +\\w+){0,4} +%room%"
+          "allume(?: +\\w+){0,2} +lumière(?: +\\w+){0,2} +%room%(?: +\\w+){0,2} +%number% (?:pourcent|%)",
+          "allume(?: +\\w+){0,4} +%room%",
+          "allume(?: +\\w+){0,4} +%room%(?: +\\w+){0,2} +%number% (?:pourcent|%)"
         ],
         "en": [
           "light",
           "(?:turn|switch) on(?: +\\w+){0,2} +%room%",
-          "(?:turn|switch)(?: +\\w+){0,2} +%room% on"
+          "(?:turn|switch)(?: +\\w+){0,2} +%room% on",
+          "(?:turn|switch)(?: +\\w+){0,2} +%room% on(?: +\\w+){0,2} +(?: +\\w+){0,2} +%number% (?:percent|%)"
         ]
       },
       "responses": {
