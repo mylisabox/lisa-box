@@ -46,7 +46,7 @@
     "express": "^4.14.0",
     "http-proxy-middleware": "^0.17.4",
     "joi": "^10.2.0",
-    "lisa-plugins-manager": "^0.0.10",
+    "lisa-plugins-manager": "^0.0.11",
     "lodash": "^4.17.4",
     "mdns-js": "^0.5.3",
     "mjpeg-proxy": "^0.2.0",

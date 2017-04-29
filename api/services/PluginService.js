@@ -58,7 +58,7 @@ module.exports = class PluginService extends Service {
             value = false
           }
 
-          return this.callApiOnPlugin(plugin, [device.toRawData(), key, value])
+          return this.setDeviceValue(plugin, [device.toRawData(), key, value])
             .then(_ => {
               return Promise.resolve(device)
             })
