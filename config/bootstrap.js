@@ -8,20 +8,18 @@ const bonjour = require('bonjour')()
 
 module.exports = (app) => {
   app.services.WebSocketService.init()
-  // advertise an HTTP server on configured port
-
-  const mdns = require('mdns-js')
-  const service = mdns.createAdvertisement(mdns.tcp('_http'), app.config.web.port, {
-    name: 'LISA',
-    txt: {
-      port: app.config.web.port,
-      test: 'ok'
-    }
-  })
-  service.start()
 
   app.lisa = new LISA(app)
   if (app.env.NODE_ENV != 'testing') {
+    // advertise an HTTP server on configured port
+    const mdns = require('mdns-js')
+    const service = mdns.createAdvertisement(mdns.tcp('_http'), app.config.web.port, {
+      name: 'LISA',
+      txt: {
+        port: app.config.web.port
+      }
+    })
+    service.start()
 
     app.serialPort = serialPort
     app.bonjour = bonjour
