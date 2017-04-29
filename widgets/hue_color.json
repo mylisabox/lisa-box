@@ -1,0 +1,33 @@
+{
+  "type": "vbox",
+  "children": [
+    {
+      "type": "hbox",
+      "children": [
+        {
+          "type": "color-picker",
+          "name": "hue",
+          "flex": 0.6,
+          "value": "hue"
+        },
+        {
+          "type": "image-button",
+          "name": "onoff",
+          "mainIndicator": true,
+          "values": "images",
+          "value": "onoff"
+        },
+        {
+          "type": "space",
+          "flex": 0.6
+        }
+      ]
+    },
+    {
+      "type": "slider",
+      "name": "dim",
+      "flex": 0.4,
+      "value": "dim"
+    }
+  ]
+}

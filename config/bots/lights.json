@@ -56,10 +56,12 @@
       "name": "Turn light off",
       "sentences": {
         "fr": [
+          "(?:éteins|éteint|éteindre) les lumières",
           "(?:éteins|éteint|éteindre)(?: +\\w+){0,2} +lumière(?: +\\w+){0,2} +%room%",
           "(?:éteins|éteint|éteindre)(?: +\\w+){0,4} +%room%"
         ],
         "en": [
+          "(?:turn|switch) lights off",
           "(?:turn|switch) off(?: +\\w+){0,2} +%room%",
           "(?:turn|switch)(?: +\\w+){0,2} +%room% off"
         ]

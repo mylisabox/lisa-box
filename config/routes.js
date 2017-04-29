@@ -88,14 +88,12 @@ module.exports = [
   },
   {
     method: 'POST',
-    path: `${footprintsConfig.prefix}/plugins/{plugin}/{device}/{controller}/{action}`,
+    path: `${footprintsConfig.prefix}/plugins/{plugin}/{device}`,
     handler: 'PluginController.setValue',
     config: {
       validate: {
         params: Joi.object({
           plugin: Joi.string().required(),
-          controller: Joi.string().required(),
-          action: Joi.string().required(),
           device: Joi.string().required()
         }),
         payload: Joi.object({

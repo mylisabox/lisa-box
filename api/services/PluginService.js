@@ -47,8 +47,6 @@ module.exports = class PluginService extends Service {
           const key = data.key
           let value = data.value || false
           const plugin = data.plugin
-          const controller = data.controller
-          const action = data.action
 
           if (!isNaN(value)) {
             value = +value
@@ -60,8 +58,7 @@ module.exports = class PluginService extends Service {
             value = false
           }
 
-          return this.callApiOnPlugin(plugin, 'controllers', controller, action,
-            [device.toRawData(), key, value])
+          return this.callApiOnPlugin(plugin, [device.toRawData(), key, value])
             .then(_ => {
               return Promise.resolve(device)
             })
