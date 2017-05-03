@@ -13,6 +13,30 @@ Home automation system L.I.S.A. http://mylisabox.com
 
 WORK IN PROGRESS
 
+## Development
+To run the project you need to do multiple things:
+
+### 1) Retrieve the project
+- `git clone https://github.com/mylisabox/lisa-box.git` 
+- `yarn //or npm i`
+
+### 2) Initialize plugins
+ For now no UI or way to install plugins, you have to do it manually, for that clone or copy plugins project you want 
+ under `/plugins`, if plugins need dependencies don't `forget to yarn/npm them.
+ 
+ After that you need to enable plugins on database in order to them to be loaded, you have an example on 
+ `config/bootstrap.js` on how to do this (at the bottom, the commented part).
+  
+### 3) Setup voice recognition
+Voice recognition work in 2 phases thanks to the [sonus](https://github.com/evancohen/sonus) module:
+- First offline recognition of the hotwords "Hey lisa", nothing to do here it should work
+- Then the next part use Google Speech API to recognize the voice command, Google API need a config file to work. 
+ This file should be under `/config/speech/LISA-gfile.json`, to create this file please follow 
+ [those steps](https://cloud.google.com/speech/docs/getting-started) and copy/paste/rename the file in the correct place.
+
+### 4) Run the project
+- `yarn start //npm start //node index.js`
+
 ## Notification
 There multiple template available for notifications. Here there are : 
 

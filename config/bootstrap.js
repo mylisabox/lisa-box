@@ -51,6 +51,7 @@ module.exports = (app) => {
     })
   }
   /*
+   //Enable plugin lisa-plugin-hue on database in order to be loaded, this need to be done once per plugins
    app.services.PluginService._addPlugin('lisa-plugin-hue').then(plugin => {
    console.log(plugin, app)
    return app.services.PluginService.enablePlugin('lisa-plugin-hue')

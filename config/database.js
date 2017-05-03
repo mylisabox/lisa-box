@@ -52,7 +52,10 @@ module.exports = {
             app.sockets.room(modelName).send('update', modelName, instance)
 
             if (modelName === 'room' || modelName === 'chatbotparamlist') {
-              app.services.ChatBotService.reloadBots().then(() => fn()).catch(err => fn())
+              app.services.ChatBotService.reloadBots().then(() => fn()).catch(err => {
+                app.log.error(err)
+                fn()
+              })
             }
             else {
               fn()
@@ -67,11 +70,23 @@ module.exports = {
             if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
               app.services.ChatBotService.reloadBots().then(() => {
               }).catch(err => {
+                app.log.error(err)
               })
             }
 
-            instance.model.find({where: instance.where}).then(model => {
-              app.sockets.room(modelName).send('update', modelName, model)
+            instance.model.findAll({where: instance.where}).then(models => {
+              if (modelName === 'device') {
+                instance.model.findAll({where: {roomID: models[0].roomId}}).then(devices => {
+                  const group = app.services.DashboardService.getAdditionalGroupDevice(models[0].roomId, devices, models[0].type)
+                  for (let m of group) {
+                    app.sockets.room(modelName).send('update', modelName, m)
+                  }
+                }).catch(err => app.log.error(err))
+              }
+
+              for (let m of models) {
+                app.sockets.room(modelName).send('update', modelName, m)
+              }
               fn()
             })
           },
@@ -82,6 +97,7 @@ module.exports = {
             if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
               app.services.ChatBotService.reloadBots().then(() => {
               }).catch(err => {
+                app.log.error(err)
               })
             }
             app.sockets.room(modelName).send('destroy', modelName, instance)
@@ -96,6 +112,7 @@ module.exports = {
             if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
               app.services.ChatBotService.reloadBots().then(() => {
               }).catch(err => {
+                app.log.error(err)
               })
             }
 

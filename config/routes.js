@@ -104,6 +104,23 @@ module.exports = [
     }
   },
   {
+    method: 'POST',
+    path: `${footprintsConfig.prefix}/devices/group/{roomId}/{type}`,
+    handler: 'PluginController.setGroupValue',
+    config: {
+      validate: {
+        params: Joi.object({
+          roomId: Joi.string().required(),
+          type: Joi.string().required()
+        }),
+        payload: Joi.object({
+          key: Joi.string().required(),
+          value: Joi.any().required()
+        })
+      }
+    }
+  },
+  {
     method: 'GET',
     path: `${footprintsConfig.prefix}/dashboard/room/{roomId?}`,
     handler: 'DashboardController.getOrderedDeviceForRoom',

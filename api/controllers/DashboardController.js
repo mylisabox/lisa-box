@@ -11,6 +11,7 @@ module.exports = class DashboardController extends Controller {
     this.app.services.DashboardService.getOrderedDeviceForRoom(req.params.roomId || null, req.user.id)
       .then(dashboard => res.json(dashboard))
       .catch(err => {
+        this.log.error(err)
         res.serverError(err)
       })
   }
@@ -19,6 +20,7 @@ module.exports = class DashboardController extends Controller {
     this.app.services.DashboardService.saveDevicesOrderForRoom(req.params.roomId || null, req.user.id, req.body)
       .then(dashboard => res.json(dashboard))
       .catch(err => {
+        this.log.error(err)
         res.serverError(err)
       })
   }

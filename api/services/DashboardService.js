@@ -50,7 +50,9 @@ module.exports = class DashboardService extends Service {
 
     return Promise.all(promises).then(results => {
       const dashboard = results[0]
-      const devices = results[1]
+      let devices = results[1]
+
+      devices = devices.concat(this.getAdditionalGroupDevice(roomId, devices));
 
       if (dashboard) {
         return Promise.resolve(this._prepareDashboard(dashboard, devices))
@@ -65,6 +67,54 @@ module.exports = class DashboardService extends Service {
         })
       }
     })
+  }
+
+  getAdditionalGroupDevice(roomId, devices, wantedType) {
+    const groupDevices = []
+    if (!wantedType || wantedType == this.app.lisa.DEVICE_TYPE.LIGHT) {
+      const lights = devices.filter(devices => devices.type == this.app.lisa.DEVICE_TYPE.LIGHT)
+      if (roomId && lights.length > 1) {
+        const lightsDevice = {
+          id: 'group_light_' + roomId,
+          name: 'Lights',
+          type: 'group_light',
+          roomId: roomId,
+          data: {
+            onoff: 'off',
+            images: {'off': '/images/widgets/light_off.png', 'on': '/images/widgets/light_on.png'}
+          },
+          favorite: false,
+          template: undefined
+        }
+
+        let hasDim = false
+        let hasHue = false
+        lights.forEach(light => {
+          if (light.data.onoff == 'on') {
+            lightsDevice.data.onoff = 'on'
+          }
+          if (light.data.dim) {
+            hasDim = true
+            lightsDevice.data.dim = light.data.dim
+          }
+          if (light.data.hue) {
+            hasHue = true
+            lightsDevice.data.hue = light.data.hue
+          }
+        })
+        if (hasHue) {
+          lightsDevice.template = require('../../widgets/hue_color.json')
+        }
+        else if (hasDim) {
+          lightsDevice.template = require('../../widgets/hue_white.json')
+        }
+        else {
+          lightsDevice.template = require('../../widgets/light.json')
+        }
+        groupDevices.push(lightsDevice)
+      }
+    }
+    return groupDevices
   }
 
   saveDevicesOrderForRoom(roomId, userId, widgetsOrder) {

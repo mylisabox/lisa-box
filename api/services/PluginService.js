@@ -16,6 +16,34 @@ module.exports = class PluginService extends Service {
 
   }
 
+  setGroupValue(roomId, groupId, data) {
+    const type = groupId.split('_')[1]
+    return this.app.orm.Device.findAll({
+      where: {
+        roomId: roomId
+      }
+    }).then(devices => {
+      const filteredDevices = devices.filter(device => device.type == type)
+      const pluginFilteredDevices = {}
+      filteredDevices.forEach(device => {
+        const pluginName = device.pluginName
+        if (pluginFilteredDevices[pluginName]) {
+          pluginFilteredDevices[pluginName].push(device)
+        }
+        else {
+          pluginFilteredDevices[pluginName] = [device]
+        }
+      })
+      const key = data.key
+      let value = data.value || false
+      const promises = []
+      _.forEach(pluginFilteredDevices, (devices, pluginName) => {
+        promises.push(this.setDevicesValue(pluginName, [devices.map(device => device.toRawData()), key, value]))
+      })
+      return Promise.all(promises)
+    })
+  }
+
   setValue(deviceId, data) {
     if (process.env.DEMO_MODE) {
       return this.app.orm.Device.findById(deviceId).then(device => {
