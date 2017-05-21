@@ -3,14 +3,14 @@
  * @param app Trails application
  */
 const LISA = require('../lisa')
-const serialPort = require('serialport')
+//const serialPort = require('serialport')
 const bonjour = require('bonjour')()
 
 module.exports = (app) => {
   app.services.WebSocketService.init()
 
   app.lisa = new LISA(app)
-  if (app.env.NODE_ENV != 'testing') {
+  if (app.env.NODE_ENV !== 'testing') {
     // advertise an HTTP server on configured port
     const mdns = require('mdns-js')
     const service = mdns.createAdvertisement(mdns.tcp('_http'), app.config.web.port, {
@@ -21,7 +21,7 @@ module.exports = (app) => {
     })
     service.start()
 
-    app.serialPort = serialPort
+    //app.serialPort = serialPort
     app.bonjour = bonjour
 
     const Sonus = require('sonus')
@@ -31,9 +31,17 @@ module.exports = (app) => {
 
     const hotwords = [{file: './config/speech/hey_lisa.pmdl', hotword: 'hey lisa'}]
     const language = 'fr-FR'
-    const sonus = Sonus.init({hotwords, language}, speech)
+    const sonus = Sonus.init({
+      hotwords, language,
+      encoding: 'LINEAR16',
+      sampleRateHertz: 16000
+    }, speech)
     Sonus.start(sonus)
     sonus.on('hotword', (index, keyword) => app.log.debug('hey lisa detected'))
+    sonus.on('error', error => app.log.error(error))
+    sonus.on('partial-result', sentence => {
+      app.log.debug(sentence + ' partial result detected')
+    })
     sonus.on('final-result', sentence => {
       app.log.debug(sentence + ' detected')
       app.services.ChatBotService.interact(null, language.substring(0, 2) || this.app.config.chatbot.defaultLang,

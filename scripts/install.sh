@@ -32,6 +32,9 @@ apt-get install lirc
 #rsync -avz config/speech/LISA-gfile.json root@192.168.1.10:/var/www/lisa-box/config/speech/
 #rsync -avz lisa.sqlite root@192.168.1.10:/var/www/lisa-box
 
+#SETUP LIRC http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/
+
+
 #make sonus works
 #nano ~/.bashrc
 #export LD_LIBRARY_PATH=/usr/local/lib/python2.7/
