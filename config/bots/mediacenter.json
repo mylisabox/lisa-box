@@ -5,8 +5,8 @@
       "name": "Play movie",
       "sentences": {
         "fr": [
-          "lance(?: +\\w+){0,5} +film %movie%",
-          "lance(?: +\\w+){0,5} +film %movie%dans (?:le|la) %room%"
+          "(?:play|lance|joue)(?: +\\w+){0,5} +film %movie%",
+          "(?:play|lance|joue)(?: +\\w+){0,5} +film %movie%dans (?:le|la) %room%"
         ],
         "en": [
           "play(?: +\\w+){0,5} +movie %movie%",
@@ -28,10 +28,10 @@
       "name": "Play tv show",
       "sentences": {
         "fr": [
-          "lance(?: +\\w+){0,5} +série %show%",
-          "lance l'épisode %number%(?: +\\w+){0,2} +série %show%",
-          "lance l'épisode %number%(?: +\\w+){0,2} +série %show%(?: +\\w+){0,2} +%room%",
-          "lance(?: +\\w+){0,5} +série %show%(?: +\\w+){0,2} +%room%"
+          "(?:play|lance|joue)(?: +\\w+){0,5} +série %show%",
+          "(?:play|lance|joue) l'épisode %number%(?: +\\w+){0,2} +série %show%",
+          "(?:play|lance|joue) l'épisode %number%(?: +\\w+){0,2} +série %show%(?: +\\w+){0,2} +%room%",
+          "(?:play|lance|joue)(?: +\\w+){0,5} +série %show%(?: +\\w+){0,2} +%room%"
         ],
         "en": [
           "play(?: +\\w+){0,5} +show %show%",
@@ -55,8 +55,8 @@
       "name": "Pause",
       "sentences": {
         "fr": [
-          "pause(?: +\\w+){0,5} +lecture",
-          "pause(?: +\\w+){0,5} +lecture(?: +\\w+){0,2} +%room%"
+          "(?:pause|pose)(?: +\\w+){0,5} +lecture",
+          "(?:pause|pose)(?: +\\w+){0,5} +lecture(?: +\\w+){0,2} +%room%"
         ],
         "en": [
           "pause(?: +\\w+){0,5} +media center",
@@ -78,8 +78,8 @@
       "name": "Stop",
       "sentences": {
         "fr": [
-          "stop(?: +\\w+){0,5} +lecture",
-          "stop(?: +\\w+){0,5} +lecture(?: +\\w+){0,2} +%room%"
+          "(?:stop|stoppe)(?: +\\w+){0,5} +lecture",
+          "(?:stop|stoppe)(?: +\\w+){0,5} +lecture(?: +\\w+){0,2} +%room%"
         ],
         "en": [
           "stop(?: +\\w+){0,5} +media center",
@@ -101,8 +101,8 @@
       "name": "Play",
       "sentences": {
         "fr": [
-          "lance(?: +\\w+){0,2} +lecture",
-          "lance(?: +\\w+){0,2} +lecture(?: +\\w+){0,2} +%room%"
+          "(?:play|lance|relance|joue)(?: +\\w+){0,2} +lecture",
+          "(?:play|lance|relance|joue)(?: +\\w+){0,2} +lecture(?: +\\w+){0,2} +%room%"
         ],
         "en": [
           "play(?: +\\w+){0,5} +media center",
