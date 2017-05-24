@@ -1,0 +1,126 @@
+{
+  "name": "Media Center",
+  "freeStates": {
+    "PLAY_MOVIE": {
+      "name": "Play movie",
+      "sentences": {
+        "fr": [
+          "lance(?: +\\w+){0,5} +film %movie%",
+          "lance(?: +\\w+){0,5} +film %movie%dans (?:le|la) %room%"
+        ],
+        "en": [
+          "play(?: +\\w+){0,5} +movie %movie%",
+          "play(?: +\\w+){0,5} +movie %movie% in the %room%"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    },
+    "PLAY_TV_SHOW": {
+      "name": "Play tv show",
+      "sentences": {
+        "fr": [
+          "lance(?: +\\w+){0,5} +série %show%",
+          "lance l'épisode %number%(?: +\\w+){0,2} +série %show%",
+          "lance l'épisode %number%(?: +\\w+){0,2} +série %show%(?: +\\w+){0,2} +%room%",
+          "lance(?: +\\w+){0,5} +série %show%(?: +\\w+){0,2} +%room%"
+        ],
+        "en": [
+          "play(?: +\\w+){0,5} +show %show%",
+          "play episode %number%(?: +\\w+){0,2} +show %show%",
+          "play episode %number%(?: +\\w+){0,2} +show %show%(?: +\\w+){0,2} +%room%",
+          "play(?: +\\w+){0,5} +show %show%(?: +\\w+){0,2} +%room%"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    },
+    "PAUSE_MEDIA_CENTER": {
+      "name": "Pause",
+      "sentences": {
+        "fr": [
+          "pause(?: +\\w+){0,5} +lecture",
+          "pause(?: +\\w+){0,5} +lecture(?: +\\w+){0,2} +%room%"
+        ],
+        "en": [
+          "pause(?: +\\w+){0,5} +media center",
+          "pause(?: +\\w+){0,5} +media center(?: +\\w+){0,2} +%room%"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    },
+    "STOP_MEDIA_CENTER": {
+      "name": "Stop",
+      "sentences": {
+        "fr": [
+          "stop(?: +\\w+){0,5} +lecture",
+          "stop(?: +\\w+){0,5} +lecture(?: +\\w+){0,2} +%room%"
+        ],
+        "en": [
+          "stop(?: +\\w+){0,5} +media center",
+          "stop(?: +\\w+){0,5} +media center(?: +\\w+){0,2} +%room%"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    },
+    "PLAY_MEDIA_CENTER": {
+      "name": "Play",
+      "sentences": {
+        "fr": [
+          "lance(?: +\\w+){0,2} +lecture",
+          "lance(?: +\\w+){0,2} +lecture(?: +\\w+){0,2} +%room%"
+        ],
+        "en": [
+          "play(?: +\\w+){0,5} +media center",
+          "play(?: +\\w+){0,5} +media center(?: +\\w+){0,2} +%room%"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    }
+  },
+  "nestedStates": {},
+  "links": []
+}

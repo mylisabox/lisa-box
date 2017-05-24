@@ -73,5 +73,12 @@ module.exports = (app) => {
    }).catch(err => {
    console.log(err)
    return app.services.PluginService.enablePlugin('lisa-plugin-sony-vpl')
+   })
+   app.services.PluginService._addPlugin('lisa-plugin-kodi').then(plugin => {
+   console.log(plugin, app)
+   return app.services.PluginService.enablePlugin('lisa-plugin-kodi')
+   }).catch(err => {
+   console.log(err)
+   return app.services.PluginService.enablePlugin('lisa-plugin-kodi')
    })*/
 }

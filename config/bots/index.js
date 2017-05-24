@@ -1,4 +1,5 @@
 module.exports = {
-  personality: require('./personality'),
-  lights: require('./lights')
+  personality: require('./personality.json'),
+  mediacenter: require('./mediacenter.json'),
+  lights: require('./lights.json')
 }

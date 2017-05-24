@@ -144,5 +144,32 @@ module.exports = [
         payload: Joi.array()
       }
     }
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/ir/start`,
+    handler: 'IRController.start'
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/ir/stop`,
+    handler: 'IRController.stop'
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/ir/quit`,
+    handler: 'IRController.quit'
+  },
+  {
+    method: 'POST',
+    path: `${footprintsConfig.prefix}/ir/button`,
+    handler: 'IRController.quit',
+    config: {
+      validate: {
+        payload: Joi.object({
+          button: Joi.string()
+        })
+      }
+    }
   }
 ]

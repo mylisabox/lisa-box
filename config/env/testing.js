@@ -6,7 +6,7 @@ module.exports = {
 
   log: {
     logger: new winston.Logger({
-      level: 'debug',
+      level: 'info',
       exitOnError: true,
       transports: [
         new winston.transports.Console({
@@ -33,7 +33,7 @@ module.exports = {
         storage: './test/lisa.sqlite',
         host: '127.0.0.1',
         dialect: 'sqlite',
-        logging: true
+        logging: false
       }
     },
 

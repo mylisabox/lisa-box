@@ -6,4 +6,4 @@
 --full-trace
 --slow 50
 --check-leaks
---globals app,assert
+--globals app,assert,startsWith
