@@ -26,8 +26,8 @@ module.exports = {
         return rooms.map(room => room.name)
       })
     },
-    movie: '([a-zA-Z ]+)',
-    show: '([a-zA-Z ]+)',
+    movie: '([0-9a-zA-Z ]+)',
+    show: '([0-9a-zA-Z ]+)',
     color: {'rouge': '#FF0000', 'bleu': '#0000FF'}
   }
 }
