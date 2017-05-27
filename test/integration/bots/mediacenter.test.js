@@ -68,8 +68,21 @@ describe('Media center bot', () => {
         assert.equal(infos.botId, 'mediacenter')
         assert.equal(infos.lang, 'fr')
         assert.equal(infos.fields.show, 'Lucifer')
-        assert.equal(infos.fields.number, '3')
+        assert.equal(infos.fields.episode, '3')
         assert.equal(infos.userSentence, 'lance l\'épisode 3 de la série Lucifer')
+      })
+    })
+
+    it('should return correct answer with season and episode', () => {
+      return service.interact(1, 'fr', 'lance l\'épisode 3 saison 2 de la série Lucifer').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'PLAY_TV_SHOW')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'fr')
+        assert.equal(infos.fields.show, 'Lucifer')
+        assert.equal(infos.fields.episode, '3')
+        assert.equal(infos.fields.season, '2')
+        assert.equal(infos.userSentence, 'lance l\'épisode 3 saison 2 de la série Lucifer')
       })
     })
   })
