@@ -55,7 +55,7 @@
     "passport-local": "^1.0.0",
     "primus-emitter": "^3.1.1",
     "primus-rooms": "^3.4.1",
-    "snyk": "^1.24.4",
+    "snyk": "^1.31.1",
     "sonus": "^0.1.7",
     "sqlite3": "^3.1.8",
     "trailpack-acl": "^2.0.0",
