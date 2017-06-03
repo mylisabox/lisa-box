@@ -33,9 +33,11 @@ apt-get install lirc
 #rsync -avz lisa.sqlite root@192.168.1.10:/var/www/lisa-box
 
 #SETUP LIRC http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/
-
+#SETUP ps eye to pi http://www.pobot.org/Son-et-image-avec-la-Sony-PS3-Eye.html et http://www.pobot.org/Vision-par-webcam-avec-une.html
 
 #make sonus works
 #nano ~/.bashrc
 #export LD_LIBRARY_PATH=/usr/local/lib/python2.7/
 #export AUDIODEV=hw:1,0
+
+#install a picam https://hackmypi.com/PiCamPart1.php

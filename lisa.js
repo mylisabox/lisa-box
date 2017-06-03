@@ -280,6 +280,10 @@ module.exports = (function () {
       return app.bonjour
     }
 
+    get mdns() {
+      return app.mdns
+    }
+
     get serialPort() {
       return app.serialPort
     }

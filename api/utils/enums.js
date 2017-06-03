@@ -10,6 +10,7 @@ module.exports = {
   },
   DEVICE_TYPE: {
     LIGHT: 'light',
+    CAMERA: 'cam',
     SENSOR: 'sensor',
     MEDIA: 'media',
     OTHER: 'other'

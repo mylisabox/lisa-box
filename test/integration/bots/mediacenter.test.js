@@ -37,7 +37,8 @@ describe('Media center bot', () => {
         assert.equal(infos.userSentence, 'lance le film star wars')
       })
     })
-    it('should return correct answer with room', () => {
+
+    it.skip('should return correct answer with room', () => {
       return service.interact(1, 'fr', 'lance le film star wars dans le salon').then(infos => {
         assert(infos)
         assert.equal(infos.action, 'PLAY_MOVIE')

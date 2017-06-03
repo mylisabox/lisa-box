@@ -45,9 +45,5 @@ module.exports = class DeviceController extends Controller {
       }
     })
   }
-
-  getGroupedDevices(req, res) {
-
-  }
 }
 

@@ -167,7 +167,31 @@ module.exports = [
     config: {
       validate: {
         payload: Joi.object({
-          button: Joi.string()
+          button: Joi.string().required()
+        })
+      }
+    }
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/camera/snapshot`,
+    handler: 'CameraController.snapshot',
+    config: {
+      validate: {
+        query: Joi.object({
+          url: Joi.string().required()
+        })
+      }
+    }
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/camera/stream`,
+    handler: 'CameraController.stream',
+    config: {
+      validate: {
+        query: Joi.object({
+          url: Joi.string().required()
         })
       }
     }

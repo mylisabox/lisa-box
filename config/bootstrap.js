@@ -22,6 +22,7 @@ module.exports = (app) => {
     service.start()
 
     //app.serialPort = serialPort
+    app.mdns = mdns
     app.bonjour = bonjour
 
     const Sonus = require('sonus')
@@ -80,5 +81,13 @@ module.exports = (app) => {
    }).catch(err => {
    console.log(err)
    return app.services.PluginService.enablePlugin('lisa-plugin-kodi')
+   })
+   app.services.PluginService._addPlugin('lisa-plugin-cam-mjpeg').then(plugin => {
+   console.log(plugin, app)
+   return app.services.PluginService.enablePlugin('lisa-plugin-cam-mjpeg')
+   }).catch(err => {
+   console.log(err)
+   return app.services.PluginService.enablePlugin('lisa-plugin-cam-mjpeg')
    })*/
+
 }
