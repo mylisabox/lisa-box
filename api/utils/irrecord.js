@@ -16,7 +16,6 @@ module.exports = class IRrecord extends EventEmitter {
 
     this._irrecord = new IRRecord()
     this._irrecord.on('stdout', data => {
-      console.log(data)
       if (data.indexOf(STEP_START_TEXT) != -1) {
         this._irrecord.write()
       }
@@ -35,7 +34,6 @@ module.exports = class IRrecord extends EventEmitter {
       }
     })
     this._irrecord.on('stderr', data => {
-      //console.log(data);
       this.emit('error', data)
     })
     this._irrecord.on('exit', () => {
