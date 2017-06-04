@@ -2,6 +2,7 @@ language: node_js
 node_js:
 - 6
 - 7
+- 8
 addons:
   # Required to compile native modules on newer Node.js versions
   apt:
@@ -27,4 +28,4 @@ deploy:
   on:
     tags: true
     repo: mylisabox/lisa-box
-    node: 6
+    node: 8

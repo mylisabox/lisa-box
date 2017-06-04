@@ -30,7 +30,8 @@ apt-get install usbutils
 apt-get install lirc
 
 #rsync -avz config/speech/LISA-gfile.json root@192.168.1.10:/var/www/lisa-box/config/speech/
-#rsync -avz lisa.sqlite root@192.168.1.10:/var/www/lisa-box
+#rsync -avz lisa.sqlite root@mylisabox:/var/www/lisa-box
+#rsync -avzL --delete --exclude 'node_modules' plugins/ root@mylisabox:/var/www/lisa-box/plugins
 
 #SETUP LIRC http://alexba.in/blog/2013/01/06/setting-up-lirc-on-the-raspberrypi/
 #SETUP ps eye to pi http://www.pobot.org/Son-et-image-avec-la-Sony-PS3-Eye.html et http://www.pobot.org/Vision-par-webcam-avec-une.html
