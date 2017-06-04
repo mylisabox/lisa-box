@@ -19,6 +19,7 @@ To run the project you need to do multiple things:
 ### 1) Retrieve the project
 - `git clone https://github.com/mylisabox/lisa-box.git` 
 - `yarn //or npm i`
+- For some functionality L.I.S.A. need some linux module already installed, please check [install.sh](https://github.com/mylisabox/lisa-box/blob/master/scripts/install.sh) and install what's missing for you
 
 ### 2) Initialize plugins
  For now no UI or way to install plugins, you have to do it manually, for that clone or copy plugins project you want 
