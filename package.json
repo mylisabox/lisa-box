@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "bonjour": "^3.5.0",
-    "ejs": "^2.5.5",
+    "ejs": "^2.5.6",
     "express": "^4.14.0",
     "http-proxy-middleware": "^0.17.4",
     "infrared": "^0.0.4",
