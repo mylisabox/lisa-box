@@ -22,7 +22,7 @@ module.exports = class PluginController extends Controller {
     const query = req.query.query
     delete req.query.query
 
-    if (!req.query.query || req.query.query === "") {
+    if (!req.query.query || req.query.query === '') {
       this._find(req).then(elements => {
         res.status(elements ? 200 : 404).json(elements || {})
       }).catch(error => {
@@ -38,6 +38,7 @@ module.exports = class PluginController extends Controller {
       })
     }
     else {
+      this.log(query)
       //TODO DO SEARCH
     }
   }
@@ -123,7 +124,7 @@ module.exports = class PluginController extends Controller {
 
   _translateDevices(lang, plugin, devices) {
     const translatedDevices = []
-    for (let device of devices) {
+    for (const device of devices) {
       const image = this._translateField(lang, device.image)
       const settings = this._translateSettings(lang, device.settings)
       translatedDevices.push({
@@ -156,7 +157,7 @@ module.exports = class PluginController extends Controller {
   _translateSettings(lang, settings) {
     const translatedSettings = []
     if (settings) {
-      for (let setting of settings) {
+      for (const setting of settings) {
         translatedSettings.push({
           controlType: setting.controlType,
           type: setting.type,
