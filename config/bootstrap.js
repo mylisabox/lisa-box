@@ -3,7 +3,6 @@
  * @param app Trails application
  */
 const LISA = require('../lisa')
-const VoiceCommand = require('lisa-standalone-voice-command')
 //const serialPort = require('serialport')
 const bonjour = require('bonjour')()
 
@@ -13,6 +12,7 @@ module.exports = (app) => {
   app.lisa = new LISA(app)
   if (app.env.NODE_ENV !== 'testing') {
     // advertise an HTTP server on configured port
+    const VoiceCommand = require('lisa-standalone-voice-command')
     const mdns = require('mdns-js')
     const service = mdns.createAdvertisement(mdns.tcp('_http'), app.config.web.port, {
       name: 'LISA',
