@@ -33,4 +33,4 @@ deploy:
   on:
     tags: true
     repo: mylisabox/lisa-box
-    node: 7
+    node: 8
