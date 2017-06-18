@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint --fix . && NODE_ENV=testing mocha",
-    "snyk-protect": "snyk protect -d",
+    "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect",
     "publishPatch": "npm version patch && npm run push",
     "publishMinor": "npm version minor && npm run push",
