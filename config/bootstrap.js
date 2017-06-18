@@ -64,11 +64,15 @@ module.exports = (app) => {
   const plugins = ['lisa-plugin-hue', 'lisa-plugin-sony-vpl', 'lisa-plugin-kodi', 'lisa-plugin-cam-mjpeg']
   //FIXME later plugins will be manage automatically from a plugin store, for now let's do it manually here
   for (let plugin of plugins) {
-    app.services.PluginService._addPlugin(plugin).then(plugin => {
-      console.log(plugin, app)
-      return app.services.PluginService.enablePlugin(plugin)
-    }).catch(err => {
-      return app.services.PluginService._updatePlugin(plugin).then(() => app.services.PluginService.enablePlugin(plugin))
-    })
+    try {
+      app.services.PluginService._addPlugin(plugin).then(plugin => {
+        console.log(plugin, app)
+        return app.services.PluginService.enablePlugin(plugin)
+      }).catch(err => {
+        return app.services.PluginService._updatePlugin(plugin).then(() => app.services.PluginService.enablePlugin(plugin))
+      })
+    } catch (e) {
+      app.log.error(e)
+    }
   }
 }
