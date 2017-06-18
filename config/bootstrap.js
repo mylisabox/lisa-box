@@ -26,12 +26,10 @@ module.exports = (app) => {
     app.mdns = mdns
     app.bonjour = bonjour
 
-    const language = process.env.LANG || 'en-UK'
-    const hotwords = [{file: './node_modules/lisa-standalone-voice-command/speech/hey_lisa.pmdl', hotword: 'hey lisa'}]
+    const language = app.env.LANG || 'en-US'
     const voiceCommand = new VoiceCommand({
       mode: LISA.MODE_INTERNAL,
       gSpeech: './config/speech/LISA-gfile.json',
-      hotwords: hotwords,
       language: language
     })
 
@@ -58,23 +56,23 @@ module.exports = (app) => {
         })
       }
     })
-  }
 
-  /*eslint-disable */
-  const plugins = ['lisa-plugin-hue', 'lisa-plugin-sony-vpl', 'lisa-plugin-kodi', 'lisa-plugin-cam-mjpeg']
-  //FIXME later plugins will be manage automatically from a plugin store, for now let's do it manually here
-  for (const plugin of plugins) {
-    try {
-      app.services.PluginService._addPlugin(plugin).then(plugin => {
-        console.log(plugin, app)
-        return app.services.PluginService.enablePlugin(plugin)
-      }).catch(err => {
-        return app.services.PluginService._updatePlugin(plugin).then(() => app.services.PluginService.enablePlugin(plugin))
-      })
+    /*eslint-disable */
+    const plugins = ['lisa-plugin-hue', 'lisa-plugin-sony-vpl', 'lisa-plugin-kodi', 'lisa-plugin-cam-mjpeg']
+    //FIXME later plugins will be manage automatically from a plugin store, for now let's do it manually here
+    for (const plugin of plugins) {
+      try {
+        app.services.PluginService._addPlugin(plugin).then(plugin => {
+          console.log(plugin, app)
+          return app.services.PluginService.enablePlugin(plugin)
+        }).catch(err => {
+          return app.services.PluginService._updatePlugin(plugin).then(() => app.services.PluginService.enablePlugin(plugin))
+        })
+      }
+      catch (e) {
+        app.log.error(e)
+      }
     }
-    catch (e) {
-      app.log.error(e)
-    }
+    /*eslint-enable */
   }
-  /*eslint-enable */
 }
