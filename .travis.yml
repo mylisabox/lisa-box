@@ -8,11 +8,14 @@ addons:
   apt:
     sources:
     - ubuntu-toolchain-r-test
+    - llvm-toolchain-precise-3.9
     packages:
-    - gcc-4.8
-    - g++-4.8
-env:
-  - CXX=g++-4.8
+    # install toolchains
+    - libmagic-dev
+    - libatlas-base-dev
+    - gcc-5
+    - g++-5
+    - clang-3.8
 notifications:
   email: false
   webhooks:
@@ -28,4 +31,4 @@ deploy:
   on:
     tags: true
     repo: mylisabox/lisa-box
-    node: 8
+    node: 7

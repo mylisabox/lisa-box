@@ -35,7 +35,7 @@ module.exports = class PluginService extends Service {
         }
       })
       const key = data.key
-      let value = data.value || false
+      const value = data.value || false
       const promises = []
       _.forEach(pluginFilteredDevices, (devices, pluginName) => {
         promises.push(this.setDevicesValue(pluginName, [devices.map(device => device.toRawData()), key, value]))

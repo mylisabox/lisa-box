@@ -2,7 +2,7 @@
 
 const request = require('request')
 const Controller = require('trails/controller')
-const jpegExtractor = require("jpeg-extractor")
+const jpegExtractor = require('jpeg-extractor')
 
 /**
  * @module CameraController
@@ -33,7 +33,7 @@ module.exports = class CameraController extends Controller {
         res.status(500).end()
       }
     })
-    req.connection.on("close", () => {
+    req.connection.on('close', () => {
       reqStream.abort()
     })
     req.pipe(reqStream)

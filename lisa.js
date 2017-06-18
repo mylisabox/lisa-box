@@ -162,10 +162,10 @@ module.exports = (function () {
       criteria.pluginName = plugin
 
       const promise = criteria.id ? app.orm.Device.find({
-          where: criteria
-        }) : app.orm.Device.findAll({
-          where: criteria
-        })
+        where: criteria
+      }) : app.orm.Device.findAll({
+        where: criteria
+      })
 
       return promise.then(devices => {
         if (Array.isArray(devices)) {

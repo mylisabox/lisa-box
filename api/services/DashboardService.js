@@ -52,7 +52,7 @@ module.exports = class DashboardService extends Service {
       const dashboard = results[0]
       let devices = results[1]
 
-      devices = devices.concat(this.getAdditionalGroupDevice(roomId, devices));
+      devices = devices.concat(this.getAdditionalGroupDevice(roomId, devices))
 
       if (dashboard) {
         return Promise.resolve(this._prepareDashboard(dashboard, devices))

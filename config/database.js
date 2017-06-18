@@ -79,13 +79,13 @@ module.exports = {
               if (modelName === 'device') {
                 instance.model.findAll({where: {roomID: models[0].roomId}}).then(devices => {
                   const group = app.services.DashboardService.getAdditionalGroupDevice(models[0].roomId, devices, models[0].type)
-                  for (let m of group) {
+                  for (const m of group) {
                     app.sockets.room(modelName).send('update', modelName, m)
                   }
                 }).catch(err => app.log.error(err))
               }
 
-              for (let m of models) {
+              for (const m of models) {
                 app.sockets.room(modelName).send('update', modelName, m)
               }
               fn()

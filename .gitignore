@@ -39,6 +39,5 @@ jspm_packages
 /dist/
 *.sqlite
 /typings/
-/yarn.lock
 /plugins/*
 /config/speech/LISA-gfile.json

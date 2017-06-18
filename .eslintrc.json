@@ -1,0 +1,7 @@
+{
+  "extends": "trails",
+  "rules": {
+    "no-process-env": "off",
+    "no-useless-escape": "off"
+  }
+}

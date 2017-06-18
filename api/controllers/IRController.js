@@ -8,22 +8,22 @@ const Controller = require('trails/controller')
  */
 module.exports = class IRController extends Controller {
   start(req, res) {
-    this.app.services.IRService.start(req.params.remoteName);
+    this.app.services.IRService.start(req.params.remoteName)
     res.send({})
   }
 
   stop(req, res) {
-    this.app.services.IRService.stop();
+    this.app.services.IRService.stop()
     res.send({})
   }
 
   button(req, res) {
-    this.app.services.IRService.setButtonName(req.params.button);
+    this.app.services.IRService.setButtonName(req.params.button)
     res.send({})
   }
 
   quit(req, res) {
-    this.app.services.IRService.quit();
+    this.app.services.IRService.quit()
     res.send({})
   }
 
