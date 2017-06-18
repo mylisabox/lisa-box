@@ -3,6 +3,7 @@
  * @param app Trails application
  */
 const LISA = require('../lisa')
+const VoiceCommand = require('lisa-standalone-voice-command')
 //const serialPort = require('serialport')
 const bonjour = require('bonjour')()
 
@@ -25,69 +26,49 @@ module.exports = (app) => {
     app.mdns = mdns
     app.bonjour = bonjour
 
-    const Sonus = require('sonus')
-    const speech = require('@google-cloud/speech')({
-      keyFilename: './config/speech/LISA-gfile.json'
+    const language = process.env.LANG || 'en-UK'
+    const hotwords = [{file: './node_modules/lisa-standalone-voice-command/speech/hey_lisa.pmdl', hotword: 'hey lisa'}]
+    const voiceCommand = new VoiceCommand({
+      mode: LISA.MODE_INTERNAL,
+      gSpeech: './config/speech/LISA-gfile.json',
+      hotwords: hotwords,
+      language: language
     })
 
-    const hotwords = [{file: './config/speech/hey_lisa.pmdl', hotword: 'hey lisa'}]
-    const language = 'fr-FR'
-    const sonus = Sonus.init({
-      hotwords, language,
-      encoding: 'LINEAR16',
-      sampleRateHertz: 16000
-    }, speech)
-    Sonus.start(sonus)
-    sonus.on('hotword', (index, keyword) => app.log.debug('hey lisa detected'))
-    sonus.on('error', error => app.log.error(error))
-    sonus.on('partial-result', sentence => {
-      app.log.debug(sentence + ' partial result detected')
+    app.on('stop', () => {
+      voiceCommand.stop()
     })
-    sonus.on('final-result', sentence => {
+
+    voiceCommand.on('hotword', () => app.log.debug('hey lisa detected'))
+    voiceCommand.on('error', error => app.log.error(error))
+    voiceCommand.on('final-result', sentence => {
       app.log.debug(sentence + ' detected')
-      app.services.ChatBotService.interact(null, language.substring(0, 2) || this.app.config.chatbot.defaultLang,
-        sentence, null)
-        .then(result => {
-          app.log.debug('bot results')
-          app.log.debug(JSON.stringify(result))
-          return app.services.PluginService.interact(result).then(results => {
-            app.log.debug('plugin results')
-            app.log.debug(results)
-          })
-        }).catch(err => {
-        app.log.error(err)
-      })
+      if (sentence && sentence !== '') {
+        app.services.ChatBotService.interact(null, language.substring(0, 2) || this.app.config.chatbot.defaultLang,
+          sentence, null)
+          .then(result => {
+            app.log.debug('bot results')
+            app.log.debug(JSON.stringify(result))
+            return app.services.PluginService.interact(result).then(results => {
+              //app.log.debug('plugin results')
+              //app.log.debug(results)
+            })
+          }).catch(err => {
+          app.log.error(err)
+        })
+      }
     })
   }
-  /*
-   //Enable plugin lisa-plugin-hue on database in order to be loaded, this need to be done once per plugins
-   app.services.PluginService._addPlugin('lisa-plugin-hue').then(plugin => {
-   console.log(plugin, app)
-   return app.services.PluginService.enablePlugin('lisa-plugin-hue')
-   }).catch(err => {
-   console.log(err)
-   return app.services.PluginService.enablePlugin('lisa-plugin-hue')
-   })
-   app.services.PluginService._addPlugin('lisa-plugin-sony-vpl').then(plugin => {
-   console.log(plugin, app)
-   return app.services.PluginService.enablePlugin('lisa-plugin-sony-vpl')
-   }).catch(err => {
-   console.log(err)
-   return app.services.PluginService.enablePlugin('lisa-plugin-sony-vpl')
-   })
-   app.services.PluginService._addPlugin('lisa-plugin-kodi').then(plugin => {
-   console.log(plugin, app)
-   return app.services.PluginService.enablePlugin('lisa-plugin-kodi')
-   }).catch(err => {
-   console.log(err)
-   return app.services.PluginService.enablePlugin('lisa-plugin-kodi')
-   })
-   app.services.PluginService._addPlugin('lisa-plugin-cam-mjpeg').then(plugin => {
-   console.log(plugin, app)
-   return app.services.PluginService.enablePlugin('lisa-plugin-cam-mjpeg')
-   }).catch(err => {
-   console.log(err)
-   return app.services.PluginService.enablePlugin('lisa-plugin-cam-mjpeg')
-   })*/
 
+
+  const plugins = ['lisa-plugin-hue', 'lisa-plugin-sony-vpl', 'lisa-plugin-kodi', 'lisa-plugin-cam-mjpeg']
+  //FIXME later plugins will be manage automatically from a plugin store, for now let's do it manually here
+  for (let plugin of plugins) {
+    app.services.PluginService._addPlugin(plugin).then(plugin => {
+      console.log(plugin, app)
+      return app.services.PluginService.enablePlugin(plugin)
+    }).catch(err => {
+      return app.services.PluginService._updatePlugin(plugin).then(() => app.services.PluginService.enablePlugin(plugin))
+    })
+  }
 }

@@ -29,6 +29,12 @@ module.exports = {
   DefaultController: {
     'test': ['Passport.jwt']
   },
+  IRController: ['Passport.jwt'],
+  CameraController: ['Passport.jwt'],
+  PluginController: {
+    '*': ['Passport.jwt'],
+    'image': []
+  },
   DashboardController: ['Passport.jwt'],
   FavoritesController: ['Passport.jwt'],
   RoomController: ['Passport.jwt'],

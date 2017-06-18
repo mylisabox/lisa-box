@@ -28,18 +28,20 @@
       "name": "Play tv show",
       "sentences": {
         "fr": [
-          "(?:play|lance|joue)(?: +\\w+){0,5} +série %show%",
+          "(?:play|lance|joue)(?: +\\w+){0,6} +série %show%",
           "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +série %show%",
           "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +série %show%(?: +\\w+){0,2} +%room%",
           "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +saison %number_season%(?: +\\w+){0,2} +série %show%",
+          "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +saison %number_season%(?: +\\w+){0,2} +de %show%",
           "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +saison %number_season%(?: +\\w+){0,2} +série %show%(?: +\\w+){0,2} +%room%",
           "(?:play|lance|joue)(?: +\\w+){0,5} +série %show%(?: +\\w+){0,2} +%room%"
         ],
         "en": [
-          "play(?: +\\w+){0,5} +show %show%",
+          "play(?: +\\w+){0,6} +show %show%",
           "play episode %number_episode%(?: +\\w+){0,2} +show %show%",
           "play episode %number_episode%(?: +\\w+){0,2} +show %show%(?: +\\w+){0,2} +%room%",
           "play season %number_season% episode %number_episode%(?: +\\w+){0,2} +show %show%",
+          "play season %number_season% episode %number_episode%(?: +\\w+){0,2} +of %show%",
           "play season %number_season% episode %number_episode%(?: +\\w+){0,2} +show %show%(?: +\\w+){0,2} +%room%",
           "play(?: +\\w+){0,5} +show %show%(?: +\\w+){0,2} +%room%"
         ]

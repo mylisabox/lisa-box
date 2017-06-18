@@ -33,6 +33,30 @@ module.exports = [
     handler: 'DeviceController.find'
   },
   {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/plugin`,
+    handler: 'PluginController.find'
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/plugin/search`,
+    handler: 'PluginController.search'
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/plugin/{id}/images/{name}/{subname?}`,
+    handler: 'PluginController.image',
+    config: {
+      validate: {
+        params: Joi.object({
+          id: Joi.string().required(),
+          name: Joi.string().required(),
+          subname: Joi.string()
+        })
+      }
+    }
+  },
+  {
     method: 'PUT',
     path: `${footprintsConfig.prefix}/favorite/{id}`,
     handler: 'FavoritesController.putFavorite',
@@ -52,36 +76,6 @@ module.exports = [
       validate: {
         params: Joi.object({
           id: Joi.string().required()
-        })
-      }
-    }
-  },
-  {
-    method: 'GET',
-    path: `${footprintsConfig.prefix}/image/{plugin}/{device}/{controller}/{action}`,
-    handler: 'PluginController.image',
-    config: {
-      validate: {
-        params: Joi.object({
-          plugin: Joi.string().required(),
-          controller: Joi.string().required(),
-          action: Joi.string().required(),
-          device: Joi.string().required()
-        })
-      }
-    }
-  },
-  {
-    method: 'GET',
-    path: `${footprintsConfig.prefix}/streaming/{plugin}/{device}/{controller}/{action}`,
-    handler: 'PluginController.video',
-    config: {
-      validate: {
-        params: Joi.object({
-          plugin: Joi.string().required(),
-          controller: Joi.string().required(),
-          action: Joi.string().required(),
-          device: Joi.string().required()
         })
       }
     }
@@ -179,7 +173,8 @@ module.exports = [
     config: {
       validate: {
         query: Joi.object({
-          url: Joi.string().required()
+          url: Joi.string().required(),
+          token: Joi.string().required()
         })
       }
     }
@@ -191,7 +186,8 @@ module.exports = [
     config: {
       validate: {
         query: Joi.object({
-          url: Joi.string().required()
+          url: Joi.string().required(),
+          token: Joi.string().required()
         })
       }
     }

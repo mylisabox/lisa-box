@@ -50,7 +50,7 @@ module.exports = class User extends ModelPassport {
       },
       lang: {
         type: Sequelize.STRING,
-        defaultsTo: 'en'
+        defaultValue: 'en'
       },
       lastname: {
         type: Sequelize.STRING

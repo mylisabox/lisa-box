@@ -1,3 +1,4 @@
+const logger = require('./log').logger
 /**
  * Database Configuration
  * (app.config.database)
@@ -25,7 +26,7 @@ module.exports = {
       storage: './lisa.sqlite',
       host: '127.0.0.1',
       dialect: 'sqlite',
-      logging: true,
+      logging: logger.debug,
       define: {
         hooks: {
           afterCreate: (instance, options, fn) => {

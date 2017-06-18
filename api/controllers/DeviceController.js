@@ -1,20 +1,17 @@
 'use strict'
 
 const Controller = require('trails/controller')
-const manageErrors = (app, error) => {
-  app.log.error(error)
-  if (app.env.NODE_ENV != 'production') {
-    app.log.warn('this payload error is return for development purpose only and will be only log on production')
-    return error
-  }
-  return new Error()
-}
+const manageErrors = require('../utils/error')
 
 /**
  * @module DeviceController
  * @description REST device actions.
  */
 module.exports = class DeviceController extends Controller {
+  createOrUpdateFromFront(req, res) {
+
+  }
+
   find(req, res) {
     const footprintService = this.app.services.FootprintService
     const favoritesService = this.app.services.FavoritesService

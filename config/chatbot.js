@@ -11,7 +11,7 @@ const defaultBots = require('./bots')
 module.exports = {
   bots: defaultBots,
   allowAnonymousUsers: true,
-  defaultLang: 'fr',
+  defaultLang: (process.env.LANG || 'en').substr(0, 2),
   defaultAnswer: (app, data) => {
     data.action = 'UNKNOWN'
     return Promise.resolve(data)

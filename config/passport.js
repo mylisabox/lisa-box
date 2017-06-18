@@ -12,10 +12,6 @@ const SECRET = process.env.TOKEN_SECRET || 'mysecuretoken'
 
 module.exports = {
   /**
-   * Prefix for Auth routes
-   */
-  //prefix: '/',
-  /**
    * Url redirection on login/logout
    */
   redirect: {
@@ -26,13 +22,12 @@ module.exports = {
    * Auth strategies allowed
    */
   strategies: {
-    /*
     local: {
       strategy: require('passport-local').Strategy,
       options: {
         usernameField: 'email'// If you want to enable both username and email just remove this field
       }
-     },*/
+    },
     //Enable JWT strategy
     jwt: {
       strategy: JwtStrategy,
@@ -47,7 +42,7 @@ module.exports = {
         secretOrKey: SECRET,
         issuer: ISSUER,
         audience: AUDIENCE,
-        jwtFromRequest: ExtractJwt.fromAuthHeader() //Authorization: JWT JSON_WEB_TOKEN_STRING
+        jwtFromRequest: ExtractJwt.fromExtractors([ExtractJwt.fromAuthHeader(), ExtractJwt.fromUrlQueryParameter('token')]) //Authorization: JWT JSON_WEB_TOKEN_STRING
       }
     }, /*
      //Enable twitter strategy

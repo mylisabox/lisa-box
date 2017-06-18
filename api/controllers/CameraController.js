@@ -13,6 +13,7 @@ module.exports = class CameraController extends Controller {
     let reqStream
     const jpgExtractor = jpegExtractor().on('image', image => {
       reqStream.abort()
+      res.send(image)
     })
     reqStream = request(req.query.url, err => {
       if (err) {
@@ -22,7 +23,7 @@ module.exports = class CameraController extends Controller {
     })
 
     req.pipe(reqStream)
-    reqStream.pipe(jpgExtractor).pipe(res)
+    reqStream.pipe(jpgExtractor)
   }
 
   stream(req, res) {
@@ -31,6 +32,9 @@ module.exports = class CameraController extends Controller {
         this.log.error(err)
         res.status(500).end()
       }
+    })
+    req.connection.on("close", () => {
+      reqStream.abort()
     })
     req.pipe(reqStream)
     reqStream.pipe(res)

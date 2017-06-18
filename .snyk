@@ -1,7 +1,46 @@
-version: v1.5.2
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:jwt-simple:20160804':
     - trailpack-twilio > twilio > jwt-simple:
         reason: None given
         expires: '2016-12-03T20:35:12.773Z'
-patch: {}
+  'npm:brace-expansion:20170302':
+    - node-pre-gyp > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-07-17T07:40:05.133Z'
+    - node-pre-gyp > tar > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-07-17T07:40:05.134Z'
+    - node-pre-gyp > tar-pack > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-07-17T07:40:05.134Z'
+    - node-pre-gyp > tar-pack > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-07-17T07:40:05.134Z'
+    - node-pre-gyp > tar-pack > fstream-ignore > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-07-17T07:40:05.134Z'
+    - node-pre-gyp > tar-pack > fstream-ignore > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-07-17T07:40:05.135Z'
+    - node-pre-gyp > tar-pack > tar > fstream > rimraf > glob > minimatch > brace-expansion:
+        reason: None given
+        expires: '2017-07-17T07:40:05.135Z'
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:ms:20170412':
+    - node-pre-gyp > tar-pack > debug > ms:
+        patched: '2017-06-17T07:35:57.866Z'
+    - primus-rooms > debug > ms:
+        patched: '2017-06-17T07:35:57.866Z'
+    - trailpack-express > compression > debug > ms:
+        patched: '2017-06-17T07:35:57.866Z'
+    - trailpack-realtime > engine.io > debug > ms:
+        patched: '2017-06-17T07:35:57.866Z'
+    - trailpack-passport > jsonwebtoken > ms:
+        patched: '2017-06-17T07:35:57.866Z'
+  'npm:qs:20170213':
+    - node-pre-gyp > request > qs:
+        patched: '2017-06-17T07:35:57.866Z'

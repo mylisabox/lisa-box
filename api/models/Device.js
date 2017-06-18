@@ -75,7 +75,7 @@ module.exports = class Device extends Model {
         }
       },
       template: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false,
         get: function () {
           let data = this.getDataValue('template')
@@ -94,7 +94,7 @@ module.exports = class Device extends Model {
         }
       },
       data: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         get: function () {
           let data = this.getDataValue('data')
           if (_.isString(data)) {
@@ -109,7 +109,7 @@ module.exports = class Device extends Model {
         }
       },
       privateData: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         get: function () {
           let data = this.getDataValue('privateData')
           if (_.isString(data)) {

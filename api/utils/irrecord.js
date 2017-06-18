@@ -16,20 +16,20 @@ module.exports = class IRrecord extends EventEmitter {
 
     this._irrecord = new IRRecord()
     this._irrecord.on('stdout', data => {
-      if (data.indexOf(STEP_START_TEXT) != -1) {
+      if (data.indexOf(STEP_START_TEXT) !== -1) {
         this._irrecord.write()
       }
-      else if (data.indexOf(STEP_DISCOVER) != -1) {
+      else if (data.indexOf(STEP_DISCOVER) !== -1) {
         this.emit('discover')
         this._irrecord.write()
       }
-      else if (data.indexOf(STEP_BUTTON_TEXT) != -1) {
+      else if (data.indexOf(STEP_BUTTON_TEXT) !== -1) {
         this.emit('button')
       }
-      else if (data.indexOf(STEP_TIMEOUT_TEXT) != -1) {
+      else if (data.indexOf(STEP_TIMEOUT_TEXT) !== -1) {
         this.emit('timeout')
       }
-      else if (data.indexOf(STEP_ERROR) != -1 || data.indexOf(STEP_ERROR_NO_BINARY) != -1) {
+      else if (data.indexOf(STEP_ERROR) !== -1 || data.indexOf(STEP_ERROR_NO_BINARY) !== -1) {
         this.emit('error')
       }
     })
