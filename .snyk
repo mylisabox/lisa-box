@@ -42,5 +42,5 @@ patch:
     - trailpack-passport > jsonwebtoken > ms:
         patched: '2017-06-17T07:35:57.866Z'
   'npm:qs:20170213':
-    - node-pre-gyp > request > qs:
+    - '* > qs':
         patched: '2017-06-17T07:35:57.866Z'
