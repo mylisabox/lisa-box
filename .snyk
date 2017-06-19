@@ -29,7 +29,7 @@ ignore:
         reason: None given
         expires: '2017-07-17T07:40:05.135Z'
   'npm:qs:20170213':
-    - node-pre-gyp > request > qs:
+    - '* > qs':
         reason: Vuln exists in dev dependency
         expires: '2017-07-17T07:35:57.866Z'
 # patches apply the minimum changes required to fix a vulnerability
