@@ -45,6 +45,7 @@ describe('LISA', () => {
           attr1: 'attr1',
           attr2: 'attr2'
         },
+        driver: 'driver',
         template: 'ok'
       }).then(device => {
         assert.equal(device.id, 1)
