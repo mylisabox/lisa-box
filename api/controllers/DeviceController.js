@@ -9,38 +9,46 @@ const manageErrors = require('../utils/error')
  */
 module.exports = class DeviceController extends Controller {
   createOrUpdateFromFront(req, res) {
-
+    const pluginService = this.app.services.PluginService
+    pluginService.callOnPluginDriver('saveDevice', req.body.pluginName, req.body.driver, [req.body])
+      .then(device => {
+        res.status(200).json(device)
+      })
+      .catch(error => {
+        if (error.code === 'E_VALIDATION') {
+          res.status(400).json(error)
+        }
+        else if (error.code === 'E_NOT_FOUND') {
+          res.status(404).json(error)
+        }
+        else {
+          res.status(500).send(res.boom.wrap(manageErrors(this.app, error), 500))
+        }
+      })
   }
 
   find(req, res) {
-    const footprintService = this.app.services.FootprintService
-    const favoritesService = this.app.services.FavoritesService
     const options = this.app.packs.express.getOptionsFromQuery(req.query)
-    const criteria = this.app.packs.express.getCriteriaFromQuery(req.query)
+    let criteria = this.app.packs.express.getCriteriaFromQuery(req.query)
     const id = req.params.id
-    let response
+
     if (id) {
-      response = footprintService.find('device', id, options)
-        .then(devices => favoritesService.populateFavorite(req.user.id, devices))
-    }
-    else {
-      response = footprintService.find('device', criteria, options)
-        .then(devices => favoritesService.populateFavorite(req.user.id, devices))
+      criteria = id
     }
 
-    response.then(elements => {
-      res.status(elements ? 200 : 404).json(elements || {})
-    }).catch(error => {
-      if (error.code == 'E_VALIDATION') {
-        res.status(400).json(error)
-      }
-      else if (error.code == 'E_NOT_FOUND') {
-        res.status(404).json(error)
-      }
-      else {
-        res.status(500).send(res.boom.wrap(manageErrors(this.app, error), 500))
-      }
-    })
+    this.app.services.DeviceService.findWithFavorites(req.user.id, criteria, options)
+      .then(fullDataDevices => res.status(fullDataDevices ? 200 : 404).json(fullDataDevices || {}))
+      .catch(error => {
+        if (error.code === 'E_VALIDATION') {
+          res.status(400).json(error)
+        }
+        else if (error.code === 'E_NOT_FOUND') {
+          res.status(404).json(error)
+        }
+        else {
+          res.status(500).send(res.boom.wrap(manageErrors(this.app, error), 500))
+        }
+      })
   }
 }
 

@@ -33,6 +33,11 @@ module.exports = [
     handler: 'DeviceController.find'
   },
   {
+    method: 'POST',
+    path: `${footprintsConfig.prefix}/device`,
+    handler: 'DeviceController.createOrUpdateFromFront'
+  },
+  {
     method: 'GET',
     path: `${footprintsConfig.prefix}/plugin`,
     handler: 'PluginController.find'

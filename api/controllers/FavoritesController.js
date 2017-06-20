@@ -8,7 +8,7 @@ const Controller = require('trails/controller')
  */
 module.exports = class FavoriteController extends Controller {
   getFavorite(req, res) {
-    this.app.services.FavoritesService.getFavorite(req.user.id).then(devices => {
+    this.app.services.FavoritesService.getFavorites(req.user.id).then(devices => {
       res.json(devices)
     }).catch(err => {
       res.serverError(err)

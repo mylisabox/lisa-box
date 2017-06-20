@@ -74,6 +74,10 @@ module.exports = class Device extends Model {
           this.setDataValue('favorite', val)
         }
       },
+      driver: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       template: {
         type: Sequelize.TEXT,
         allowNull: false,

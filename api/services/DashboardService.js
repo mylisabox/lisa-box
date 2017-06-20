@@ -11,13 +11,13 @@ module.exports = class DashboardService extends Service {
     const data = dashboard.toJSON()
     const widgets = []
     dashboard.widgets.forEach(value => {
-      const device = devices.find(device => device.id == value)
+      const device = devices.find(device => device.id === value)
       if (device) {
-        widgets.push(devices.find(device => device.id == value))
+        widgets.push(devices.find(device => device.id === value))
       }
     })
     devices.forEach(device => {
-      const isAbsent = widgets.indexOf(device) == -1
+      const isAbsent = widgets.indexOf(device) === -1
       if (isAbsent) {
         widgets.push(device)
       }
@@ -38,14 +38,10 @@ module.exports = class DashboardService extends Service {
     ]
 
     if (roomId) {
-      promises.push(this.app.orm.Device.findAll({
-        where: {
-          roomId: roomId
-        }
-      }))
+      promises.push(this.app.services.DeviceService.findWithFavorites(userId, {roomId: roomId}))
     }
     else {
-      promises.push(this.app.orm.User.findById(userId).then(user => user.getFavorites()))
+      promises.push(this.app.services.FavoritesService.getFavorites(userId))
     }
 
     return Promise.all(promises).then(results => {
@@ -71,8 +67,8 @@ module.exports = class DashboardService extends Service {
 
   getAdditionalGroupDevice(roomId, devices, wantedType) {
     const groupDevices = []
-    if (!wantedType || wantedType == this.app.lisa.DEVICE_TYPE.LIGHT) {
-      const lights = devices.filter(devices => devices.type == this.app.lisa.DEVICE_TYPE.LIGHT)
+    if (!wantedType || wantedType === this.app.lisa.DEVICE_TYPE.LIGHT) {
+      const lights = devices.filter(devices => devices.type === this.app.lisa.DEVICE_TYPE.LIGHT)
       if (roomId && lights.length > 1) {
         const lightsDevice = {
           id: 'group_light_' + roomId,
@@ -90,7 +86,7 @@ module.exports = class DashboardService extends Service {
         let hasDim = false
         let hasHue = false
         lights.forEach(light => {
-          if (light.data.onoff == 'on') {
+          if (light.data.onoff === 'on') {
             lightsDevice.data.onoff = 'on'
           }
           if (light.data.dim) {

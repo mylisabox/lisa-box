@@ -8,10 +8,10 @@ const Service = require('trails/service')
  */
 module.exports = class FavoritesService extends Service {
   populateFavorite(userId, devices) {
-    return this.app.services.FavoritesService.getFavorite(userId)
+    return this.getFavorites(userId)
       .then(favorites => {
         devices.forEach(device => {
-          if (favorites.filter(fav => fav.id == device.id).length == 1) {
+          if (favorites.filter(fav => fav.id === device.id).length === 1) {
             device.favorite = true
           }
         })
@@ -19,13 +19,13 @@ module.exports = class FavoritesService extends Service {
       })
   }
 
-  getFavorite(userId) {
+  getFavorites(userId) {
     return this.app.services.FootprintService.findAssociation('user', userId, 'favorites').then(devices => {
       devices.forEach(device => {
         device.favorite = true
       })
       return devices
-    })
+    }).then(devices => this.app.services.DeviceService.aggregateDevicesData(devices))
   }
 
   putFavorite(userId, deviceId) {

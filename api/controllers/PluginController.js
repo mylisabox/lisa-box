@@ -130,6 +130,9 @@ module.exports = class PluginController extends Controller {
       translatedDevices.push({
         name: this._translateField(lang, device.name),
         description: this._translateField(lang, device.description),
+        template: device.template,
+        driver: device.driver,
+        type: device.type,
         image: image ? '/plugin/' + plugin.name + '/images/' + image : null,
         settings: [{
           controlType: 'textbox',

@@ -26,7 +26,7 @@ module.exports = {
       storage: './lisa.sqlite',
       host: '127.0.0.1',
       dialect: 'sqlite',
-      logging: logger.debug,
+      logging: process.env.LOGGER || logger.debug,
       define: {
         hooks: {
           afterCreate: (instance, options, fn) => {
