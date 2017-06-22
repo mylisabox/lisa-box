@@ -16,6 +16,9 @@ module.exports = {
     connect: [
       'Passport.jwt'
     ],
+    register: [
+      'RegisterPolicy.protect'
+    ],
     disconnect: [
       'Passport.jwt'
     ],
