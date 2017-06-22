@@ -1,16 +1,87 @@
 {
   "name": "Media Center",
   "freeStates": {
+    "MUTE_VOLUME": {
+      "name": "Mute volume",
+      "sentences": {
+        "fr": [
+          "coupe le son",
+          "coupe le volume",
+          "silence"
+        ],
+        "en": [
+          "mute volume",
+          "silence"
+        ]
+      }
+    },
+    "UNMUTE_VOLUME": {
+      "name": "Return volume",
+      "sentences": {
+        "fr": [
+          "remets le son",
+          "remets le volume"
+        ],
+        "en": [
+          "unmute volume",
+          "unmute sound",
+          "restore sound",
+          "restore volume"
+        ]
+      }
+    },
+    "SET_VOLUME": {
+      "sentences": {
+        "fr": [
+          "(?:met|mets|mettre) le (?:son|volume) à %number%"
+        ],
+        "en": [
+          "set(?: +\\w+){0,3} +(?:volume|sound) to %number%"
+        ]
+      }
+    },
+    "INCREASE_VOLUME": {
+      "sentences": {
+        "fr": [
+          "(?:monte|augmente) le (?:son|volume) de %number%",
+          "(?:monte|augmente) le (?:son|volume)",
+          "plus fort",
+          "plus fort de %number%"
+        ],
+        "en": [
+          "increase(?: +\\w+){0,3} +(?:volume|sound) by %number%",
+          "increase(?: +\\w+){0,3} +(?:volume|sound)",
+          "louder by %number%",
+          "louder"
+        ]
+      }
+    },
+    "DECREASE_VOLUME": {
+      "sentences": {
+        "fr": [
+          "(?:baisse|réduit) le (?:volume|son) de %number%",
+          "(?:baisse|réduit) le (?:volume|son)",
+          "moins fort",
+          "moins fort de %number%"
+        ],
+        "en": [
+          "decrease(?: +\\w+){0,3} +(?:volume|sound) by %number%",
+          "decrease(?: +\\w+){0,3} +(?:volume|sound)",
+          "turn down the (?:volume|sound) by %number%",
+          "turn down the (?:volume|sound)"
+        ]
+      }
+    },
     "PLAY_MOVIE": {
       "name": "Play movie",
       "sentences": {
         "fr": [
-          "(?:play|lance|joue)(?: +\\w+){0,5} +film %movie%",
-          "(?:play|lance|joue)(?: +\\w+){0,5} +film %movie%dans (?:le|la) %room%"
+          "(?:play|lance|joue)(?: +\\w+){0,5} +film %movie%dans (?:le|la) %room%",
+          "(?:play|lance|joue)(?: +\\w+){0,5} +film %movie%"
         ],
         "en": [
-          "play(?: +\\w+){0,5} +movie %movie%",
-          "play(?: +\\w+){0,5} +movie %movie% in the %room%"
+          "play(?: +\\w+){0,5} +movie %movie%in (?: +\\w+){0,2} +%room%",
+          "play(?: +\\w+){0,5} +movie %movie%"
         ]
       },
       "responses": {
@@ -28,22 +99,22 @@
       "name": "Play tv show",
       "sentences": {
         "fr": [
+          "(?:play|lance|joue)(?: +\\w+){0,5} +série %show%dans (?:le|la) %room%",
           "(?:play|lance|joue)(?: +\\w+){0,6} +série %show%",
-          "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +série %show%",
           "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +série %show%(?: +\\w+){0,2} +%room%",
-          "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +saison %number_season%(?: +\\w+){0,2} +série %show%",
-          "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +saison %number_season%(?: +\\w+){0,2} +de %show%",
+          "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +série %show%",
           "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +saison %number_season%(?: +\\w+){0,2} +série %show%(?: +\\w+){0,2} +%room%",
-          "(?:play|lance|joue)(?: +\\w+){0,5} +série %show%(?: +\\w+){0,2} +%room%"
+          "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +saison %number_season%(?: +\\w+){0,2} +série %show%",
+          "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +saison %number_season%(?: +\\w+){0,2} +de %show%"
         ],
         "en": [
+          "play(?: +\\w+){0,5} +show %show%in (?: +\\w+){0,2} +%room%",
           "play(?: +\\w+){0,6} +show %show%",
-          "play episode %number_episode%(?: +\\w+){0,2} +show %show%",
           "play episode %number_episode%(?: +\\w+){0,2} +show %show%(?: +\\w+){0,2} +%room%",
-          "play season %number_season% episode %number_episode%(?: +\\w+){0,2} +show %show%",
-          "play season %number_season% episode %number_episode%(?: +\\w+){0,2} +of %show%",
+          "play episode %number_episode%(?: +\\w+){0,2} +show %show%",
           "play season %number_season% episode %number_episode%(?: +\\w+){0,2} +show %show%(?: +\\w+){0,2} +%room%",
-          "play(?: +\\w+){0,5} +show %show%(?: +\\w+){0,2} +%room%"
+          "play season %number_season% episode %number_episode%(?: +\\w+){0,2} +show %show%",
+          "play season %number_season% episode %number_episode%(?: +\\w+){0,2} +of %show%"
         ]
       },
       "responses": {
@@ -61,12 +132,12 @@
       "name": "Pause",
       "sentences": {
         "fr": [
-          "(?:pause|pose)(?: +\\w+){0,5} +lecture",
-          "(?:pause|pose)(?: +\\w+){0,5} +lecture(?: +\\w+){0,2} +%room%"
+          "(?:pause|pose)(?: +\\w+){0,5} +lecture(?: +\\w+){0,2} +%room%",
+          "(?:pause|pose)(?: +\\w+){0,5} +lecture"
         ],
         "en": [
-          "pause(?: +\\w+){0,5} +media center",
-          "pause(?: +\\w+){0,5} +media center(?: +\\w+){0,2} +%room%"
+          "pause(?: +\\w+){0,5} +media center(?: +\\w+){0,2} +%room%",
+          "pause(?: +\\w+){0,5} +media center"
         ]
       },
       "responses": {
@@ -84,12 +155,12 @@
       "name": "Stop",
       "sentences": {
         "fr": [
-          "(?:stop|stoppe)(?: +\\w+){0,5} +lecture",
-          "(?:stop|stoppe)(?: +\\w+){0,5} +lecture(?: +\\w+){0,2} +%room%"
+          "(?:stop|stoppe)(?: +\\w+){0,5} +lecture(?: +\\w+){0,2} +%room%",
+          "(?:stop|stoppe)(?: +\\w+){0,5} +lecture"
         ],
         "en": [
-          "stop(?: +\\w+){0,5} +media center",
-          "stop(?: +\\w+){0,5} +media center(?: +\\w+){0,2} +%room%"
+          "stop(?: +\\w+){0,5} +media center(?: +\\w+){0,2} +%room%",
+          "stop(?: +\\w+){0,5} +media center"
         ]
       },
       "responses": {
@@ -107,8 +178,8 @@
       "name": "Play",
       "sentences": {
         "fr": [
-          "(?:play|lance|relance|joue)(?: +\\w+){0,2} +lecture",
-          "(?:play|lance|relance|joue)(?: +\\w+){0,2} +lecture(?: +\\w+){0,2} +%room%"
+          "(?:play|lance|relance|joue)(?: +\\w+){0,2} +lecture(?: +\\w+){0,2} +%room%",
+          "(?:play|lance|relance|joue)(?: +\\w+){0,2} +lecture"
         ],
         "en": [
           "play(?: +\\w+){0,5} +media center",

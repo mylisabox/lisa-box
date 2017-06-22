@@ -14,6 +14,29 @@ const Joi = require('joi')
 module.exports = [
   {
     method: 'GET',
+    path: '*',
+    handler: 'DefaultController.default'
+  },
+  {
+    method: 'GET',
+    path: '/',
+    handler: {
+      directory: {
+        path: 'node_modules/lisa-ui/bundle-fr'
+      }
+    }
+  },
+  {
+    method: 'GET',
+    path: '/',
+    handler: {
+      directory: {
+        path: 'node_modules/lisa-ui/bundle-en'
+      }
+    }
+  },
+  {
+    method: 'GET',
     path: '/isAlive',
     handler: 'DefaultController.isAlive'
   },

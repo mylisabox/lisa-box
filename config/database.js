@@ -26,7 +26,7 @@ module.exports = {
       storage: './lisa.sqlite',
       host: '127.0.0.1',
       dialect: 'sqlite',
-      logging: process.env.LOGGER || logger.debug,
+      logging: process.env.LOGGER ? false : logger.debug,
       define: {
         hooks: {
           afterCreate: (instance, options, fn) => {
@@ -75,9 +75,9 @@ module.exports = {
               })
             }
 
-            instance.model.findAll({where: instance.where}).then(models => {
+            instance.model.findAll({ where: instance.where }).then(models => {
               if (modelName === 'device') {
-                instance.model.findAll({where: {roomID: models[0].roomId}}).then(devices => {
+                instance.model.findAll({ where: { roomID: models[0].roomId } }).then(devices => {
                   const group = app.services.DashboardService.getAdditionalGroupDevice(models[0].roomId, devices, models[0].type)
                   for (const m of group) {
                     app.sockets.room(modelName).send('update', modelName, m)

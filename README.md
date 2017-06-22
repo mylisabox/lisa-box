@@ -37,6 +37,7 @@ Voice recognition work in 2 phases thanks to the [sonus](https://github.com/evan
 
 ### 4) Run the project
 - `yarn start //npm start //node index.js`
+- Go to http://localhost:3000
 
 ## Notification
 There multiple template available for notifications. Here there are : 

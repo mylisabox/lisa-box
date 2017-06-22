@@ -2477,9 +2477,9 @@ libqp@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/libqp/-/libqp-1.1.0.tgz#f5e6e06ad74b794fb5b5b66988bf728ef1dedbe8"
 
-lisa-plugins-manager@^0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/lisa-plugins-manager/-/lisa-plugins-manager-0.0.13.tgz#76ce1850774489874b7d149961410bf931f10124"
+lisa-plugins-manager@^0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/lisa-plugins-manager/-/lisa-plugins-manager-0.0.14.tgz#091c03eef808248d8b146e5831bba5b9754fc0fd"
   dependencies:
     download "^5.0.3"
     enpeem "^2.2.0"
@@ -2495,6 +2495,10 @@ lisa-standalone-voice-command@^0.0.3:
     request "^2.81.0"
     request-promise-native "^1.0.4"
     sonus "^0.1.8"
+
+lisa-ui@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/lisa-ui/-/lisa-ui-0.0.1.tgz#2e0100c8d462d36851ccdb25ccf83f808bb649ad"
 
 load-json-file@^1.0.0:
   version "1.1.0"

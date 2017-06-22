@@ -20,7 +20,12 @@ module.exports = class DeviceService extends Service {
     const fullData = []
     //TODO sort all devices by driver to call plugin once with all his devices
     for (let device of devices) {
-      fullData.push(pluginService.callOnPluginDriver('getDevicesData', device.pluginName, device.driver, [[device]]))
+      if (process.env.DEMO_MODE) {
+        fullData.push(Promise.resolve(device))
+      }
+      else {
+        fullData.push(pluginService.callOnPluginDriver('getDevicesData', device.pluginName, device.driver, [[device]]))
+      }
     }
     return Promise.all(fullData).then(devicesData => {
       let devices = []

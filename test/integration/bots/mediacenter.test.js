@@ -8,7 +8,7 @@ describe('Media center bot', () => {
   before(() => {
     service = global.app.services.ChatBotService
     ChatBot = global.app.orm.ChatBot
-    return global.app.orm.Room.create({name: 'Salon'}).then(() => {
+    return global.app.orm.Room.create({ name: 'Salon' }).then(() => {
       return global.app.services.ChatBotService.reloadBots()
     })
   })
@@ -25,6 +25,80 @@ describe('Media center bot', () => {
       assert(chatbot.data)
     })
   })
+  describe('Media center volume', () => {
+    it('should mute volume', () => {
+      return service.interact(1, 'fr', 'coupe le son').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'MUTE_VOLUME')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'fr')
+        assert.equal(infos.userSentence, 'coupe le son')
+      })
+    })
+
+    it('should unmute volume', () => {
+      return service.interact(1, 'fr', 'remets le son').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'UNMUTE_VOLUME')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'fr')
+        assert.equal(infos.userSentence, 'remets le son')
+      })
+    })
+
+    it('should increase volume', () => {
+      return service.interact(1, 'fr', 'monte le son').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'INCREASE_VOLUME')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'fr')
+        assert.equal(infos.userSentence, 'monte le son')
+      })
+    })
+
+    it('should set the volume with level', () => {
+      return service.interact(1, 'fr', 'mets le son à 4').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'SET_VOLUME')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'fr')
+        assert.equal(infos.fields.number, '4')
+        assert.equal(infos.userSentence, 'mets le son à 4')
+      })
+    })
+
+    it('should increase volume with level', () => {
+      return service.interact(1, 'fr', 'monte le son de 4').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'INCREASE_VOLUME')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'fr')
+        assert.equal(infos.fields.number, '4')
+        assert.equal(infos.userSentence, 'monte le son de 4')
+      })
+    })
+
+    it('should decrease volume', () => {
+      return service.interact(1, 'fr', 'baisse le son').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'DECREASE_VOLUME')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'fr')
+        assert.equal(infos.userSentence, 'baisse le son')
+      })
+    })
+
+    it('should decrease volume with level', () => {
+      return service.interact(1, 'fr', 'baisse le son de 4').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'DECREASE_VOLUME')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'fr')
+        assert.equal(infos.fields.number, '4')
+        assert.equal(infos.userSentence, 'baisse le son de 4')
+      })
+    })
+  })
 
   describe('Media center movie', () => {
     it('should return correct answer', () => {
@@ -38,12 +112,12 @@ describe('Media center bot', () => {
       })
     })
 
-    it.skip('should return correct answer with room', () => {
+    it('should return correct answer with room', () => {
       return service.interact(1, 'fr', 'lance le film star wars dans le salon').then(infos => {
         assert(infos)
         assert.equal(infos.action, 'PLAY_MOVIE')
         assert.equal(infos.botId, 'mediacenter')
-        assert.equal(infos.fields.movie, 'star wars')
+        assert.equal(infos.fields.movie.trim(), 'star wars')
         assert.equal(infos.fields.room, 'salon')
         assert.equal(infos.lang, 'fr')
         assert.equal(infos.userSentence, 'lance le film star wars dans le salon')
@@ -60,6 +134,17 @@ describe('Media center bot', () => {
         assert.equal(infos.lang, 'fr')
         assert.equal(infos.fields.show, 'Lucifer')
         assert.equal(infos.userSentence, 'lance la série Lucifer')
+      })
+    })
+    it('should return correct answer with room', () => {
+      return service.interact(1, 'fr', 'lance la série Lucifer dans le salon').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'PLAY_TV_SHOW')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.fields.show.trim(), 'Lucifer')
+        assert.equal(infos.fields.room, 'salon')
+        assert.equal(infos.lang, 'fr')
+        assert.equal(infos.userSentence, 'lance la série Lucifer dans le salon')
       })
     })
     it('should return correct answer with episode', () => {

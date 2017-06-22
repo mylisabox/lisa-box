@@ -1,6 +1,6 @@
 'use strict'
-const proxy = require('http-proxy-middleware')
-const assetsProxy = proxy('/images', {target: 'http://localhost:4200'})
+//const proxy = require('http-proxy-middleware')
+//const assetsProxy = proxy('/images', {target: 'http://localhost:4200'})
 
 /**
  * Server Configuration
@@ -26,12 +26,12 @@ module.exports = {
    * Middlewares to load (in order)
    */
   middlewares: {
-    proxyAssets: ['/images', assetsProxy],
+    //proxyAssets: ['/images', assetsProxy],
 
     //middlewares loading order
     order: [
       'addMethods',
-      'proxyAssets',
+      //'proxyAssets',
       'cookieParser',
       'passportInit',
       'bodyParser',
