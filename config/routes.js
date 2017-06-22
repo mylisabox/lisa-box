@@ -36,6 +36,46 @@ module.exports = [
     }
   },
   {
+    method: 'POST',
+    path: `${footprintsConfig.prefix}/{model}`,
+    handler: 'FootprintController.create'
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/{model}/{id?}`,
+    handler: 'FootprintController.find'
+  },
+  {
+    method: ['PUT', 'PATCH'],
+    path: `${footprintsConfig.prefix}/{model}/{id?}`,
+    handler: 'FootprintController.update'
+  },
+  {
+    method: 'DELETE',
+    path: `${footprintsConfig.prefix}/{model}/{id?}`,
+    handler: 'FootprintController.destroy'
+  },
+  {
+    method: 'POST',
+    path: `${footprintsConfig.prefix}/{parentModel}/{parentId}/{childAttribute}`,
+    handler: 'FootprintController.createAssociation'
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/{parentModel}/{parentId}/{childAttribute}/{childId?}`,
+    handler: 'FootprintController.findAssociation'
+  },
+  {
+    method: 'PUT',
+    path: `${footprintsConfig.prefix}/{parentModel}/{parentId}/{childAttribute}/{childId?}`,
+    handler: 'FootprintController.updateAssociation'
+  },
+  {
+    method: 'DELETE',
+    path: `${footprintsConfig.prefix}/{parentModel}/{parentId}/{childAttribute}/{childId?}`,
+    handler: 'FootprintController.destroyAssociation'
+  },
+  {
     method: 'GET',
     path: '/isAlive',
     handler: 'DefaultController.isAlive'
