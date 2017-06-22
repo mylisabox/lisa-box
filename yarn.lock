@@ -528,7 +528,7 @@ cache-manager@^1.1.0, cache-manager@^1.2.2:
     async "^1.5.2"
     lru-cache "4.0.0"
 
-cache-manager@^2.3.0:
+cache-manager@^2.3.0, cache-manager@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/cache-manager/-/cache-manager-2.4.0.tgz#272e4eee3a4ecebb281fcb086499804e59a6a251"
   dependencies:
@@ -4324,9 +4324,9 @@ trailpack-cache@^2.0.0:
     lodash "^4.17.4"
     trailpack "^2.1.0"
 
-trailpack-chatbot@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/trailpack-chatbot/-/trailpack-chatbot-2.0.0.tgz#536b2fc1f044f832833cea4c0c1fb2828bff7dab"
+trailpack-chatbot@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/trailpack-chatbot/-/trailpack-chatbot-2.0.1.tgz#4ac15b1fe7c405a023f9b5e055d22d3252f16bb3"
   dependencies:
     trailpack "^2.1.0"
 

@@ -82,6 +82,11 @@ module.exports = [
   },
   {
     method: 'GET',
+    path: `${footprintsConfig.prefix}/initialized`,
+    handler: 'DefaultController.isInitialized'
+  },
+  {
+    method: 'GET',
     path: `${footprintsConfig.prefix}/favorite`,
     handler: 'FavoritesController.getFavorite'
   },

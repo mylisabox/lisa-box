@@ -1,6 +1,7 @@
 'use strict'
 
 const Service = require('trails/service')
+const _ = require('lodash')
 
 module.exports = class DeviceService extends Service {
   find(criteria, options) {
@@ -21,16 +22,22 @@ module.exports = class DeviceService extends Service {
     //TODO sort all devices by driver to call plugin once with all his devices
     for (let device of devices) {
       if (process.env.DEMO_MODE) {
-        fullData.push(Promise.resolve(device))
+        fullData.push(Promise.resolve([device]))
       }
       else {
-        fullData.push(pluginService.callOnPluginDriver('getDevicesData', device.pluginName, device.driver, [[device]]))
+        fullData.push(pluginService.callOnPluginDriver('getDevicesData', device.pluginName, device.driver, [[device]])
+          .catch(e => e))
       }
     }
     return Promise.all(fullData).then(devicesData => {
       let devices = []
       for (let deviceData of devicesData) {
-        devices = devices.concat(deviceData)
+        if (_.isArray(deviceData)) {
+          devices = devices.concat(deviceData)
+        }
+        else {
+          this.log.error('Retrieving some device data failed', deviceData)
+        }
       }
       return devices
     })

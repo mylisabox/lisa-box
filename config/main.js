@@ -24,7 +24,6 @@ module.exports = {
     require('trailpack-cache'),
     require('trailpack-bootstrap'),
     require('trailpack-email'),
-    //require('trailpack-twilio'),
     require('trailpack-cron'),
     require('trailpack-footprints'),
     //require('../api/trailpacks/trailpack-dynamic-config'),
