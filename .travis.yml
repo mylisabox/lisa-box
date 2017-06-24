@@ -16,6 +16,8 @@ addons:
     - gcc-4.8
     - g++-4.8
     - clang-3.8
+services:
+  - mongodb
 env:
   - CXX=g++-4.8
 notifications:
