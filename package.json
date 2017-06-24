@@ -40,7 +40,6 @@
   "dependencies": {
     "bonjour": "^3.5.0",
     "cache-manager": "^2.4.0",
-    "cache-manager-fs": "^1.0.6",
     "cache-manager-mongodb": "https://github.com/mylisabox/node-cache-manager-mongodb",
     "ejs": "^2.5.6",
     "express": "^4.15.3",
