@@ -19,7 +19,6 @@ module.exports = {
     require('trailpack-router'),
     require('trailpack-express'),
     require('trailpack-sequelize'),
-    require('lisa-plugins-manager'),
     require('trailpack-chatbot'),
     require('trailpack-cache'),
     require('trailpack-bootstrap'),
@@ -29,7 +28,8 @@ module.exports = {
     //require('../api/trailpacks/trailpack-dynamic-config'),
     require('trailpack-passport'),
     require('trailpack-acl'),
-    require('trailpack-realtime')
+    require('trailpack-realtime'),
+    require('lisa-plugins-manager')
   ],
 
   /**
@@ -37,8 +37,6 @@ module.exports = {
    */
   paths: {
     root: path.resolve(__dirname, '..'),
-    temp: path.resolve(__dirname, '..', 'dist'),
-    templates: path.resolve(__dirname, '..', 'api', 'templates'),
-    www: path.resolve(__dirname, '..', 'dist', 'app')
+    templates: path.resolve(__dirname, '..', 'api', 'templates')
   }
 }

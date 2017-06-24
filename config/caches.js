@@ -1,5 +1,5 @@
 'use strict'
-
+const mongoStore = require('cache-manager-mongodb')
 /**
  * Cache Configuration
  * (app.config.cache)
@@ -8,31 +8,37 @@
 module.exports = {
   stores: [
     {
-      name: 'mongo-store',
-      type: 'mongodb',
-      host: 'loclahost',
-      port: '27017',
-      database: 'lisa',
-      collection: 'preferencesManager',
-      compression: false,
-      server: {
+      name: 'preferences',
+      store: mongoStore,
+      options: {
+        host: 'localhost',
+        port: '27017',
+        database: 'lisa',
+        collection: 'preferencesManager',
+        compression: false,
         poolSize: 5,
         auto_reconnect: true
-      },
-      ttl: 0
+      }
     },
     {
-      name: 'memory-store',
-      type: 'memory',
-      max: 100,
-      ttl: 0
+      name: 'settings',
+      store: mongoStore,
+      options: {
+        host: 'localhost',
+        port: '27017',
+        database: 'lisa',
+        collection: 'settingsManager',
+        compression: false,
+        poolSize: 5,
+        auto_reconnect: true
+      }
     },
     {
-      name: 'fs-store',
-      type: 'fs',
+      name: 'chatbot',
+      store: 'memory',
       max: 100,
       ttl: 0
     }
   ],
-  defaults: ['memory-store']
+  defaults: ['chatbot']
 }

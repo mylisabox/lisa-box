@@ -4,8 +4,13 @@ const Service = require('trails/service')
 const _ = require('lodash')
 
 module.exports = class DeviceService extends Service {
-  find(criteria, options) {
+  find(criteria, options = {}) {
     const footprintService = this.app.services.FootprintService
+    options.include = [{
+      model: this.app.orm.Plugin, as: 'plugin', where: {
+        activated: 1
+      }
+    }]
 
     return footprintService.find('device', criteria, options)
       .then(devices => this.aggregateDevicesData(devices))

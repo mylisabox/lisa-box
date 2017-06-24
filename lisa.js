@@ -39,7 +39,7 @@ module.exports = (function () {
     let obj
     for (let i = 0; i < stack.length; i++) {
       obj = stack[i]
-      if (obj.getFileName().toLowerCase().indexOf('plugin-') != -1) {
+      if (obj.getFileName().toLowerCase().indexOf('plugin-') !== -1) {
         break
       }
     }
@@ -54,7 +54,7 @@ module.exports = (function () {
   const getCurrentPlugin = () => {
     const pathString = getCaller()
     const parts = pathString.split('/')
-    let part = parts.find(part => part.indexOf('lisa-plugin') != -1)
+    let part = parts.find(part => part.indexOf('lisa-plugin') !== -1)
     if (!part) {
       part = 'unknown'
     }
@@ -87,19 +87,21 @@ module.exports = (function () {
     }
 
     createRoom(name) {
-      return app.orm.Room.create({name: name}).then(room => {
+      return app.orm.Room.create({ name: name }).then(room => {
         return Promise.resolve(room.toJSON())
       })
     }
 
     createOrUpdateDevices(device, criteria) {
       const plugin = getCurrentPlugin()
-      device.pluginName = plugin
       this.log.debug(plugin)
       let promise
 
       if (Array.isArray(device)) {
-        const toCreate = device.filter(element => !element.id)
+        const toCreate = device.filter(element => !element.id).map(device => {
+          device.pluginName = plugin
+          return device
+        })
         const toUpdate = device.filter(element => element.id)
         const todo = []
 
@@ -114,6 +116,7 @@ module.exports = (function () {
         promise = Promise.all(todo)
       }
       else {
+        device.pluginName = plugin
         if (device.id) {
           promise = app.orm.Device.update(device, {
             where: {
@@ -202,7 +205,7 @@ module.exports = (function () {
     getPreferences() {
       const plugin = getCurrentPlugin()
       this.log.debug(plugin)
-      const cache = app.services.CacheService.getCaches('mongo-store')
+      const cache = app.services.CacheService.getStore('preferences')
 
       return new Promise((resolve, reject) => {
         cache.get(plugin + '_prefs', (err, preferences) => {
@@ -222,7 +225,7 @@ module.exports = (function () {
     setPreferences(preferences) {
       const plugin = getCurrentPlugin()
       this.log.debug(plugin)
-      const cache = app.services.CacheService.getCaches('mongo-store')
+      const cache = app.services.CacheService.getStore('preferences')
 
       return new Promise((resolve, reject) => {
         cache.set(plugin + '_prefs', preferences, err => {
