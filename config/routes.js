@@ -22,15 +22,6 @@ module.exports = [
     path: '/',
     handler: {
       directory: {
-        path: 'node_modules/lisa-ui/bundle-fr'
-      }
-    }
-  },
-  {
-    method: 'GET',
-    path: '/',
-    handler: {
-      directory: {
         path: 'node_modules/lisa-ui/bundle-en'
       }
     }
