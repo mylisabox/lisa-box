@@ -208,7 +208,6 @@ module.exports = class PluginService extends Service {
       return Promise.resolve(infos)
     }
     else {
-      infos.bot = infos.bot.toJSON()
       const roomPromise = []
 
       const keys = Object.keys(_.omit(infos.fields, ['room']))
