@@ -1,7 +1,6 @@
 'use strict'
 
 const Controller = require('trails/controller')
-const _ = require('lodash')
 const path = require('path')
 const manageErrors = require('../utils/error')
 

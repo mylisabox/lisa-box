@@ -26,9 +26,6 @@ module.exports = {
       'Passport.jwt'
     ]
   },
-  NavigationController: {
-    'privateRoutes': ['Passport.jwt']
-  },
   DefaultController: {
     'test': ['Passport.jwt']
   },
