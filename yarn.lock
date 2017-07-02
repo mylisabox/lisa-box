@@ -2449,13 +2449,9 @@ log-driver@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/log-driver/-/log-driver-1.2.5.tgz#7ae4ec257302fd790d557cb10c97100d857b0056"
 
-long@^3.2.0:
+long@^3.2.0, long@~3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/long/-/long-3.2.0.tgz#d821b7138ca1cb581c172990ef14db200b5c474b"
-
-long@~3:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/long/-/long-3.1.0.tgz#e465c877d6235da66d446c59ad814801e8739d42"
 
 longest@^1.0.1:
   version "1.0.1"
@@ -4004,9 +4000,9 @@ trailpack-cache@^3.0.0:
     cache-manager "^2.4.0"
     trailpack "^2.1.2"
 
-trailpack-chatbot@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/trailpack-chatbot/-/trailpack-chatbot-2.0.2.tgz#efb6a7d752a7eee653e2b72d5685baf466c3a069"
+trailpack-chatbot@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/trailpack-chatbot/-/trailpack-chatbot-2.0.4.tgz#bd128ae79d149fe1c50a2c820c0b27fe72e4256e"
   dependencies:
     trailpack "^2.1.2"
 
