@@ -11,7 +11,7 @@ const manageErrors = require('../utils/error')
  */
 module.exports = class PluginController extends Controller {
   image(req, res) {
-    let filePath = path.resolve(__dirname + '/../../plugins/' + req.params.id + '/images/' + req.params.name)
+    let filePath = path.resolve(__dirname + '/../../plugins/' + req.params.id + '/assets/images/' + req.params.name)
     if (req.params.subname) {
       filePath += '/' + req.params.subname
     }
@@ -23,7 +23,9 @@ module.exports = class PluginController extends Controller {
     delete req.query.query
 
     if (!req.query.query || req.query.query === '') {
-      this._find(req).then(elements => {
+      const options = this.app.packs.express.getOptionsFromQuery(req.query)
+      const criteria = req.params.id || this.app.packs.express.getCriteriaFromQuery(req.query)
+      this.app.services.PluginService.find(req.user.lang, criteria, options).then(elements => {
         res.status(elements ? 200 : 404).json(elements || {})
       }).catch(error => {
         if (error.code === 'E_VALIDATION') {
@@ -43,25 +45,11 @@ module.exports = class PluginController extends Controller {
     }
   }
 
-  _find(req) {
-    const footprintService = this.app.services.FootprintService
-    const options = this.app.packs.express.getOptionsFromQuery(req.query)
-    const criteria = this.app.packs.express.getCriteriaFromQuery(req.query)
-    const id = req.params.id
-    let response
-    if (id) {
-      response = footprintService.find('plugin', id, options)
-        .then(plugins => this._translatePlugin(req.user.lang, plugins))
-    }
-    else {
-      response = footprintService.find('plugin', criteria, options)
-        .then(plugins => this._translatePlugin(req.user.lang, plugins))
-    }
-    return response
-  }
-
   find(req, res) {
-    this._find(req).then(elements => {
+    const options = this.app.packs.express.getOptionsFromQuery(req.query)
+    const criteria = req.params.id || this.app.packs.express.getCriteriaFromQuery(req.query)
+
+    this.app.services.PluginService.find(req.user.lang, criteria, options).then(elements => {
       res.status(elements ? 200 : 404).json(elements || {})
     }).catch(error => {
       if (error.code === 'E_VALIDATION') {
@@ -101,98 +89,29 @@ module.exports = class PluginController extends Controller {
       })
   }
 
-  _translatePlugin(lang, plugins) {
-    const results = []
-    for (let plugin of plugins) {
-      plugin = plugin.toJSON()
-      const infos = plugin.infos
+  pairing(req, res) {
+    const plugin = req.params.id
+    const driver = req.params.driver
+    const data = req.body
 
-      const image = this._translateField(lang, infos.image)
-
-      const pluginData = {
-        id: plugin.name,
-        name: this._translateField(lang, infos.name),
-        description: this._translateField(lang, infos.description),
-        image: image ? '/plugin/' + plugin.name + '/images/' + image : null,
-        settings: this._translateSettings(lang, plugin.settings),
-        devicesSettings: this._translateDevices(lang, plugin, plugin.devicesSettings)
-      }
-      results.push(pluginData)
-    }
-    return results
+    this.app.services.PluginService.pairing(plugin, driver, data).then(results => {
+      res.json(results)
+    }).catch(err => {
+      res.status(500).send(res.boom.wrap(manageErrors(this.app, err), 500))
+    })
   }
 
-  _translateDevices(lang, plugin, devices) {
-    const translatedDevices = []
-    for (const device of devices) {
-      const image = this._translateField(lang, device.image)
-      const settings = this._translateSettings(lang, device.settings)
-      translatedDevices.push({
-        name: this._translateField(lang, device.name),
-        description: this._translateField(lang, device.description),
-        template: device.template,
-        driver: device.driver,
-        type: device.type,
-        image: image ? '/plugin/' + plugin.name + '/images/' + image : null,
-        settings: [{
-          controlType: 'textbox',
-          type: 'text',
-          name: 'name',
-          regexp: '^[a-zA-Z0-9_ -]+$',
-          minLength: 3,
-          maxLength: 20,
-          label: this._translateField(lang, {en: 'Name', fr: 'Nom'}),
-          required: true
-        },
-          {
-            controlType: 'textbox',
-            type: 'hidden',
-            name: 'pluginName',
-            defaultValue: plugin.name,
-            required: true
-          }].concat(settings),
-        pairing: device.pairing
-      })
-    }
-    return translatedDevices
+
+  getDevicesForPairing(req, res) {
+    const plugin = req.params.id
+    const driver = req.params.driver
+
+    this.app.services.PluginService.getDevicesForPairing(plugin, driver).then(results => {
+      res.json(results)
+    }).catch(err => {
+      res.status(500).send(res.boom.wrap(manageErrors(this.app, err), 500))
+    })
   }
 
-  _translateSettings(lang, settings) {
-    const translatedSettings = []
-    if (settings) {
-      for (const setting of settings) {
-        translatedSettings.push({
-          controlType: setting.controlType,
-          type: setting.type,
-          maxLength: setting.maxLength || 255,
-          minLength: setting.minLength || 0,
-          regexp: this._translateField(lang, setting.regexp),
-          defaultValue: setting.defaultValue,
-          name: setting.name,
-          label: this._translateField(lang, setting.label),
-          help: this._translateField(lang, setting.help),
-          required: setting.required,
-          private: setting.private,
-        })
-      }
-    }
-    return translatedSettings
-  }
-
-  _translateField(lang, field) {
-    let result
-    if (field) {
-      if (_.isString(field)) {
-        result = field
-      }
-      else if (field[lang]) {
-        result = field[lang]
-      }
-      else {
-        result = field['en']
-      }
-    }
-    return result
-  }
 }
 

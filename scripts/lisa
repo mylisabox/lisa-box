@@ -1,0 +1,31 @@
+#!/bin/sh
+
+case "$1" in
+  start)
+    echo "Starting script lisa "
+    rm /var/log/lisa*
+    cd /var/www/lisa-box/
+    forever start --uid "lisa" -l /var/log/lisa.log server.js
+    ;;
+  stop)
+    echo "Stopping script lisa"
+    forever stop lisa
+    ;;
+  restart)
+    /etc/init.d/lisa stop
+    /etc/init.d/lisa start
+    ;;
+  update)
+    /etc/init.d/lisa stop
+    cd /var/www/lisa-box
+    git pull
+    yarn
+    /etc/init.d/lisa start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/lisa {start|stop|restart|update}"
+    exit 1
+    ;;
+esac
+
+exit 0

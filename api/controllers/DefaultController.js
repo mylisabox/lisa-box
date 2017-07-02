@@ -1,6 +1,7 @@
 'use strict'
 
 const Controller = require('trails/controller')
+const path = require('path')
 const supportedLanguage = ['en', 'fr']
 
 /**
@@ -25,7 +26,7 @@ module.exports = class DefaultController extends Controller {
    * @param res
    */
   default(req, res) {
-    let lang = req.acceptsLanguages('en', 'en-US', 'en-UK', 'fr', 'fr-FR')
+    let lang = req.acceptsLanguages('en', 'en-US', 'en-UK')//, 'fr', 'fr-FR'
     if (lang) {
       lang = lang.substr(0, 2)
     }
@@ -34,10 +35,10 @@ module.exports = class DefaultController extends Controller {
     }
 
     if (req.query.lang && supportedLanguage.indexOf(req.query.lang) !== -1) {
-      lang = req.query.lang
+      lang = req.query.lang.substr(0, 2)
     }
 
-    res.sendfile(`node_modules/lisa-ui/bundle-${lang}/index.html`)
+    res.sendFile(path.resolve(`${__dirname}/../../node_modules/lisa-ui/bundle-${lang}/index.html`))
   }
 
   /**

@@ -212,7 +212,7 @@ module.exports = (function () {
           if (err) {
             reject(err)
           }
-          resolve(preferences)
+          resolve(preferences || {})
         })
       })
     }

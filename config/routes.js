@@ -107,6 +107,17 @@ module.exports = [
     handler: 'PluginController.search'
   },
   {
+    method: 'POST',
+    path: `${footprintsConfig.prefix}/plugin/{id}/drivers/{driver}/pairing`,
+    handler: 'PluginController.pairing'
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/plugin/{id}/drivers/{driver}/devices`,
+    handler: 'PluginController.getDevicesForPairing'
+
+  },
+  {
     method: 'GET',
     path: `${footprintsConfig.prefix}/plugin/{id}/images/{name}/{subname?}`,
     handler: 'PluginController.image',
