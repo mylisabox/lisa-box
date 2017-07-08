@@ -8,7 +8,7 @@ describe('LIGHT bot', () => {
   before(() => {
     service = global.app.services.ChatBotService
     ChatBot = global.app.orm.ChatBot
-    return global.app.orm.Room.create({name: 'Salon'}).then(() => {
+    return global.app.orm.Room.create({ name: 'Salon' }).then(() => {
       return global.app.services.ChatBotService.reloadBots()
     })
   })
@@ -44,6 +44,43 @@ describe('LIGHT bot', () => {
       assert.equal(infos.lang, 'fr')
       assert.equal(infos.fields.room, 'salon')
       assert.equal(infos.userSentence, 'allume le salon')
+    })
+  })
+
+  it('should return correct answer with dim params', () => {
+    return service.interact(1, 'fr', 'allume le salon à 10 %').then(infos => {
+      assert(infos)
+      assert.equal(infos.action, 'LIGHT_TURN_ON')
+      assert.equal(infos.botId, 'lights')
+      assert.equal(infos.lang, 'fr')
+      assert.equal(infos.fields.room, 'salon')
+      assert.equal(infos.fields.number, '10')
+      assert.equal(infos.userSentence, 'allume le salon à 10 %')
+    })
+  })
+
+  it('should return correct answer with color', () => {
+    return service.interact(1, 'fr', 'mettre le salon en bleu').then(infos => {
+      assert(infos)
+      assert.equal(infos.action, 'LIGHT_TURN_ON')
+      assert.equal(infos.botId, 'lights')
+      assert.equal(infos.lang, 'fr')
+      assert.equal(infos.fields.room, 'salon')
+      assert.equal(infos.fields.color, 'blue')
+      assert.equal(infos.userSentence, 'mettre le salon en bleu')
+    })
+  })
+
+  it('should return correct answer with color and dim', () => {
+    return service.interact(1, 'fr', 'mets le salon en bleu à 10 %').then(infos => {
+      assert(infos)
+      assert.equal(infos.action, 'LIGHT_TURN_ON')
+      assert.equal(infos.botId, 'lights')
+      assert.equal(infos.lang, 'fr')
+      assert.equal(infos.fields.room, 'salon')
+      assert.equal(infos.fields.color, 'blue')
+      assert.equal(infos.fields.number, '10')
+      assert.equal(infos.userSentence, 'mets le salon en bleu à 10 %')
     })
   })
 })

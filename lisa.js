@@ -109,9 +109,9 @@ module.exports = (function () {
           todo.push(app.orm.Device.bulkCreate(toCreate))
         }
         if (toUpdate.length > 0) {
-          //todo.push(app.orm.Plugin.bulkUpdate(toUpdate))
-          this.log.warn('bulk update from array is not supported yet')
-          todo.push(Promise.reject('bulk update from array is not supported yet'))
+          for (let deviceToUpdate of toUpdate) {
+            todo.push(this.createOrUpdateDevices(deviceToUpdate))
+          }
         }
         promise = Promise.all(todo)
       }

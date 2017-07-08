@@ -1,0 +1,8 @@
+
+/test/
+/scripts/
+/plugins/
+/.tmp/
+/.idea/
+/.github/
+/lisa.sqlite

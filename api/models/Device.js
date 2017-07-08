@@ -15,17 +15,15 @@ module.exports = class Device extends Model {
       options: {
         instanceMethods: {
           toJSON: function () {
-            const values = this.dataValues
-            values.data = this.data
-            values.template = this.template
+            const values = this.get()
             delete values.privateData
+            delete values.plugin
             return values
           },
           toRawData: function () {
-            const values = this.dataValues
-            values.data = this.data
-            values.privateData = this.privateData
-            values.template = this.template
+            const privateData = this.privateData
+            const values = this.toJSON()
+            values.privateData = privateData
             return values
           }
         },

@@ -1744,14 +1744,14 @@ growl@1.9.2:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.9.2.tgz#0ea7743715db8d8de2c5ede1775e1b45ac85c02f"
 
-grpc@^1.2, grpc@^1.3.1:
-  version "1.3.8"
-  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.3.8.tgz#37d113c1ac402ad14edca7d38dcf90624c2e79e4"
+grpc@1.4.1, grpc@^1.2, grpc@^1.3.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.4.1.tgz#3ee4a8346a613f2823928c9f8f99081b6368ec7c"
   dependencies:
     arguejs "^0.2.3"
     lodash "^4.15.0"
     nan "^2.0.0"
-    node-pre-gyp "^0.6.0"
+    node-pre-gyp "^0.6.35"
     protobufjs "^5.0.0"
 
 gtoken@^1.2.1:
@@ -2689,7 +2689,7 @@ node-forge@^0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.7.1.tgz#9da611ea08982f4b94206b3beb4cc9665f20c300"
 
-node-pre-gyp@^0.6.0, node-pre-gyp@^0.6.30, node-pre-gyp@~0.6.31:
+node-pre-gyp@^0.6.30, node-pre-gyp@^0.6.35, node-pre-gyp@~0.6.31:
   version "0.6.36"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.36.tgz#db604112cb74e0d477554e9b505b17abddfab786"
   dependencies:
@@ -4000,9 +4000,9 @@ trailpack-cache@^3.0.0:
     cache-manager "^2.4.0"
     trailpack "^2.1.2"
 
-trailpack-chatbot@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/trailpack-chatbot/-/trailpack-chatbot-2.0.4.tgz#bd128ae79d149fe1c50a2c820c0b27fe72e4256e"
+trailpack-chatbot@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/trailpack-chatbot/-/trailpack-chatbot-2.0.5.tgz#8fe4cbc81fa3dcff247b3a61b09b23a0bc13cae4"
   dependencies:
     trailpack "^2.1.2"
 

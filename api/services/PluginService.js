@@ -227,10 +227,7 @@ module.exports = class PluginService extends Service {
         if (param) {
           if (_.isPlainObject(param)) {
             roomPromise.push(new Promise((resolve, reject) => {
-              infos.fields[key] = {
-                name: infos.fields[key],
-                value: param[infos.fields[key]]
-              }
+              infos.fields[key] = param[infos.fields[key]]
               resolve()
             }))
           }

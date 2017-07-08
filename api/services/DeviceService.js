@@ -24,19 +24,26 @@ module.exports = class DeviceService extends Service {
   aggregateDevicesData(devices) {
     const pluginService = this.app.services.PluginService
     const fullData = []
-    //TODO sort all devices by driver to call plugin once with all his devices
-    for (let device of devices) {
-      if (process.env.DEMO_MODE) {
-        fullData.push(Promise.resolve([device]))
-      }
-      else {
-        fullData.push(pluginService.callOnPluginDriver('getDevicesData', device.pluginName, device.driver, [[device]])
-          .catch(e => e))
+
+    const devicesByPlugin = this._sortDevicesByPlugin(devices)
+
+    for (const pluginName in devicesByPlugin) {
+      for (const driverName in devicesByPlugin[pluginName]) {
+        if (process.env.DEMO_MODE) {
+          fullData.push(Promise.resolve(devicesByPlugin[pluginName][driverName]))
+        }
+        else {
+          fullData.push(
+            pluginService.callOnPluginDriver('getDevicesData', pluginName, driverName,
+              [devicesByPlugin[pluginName][driverName]]
+            )
+              .catch(e => e))
+        }
       }
     }
     return Promise.all(fullData).then(devicesData => {
       let devices = []
-      for (let deviceData of devicesData) {
+      for (const deviceData of devicesData) {
         if (_.isArray(deviceData)) {
           devices = devices.concat(deviceData)
         }
@@ -46,5 +53,19 @@ module.exports = class DeviceService extends Service {
       }
       return devices
     })
+  }
+
+  _sortDevicesByPlugin(devices) {
+    const devicesByPlugin = {}
+    for (const device of devices) {
+      if (!devicesByPlugin[device.pluginName]) {
+        devicesByPlugin[device.pluginName] = {}
+      }
+      if (!devicesByPlugin[device.pluginName][device.driver]) {
+        devicesByPlugin[device.pluginName][device.driver] = []
+      }
+      devicesByPlugin[device.pluginName][device.driver].push(device.toRawData())
+    }
+    return devicesByPlugin
   }
 }

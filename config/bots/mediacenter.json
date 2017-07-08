@@ -133,7 +133,8 @@
       "sentences": {
         "fr": [
           "(?:pause|pose)(?: +\\w+){0,5} +lecture(?: +\\w+){0,2} +%room%",
-          "(?:pause|pose)(?: +\\w+){0,5} +lecture"
+          "(?:pause|pose)(?: +\\w+){0,5} +lecture",
+          "(?:mettre|met|mets|mais) pause"
         ],
         "en": [
           "pause(?: +\\w+){0,5} +media center(?: +\\w+){0,2} +%room%",

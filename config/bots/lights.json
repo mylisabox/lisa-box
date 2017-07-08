@@ -1,44 +1,28 @@
 {
   "name": "Lights",
   "freeStates": {
-    "LIGHT_ALL": {
-      "name": "Change light state",
-      "sentences": {
-        "fr": [
-          "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% en %color%(?: +\\w+){0,5} +%number% (?:pourcent|%)",
-          "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% à %number% (?:pourcent|%) %color%"
-        ],
-        "en": [
-          "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %number% (?:percent|%) %color%",
-          "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %color%(?: +\\w+){0,5} +%number% (?:percent|%)"
-        ]
-      },
-      "responses": {
-        "fr": [
-          "Voila",
-          "C'est fait"
-        ],
-        "en": [
-          "Done",
-          "It's done"
-        ]
-      }
-    },
     "LIGHT_TURN_ON": {
       "name": "Turn light on",
       "sentences": {
         "fr": [
-          "(?:allume|mets|mais|mettre) la lumière",
+          "(?:allume|mets|mais|mettre) les lumière",
+          "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% en %color% à +%number% (?:pourcent|%)",
+          "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% à %number% (?:pourcent|%) %color%",
+          "(?:mets|mettre|met|mais|change|allume|allumer)(?: +\\w+){0,5} +%room%(?: +\\w+){0,2} +%color%",
+          "change la couleur(?: +\\w+){0,2} +%room% à %color%",
+          "allume(?: +\\w+){0,2} +lumière(?: +\\w+){0,2} +%room% à %number% (?:pourcent|%)",
           "allume(?: +\\w+){0,2} +lumière(?: +\\w+){0,2} +%room%",
-          "allume(?: +\\w+){0,2} +lumière(?: +\\w+){0,2} +%room%(?: +\\w+){0,2} +%number% (?:pourcent|%)",
-          "allume(?: +\\w+){0,4} +%room%",
-          "allume(?: +\\w+){0,4} +%room%(?: +\\w+){0,2} +%number% (?:pourcent|%)"
+          "allume(?: +\\w+){0,4} +%room% à %number% (?:pourcent|%)",
+          "allume(?: +\\w+){0,4} +%room%"
         ],
         "en": [
           "light",
-          "(?:turn|switch) on(?: +\\w+){0,2} +%room%",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %number% (?:percent|%) %color%",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %color%(?: +\\w+){0,5} +%number% (?:percent|%)",
+          "(?:turn|switch|change|put|set)(?: +\\w+){0,5} +%room% in %color%",
+          "(?:turn|switch)(?: +\\w+){0,2} +%room% on(?: +\\w+){0,2} +(?: +\\w+){0,2} +%number% (?:percent|%)",
           "(?:turn|switch)(?: +\\w+){0,2} +%room% on",
-          "(?:turn|switch)(?: +\\w+){0,2} +%room% on(?: +\\w+){0,2} +(?: +\\w+){0,2} +%number% (?:percent|%)"
+          "(?:turn|switch) on(?: +\\w+){0,2} +%room%"
         ]
       },
       "responses": {
@@ -87,28 +71,6 @@
         "en": [
           "light(?: +\\w+){0,5} +%room% to %number% (?:percent|%)",
           "brightness(?: +\\w+){0,5} +%room% to %number% (?:percent|%)"
-        ]
-      },
-      "responses": {
-        "fr": [
-          "Voila",
-          "C'est fait"
-        ],
-        "en": [
-          "Done",
-          "It's done"
-        ]
-      }
-    },
-    "LIGHT_COLOR": {
-      "name": "Change light color",
-      "sentences": {
-        "fr": [
-          "change la couleur(?: +\\w+){0,2} +%room% à %color%",
-          "(?:mets|mettre|met|mais|change)(?: +\\w+){0,5} +%room%(?: +\\w+){0,2} +%color%"
-        ],
-        "en": [
-          "(?:turn|switch|change|put|set)(?: +\\w+){0,5} +%room% in %color%"
         ]
       },
       "responses": {
