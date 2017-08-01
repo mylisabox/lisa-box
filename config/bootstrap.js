@@ -27,9 +27,10 @@ module.exports = (app) => {
     app.bonjour = bonjour
 
     const language = app.env.LANG || 'en-US'
+
     const voiceCommand = new VoiceCommand({
       mode: LISA.MODE_INTERNAL,
-      //matrix: '192.168.1.20',
+      matrix: '192.168.1.26',
       gSpeech: './config/speech/LISA-gfile.json',
       language: language
     })
@@ -59,7 +60,7 @@ module.exports = (app) => {
     })
 
     /*eslint-disable */
-    const plugins = ['lisa-plugin-hue', 'lisa-plugin-sony-vpl', 'lisa-plugin-kodi', 'lisa-plugin-cam-mjpeg']
+    const plugins = ['lisa-plugin-hue', 'lisa-plugin-sony-vpl', 'lisa-plugin-kodi', 'lisa-plugin-cam-mjpeg', 'lisa-plugin-bose-soundtouch']
     //FIXME later plugins will be manage automatically from a plugin store, for now let's do it manually here
     for (const plugin of plugins) {
       try {

@@ -109,7 +109,7 @@ module.exports = (function () {
           todo.push(app.orm.Device.bulkCreate(toCreate))
         }
         if (toUpdate.length > 0) {
-          for (let deviceToUpdate of toUpdate) {
+          for (const deviceToUpdate of toUpdate) {
             todo.push(this.createOrUpdateDevices(deviceToUpdate))
           }
         }
@@ -268,7 +268,7 @@ module.exports = (function () {
     }
 
     get log() {
-      return app.log
+      return app.config.log.pluginLogger
     }
 
     get _() {
