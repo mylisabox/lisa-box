@@ -94,7 +94,7 @@ module.exports = (function () {
 
     createOrUpdateDevices(device, criteria) {
       const plugin = getCurrentPlugin()
-      this.log.debug(plugin)
+      //this.log.debug(plugin)
       let promise
 
       if (Array.isArray(device)) {
@@ -161,7 +161,7 @@ module.exports = (function () {
     findDevices(criteria) {
       criteria = criteria || {}
       const plugin = getCurrentPlugin()
-      this.log.debug(plugin)
+      //this.log.debug(plugin)
       criteria.pluginName = plugin
 
       const promise = criteria.id ? app.orm.Device.find({
@@ -268,7 +268,31 @@ module.exports = (function () {
     }
 
     get log() {
-      return app.config.log.pluginLogger
+      const getArguments = (args) => {
+        const plugin = getCurrentPlugin()
+        const mainArguments = Array.prototype.slice.call(args)
+        return [plugin + ':'].concat(mainArguments)
+      }
+      return {
+        debug: function () {
+          app.config.log.pluginLogger.debug.apply(this, getArguments(arguments))
+        },
+        info: function () {
+          app.config.log.pluginLogger.info.apply(this, getArguments(arguments))
+        },
+        error: function () {
+          app.config.log.pluginLogger.error.apply(this, getArguments(arguments))
+        },
+        silly: function () {
+          app.config.log.pluginLogger.silly.apply(this, getArguments(arguments))
+        },
+        verbose: function () {
+          app.config.log.pluginLogger.verbose.apply(this, getArguments(arguments))
+        },
+        warn: function () {
+          app.config.log.pluginLogger.warn.apply(arguments)
+        }
+      }
     }
 
     get _() {

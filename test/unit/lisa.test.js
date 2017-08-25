@@ -21,7 +21,6 @@ describe('LISA', () => {
     assert.equal(lisa.i18n, 'i18n')
     assert.equal(lisa.bonjour, 'bonjour')
     assert.equal(lisa.serialPort, 'serialPort')
-    assert.equal(lisa.log, console.log)
   })
 
   it('should be an event emitter', () => {
