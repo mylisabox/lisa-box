@@ -83,8 +83,122 @@
           "It's done"
         ]
       }
+    },
+    "DECREASE_LIGHT_BRIGHTNESS": {
+      "name": "Decrease light's brightness",
+      "sentences": {
+        "fr": [
+          "baisse(?: +\\w+){0,2} + lumière(?: +\\w+){0,5} +%room% de %number% (?:pourcent|%)"
+        ],
+        "en": [
+          "decrease the light(?: +\\w+){0,5} +%room% of %number% (?:percent|%)"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    },
+    "INCREASE_LIGHT_BRIGHTNESS": {
+      "name": "Increase light's brightness",
+      "sentences": {
+        "fr": [
+          "augmente(?: +\\w+){0,2} + lumière(?: +\\w+){0,5} +%room% de %number% (?:pourcent|%)"
+        ],
+        "en": [
+          "increase the light(?: +\\w+){0,5} +%room% of %number% (?:percent|%)"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
     }
   },
-  "nestedStates": {},
-  "links": []
+  "nestedStates": {
+    "DECREASE_LIGHT_BRIGHTNESS_AGAIN": {
+      "name": "Decrease brightness again",
+      "responses": {
+        "fr": [
+          "voulez baisser plus ?"
+        ],
+        "en": [
+          "do you want to decrease more ?"
+        ]
+      }
+    },
+    "INCREASE_LIGHT_BRIGHTNESS_AGAIN": {
+      "name": "Increase volume again",
+      "responses": {
+        "fr": [
+          "voulez vous monter plus ?"
+        ],
+        "en": [
+          "do you want to increase more ?"
+        ]
+      }
+    }
+  },
+  "links": [
+    {
+      "from": "INCREASE_LIGHT_BRIGHTNESS",
+      "to": "INCREASE_LIGHT_BRIGHTNESS_AGAIN",
+      "sentences": {
+        "fr": [
+          "%acceptance%"
+        ],
+        "en": [
+          "%acceptance%"
+        ]
+      }
+    },
+    {
+      "from": "INCREASE_LIGHT_BRIGHTNESS_AGAIN",
+      "to": "INCREASE_LIGHT_BRIGHTNESS_AGAIN",
+      "sentences": {
+        "fr": [
+          "%acceptance%"
+        ],
+        "en": [
+          "%acceptance%"
+        ]
+      }
+    },
+    {
+      "from": "DECREASE_LIGHT_BRIGHTNESS",
+      "to": "DECREASE_LIGHT_BRIGHTNESS_AGAIN",
+      "sentences": {
+        "fr": [
+          "%acceptance%"
+        ],
+        "en": [
+          "%acceptance%"
+        ]
+      }
+    },
+    {
+      "from": "DECREASE_LIGHT_BRIGHTNESS_AGAIN",
+      "to": "DECREASE_LIGHT_BRIGHTNESS_AGAIN",
+      "sentences": {
+        "fr": [
+          "%acceptance%"
+        ],
+        "en": [
+          "%acceptance%"
+        ]
+      }
+    }
+  ]
 }

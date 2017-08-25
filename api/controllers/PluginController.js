@@ -20,28 +20,22 @@ module.exports = class PluginController extends Controller {
   search(req, res) {
     const query = req.query.query
     delete req.query.query
-
-    if (!req.query.query || req.query.query === '') {
-      const options = this.app.packs.express.getOptionsFromQuery(req.query)
-      const criteria = req.params.id || this.app.packs.express.getCriteriaFromQuery(req.query)
-      this.app.services.PluginService.find(req.user.lang, criteria, options).then(elements => {
-        res.status(elements ? 200 : 404).json(elements || {})
-      }).catch(error => {
-        if (error.code === 'E_VALIDATION') {
-          res.status(400).json(error)
-        }
-        else if (error.code === 'E_NOT_FOUND') {
-          res.status(404).json(error)
-        }
-        else {
-          res.status(500).send(res.boom.wrap(manageErrors(this.app, error), 500))
-        }
-      })
-    }
-    else {
-      this.log(query)
-      //TODO DO SEARCH
-    }
+    this.log.debug(query)
+    const options = this.app.packs.express.getOptionsFromQuery(req.query)
+    const criteria = req.params.id || this.app.packs.express.getCriteriaFromQuery(req.query)
+    this.app.services.PluginService.find(req.user.lang, criteria, options).then(elements => {
+      res.status(elements ? 200 : 404).json(elements || {})
+    }).catch(error => {
+      if (error.code === 'E_VALIDATION') {
+        res.status(400).json(error)
+      }
+      else if (error.code === 'E_NOT_FOUND') {
+        res.status(404).json(error)
+      }
+      else {
+        res.status(500).send(res.boom.wrap(manageErrors(this.app, error), 500))
+      }
+    })
   }
 
   find(req, res) {

@@ -5,11 +5,12 @@
 const LISA = require('../lisa')
 //const serialPort = require('serialport')
 const bonjour = require('bonjour')()
+//const nmap = require('node-nmap')
 
 module.exports = (app) => {
   app.services.WebSocketService.init()
-
   app.lisa = new LISA(app)
+
   if (app.env.NODE_ENV !== 'testing') {
     // advertise an HTTP server on configured port
     const VoiceCommand = require('lisa-standalone-voice-command')
@@ -27,9 +28,10 @@ module.exports = (app) => {
     app.bonjour = bonjour
 
     const language = app.env.LANG || 'en-US'
+
     const voiceCommand = new VoiceCommand({
       mode: LISA.MODE_INTERNAL,
-      //matrix: '192.168.1.20',
+      //matrix: '192.168.1.26',
       gSpeech: './config/speech/LISA-gfile.json',
       language: language
     })
@@ -48,10 +50,16 @@ module.exports = (app) => {
           .then(result => {
             app.log.debug('bot results')
             app.log.debug(JSON.stringify(result))
-            return app.services.PluginService.interact(result).then(results => {
-              //app.log.debug('plugin results')
-              //app.log.debug(results)
-            })
+            if (result.action === 'UNKNOWN') {
+              voiceCommand.setMatrixColor({ g: 150, r: 150 }, true)
+              return Promise.resolve()
+            }
+            else {
+              return app.services.PluginService.interact(result).then(results => {
+                //app.log.debug('plugin results')
+                //app.log.debug(results)
+              })
+            }
           }).catch(err => {
           app.log.error(err)
         })
@@ -59,7 +67,7 @@ module.exports = (app) => {
     })
 
     /*eslint-disable */
-    const plugins = ['lisa-plugin-hue', 'lisa-plugin-sony-vpl', 'lisa-plugin-kodi', 'lisa-plugin-cam-mjpeg']
+    const plugins = ['lisa-plugin-hue', 'lisa-plugin-sony-vpl', 'lisa-plugin-kodi', 'lisa-plugin-cam-mjpeg', 'lisa-plugin-bose-soundtouch']
     //FIXME later plugins will be manage automatically from a plugin store, for now let's do it manually here
     for (const plugin of plugins) {
       try {

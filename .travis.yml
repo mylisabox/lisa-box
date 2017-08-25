@@ -16,6 +16,9 @@ addons:
     - gcc-4.8
     - g++-4.8
     - clang-3.8
+    - libzmq3-dbg
+    - libzmq3-dev
+    - libzmq3
 services:
   - mongodb
 env:
