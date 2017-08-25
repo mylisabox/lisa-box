@@ -27,12 +27,12 @@ describe('LIGHT bot', () => {
   })
 
   it('should return correct answer', () => {
-    return service.interact(1, 'fr', 'allume la lumière').then(infos => {
+    return service.interact(1, 'fr', 'allume les lumière').then(infos => {
       assert(infos)
       assert.equal(infos.action, 'LIGHT_TURN_ON')
       assert.equal(infos.botId, 'lights')
       assert.equal(infos.lang, 'fr')
-      assert.equal(infos.userSentence, 'allume la lumière')
+      assert.equal(infos.userSentence, 'allume les lumière')
     })
   })
 
