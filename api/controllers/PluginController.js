@@ -20,7 +20,7 @@ module.exports = class PluginController extends Controller {
   search(req, res) {
     const query = req.query.query
     delete req.query.query
-
+    this.log.debug(query)
     const options = this.app.packs.express.getOptionsFromQuery(req.query)
     const criteria = req.params.id || this.app.packs.express.getCriteriaFromQuery(req.query)
     this.app.services.PluginService.find(req.user.lang, criteria, options).then(elements => {
