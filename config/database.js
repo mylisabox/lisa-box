@@ -37,7 +37,9 @@ module.exports = {
               app.services.NotificationService.sendWebNotification(instance)
             }
             else {
-              app.sockets.room(modelName).send('create', modelName, instance)
+              if (app.sockets.room) {
+                app.sockets.room(modelName).send('create', modelName, instance)
+              }
             }
             if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
               app.services.ChatBotService.reloadBots().then(() => fn()).catch(err => fn())

@@ -199,6 +199,78 @@
       }
     }
   },
-  "nestedStates": {},
-  "links": []
+  "nestedStates": {
+    "DECREASE_VOLUME_AGAIN": {
+      "name": "Decrease volume again",
+      "responses": {
+        "fr": [
+          "voulez baisser plus ?"
+        ],
+        "en": [
+          "do you want to decrease more ?"
+        ]
+      }
+    },
+    "INCREASE_VOLUME_AGAIN": {
+      "name": "Increase volume again",
+      "responses": {
+        "fr": [
+          "voulez vous monter plus ?"
+        ],
+        "en": [
+          "do you want to increase more ?"
+        ]
+      }
+    }
+  },
+  "links": [
+    {
+      "from": "INCREASE_VOLUME",
+      "to": "INCREASE_VOLUME_AGAIN",
+      "sentences": {
+        "fr": [
+          "%acceptance%"
+        ],
+        "en": [
+          "%acceptance%"
+        ]
+      }
+    },
+    {
+      "from": "INCREASE_VOLUME_AGAIN",
+      "to": "INCREASE_VOLUME_AGAIN",
+      "sentences": {
+        "fr": [
+          "%acceptance%"
+        ],
+        "en": [
+          "%acceptance%"
+        ]
+      }
+    },
+    {
+      "from": "DECREASE_VOLUME",
+      "to": "DECREASE_VOLUME_AGAIN",
+      "sentences": {
+        "fr": [
+          "%acceptance%"
+        ],
+        "en": [
+          "%acceptance%"
+        ]
+      }
+    },
+    {
+      "from": "DECREASE_VOLUME_AGAIN",
+      "to": "DECREASE_VOLUME_AGAIN",
+      "sentences": {
+        "fr": [
+          "%acceptance%"
+        ],
+        "en": [
+          "%acceptance%"
+        ]
+      }
+    }
+  ]
 }

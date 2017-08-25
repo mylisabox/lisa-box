@@ -1,0 +1,55 @@
+{
+  "name": "Devices",
+  "freeStates": {
+    "DEVICE_TURN_ON": {
+      "name": "Turn device on",
+      "sentences": {
+        "fr": [
+          "allume(?: +\\w+){0,2} +%device% du %room%",
+          "allume(?: +\\w+){0,2} +%device% dans(?: +\\w+){0,2} +%room%",
+          "allume(?: +\\w+){0,2} +%device%"
+        ],
+        "en": [
+          "(?:turn|switch) on(?: +\\w+){0,2} +%device% in(?: +\\w+){0,2} +%room%",
+          "(?:turn|switch) on(?: +\\w+){0,2} +%device%"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "L'appareil est allumé"
+        ],
+        "en": [
+          "Device is on",
+          "It's done"
+        ]
+      }
+    },
+    "DEVICE_TURN_OFF": {
+      "name": "Turn device off",
+      "sentences": {
+        "fr": [
+          "(?:éteins|éteint|éteindre)(?: +\\w+){0,2} +%device% du %room%",
+          "(?:éteins|éteint|éteindre)(?: +\\w+){0,2} +%device% dans(?: +\\w+){0,2} +%room%",
+          "(?:éteins|éteint|éteindre)(?: +\\w+){0,2} +%device%"
+        ],
+        "en": [
+          "(?:turn|switch) off(?: +\\w+){0,2} +%device% in(?: +\\w+){0,2} +%room%",
+          "(?:turn|switch) off(?: +\\w+){0,2} +%device%"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "L'appareil est éteinte"
+        ],
+        "en": [
+          "Device is off",
+          "It's done"
+        ]
+      }
+    }
+  },
+  "nestedStates": {},
+  "links": []
+}

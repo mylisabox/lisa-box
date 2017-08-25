@@ -26,6 +26,11 @@ module.exports = {
         return rooms.map(room => room.name)
       })
     },
+    device: app => {
+      return app.orm.Device.findAll().then(devices => {
+        return devices.map(device => device.name)
+      })
+    },
     movie: '([0-9a-zA-Z ]+)',
     show: '([0-9a-zA-Z ]+)',
     color: {

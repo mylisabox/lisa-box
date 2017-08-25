@@ -23,6 +23,17 @@ module.exports = {
         colorize: true
       })
     ]
+  }),
+
+  pluginLogger: new winston.Logger({
+    level: 'debug',
+    exitOnError: true,
+    transports: [
+      new (winston.transports.Console)({
+        prettyPrint: true,
+        colorize: true
+      })
+    ]
   })
 
 }

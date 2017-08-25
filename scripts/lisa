@@ -1,17 +1,30 @@
 #!/bin/sh
+### BEGIN INIT INFO
+# Provides:          lisa
+# Required-Start:    avahi-daemon alsa-utils mongodb $all
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: lisa server
+# Description:       lisa server
+### END INIT INFO
+
+export NODE_ENV=production
+#export AUDIODEV=mic_channel8 #for pi3 and matrix board
+#export LANG=fr-FR #force env lang constant
 
 case "$1" in
   start)
-    echo "Starting script lisa "
+    echo "Starting L.I.S.A."
     rm /var/log/lisa*
     cd /var/www/lisa-box/
     forever start --uid "lisa" -l /var/log/lisa.log server.js
     ;;
   stop)
-    echo "Stopping script lisa"
+    echo "Stopping L.I.S.A."
     forever stop lisa
     ;;
-  restart)
+  reload|force-reload|restart)
     /etc/init.d/lisa stop
     /etc/init.d/lisa start
     ;;
@@ -22,8 +35,15 @@ case "$1" in
     yarn
     /etc/init.d/lisa start
     ;;
+  status)
+    if (forever list | grep lisa); then
+      echo "L.I.S.A. is running"
+    else
+      echo "L.I.S.A. is not running"
+    fi
+    ;;
   *)
-    echo "Usage: /etc/init.d/lisa {start|stop|restart|update}"
+    echo "Usage: /etc/init.d/lisa {start|stop|reload|force-reload|restart|status|update}"
     exit 1
     ;;
 esac

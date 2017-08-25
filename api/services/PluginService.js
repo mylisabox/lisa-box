@@ -222,6 +222,22 @@ module.exports = class PluginService extends Service {
           })
         )
       }
+      else {
+        roomPromise.push(Promise.resolve())
+      }
+      if (infos.fields.device) {
+        roomPromise.push(this.app.orm.Device.find({
+            where: {
+              name: {
+                $like: infos.fields.device
+              }
+            }
+          })
+        )
+      }
+      else {
+        roomPromise.push(Promise.resolve())
+      }
       keys.forEach(key => {
         const param = this.app.config.chatbot.params[key]
         if (param) {
@@ -252,6 +268,13 @@ module.exports = class PluginService extends Service {
         }
         else {
           infos.fields.room = null
+        }
+        const device = results[1]
+        if (device) {
+          infos.fields.device = device.toRawData()
+        }
+        else {
+          infos.fields.device = null
         }
         return this.callOnPlugins('interact', [infos.action, infos])
           .then(result => {
