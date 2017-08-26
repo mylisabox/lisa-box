@@ -56,6 +56,9 @@ module.exports = (app) => {
             }
             else {
               return app.services.PluginService.interact(result).then(results => {
+                setTimeout(() => {
+                  voiceCommand.trigger(1)
+                }, 1000)
                 //app.log.debug('plugin results')
                 //app.log.debug(results)
               })
