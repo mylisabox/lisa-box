@@ -31,7 +31,7 @@ module.exports = (app) => {
 
     const voiceCommand = new VoiceCommand({
       mode: LISA.MODE_INTERNAL,
-      //matrix: '192.168.1.26',
+      matrix: '127.0.0.1',
       gSpeech: './config/speech/LISA-gfile.json',
       language: language
     })
@@ -48,17 +48,15 @@ module.exports = (app) => {
         app.services.ChatBotService.interact(null, language.substring(0, 2) || this.app.config.chatbot.defaultLang,
           sentence, null)
           .then(result => {
-            app.log.debug('bot results')
-            app.log.debug(JSON.stringify(result))
+            app.log.debug('bot results: ' + JSON.stringify(result))
             if (result.action === 'UNKNOWN') {
+              voiceCommand.speak(result.responses[0])
               voiceCommand.setMatrixColor({ g: 150, r: 150 }, true)
               return Promise.resolve()
             }
             else {
               return app.services.PluginService.interact(result).then(results => {
-                setTimeout(() => {
-                  voiceCommand.trigger(1)
-                }, 1000)
+                voiceCommand.speak(result.responses[0])
                 //app.log.debug('plugin results')
                 //app.log.debug(results)
               })
