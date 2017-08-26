@@ -14,6 +14,7 @@ module.exports = {
   defaultLang: (process.env.LANG || 'en').substr(0, 2),
   defaultAnswer: (app, data) => {
     data.action = 'UNKNOWN'
+    data.responses = []
     return Promise.resolve(data)
   },
   /**
