@@ -2302,9 +2302,9 @@ lisa-plugins-manager@^0.0.17:
     snyk "^1.29.0"
     trailpack "^2.1.2"
 
-lisa-standalone-voice-command@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/lisa-standalone-voice-command/-/lisa-standalone-voice-command-0.0.9.tgz#9afe6fb2d306b5e2fb3c8eda37ee94828ebcb296"
+lisa-standalone-voice-command@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/lisa-standalone-voice-command/-/lisa-standalone-voice-command-0.0.10.tgz#6ea7225f17f0e2ba090720f6e241ef2f0dcad0ed"
   dependencies:
     matrix-protos "^0.0.13"
     pico-speaker "^0.0.7"
