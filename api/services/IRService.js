@@ -2,6 +2,7 @@
 
 const Service = require('trails/service')
 const IRRecord = require('../utils/irrecord')
+const LIRC = require('lisa-lirc')
 
 /**
  * @module IRService
@@ -31,6 +32,18 @@ module.exports = class IRService extends Service {
 
     this.irrecord.on('button', () => {
       app.sockets.room('button').send('button')
+    })
+  }
+
+  init() {
+    return LIRC.init().catch(err => this.log.error(err))
+  }
+
+  send(remote, action) {
+    return new Promise((resolve, reject) => {
+      LIRC.irsend.send_once(remote, action, () => {
+        resolve()
+      })
     })
   }
 

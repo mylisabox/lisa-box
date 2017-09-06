@@ -8,7 +8,7 @@ const Controller = require('trails/controller')
  */
 module.exports = class ChatBotController extends Controller {
   interact(req, res) {
-    return this.app.services.ChatBotService.interact(req.user ? req.user.id : null,
+    return this.app.services.ChatBotService.interact(req.user ? req.user.id : req.headers['device-id'],
       req.body.lang || req.params.lang || this.app.config.chatbot.defaultLang,
       req.body.sentence, req.body.id || req.params.id)
       .then(result => {

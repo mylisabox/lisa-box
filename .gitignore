@@ -41,3 +41,4 @@ jspm_packages
 /typings/
 /plugins/*
 /config/speech/LISA-gfile.json
+/identifier

@@ -3,19 +3,21 @@
  * @param app Trails application
  */
 const LISA = require('../lisa')
+const fs = require('fs')
 //const serialPort = require('serialport')
 const bonjour = require('bonjour')()
 //const nmap = require('node-nmap')
 
 module.exports = (app) => {
   app.services.WebSocketService.init()
+  app.services.IRService.init()
   app.lisa = new LISA(app)
 
   if (app.env.NODE_ENV !== 'testing') {
     // advertise an HTTP server on configured port
     const VoiceCommand = require('lisa-standalone-voice-command')
-    const mdns = require('mdns-js')
-    const service = mdns.createAdvertisement(mdns.tcp('_http'), app.config.web.port, {
+    const mdns = require('mdns')
+    const service = mdns.createAdvertisement(mdns.tcp('http'), 4321, {
       name: 'LISA',
       txt: {
         port: app.config.web.port
@@ -30,59 +32,32 @@ module.exports = (app) => {
     const language = app.env.LANG || 'en-US'
 
     const voiceCommand = new VoiceCommand({
-      mode: LISA.MODE_INTERNAL,
-      matrix: '127.0.0.1',
+      matrix: '192.168.1.26',
+      url: 'http://127.0.0.1:3000',
       gSpeech: './config/speech/LISA-gfile.json',
       language: language
     })
-
-    app.on('stop', () => {
-      voiceCommand.stop()
-    })
-
     voiceCommand.on('hotword', () => app.log.debug('hey lisa detected'))
     voiceCommand.on('error', error => app.log.error(error))
-    voiceCommand.on('final-result', sentence => {
-      app.log.debug(sentence + ' detected')
-      if (sentence && sentence !== '') {
-        app.services.ChatBotService.interact(null, language.substring(0, 2) || this.app.config.chatbot.defaultLang,
-          sentence, null)
-          .then(result => {
-            app.log.debug('bot results: ' + JSON.stringify(result))
-            if (result.action === 'UNKNOWN') {
-              voiceCommand.speak(result.responses[0])
-              voiceCommand.setMatrixColor({ g: 150, r: 150 }, true)
-              return Promise.resolve()
-            }
-            else {
-              return app.services.PluginService.interact(result).then(results => {
-                voiceCommand.speak(result.responses[0])
-                //app.log.debug('plugin results')
-                //app.log.debug(results)
-              })
-            }
-          }).catch(err => {
-          app.log.error(err)
-        })
-      }
-    })
+    voiceCommand.on('final-result', sentence => app.log.debug(sentence + ' detected'))
+    voiceCommand.on('bot-result', result => app.log.debug(result))
 
     /*eslint-disable */
-    const plugins = ['lisa-plugin-hue', 'lisa-plugin-sony-vpl', 'lisa-plugin-kodi', 'lisa-plugin-cam-mjpeg', 'lisa-plugin-bose-soundtouch']
-    //FIXME later plugins will be manage automatically from a plugin store, for now let's do it manually here
-    for (const plugin of plugins) {
-      try {
-        app.services.PluginService._addPlugin(plugin).then(plugin => {
-          console.log(plugin, app)
-          return app.services.PluginService.enablePlugin(plugin)
-        }).catch(err => {
-          return app.services.PluginService._updatePlugin(plugin).then(() => app.services.PluginService.enablePlugin(plugin))
-        })
+    fs.readdirSync('./plugins').forEach(plugin => {
+      if (plugin !== '.gitkeep') {
+        try {
+          app.services.PluginService._addPlugin(plugin).then(plugin => {
+            console.log(plugin, app)
+            return app.services.PluginService.enablePlugin(plugin)
+          }).catch(err => {
+            return app.services.PluginService._updatePlugin(plugin).then(() => app.services.PluginService.enablePlugin(plugin))
+          })
+        }
+        catch (e) {
+          app.log.error(e)
+        }
       }
-      catch (e) {
-        app.log.error(e)
-      }
-    }
+    })
     /*eslint-enable */
   }
 }

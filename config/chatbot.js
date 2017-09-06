@@ -15,6 +15,7 @@ module.exports = {
   defaultAnswer: (app, data) => {
     data.action = 'UNKNOWN'
     data.responses = [data.lang === 'fr' ? 'Je n\'ai pas compris votre phrase' : 'I didn\'t understand your command']
+    data.response = data.responses[0]
     return Promise.resolve(data)
   },
   /**
@@ -33,6 +34,8 @@ module.exports = {
       })
     },
     movie: '([0-9a-zA-Z ]+)',
+    song: '([0-9a-zA-Z ]+)',
+    playlist: '([0-9a-zA-Z ]+)',
     show: '([0-9a-zA-Z ]+)',
     color: {
       'red': {

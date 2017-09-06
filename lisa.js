@@ -314,5 +314,13 @@ module.exports = (function () {
     get serialPort() {
       return app.serialPort
     }
+
+    get ir() {
+      return {
+        send: (remote, action) => {
+          return app.services.IRService.send(remote, action)
+        }
+      }
+    }
   }
 })()

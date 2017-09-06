@@ -5,12 +5,16 @@
       "name": "Mute volume",
       "sentences": {
         "fr": [
+          "coupe le son(?: +\\w+){0,3} +%device%",
           "coupe le son",
+          "coupe le volume(?: +\\w+){0,3} +%device%",
           "coupe le volume",
           "silence"
         ],
         "en": [
+          "mute volume(?: +\\w+){0,3} +%device%",
           "mute volume",
+          "silence(?: +\\w+){0,3} +%device%",
           "silence"
         ]
       }
@@ -19,10 +23,16 @@
       "name": "Return volume",
       "sentences": {
         "fr": [
+          "remets le son(?: +\\w+){0,3} +%device%",
           "remets le son",
+          "remets le volume(?: +\\w+){0,3} +%device%",
           "remets le volume"
         ],
         "en": [
+          "unmute volume(?: +\\w+){0,3} +%device%",
+          "unmute sound(?: +\\w+){0,3} +%device%",
+          "restore sound(?: +\\w+){0,3} +%device%",
+          "restore volume(?: +\\w+){0,3} +%device%",
           "unmute volume",
           "unmute sound",
           "restore sound",
@@ -33,9 +43,11 @@
     "SET_VOLUME": {
       "sentences": {
         "fr": [
+          "(?:met|mets|mettre) le (?:son|volume) à %number% de %device%",
           "(?:met|mets|mettre) le (?:son|volume) à %number%"
         ],
         "en": [
+          "set(?: +\\w+){0,3} +(?:volume|sound) to %number% of %device%",
           "set(?: +\\w+){0,3} +(?:volume|sound) to %number%"
         ]
       }
@@ -43,9 +55,13 @@
     "INCREASE_VOLUME": {
       "sentences": {
         "fr": [
+          "(?:monte|augmente) le (?:son|volume) de %number%(?: +\\w+){0,3} +%device%",
           "(?:monte|augmente) le (?:son|volume) de %number%",
+          "(?:monte|augmente) le (?:son|volume)(?: +\\w+){0,3} +%device%",
           "(?:monte|augmente) le (?:son|volume)",
+          "plus fort(?: +\\w+){0,3} +%device%",
           "plus fort",
+          "plus fort de %number%(?: +\\w+){0,3} +%device%",
           "plus fort de %number%"
         ],
         "en": [
@@ -72,11 +88,61 @@
         ]
       }
     },
+    "PLAY_SONG": {
+      "name": "Play song",
+      "sentences": {
+        "fr": [
+          "(?:play|lance|joue)(?: +\\w+){0,5} +la (?:chanson|musique) %song% sur %device% dans (?:le|la) %room%",
+          "(?:play|lance|joue)(?: +\\w+){0,5} +la (?:chanson|musique) %song% dans (?:le|la) %room%",
+          "(?:play|lance|joue)(?: +\\w+){0,5} +la (?:chanson|musique) %song%"
+        ],
+        "en": [
+          "play(?: +\\w+){0,5} +song %song% on %device% in (?: +\\w+){0,2} +%room%",
+          "play(?: +\\w+){0,5} +song %song% in (?: +\\w+){0,2} +%room%",
+          "play(?: +\\w+){0,5} +song %song%"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    },
+    "PLAY_PLAYLIST": {
+      "name": "Play playlist",
+      "sentences": {
+        "fr": [
+          "(?:play|lance|joue)(?: +\\w+){0,5} +la playlist %playlist% sur %device% dans (?:le|la) %room%",
+          "(?:play|lance|joue)(?: +\\w+){0,5} +la playlist %playlist% dans (?:le|la) %room%",
+          "(?:play|lance|joue)(?: +\\w+){0,5} +la playlist %playlist%"
+        ],
+        "en": [
+          "play(?: +\\w+){0,5} +playlist %playlist% on %device% in (?: +\\w+){0,2} +%room%",
+          "play(?: +\\w+){0,5} +playlist %playlist% in (?: +\\w+){0,2} +%room%",
+          "play(?: +\\w+){0,5} +playlist %playlist%"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    },
     "PLAY_MOVIE": {
       "name": "Play movie",
       "sentences": {
         "fr": [
-          "(?:play|lance|joue)(?: +\\w+){0,5} +film %movie%dans (?:le|la) %room%",
+          "(?:play|lance|joue)(?: +\\w+){0,5} +film %movie% dans (?:le|la) %room%",
           "(?:play|lance|joue)(?: +\\w+){0,5} +film %movie%"
         ],
         "en": [
@@ -99,7 +165,7 @@
       "name": "Play tv show",
       "sentences": {
         "fr": [
-          "(?:play|lance|joue)(?: +\\w+){0,5} +série %show%dans (?:le|la) %room%",
+          "(?:play|lance|joue)(?: +\\w+){0,5} +série %show% dans (?:le|la) %room%",
           "(?:play|lance|joue)(?: +\\w+){0,6} +série %show%",
           "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +série %show%(?: +\\w+){0,2} +%room%",
           "(?:play|lance|joue) l'épisode %number_episode%(?: +\\w+){0,2} +série %show%",
@@ -119,12 +185,10 @@
       },
       "responses": {
         "fr": [
-          "Voila",
-          "C'est fait"
+          "L'épisode est en route"
         ],
         "en": [
-          "Done",
-          "It's done"
+          "The show is launched"
         ]
       }
     },

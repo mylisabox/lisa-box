@@ -21,6 +21,30 @@
           "hi"
         ]
       }
+    },
+    "THANKS": {
+      "name": "Thank you",
+      "sentences": {
+        "fr": [
+          "(?:merci)"
+        ],
+        "en": [
+          "(?:thanks|thank you)"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "De rien",
+          "Pas de problème",
+          "A ton service"
+        ],
+        "en": [
+          "You're welcome",
+          "At your service",
+          "My pleasure",
+          "No problem"
+        ]
+      }
     }
   },
   "nestedStates": {},
