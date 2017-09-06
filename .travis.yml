@@ -13,6 +13,7 @@ addons:
     # install toolchains
     - libmagic-dev
     - libatlas-base-dev
+    - libavahi-compat-libdnssd-dev
     - gcc-4.8
     - g++-4.8
     - clang-3.8
