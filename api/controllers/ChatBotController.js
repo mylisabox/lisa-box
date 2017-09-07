@@ -12,7 +12,7 @@ module.exports = class ChatBotController extends Controller {
       req.body.lang || req.params.lang || this.app.config.chatbot.defaultLang,
       req.body.sentence, req.body.id || req.params.id)
       .then(result => {
-        result.context = req.body.context
+        result.context = req.body.context || {}
         return this.app.services.PluginService.interact(result).then(results => {
           return res.json(results.action ? results : result)
         })
