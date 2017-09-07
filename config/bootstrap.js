@@ -32,7 +32,7 @@ module.exports = (app) => {
     const language = app.env.LANG || 'en-US'
 
     const voiceCommand = new VoiceCommand({
-      matrix: '192.168.1.26',
+      matrix: '127.0.0.1',
       url: 'http://127.0.0.1:3000',
       gSpeech: './config/speech/LISA-gfile.json',
       language: language

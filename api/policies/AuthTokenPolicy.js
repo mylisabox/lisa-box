@@ -22,6 +22,13 @@ module.exports = class AuthTokenPolicy extends Policy {
             nextPolicy()
           }
           else {
+            if (!req.body.context) {
+              req.body.context = {}
+            }
+            //Device associated with a room, by default set the context to this room
+            if (!req.body.context.room) {
+              req.body.context.room = devices[0].roomId
+            }
             next()
           }
         }).catch(err => nextPolicy())
