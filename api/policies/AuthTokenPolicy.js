@@ -11,40 +11,44 @@ module.exports = class AuthTokenPolicy extends Policy {
     const header = req.headers['device-id']
     const nextPolicy = () => this.app.policies['Passport'].jwt(req, res, next)
     const checkHeaderKnownDevice = () => {
-      if (header) {
-        this.app.orm.Device.findAll({
-          where: {
-            pluginName: 'lisa-plugin-voice'
+      this.app.orm.Device.findAll({
+        where: {
+          pluginName: 'lisa-plugin-voice'
+        }
+      }).then(devices => {
+        const results = devices.filter(device => device.privateData.identifier === header)
+        if (!devices || devices.length === 0 || results.length === 0) {
+          nextPolicy()
+        }
+        else {
+          if (!req.body.context) {
+            req.body.context = {}
           }
-        }).then(devices => {
-          const results = devices.filter(device => device.privateData.identifier === header)
-          if (!devices || devices.length === 0 || results.length === 0) {
-            nextPolicy()
-          }
-          else {
-            if (!req.body.context) {
-              req.body.context = {}
-            }
-            //Device associated with a room, by default set the context to this room
-            if (!req.body.context.room) {
-              req.body.context.room = devices[0].roomId
-            }
+          //Device associated with a room, by default set the context to this room
+          if (req.body.context.room) {
             next()
           }
-        }).catch(err => nextPolicy())
-      }
-      else {
-        nextPolicy()
-      }
+          else {
+            this.app.orm.Room.find({ where: { id: devices[0].roomId } }).then(room => {
+              req.body.context.room = room
+              next()
+            })
+          }
+
+        }
+      }).catch(err => nextPolicy())
     }
 
-    if (req.connection.remoteAddress === '127.0.0.1' ||
+    if (header) {
+      checkHeaderKnownDevice()
+    }
+    else if (req.connection.remoteAddress === '127.0.0.1' ||
       req.connection.remoteAddress === '::ffff:127.0.0.1' ||
       req.connection.remoteAddress === '::1') {
       next()
     }
     else {
-      checkHeaderKnownDevice()
+      nextPolicy()
     }
 
   }

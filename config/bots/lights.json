@@ -5,7 +5,7 @@
       "name": "Turn light on",
       "sentences": {
         "fr": [
-          "(?:allume|mets|mais|mettre) les lumière",
+          "(?:allume|mets|mais|mettre) (?:la|les) lumière",
           "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% en %color% à +%number% (?:pourcent|%)",
           "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% à %number% (?:pourcent|%) %color%",
           "(?:mets|mettre|met|mais|change|allume|allumer)(?: +\\w+){0,5} +%room%(?: +\\w+){0,2} +%color%",
