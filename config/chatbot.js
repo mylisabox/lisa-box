@@ -1,6 +1,7 @@
 'use strict'
 
 const defaultBots = require('./bots')
+const escapeRegExp = text => text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')
 
 /**
  * Chatbot Configuration
@@ -25,12 +26,12 @@ module.exports = {
   params: {
     room: app => {
       return app.orm.Room.findAll().then(rooms => {
-        return rooms.map(room => room.name)
+        return rooms.map(room => escapeRegExp(room.name))
       })
     },
     device: app => {
       return app.orm.Device.findAll().then(devices => {
-        return devices.map(device => device.name)
+        return devices.map(device => escapeRegExp(device.name))
       })
     },
     movie: '([0-9a-zA-Z ]+)',
@@ -43,7 +44,7 @@ module.exports = {
         value: '#f00'
       },
       'green': {
-        keywords: ['green', 'vert'],
+        keywords: ['green', 'vert', 'verre'],
         value: '#0f0'
       },
       'beige': {

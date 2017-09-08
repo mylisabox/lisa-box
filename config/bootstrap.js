@@ -46,12 +46,16 @@ module.exports = (app) => {
     fs.readdirSync('./plugins').forEach(plugin => {
       if (plugin !== '.gitkeep') {
         try {
-          app.services.PluginService._addPlugin(plugin).then(plugin => {
-            console.log(plugin, app)
-            return app.services.PluginService.enablePlugin(plugin)
-          }).catch(err => {
-            return app.services.PluginService._updatePlugin(plugin).then(() => app.services.PluginService.enablePlugin(plugin))
+          app.orm.Plugin.find({ where: { name: plugin } }).then(existingPlugin => {
+            if (!existingPlugin) {
+              return app.services.PluginService._addPlugin(plugin).then(plugin => {
+                return app.services.PluginService.enablePlugin(plugin)
+              }).catch(err => {
+                return app.services.PluginService._updatePlugin(plugin).then(() => app.services.PluginService.enablePlugin(plugin))
+              })
+            }
           })
+
         }
         catch (e) {
           app.log.error(e)
@@ -59,5 +63,6 @@ module.exports = (app) => {
       }
     })
     /*eslint-enable */
+
   }
 }

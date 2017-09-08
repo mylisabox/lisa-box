@@ -277,8 +277,8 @@ module.exports = class PluginService extends Service {
           infos.fields.device = null
         }
         return this.callOnPlugins('interact', [infos.action, infos])
-          .then(result => {
-              return Promise.resolve(result)
+          .then(results => {
+            return Promise.resolve(results.action ? results : infos)
             }
           )
       })
