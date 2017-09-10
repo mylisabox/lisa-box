@@ -43,19 +43,23 @@ module.exports = (app) => {
     voiceCommand.on('bot-result', result => app.log.debug(result))
 
     /*eslint-disable */
+    //FIXME plugins should be manage from an online store
     fs.readdirSync('./plugins').forEach(plugin => {
       if (plugin !== '.gitkeep') {
         try {
           app.orm.Plugin.find({ where: { name: plugin } }).then(existingPlugin => {
-            if (!existingPlugin) {
+            if (existingPlugin) {
+              return app.services.PluginService._updatePlugin(plugin).then(() => {
+                return app.services.PluginService.enablePlugin(plugin)
+              })
+            } else {
               return app.services.PluginService._addPlugin(plugin).then(plugin => {
                 return app.services.PluginService.enablePlugin(plugin)
               }).catch(err => {
-                return app.services.PluginService._updatePlugin(plugin).then(() => app.services.PluginService.enablePlugin(plugin))
+                app.log.error(err)
               })
             }
           })
-
         }
         catch (e) {
           app.log.error(e)
@@ -64,5 +68,36 @@ module.exports = (app) => {
     })
     /*eslint-enable */
 
+    /*
+    app.services.ChatBotService.addBot('userCustom', {
+      "name": "User custom command",
+      "freeStates": {
+        "MODE_CINEMA": {
+          "name": "Mode cinema",
+          "sentences": {
+            "fr": [
+              "mode cinéma"
+            ],
+            "en": [
+              "cinema mode"
+            ]
+          },
+          "responses": {
+            "fr": [
+              "Mode cinéma activé"
+            ],
+            "en": [
+              "Cinema mode enabled"
+            ]
+          }
+        }
+      },
+      "nestedStates": {},
+      "links": []
+    }).then(result => app.log.debug(result))
+      .catch(err => {
+        app.log.error(err)
+      })
+      */
   }
 }

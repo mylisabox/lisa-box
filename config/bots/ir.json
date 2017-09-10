@@ -1,0 +1,26 @@
+{
+  "name": "IR",
+  "freeStates": {
+    "SEND_IR_COMMAND": {
+      "name": "Send IR command",
+      "sentences": {
+        "fr": [
+          "exécute(?: +\\w+){0,2} +commande %action%(?: +\\w+){0,2} +télécommande %remote%"
+        ],
+        "en": [
+          "execute(?: +\\w+){0,2} +command %action%(?: +\\w+){0,2} +remote %remote%"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "La commande à été envoyée"
+        ],
+        "en": [
+          "Command has been sent"
+        ]
+      }
+    }
+  },
+  "nestedStates": {},
+  "links": []
+}
