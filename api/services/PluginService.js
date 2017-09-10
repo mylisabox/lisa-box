@@ -46,7 +46,7 @@ module.exports = class PluginService extends Service {
           controlType: 'textbox',
           type: 'text',
           name: 'name',
-          regexp: '^[a-zA-Z0-9_ -]+$',
+          regexp: '^[A-zÀ-ÿ0-9_ -]+$',
           minLength: 3,
           maxLength: 20,
           label: this._translateField(lang, { en: 'Name', fr: 'Nom' }),
