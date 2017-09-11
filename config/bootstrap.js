@@ -17,7 +17,7 @@ module.exports = (app) => {
     // advertise an HTTP server on configured port
     const VoiceCommand = require('lisa-standalone-voice-command')
     const mdns = require('mdns')
-    const service = mdns.createAdvertisement(mdns.tcp('http'), 4321, {
+    const service = mdns.createAdvertisement(mdns.tcp('http'), app.config.web.port, {
       name: 'LISA',
       txt: {
         port: app.config.web.port
