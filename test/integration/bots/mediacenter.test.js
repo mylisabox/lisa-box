@@ -25,6 +25,45 @@ describe('Media center bot', () => {
       assert(chatbot.data)
     })
   })
+  describe('Media center songs', () => {
+    it('should previous song', () => {
+      return service.interact(1, 'en', 'previous song').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'PREVIOUS_SONG')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'en')
+        assert.equal(infos.userSentence, 'previous song')
+      })
+    })
+    it('should next song', () => {
+      return service.interact(1, 'en', 'next song').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'NEXT_SONG')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'en')
+        assert.equal(infos.userSentence, 'next song')
+      })
+    })
+    it('should next song again', () => {
+      return service.interact(1, 'en', 'again').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'NEXT_SONG_AGAIN')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'en')
+        assert.equal(infos.userSentence, 'again')
+      })
+    })
+    it('should next song loop', () => {
+      return service.interact(1, 'en', 'yes').then(infos => {
+        assert(infos)
+        assert.equal(infos.action, 'NEXT_SONG_AGAIN')
+        assert.equal(infos.botId, 'mediacenter')
+        assert.equal(infos.lang, 'en')
+        assert.equal(infos.userSentence, 'yes')
+      })
+    })
+  })
+
   describe('Media center volume', () => {
     it('should mute volume', () => {
       return service.interact(1, 'fr', 'coupe le son').then(infos => {

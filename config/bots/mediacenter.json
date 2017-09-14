@@ -88,11 +88,64 @@
         ]
       }
     },
+    "NEXT_SONG": {
+      "name": "Next song",
+      "sentences": {
+        "fr": [
+          "prochaine chanson dans(?: +\\w+){0,2} +%room%",
+          "prochaine chanson sur %device%",
+          "prochaine chanson",
+          "chanson suivante dans(?: +\\w+){0,2} +%room%",
+          "chanson suivante sur %device%",
+          "chanson suivante"
+        ],
+        "en": [
+          "next song in(?: +\\w+){0,2} +%room%",
+          "next song on %device%",
+          "next song"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    },
+    "PREVIOUS_SONG": {
+      "name": "Previous song",
+      "sentences": {
+        "fr": [
+          "chanson précédente dans(?: +\\w+){0,2} +%room%",
+          "chanson précédente sur %device%",
+          "chanson précédente"
+        ],
+        "en": [
+          "previous song in(?: +\\w+){0,2} +%room%",
+          "previous song on %device%",
+          "previous song"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ]
+      }
+    },
     "PLAY_SONG": {
       "name": "Play song",
       "sentences": {
         "fr": [
-          "(?:play|lance|joue)(?: +\\w+){0,5} +la (?:chanson|musique) %song% sur %device% dans (?:le|la) %room%",
+          "(?:play|lance|joue)(?: +\\w+){0,5} +la (?:chanson|musique) %song% sur %device%",
           "(?:play|lance|joue)(?: +\\w+){0,5} +la (?:chanson|musique) %song% dans (?:le|la) %room%",
           "(?:play|lance|joue)(?: +\\w+){0,5} +la (?:chanson|musique) %song%"
         ],
@@ -275,6 +328,28 @@
         ]
       }
     },
+    "NEXT_SONG_AGAIN": {
+      "name": "Next sound again",
+      "responses": {
+        "fr": [
+          "voulez vous aussi passer celle-ci ?"
+        ],
+        "en": [
+          "do you want to skip this one too ?"
+        ]
+      }
+    },
+    "PREVIOUS_SONG_AGAIN": {
+      "name": "Previous sound again",
+      "responses": {
+        "fr": [
+          "voulez vous aussi passer celle-ci ?"
+        ],
+        "en": [
+          "do you want to skip this one too ?"
+        ]
+      }
+    },
     "INCREASE_VOLUME_AGAIN": {
       "name": "Increase volume again",
       "responses": {
@@ -293,10 +368,10 @@
       "to": "INCREASE_VOLUME_AGAIN",
       "sentences": {
         "fr": [
-          "%acceptance%"
+          "encore"
         ],
         "en": [
-          "%acceptance%"
+          "again"
         ]
       }
     },
@@ -305,10 +380,12 @@
       "to": "INCREASE_VOLUME_AGAIN",
       "sentences": {
         "fr": [
-          "%acceptance%"
+          "%acceptance%",
+          "encore"
         ],
         "en": [
-          "%acceptance%"
+          "%acceptance%",
+          "again"
         ]
       }
     },
@@ -317,10 +394,10 @@
       "to": "DECREASE_VOLUME_AGAIN",
       "sentences": {
         "fr": [
-          "%acceptance%"
+          "encore"
         ],
         "en": [
-          "%acceptance%"
+          "again"
         ]
       }
     },
@@ -329,10 +406,64 @@
       "to": "DECREASE_VOLUME_AGAIN",
       "sentences": {
         "fr": [
-          "%acceptance%"
+          "%acceptance%",
+          "encore"
         ],
         "en": [
-          "%acceptance%"
+          "%acceptance%",
+          "again"
+        ]
+      }
+    },
+    {
+      "from": "NEXT_SONG_AGAIN",
+      "to": "NEXT_SONG_AGAIN",
+      "sentences": {
+        "fr": [
+          "%acceptance%",
+          "encore"
+        ],
+        "en": [
+          "%acceptance%",
+          "again"
+        ]
+      }
+    },
+    {
+      "from": "PREVIOUS_SONG_AGAIN",
+      "to": "PREVIOUS_SONG_AGAIN",
+      "sentences": {
+        "fr": [
+          "%acceptance%",
+          "encore"
+        ],
+        "en": [
+          "%acceptance%",
+          "again"
+        ]
+      }
+    },
+    {
+      "from": "NEXT_SONG",
+      "to": "NEXT_SONG_AGAIN",
+      "sentences": {
+        "fr": [
+          "encore"
+        ],
+        "en": [
+          "again"
+        ]
+      }
+    },
+    {
+      "from": "PREVIOUS_SONG",
+      "to": "PREVIOUS_SONG_AGAIN",
+      "sentences": {
+        "fr": [
+          "encore"
+        ],
+        "en": [
+          "again"
         ]
       }
     }

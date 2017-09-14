@@ -41,13 +41,12 @@ module.exports = {
                 app.sockets.room(modelName).send('create', modelName, instance)
               }
             }
-            if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
+            if (modelName === 'device' || modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
               app.services.ChatBotService.reloadBots().then(() => fn()).catch(err => fn())
             }
             else {
               fn()
             }
-
           },
           afterUpdate: (instance, options, fn) => {
             const app = instance.sequelize.trailsApp
@@ -97,7 +96,7 @@ module.exports = {
             const app = instance.sequelize.trailsApp
             const modelName = instance.Model.name.toLowerCase()
 
-            if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
+            if (modelName === 'device' || modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
               app.services.ChatBotService.reloadBots().then(() => {
               }).catch(err => {
                 app.log.error(err)
@@ -112,7 +111,7 @@ module.exports = {
             const app = instance.model.sequelize.trailsApp
             const modelName = instance.model.name.toLowerCase()
 
-            if (modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
+            if (modelName === 'device' || modelName === 'room' || modelName.toLowerCase() === 'chatbotparamlist') {
               app.services.ChatBotService.reloadBots().then(() => {
               }).catch(err => {
                 app.log.error(err)

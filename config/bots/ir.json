@@ -5,9 +5,11 @@
       "name": "Send IR command",
       "sentences": {
         "fr": [
+          "exécute(?: +\\w+){0,2} +commande %device%",
           "exécute(?: +\\w+){0,2} +commande %action%(?: +\\w+){0,2} +télécommande %remote%"
         ],
         "en": [
+          "execute(?: +\\w+){0,2} +command %device%",
           "execute(?: +\\w+){0,2} +command %action%(?: +\\w+){0,2} +remote %remote%"
         ]
       },

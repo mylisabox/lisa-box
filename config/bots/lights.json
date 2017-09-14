@@ -1,11 +1,32 @@
 {
   "name": "Lights",
   "freeStates": {
+    "LIGHT_ALL_TURN_OFF": {
+      "name": "Turn all lights off",
+      "sentences": {
+        "fr": [
+          "(?:éteins|éteint|éteindre) toutes les lumières"
+        ],
+        "en": [
+          "turn all lights off"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "Les lumières sont éteintes"
+        ],
+        "en": [
+          "Lights are off",
+          "It's done"
+        ]
+      }
+    },
     "LIGHT_TURN_ON": {
       "name": "Turn light on",
       "sentences": {
         "fr": [
-          "(?:allume|mets|mais|mettre) (?:la|les) lumière",
+          "allume (?:la|les) lumière",
           "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% en %color% à +%number% (?:pourcent|%)",
           "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% à %number% (?:pourcent|%) %color%",
           "(?:mets|mettre|met|mais|change|allume|allumer)(?: +\\w+){0,5} +%room%(?: +\\w+){0,2} +%color%",
