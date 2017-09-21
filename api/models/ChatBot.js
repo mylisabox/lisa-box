@@ -30,6 +30,25 @@ module.exports = class ChatBot extends Model {
 
   static schema(app, Sequelize) {
     const schema = Model.schema(app, Sequelize)
+    schema.context = {
+      type: Sequelize.STRING,
+      get: function () {
+        let data = null
+        if (this.getDataValue('context')) {
+          data = JSON.parse(this.getDataValue('context'))
+        }
+        return data
+      },
+      set: function (value) {
+        if (value) {
+          this.setDataValue('context', JSON.stringify(value))
+        }
+        else {
+          this.setDataValue('context', null)
+        }
+      },
+      allowNull: true
+    }
     return schema
   }
 }

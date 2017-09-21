@@ -25,7 +25,16 @@ module.exports = [
         path: 'node_modules/lisa-ui/bundle-en'
       }
     }
-  },
+  }, /*
+  {
+    method: 'GET',
+    path: '/fr',
+    handler: {
+      directory: {
+        path: 'node_modules/lisa-ui/bundle-fr'
+      }
+    }
+  },*/
   {
     method: 'POST',
     path: `${footprintsConfig.prefix}/{model}`,
@@ -250,6 +259,41 @@ module.exports = [
         query: Joi.object({
           url: Joi.string().required(),
           token: Joi.string().required()
+        })
+      }
+    }
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/chatbot/userbot`,
+    handler: 'ChatBotController.userBot'
+  },
+  {
+    method: 'DELETE',
+    path: `${footprintsConfig.prefix}/chatbot/userbot/{id}`,
+    handler: 'ChatBotController.deleteUserBot',
+    config: {
+      validate: {
+        params: Joi.object({
+          id: Joi.string().required()
+        })
+      }
+    }
+  },
+  {
+    method: 'POST',
+    path: `${footprintsConfig.prefix}/chatbot/userbot`,
+    handler: 'ChatBotController.saveUserBot',
+    config: {
+      validate: {
+        payload: Joi.object({
+          name: Joi.string().allow(''),
+          displayName: Joi.string().required(),
+          data: Joi.object({
+            sentences: Joi.array().required(),
+            responses: Joi.array().required(),
+            commands: Joi.array().required()
+          }).required()
         })
       }
     }

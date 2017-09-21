@@ -40,6 +40,17 @@
     string-format-obj "^1.1.0"
     through2 "^2.0.3"
 
+"@google-cloud/speech@^0.10.3":
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/@google-cloud/speech/-/speech-0.10.3.tgz#a2f3268929025b60b5c8bd3246434f8a6187807b"
+  dependencies:
+    extend "^3.0.0"
+    google-gax "^0.13.2"
+    google-proto-files "^0.13.0"
+    pumpify "^1.3.5"
+    stream-events "^1.0.1"
+    through2 "^2.0.3"
+
 "@google-cloud/speech@^0.9.3":
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/@google-cloud/speech/-/speech-0.9.3.tgz#0d7c9643d382d6b2b6f2948f1a3e0a6745c54dc1"
@@ -864,7 +875,7 @@ debug@0.7.x:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/debug/-/debug-0.7.4.tgz#06e1ea8082c2cb14e39806e22e2f6f757f92af39"
 
-debug@2.2.x, debug@^2.2.0, debug@~2.2.0:
+debug@2.2.x, debug@~2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
   dependencies:
@@ -888,7 +899,7 @@ debug@2.6.7:
   dependencies:
     ms "2.0.0"
 
-debug@2.6.8, debug@^2.6.8:
+debug@2.6.8, debug@^2.2.0, debug@^2.6.8:
   version "2.6.8"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
   dependencies:
@@ -979,11 +990,7 @@ delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
 
-depd@1.1.0, depd@^1.1.0, depd@~1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.0.tgz#e1bd82c6aab6ced965b97b88b17ed3e528ca18c3"
-
-depd@1.1.1, depd@~1.1.1:
+depd@1.1.1, depd@^1.1.0, depd@~1.1.0, depd@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.1.tgz#5783b4e1c459f06fa5ca27f991f3d06e7a310359"
 
@@ -1650,7 +1657,7 @@ google-auto-auth@^0.6.0:
     object-assign "^3.0.0"
     request "^2.79.0"
 
-google-gax@^0.13.0:
+google-gax@^0.13.0, google-gax@^0.13.2:
   version "0.13.4"
   resolved "https://registry.yarnpkg.com/google-gax/-/google-gax-0.13.4.tgz#462d0cf654b0abeef5ee5f059d0f7b6c0d0a6121"
   dependencies:
@@ -1673,6 +1680,10 @@ google-p12-pem@^0.1.0:
 google-proto-files@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/google-proto-files/-/google-proto-files-0.12.0.tgz#a49075c1fcc2bd8a480186831c297605b9774b2b"
+
+google-proto-files@^0.13.0:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/google-proto-files/-/google-proto-files-0.13.1.tgz#fcf123637d1811612d6a4cb030fd14516b5aec4b"
 
 google-proto-files@^0.9.1:
   version "0.9.1"
@@ -1741,7 +1752,7 @@ growl@1.9.2:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.9.2.tgz#0ea7743715db8d8de2c5ede1775e1b45ac85c02f"
 
-grpc@^1.2, grpc@^1.3.1:
+grpc@1.4.1, grpc@^1.2, grpc@^1.3.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.4.1.tgz#3ee4a8346a613f2823928c9f8f99081b6368ec7c"
   dependencies:
@@ -1750,16 +1761,6 @@ grpc@^1.2, grpc@^1.3.1:
     nan "^2.0.0"
     node-pre-gyp "^0.6.35"
     protobufjs "^5.0.0"
-
-grpc@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/grpc/-/grpc-1.6.0.tgz#2d637d1e58a03c530ebc9bc2dd6c135c24c122cf"
-  dependencies:
-    arguejs "^0.2.3"
-    lodash "^4.17.4"
-    nan "^2.6.2"
-    node-pre-gyp "^0.6.36"
-    protobufjs "^5.0.2"
 
 gtoken@^1.2.1:
   version "1.2.2"
@@ -1837,16 +1838,7 @@ hosted-git-info@^2.1.4:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.4.2.tgz#0076b9f46a270506ddbaaea56496897460612a67"
 
-http-errors@~1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.6.1.tgz#5f8b8ed98aca545656bf572997387f904a722257"
-  dependencies:
-    depd "1.1.0"
-    inherits "2.0.3"
-    setprototypeof "1.0.3"
-    statuses ">= 1.3.1 < 2"
-
-http-errors@~1.6.2:
+http-errors@~1.6.1, http-errors@~1.6.2:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.6.2.tgz#0a002cc85707192a7e7946ceedc11155f60ec736"
   dependencies:
@@ -2335,9 +2327,9 @@ lisa-standalone-voice-command@^0.0.12:
     uuid "^3.1.0"
     zmq "^2.15.3"
 
-lisa-ui@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/lisa-ui/-/lisa-ui-0.0.4.tgz#87ed5a3cf4e7af428e22a6e6ce8e6414198f9b5e"
+lisa-ui@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/lisa-ui/-/lisa-ui-0.0.5.tgz#e3f9aba83691df5328090c3eb5eb14a2f0dae28a"
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -2687,15 +2679,11 @@ mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
-nan@2.3.5, nan@^2.0.0, nan@~2.3.0:
+nan@2.3.5, nan@~2.3.0:
   version "2.3.5"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.3.5.tgz#822a0dc266290ce4cd3a12282ca3e7e364668a08"
 
-nan@^2.6.2:
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.7.0.tgz#d95bf721ec877e08db276ed3fc6eb78f9083ad46"
-
-nan@~2.6.2:
+nan@^2.0.0, nan@~2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
 
@@ -2732,7 +2720,7 @@ node-nmap@^4.0.0:
     queued-up "^2.0.2"
     xml2js "^0.4.15"
 
-node-pre-gyp@^0.6.30, node-pre-gyp@^0.6.35, node-pre-gyp@^0.6.36, node-pre-gyp@~0.6.36:
+node-pre-gyp@^0.6.30, node-pre-gyp@^0.6.35, node-pre-gyp@~0.6.36:
   version "0.6.36"
   resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.6.36.tgz#db604112cb74e0d477554e9b505b17abddfab786"
   dependencies:
@@ -3083,7 +3071,7 @@ propprop@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/propprop/-/propprop-0.3.1.tgz#a049a3568b896440067d15d8ec9f33735e570178"
 
-protobufjs@^5.0.0, protobufjs@^5.0.2:
+protobufjs@^5.0.0:
   version "5.0.2"
   resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-5.0.2.tgz#59748d7dcf03d2db22c13da9feb024e16ab80c91"
   dependencies:
@@ -3155,11 +3143,11 @@ q@^1.4.1:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.0.tgz#dd01bac9d06d30e6f219aecb8253ee9ebdc308f1"
 
-qs@6.4.0, qs@^6.1.0, qs@~6.4.0:
+qs@6.4.0, qs@~6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
-qs@6.5.0:
+qs@6.5.0, qs@^6.1.0:
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.0.tgz#8d04954d364def3efc55b5a0793e1e2c8b1e6e49"
 
@@ -3469,11 +3457,11 @@ semver-diff@^2.0.0:
   dependencies:
     semver "^5.0.3"
 
-"semver@2 || 3 || 4 || 5", semver@^5.3.0:
+"semver@2 || 3 || 4 || 5", semver@^5.0.1, semver@^5.0.3, semver@^5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
 
-semver@^5.0.1, semver@^5.0.3, semver@^5.1.0:
+semver@^5.1.0:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.1.1.tgz#a3292a373e6f3e0798da0b20641b9a9c5bc47e19"
 
@@ -3725,6 +3713,14 @@ sonus@^0.1.8:
   resolved "https://registry.yarnpkg.com/sonus/-/sonus-0.1.8.tgz#b9ae7f2254056b0ec39a1195e3bca7735b1d6970"
   dependencies:
     "@google-cloud/speech" "^0.9.3"
+    node-record-lpcm16 "^0.3.0"
+    snowboy "^1.1.0"
+
+sonus@next:
+  version "0.1.9-0"
+  resolved "https://registry.yarnpkg.com/sonus/-/sonus-0.1.9-0.tgz#e04150f1f4274dd402683e7dc390ece6dd0f941f"
+  dependencies:
+    "@google-cloud/speech" "^0.10.3"
     node-record-lpcm16 "^0.3.0"
     snowboy "^1.1.0"
 
