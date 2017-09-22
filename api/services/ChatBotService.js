@@ -119,7 +119,7 @@ module.exports = class ChatBotService extends Service {
   }
 
   _buildContext(bot, data) {
-    const context = bot.context || []
+    const context = bot && bot.context || []
     const dataIndex = this._findExistingDataIndex(context, data)
     if (dataIndex === -1) {
       if (!data.name || data.name === '') {
