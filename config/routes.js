@@ -19,13 +19,31 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/',
+    path: '/images',
+    handler: {
+      directory: {
+        path: 'node_modules/lisa-ui/bundle-en/images'
+      }
+    }
+  },
+  {
+    method: 'GET',
+    path: '/images',
+    handler: {
+      directory: {
+        path: 'node_modules/lisa-ui/bundle-en/images'
+      }
+    }
+  },
+  {
+    method: 'GET',
+    path: '/en',
     handler: {
       directory: {
         path: 'node_modules/lisa-ui/bundle-en'
       }
     }
-  }, /*
+  },
   {
     method: 'GET',
     path: '/fr',
@@ -34,7 +52,7 @@ module.exports = [
         path: 'node_modules/lisa-ui/bundle-fr'
       }
     }
-  },*/
+  },
   {
     method: 'POST',
     path: `${footprintsConfig.prefix}/{model}`,

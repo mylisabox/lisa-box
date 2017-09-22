@@ -26,7 +26,7 @@ module.exports = class DefaultController extends Controller {
    * @param res
    */
   default(req, res) {
-    let lang = req.acceptsLanguages('en', 'en-US', 'en-UK')//, 'fr', 'fr-FR'
+    let lang = req.acceptsLanguages('en', 'en-US', 'en-UK', 'fr', 'fr-FR')
     if (lang) {
       lang = lang.substr(0, 2)
     }
