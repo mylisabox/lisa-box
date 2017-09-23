@@ -24,7 +24,7 @@ module.exports = class ChatBotService extends Service {
       for (let command of commands) {
         actions.push(this.interact(requestId, lang, command, undefined, context).catch(err => Promise.resolve()))
       }
-      return Promise.all(actions)
+      return Promise.all(actions).then(() => result)
     })
   }
 
