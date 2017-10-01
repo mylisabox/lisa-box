@@ -38,7 +38,7 @@ module.exports = class DashboardService extends Service {
     ]
 
     if (roomId) {
-      promises.push(this.app.services.DeviceService.findWithFavorites(userId, {roomId: roomId}))
+      promises.push(this.app.services.DeviceService.findWithFavorites(userId, { roomId: roomId }))
     }
     else {
       promises.push(this.app.services.FavoritesService.getFavorites(userId))
@@ -71,13 +71,13 @@ module.exports = class DashboardService extends Service {
       const lights = devices.filter(devices => devices.type === this.app.lisa.DEVICE_TYPE.LIGHT)
       if (roomId && lights.length > 1) {
         const lightsDevice = {
-          id: 'group_light_' + roomId,
+          id: 1000 + roomId, //FIXME get proper way to do this
           name: 'Lights',
           type: 'group_light',
           roomId: roomId,
           data: {
             onoff: 'off',
-            images: {'off': '/images/widgets/light_off.png', 'on': '/images/widgets/light_on.png'}
+            images: { 'off': '/images/widgets/light_off.png', 'on': '/images/widgets/light_on.png' }
           },
           favorite: false,
           template: undefined

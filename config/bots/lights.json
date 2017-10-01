@@ -8,7 +8,8 @@
           "(?:éteins|éteint|éteindre) toutes les lumières"
         ],
         "en": [
-          "turn all lights off"
+          "turn all lights off",
+          "switch off all lights"
         ]
       },
       "responses": {
@@ -49,7 +50,7 @@
       "responses": {
         "fr": [
           "Voila",
-          "La lumière est allumée"
+          "Les lumières sont allumées"
         ],
         "en": [
           "Light is on",
@@ -61,7 +62,7 @@
       "name": "Turn light off",
       "sentences": {
         "fr": [
-          "(?:éteins|éteint|éteindre) les lumières",
+          "(?:éteins|éteint|éteindre) (?:la|les) lumières",
           "(?:éteins|éteint|éteindre)(?: +\\w+){0,2} +lumière(?: +\\w+){0,2} +%room%",
           "(?:éteins|éteint|éteindre)(?: +\\w+){0,4} +%room%"
         ],
@@ -74,7 +75,7 @@
       "responses": {
         "fr": [
           "Voila",
-          "La lumière est éteinte"
+          "Les lumières sont éteintes"
         ],
         "en": [
           "Light is off",
