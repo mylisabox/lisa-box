@@ -122,7 +122,7 @@ module.exports = class PluginService extends Service {
   }
 
   setGroupValue(roomId, groupId, data) {
-    const type = groupId.split('_')[1]
+    const type = 'light' //FIXME for now only light is supported, but find a way to have this type from somewhere
     return this.app.orm.Device.findAll({
       where: {
         roomId: roomId
