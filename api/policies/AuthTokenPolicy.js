@@ -29,7 +29,7 @@ module.exports = class AuthTokenPolicy extends Policy {
             next()
           }
           else {
-            this.app.orm.Room.find({ where: { id: devices[0].roomId } }).then(room => {
+            this.app.orm.Room.find({ where: { id: results[0].roomId } }).then(room => {
               req.body.context.room = room ? room.toJSON() : undefined
               next()
             })
