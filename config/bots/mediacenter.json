@@ -170,12 +170,12 @@
       "name": "Play playlist",
       "sentences": {
         "fr": [
-          "(?:play|lance|joue)(?: +\\w+){0,5} +la playlist %playlist% sur %device% dans (?:le|la) %room%",
+          "(?:play|lance|joue)(?: +\\w+){0,5} +la playlist %playlist% sur %device%",
           "(?:play|lance|joue)(?: +\\w+){0,5} +la playlist %playlist% dans (?:le|la) %room%",
           "(?:play|lance|joue)(?: +\\w+){0,5} +la playlist %playlist%"
         ],
         "en": [
-          "play(?: +\\w+){0,5} +playlist %playlist% on %device% in (?: +\\w+){0,2} +%room%",
+          "play(?: +\\w+){0,5} +playlist %playlist% on %device%",
           "play(?: +\\w+){0,5} +playlist %playlist% in (?: +\\w+){0,2} +%room%",
           "play(?: +\\w+){0,5} +playlist %playlist%"
         ]

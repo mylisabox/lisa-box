@@ -39,7 +39,7 @@ module.exports = {
   FavoritesController: ['Passport.jwt'],
   RoomController: ['Passport.jwt'],
   DeviceController: ['Passport.jwt'],
-  FootprintsController: ['Passport.jwt'],
+  FootprintController: ['Passport.jwt'],
   ChatBotController: {
     '*': ['Passport.jwt'],
     'interact': ['AuthTokenPolicy.protect']

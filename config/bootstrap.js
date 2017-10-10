@@ -53,7 +53,7 @@ module.exports = (app) => {
                 return app.services.PluginService.enablePlugin(plugin)
               })
             } else {
-              return app.services.PluginService._addPlugin(plugin).then(plugin => {
+              return app.services.PluginService._addPlugin(plugin).then(() => {
                 return app.services.PluginService.enablePlugin(plugin)
               }).catch(err => {
                 app.log.error(err)
@@ -67,37 +67,5 @@ module.exports = (app) => {
       }
     })
     /*eslint-enable */
-
-    /*
-    app.services.ChatBotService.addBot('userCustom', {
-      "name": "User custom command",
-      "freeStates": {
-        "MODE_CINEMA": {
-          "name": "Mode cinema",
-          "sentences": {
-            "fr": [
-              "mode cinéma"
-            ],
-            "en": [
-              "cinema mode"
-            ]
-          },
-          "responses": {
-            "fr": [
-              "Mode cinéma activé"
-            ],
-            "en": [
-              "Cinema mode enabled"
-            ]
-          }
-        }
-      },
-      "nestedStates": {},
-      "links": []
-    }).then(result => app.log.debug(result))
-      .catch(err => {
-        app.log.error(err)
-      })
-      */
   }
 }
