@@ -48,6 +48,35 @@ Voice recognition work in 2 phases thanks to the [sonus](https://github.com/evan
 - `yarn start //npm start //node server.js`
 - Go to http://localhost:3000
 
+## Vagrant
+
+A basic VM can be automaticly provisioned for development purposes using Vagrant.
+
+Using vagrant you can run L.I.S.A on any machine which supports virtualisation. (windows/OSX/linux/etc).
+
+### Prerequisites
+
+* Vagrant
+* Virtualbox
+* git
+
+### Setup
+
+```bash
+git clone https://github.com/mylisabox/lisa-box.git
+cd lisa-box
+vagrant up
+
+```
+
+### Running L.I.S.A
+
+```bash
+vagrant ssh -c "cd /vagrant && yarn start"
+```
+
+See Vagrant documentation for more information using vagrant.
+
 ## Notification
 There multiple template available for notifications. Here there are : 
 
