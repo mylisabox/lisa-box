@@ -17,9 +17,18 @@ WORK IN PROGRESS
 To run the project you need to do multiple things:
 
 ### 1) Retrieve the project
+- For some functionality L.I.S.A. need some linux module already installed, 
+```
+#Mandatory dependencies
+apt-get install -y mongodb-server libzmq3-dev 
+#Matrix board dependencies
+apt-get install -y matrix-creator-openocd matrix-creator-init matrix-creator-malos lirc
+#Voice recognition dependencies
+apt-get install -y sox libsox-fmt-all alsa-utils libatlas-base-dev libatlas3gf-base
+```
 - `git clone https://github.com/mylisabox/lisa-box.git` 
+- `cd lisa-box`
 - `yarn //or npm i`
-- For some functionality L.I.S.A. need some linux module already installed, please check [install.sh](https://github.com/mylisabox/lisa-box/blob/master/scripts/install.sh) and install what's missing for you
 
 ### 2) Initialize plugins
  For now no UI or way to install plugins, you have to do it manually, for that clone or copy plugins project you want 
@@ -36,7 +45,7 @@ Voice recognition work in 2 phases thanks to the [sonus](https://github.com/evan
  [those steps](https://cloud.google.com/speech/docs/getting-started) and copy/paste/rename the file in the correct place.
 
 ### 4) Run the project
-- `yarn start //npm start //node index.js`
+- `yarn start //npm start //node server.js`
 - Go to http://localhost:3000
 
 ## Notification
