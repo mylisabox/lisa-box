@@ -28,7 +28,11 @@
       "sentences": {
         "fr": [
           "allume (?:la|les) lumière",
-          "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% en %color% à +%number% (?:pourcent|%)",
+          "allume (?:la|les) lumière à %number% (?:pourcent|%)",
+          "allume (?:la|les) lumière en %color%",
+          "allume (?:la|les) lumière en %color% à %number% (?:pourcent|%)",
+          "allume (?:la|les) lumière à %number% (?:pourcent|%) en %color%",
+          "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% en %color% à %number% (?:pourcent|%)",
           "(?:allume|mets|mais|mettre)(?: +\\w+){0,5} +%room% à %number% (?:pourcent|%) %color%",
           "(?:mets|mettre|met|mais|change|allume|allumer)(?: +\\w+){0,5} +%room%(?: +\\w+){0,2} +%color%",
           "change la couleur(?: +\\w+){0,2} +%room% à %color%",
@@ -38,7 +42,10 @@
           "allume(?: +\\w+){0,4} +%room%"
         ],
         "en": [
-          "light",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +light",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +light in %number% (?:percent|%)",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +light in %color%",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +light in %number% (?:percent|%)(?: +\\w+){0,5} +%color%",
           "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %number% (?:percent|%) %color%",
           "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %color%(?: +\\w+){0,5} +%number% (?:percent|%)",
           "(?:turn|switch|change|put|set)(?: +\\w+){0,5} +%room% in %color%",

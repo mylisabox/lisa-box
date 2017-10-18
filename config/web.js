@@ -1,6 +1,17 @@
 'use strict'
-//const proxy = require('http-proxy-middleware')
-//const assetsProxy = proxy('/images', {target: 'http://localhost:4200'})
+const fs = require('fs')
+const sslKeyPath = __dirname + '/ssl/server.key'
+const sslCertPath = __dirname + '/ssl/server.crt'
+
+let ssl = undefined
+if (fs.existsSync(sslKeyPath)) {
+  ssl = {
+    key: fs.readFileSync(sslKeyPath, 'utf8'),
+    cert: fs.readFileSync(sslCertPath, 'utf8'),
+    //passphrase: 'mylisabox'
+    //OR pfx: fs.readFileSync('path/to/server.pfx')
+  }
+}
 
 /**
  * Server Configuration
@@ -31,7 +42,6 @@ module.exports = {
     //middlewares loading order
     order: [
       'addMethods',
-      //'proxyAssets',
       'cookieParser',
       'passportInit',
       'bodyParser',
@@ -84,23 +94,18 @@ module.exports = {
    * SSL options
    * Cert and key or pfx to create HTTPS server
    */
-  /*
-   ssl: {
-   key: fs.readFileSync('path/to/private.key'),
-   cert: fs.readFileSync('path/to/certificate.pem')
-   //OR pfx: fs.readFileSync('path/to/server.pfx')
-   },
-   */
+  ssl: ssl,
+
   /**
    * Automatically redirect HTTP to HTTPS
    * Create an HTTP server who redirect to HTTPS server
    * Work only if SSL is enabled
    */
-//redirectToHttps: false,
+  redirectToHttps: false,
 
   /**
    * Http port to use if you want to enable http and https
    * SSL need to be enabled
    */
-//portHttp: 80
+  //portHttp: 80
 }

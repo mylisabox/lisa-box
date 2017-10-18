@@ -48,6 +48,9 @@ Voice recognition work in 2 phases thanks to the [sonus](https://github.com/evan
 - `yarn start //npm start //node server.js`
 - Go to http://localhost:3000
 
+### 5) Enable SSL 
+To enable SSL just put a file `server.key` and `server.crt` under `config/ssl/`, if you want other file name just edit `config/web.js` to specify the correct values.
+
 ## Notification
 There multiple template available for notifications. Here there are : 
 

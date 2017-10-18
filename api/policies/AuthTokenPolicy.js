@@ -11,7 +11,7 @@ module.exports = class AuthTokenPolicy extends Policy {
     const header = req.headers['device-id']
     const nextPolicy = () => this.app.policies['Passport'].jwt(req, res, next)
     const checkHeaderKnownDevice = () => {
-      this.app.orm.Device.findAll({
+      return this.app.orm.Device.findAll({
         where: {
           pluginName: 'lisa-plugin-voice'
         }

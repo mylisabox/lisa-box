@@ -42,3 +42,4 @@ jspm_packages
 /plugins/*
 /config/speech/LISA-gfile.json
 /identifier
+/config/ssl/server.*
