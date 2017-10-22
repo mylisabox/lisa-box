@@ -100,7 +100,7 @@
         "en": [
           "(?:light|lights)(?: +\\w+){0,5} +%room% to %number%(?:percent|%)",
           "(?:light|lights)(?: +\\w+){0,5} +to %number%(?:percent|%)",
-          "brightness(?: +\\w+){0,5} +%number%(?:percent|%)",
+          "brightness(?: +\\w+){0,5} +%room% to %number%(?:percent|%)",
           "brightness(?: +\\w+){0,5} +%number%(?:percent|%)"
         ]
       },
