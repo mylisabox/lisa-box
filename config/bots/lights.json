@@ -42,12 +42,12 @@
           "allume(?: +\\w+){0,4} +%room%"
         ],
         "en": [
-          "(?:turn|switch|put|set)(?: +\\w+){0,5} +(?:light|lights)",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +(?:light|lights) in %number%(?:percent|%)(?: +\\w+){0,5} +%color%",
           "(?:turn|switch|put|set)(?: +\\w+){0,5} +(?:light|lights) in %number%(?:percent|%)",
           "(?:turn|switch|put|set)(?: +\\w+){0,5} +(?:light|lights) in %color%",
-          "(?:turn|switch|put|set)(?: +\\w+){0,5} +(?:light|lights) in %number%(?:percent|%)(?: +\\w+){0,5} +%color%",
           "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %number%(?:percent|%) %color%",
           "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %color%(?: +\\w+){0,5} +%number%(?:percent|%)",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +(?:light|lights)",
           "(?:turn|switch|change|put|set)(?: +\\w+){0,5} +%room% in %color%",
           "(?:turn|switch)(?: +\\w+){0,2} +%room% on(?: +\\w+){0,2} +(?: +\\w+){0,2} +%number%(?:percent|%)",
           "(?:turn|switch)(?: +\\w+){0,2} +%room% on",
