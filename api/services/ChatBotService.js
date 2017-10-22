@@ -21,7 +21,7 @@ module.exports = class ChatBotService extends Service {
       const commands = bot.context[index].data.commands
       const actions = []
 
-      for (let command of commands) {
+      for (const command of commands) {
         actions.push(this.interact(requestId, lang, command, undefined, context).catch(err => Promise.resolve()))
       }
       return Promise.all(actions).then(() => result)
@@ -95,7 +95,7 @@ module.exports = class ChatBotService extends Service {
 
   _buildCustomBotFromContext(context) {
     const states = {}
-    for (let entry of context) {
+    for (const entry of context) {
       const sentences = {}
       sentences[this.app.env.LANG.substr(0, 2)] = entry.data.sentences
       const responses = {}

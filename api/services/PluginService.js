@@ -214,13 +214,12 @@ module.exports = class PluginService extends Service {
 
       if (infos.fields.room) {
         roomPromise.push(this.app.orm.Room.find({
-            where: {
-              name: {
-                $like: infos.fields.room
-              }
+          where: {
+            name: {
+              $like: infos.fields.room
             }
-          })
-        )
+          }
+        }))
       }
       else {
         roomPromise.push(Promise.resolve())

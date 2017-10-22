@@ -70,7 +70,7 @@ describe('LISA', () => {
     })
 
     it('should retrieve specific device for current plugin', () => {
-      return lisa.findDevices({id: 1}).then(device => {
+      return lisa.findDevices({ id: 1 }).then(device => {
         assert.equal(device.name, 'test')
         assert.equal(device.pluginName, 'unknown')
         assert.equal(device.data.attr1, 'attr1')
@@ -91,7 +91,7 @@ describe('LISA', () => {
       }).then(devices => {
         assert.equal(devices.length, 1)
         assert.equal(devices[0], 1)
-        return global.app.orm.Device.find({where: {id: 1}}).then(device => {
+        return global.app.orm.Device.find({ where: { id: 1 } }).then(device => {
           assert.equal(device.id, 1)
           assert.equal(device.name, 'test updated')
           assert.equal(device.pluginName, 'unknown')
@@ -141,7 +141,7 @@ describe('LISA', () => {
 
   describe('Preferences management', () => {
     it('should save preferences', () => {
-      return lisa.setPreferences({pref: 'ok'})
+      return lisa.setPreferences({ pref: 'ok' })
     })
 
     it('should retrieve preferences', () => {

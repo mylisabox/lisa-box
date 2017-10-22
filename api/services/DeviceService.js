@@ -1,7 +1,6 @@
 'use strict'
 
 const Service = require('trails/service')
-const _ = require('lodash')
 
 module.exports = class DeviceService extends Service {
   find(criteria, options = {}) {

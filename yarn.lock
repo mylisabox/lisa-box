@@ -842,7 +842,7 @@ core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
 
-cors@^2.8.3:
+cors@^2.8.4:
   version "2.8.4"
   resolved "https://registry.yarnpkg.com/cors/-/cors-2.8.4.tgz#2bd381f2eb201020105cd50ea59da63090694686"
   dependencies:
@@ -1168,13 +1168,13 @@ encodeurl@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/encodeurl/-/encodeurl-1.0.1.tgz#79e3d58655346909fe6f0f45a5de68103b294d20"
 
-end-of-stream@1.0.0, end-of-stream@^1.0.0:
+end-of-stream@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.0.0.tgz#d4596e702734a93e40e9af864319eabd99ff2f0e"
   dependencies:
     once "~1.3.0"
 
-end-of-stream@^1.1.0:
+end-of-stream@^1.0.0, end-of-stream@^1.1.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/end-of-stream/-/end-of-stream-1.4.0.tgz#7a90d833efda6cfa6eac0f4949dbb0fad3a63206"
   dependencies:
@@ -1345,7 +1345,7 @@ express-boom@^1.0.0:
   dependencies:
     boom "3.2.x"
 
-express-session@^1.15.2:
+express-session@^1.15.6:
   version "1.15.6"
   resolved "https://registry.yarnpkg.com/express-session/-/express-session-1.15.6.tgz#47b4160c88f42ab70fe8a508e31cbff76757ab0a"
   dependencies:
@@ -2676,7 +2676,7 @@ methmeth@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/methmeth/-/methmeth-1.1.0.tgz#e80a26618e52f5c4222861bb748510bd10e29089"
 
-method-override@^2.3.8:
+method-override@^2.3.10:
   version "2.3.10"
   resolved "https://registry.yarnpkg.com/method-override/-/method-override-2.3.10.tgz#e3daf8d5dee10dd2dce7d4ae88d62bbee77476b4"
   dependencies:
@@ -4292,20 +4292,20 @@ trailpack-email@^2.0.1:
     nodemailer "^4.0.1"
     trailpack "^2.1.2"
 
-trailpack-express@2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/trailpack-express/-/trailpack-express-2.0.4.tgz#f0014d579d27dd8197a3e1ac4140659ab57fead0"
+trailpack-express@2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/trailpack-express/-/trailpack-express-2.0.5.tgz#339eb82f0bf42fbe3147c80f10e8c31f435cc497"
   dependencies:
     body-parser "^1.17.1"
     compression "^1.6.2"
     consolidate "^0.14.5"
     cookie-parser "^1.4.3"
-    cors "^2.8.3"
+    cors "^2.8.4"
     express-boom "^1.0.0"
-    express-session "^1.15.2"
+    express-session "^1.15.6"
     joi "^10.4.1"
-    lodash "^4.17.2"
-    method-override "^2.3.8"
+    lodash "^4.17.4"
+    method-override "^2.3.10"
     methods "^1.1.2"
     trailpack "^2.1.2"
 
