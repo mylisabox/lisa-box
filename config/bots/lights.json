@@ -122,10 +122,10 @@
           "baisse(?: +\\w+){0,2} + lumière(?: +\\w+){0,5} +%room% de %number% (?:pourcent|%)"
         ],
         "en": [
-          "decrease the (?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
-          "decrease the (?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)",
-          "lower the (?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
-          "lower the (?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)"
+          "decrease(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
+          "decrease(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)",
+          "lower(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
+          "lower(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)"
         ]
       },
       "responses": {
@@ -146,10 +146,10 @@
           "augmente(?: +\\w+){0,2} + lumière(?: +\\w+){0,5} +%room% de %number% (?:pourcent|%)"
         ],
         "en": [
-          "increase the light(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
-          "increase the light(?: +\\w+){0,5} +%number%(?:percent|%)",
-          "raise the (?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
-          "raise the light(?: +\\w+){0,5} +%number%(?:percent|%)"
+          "increase(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
+          "increase(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)",
+          "raise(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
+          "raise(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)"
         ]
       },
       "responses": {
