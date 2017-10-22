@@ -42,14 +42,14 @@
           "allume(?: +\\w+){0,4} +%room%"
         ],
         "en": [
-          "(?:turn|switch|put|set)(?: +\\w+){0,5} +light",
-          "(?:turn|switch|put|set)(?: +\\w+){0,5} +light in %number% (?:percent|%)",
-          "(?:turn|switch|put|set)(?: +\\w+){0,5} +light in %color%",
-          "(?:turn|switch|put|set)(?: +\\w+){0,5} +light in %number% (?:percent|%)(?: +\\w+){0,5} +%color%",
-          "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %number% (?:percent|%) %color%",
-          "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %color%(?: +\\w+){0,5} +%number% (?:percent|%)",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +(?:light|lights)",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +(?:light|lights) in %number%(?:percent|%)",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +(?:light|lights) in %color%",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +(?:light|lights) in %number%(?:percent|%)(?: +\\w+){0,5} +%color%",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %number%(?:percent|%) %color%",
+          "(?:turn|switch|put|set)(?: +\\w+){0,5} +%room% in %color%(?: +\\w+){0,5} +%number%(?:percent|%)",
           "(?:turn|switch|change|put|set)(?: +\\w+){0,5} +%room% in %color%",
-          "(?:turn|switch)(?: +\\w+){0,2} +%room% on(?: +\\w+){0,2} +(?: +\\w+){0,2} +%number% (?:percent|%)",
+          "(?:turn|switch)(?: +\\w+){0,2} +%room% on(?: +\\w+){0,2} +(?: +\\w+){0,2} +%number%(?:percent|%)",
           "(?:turn|switch)(?: +\\w+){0,2} +%room% on",
           "(?:turn|switch) on(?: +\\w+){0,2} +%room%"
         ]
@@ -74,7 +74,7 @@
           "(?:éteins|éteint|éteindre)(?: +\\w+){0,4} +%room%"
         ],
         "en": [
-          "(?:turn|switch) lights off",
+          "(?:turn|switch) (?:light|lights) off",
           "(?:turn|switch) off(?: +\\w+){0,2} +%room%",
           "(?:turn|switch)(?: +\\w+){0,2} +%room% off"
         ]
@@ -98,8 +98,10 @@
           "%room% à %number% (?:pourcent|%)"
         ],
         "en": [
-          "light(?: +\\w+){0,5} +%room% to %number% (?:percent|%)",
-          "brightness(?: +\\w+){0,5} +%room% to %number% (?:percent|%)"
+          "(?:light|lights)(?: +\\w+){0,5} +%room% to %number%(?:percent|%)",
+          "(?:light|lights)(?: +\\w+){0,5} +to %number%(?:percent|%)",
+          "brightness(?: +\\w+){0,5} +%number%(?:percent|%)",
+          "brightness(?: +\\w+){0,5} +%number%(?:percent|%)"
         ]
       },
       "responses": {
@@ -120,7 +122,10 @@
           "baisse(?: +\\w+){0,2} + lumière(?: +\\w+){0,5} +%room% de %number% (?:pourcent|%)"
         ],
         "en": [
-          "decrease the light(?: +\\w+){0,5} +%room% of %number% (?:percent|%)"
+          "decrease the (?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
+          "decrease the (?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)",
+          "lower the (?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
+          "lower the (?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)"
         ]
       },
       "responses": {
@@ -141,7 +146,10 @@
           "augmente(?: +\\w+){0,2} + lumière(?: +\\w+){0,5} +%room% de %number% (?:pourcent|%)"
         ],
         "en": [
-          "increase the light(?: +\\w+){0,5} +%room% of %number% (?:percent|%)"
+          "increase the light(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
+          "increase the light(?: +\\w+){0,5} +%number%(?:percent|%)",
+          "raise the (?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
+          "raise the light(?: +\\w+){0,5} +%number%(?:percent|%)"
         ]
       },
       "responses": {
