@@ -8,7 +8,7 @@
           "(?:bonjour|hello|salut|bonsoir)"
         ],
         "en": [
-          "(?:hello|morning|hi)"
+          "(?:hello|morning)"
         ]
       },
       "responses": {
