@@ -44,7 +44,7 @@ module.exports = class DeviceService extends Service {
     return Promise.all(fullData).then(devicesData => {
       let devices = []
       for (const deviceData of devicesData) {
-        if (_.isArray(deviceData)) {
+        if (Array.isArray(deviceData)) {
           devices = devices.concat(deviceData)
         }
         else {

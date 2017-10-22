@@ -136,7 +136,7 @@ module.exports = (function () {
       }
 
       return promise.then(device => {
-        if (_.isArray(device)) {
+        if (Array.isArray(device)) {
           return device.map(item => {
             if (item.toRawData) {
               return item.toRawData()
