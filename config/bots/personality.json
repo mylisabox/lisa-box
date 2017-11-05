@@ -1,6 +1,30 @@
 {
   "name": "Personality",
   "freeStates": {
+    "LISA_CAN_YOU_HEAR": {
+      "name": "Hearing_Check",
+      "sentences": {
+        "fr": [
+          "Est-ce que tu m'entends",
+          "Est-ce que tu es là",
+          "tu es là"
+        ],
+        "en": [
+          "can you hear me",
+          "are you there"
+        ]
+      },
+      "responses": {
+        "fr": [
+          "5 sur 5",
+          "Parfaitement"
+        ],
+        "en": [
+          "Yes",
+          "loud and clear"
+        ]
+      }
+    },
     "LISA_HELLO": {
       "name": "Hello",
       "sentences": {

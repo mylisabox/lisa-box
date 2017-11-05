@@ -6,7 +6,6 @@ const LISA = require('../lisa')
 const fs = require('fs')
 //const serialPort = require('serialport')
 const bonjour = require('bonjour')()
-//const nmap = require('node-nmap')
 
 module.exports = (app) => {
   app.services.WebSocketService.init()
