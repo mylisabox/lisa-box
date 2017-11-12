@@ -35,7 +35,7 @@ apt-get install -y lirc
 echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list
 apt-get update
 apt-get upgrade
-apt-get install -y libzmq3-dev xc3sprog matrix-creator-openocd wiringpi cmake matrix-creator-init matrix-creator-malos
+apt-get install -y libzmq3-dev wiringpi cmake matrix-creator-init matrix-creator-malos
 echo 'export AUDIODEV=mic_channel8' >>~/.bash_profile
 echo 'export LANG=en-US' >>~/.bash_profile
 source ~/.bash_profile

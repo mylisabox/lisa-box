@@ -13,6 +13,9 @@ Home automation system L.I.S.A. http://mylisabox.com
 
 WORK IN PROGRESS
 
+## How to use it
+The easiest way to test L.I.S.A. is to use the pre configured image for Raspberry PI 2 or 3. Take a look [here](docs/pi)
+
 ## Development
 To run the project you need to do multiple things:
 
