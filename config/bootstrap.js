@@ -32,6 +32,7 @@ module.exports = (app) => {
 
     const voiceCommand = new VoiceCommand({
       matrix: '127.0.0.1',
+      log: app.log,
       url: 'http://127.0.0.1:3000',
       gSpeech: './config/speech/LISA-gfile.json',
       language: language

@@ -1,6 +1,6 @@
 {
   "name": "lisa-box",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "Home automation system L.I.S.A.",
   "main": "index.js",
   "scripts": {
@@ -49,8 +49,8 @@
     "jpeg-extractor": "^0.1.3",
     "lisa-lirc": "^0.0.1",
     "lisa-plugins-manager": "0.0.17",
-    "lisa-standalone-voice-command": "^0.0.15",
-    "lisa-ui": "^0.0.11",
+    "lisa-standalone-voice-command": "^0.0.16",
+    "lisa-ui": "^0.0.12",
     "lodash": "^4.17.4",
     "mdns": "^2.3.3",
     "mjpeg-proxy": "^0.2.0",
