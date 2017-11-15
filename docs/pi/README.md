@@ -7,7 +7,7 @@ All you need is a 8Go SD Card, [download the image here](https://drive.google.co
 Everything is already configured with all available plugins, the only things that is not configured is the speech recognition because it will depends on your hardware.
 
 ## SSH access
-By default SSH access is enable, you can connect with the user `pi` and the password `mylisabox`
+By default SSH access is enabled, you can connect with the user `pi` and the password `mylisabox`
 
 ## Setup voice recognition (Software)
 Voice recognition work in 2 phases thanks to the [sonus](https://github.com/evancohen/sonus) module:
