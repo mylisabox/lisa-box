@@ -49,7 +49,7 @@
     "jpeg-extractor": "^0.1.3",
     "lisa-lirc": "^0.0.1",
     "lisa-plugins-manager": "0.0.17",
-    "lisa-standalone-voice-command": "^0.0.16",
+    "lisa-standalone-voice-command": "^0.0.17",
     "lisa-ui": "^0.0.12",
     "lodash": "^4.17.4",
     "mdns": "^2.3.3",
