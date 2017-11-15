@@ -22,11 +22,20 @@ module.exports = class UserController extends Controller {
       }
       else {
         const user = req.body
-        user.avatar = '/avatar/' + req.file.filename
+        if (req.file && req.file.filename) {
+          user.avatar = '/avatar/' + req.file.filename
+        }
+        else {
+          user.avatar = req.user.avatar
+        }
         user.id = req.user.id
         this.app.orm.User.update(user, { where: { id: req.user.id } })
           .then(() => {
-            res.json(user)
+            if (user.password && user.password != "") {
+              return this.app.services.PassportService.updateLocalPassword(user, user.password)
+                .then(() => res.json(user))
+            }
+            return res.json(user)
           })
           .catch(err => {
             res.serverError(err)
