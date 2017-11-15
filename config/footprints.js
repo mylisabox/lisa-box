@@ -16,13 +16,16 @@ module.exports = {
   /**
    * Generate routes for controller handlers.
    */
-  controllers: {ignore: controllerNames},
+  controllers: {
+    ignore: controllerNames
+  },
 
   /**
    * Generate conventional Create, Read, Update, and Delete (CRUD) routes for
    * each Model.
    */
   models: {
+    ignore: ['User'],
     options: {
 
       /**
@@ -35,21 +38,6 @@ module.exports = {
        * Whether to populate all model associations by default (for "find")
        */
       populate: false
-    },
-
-    actions: {
-      create: true,
-      find: true,
-      update: true,
-      destroy: true,
-
-      /**
-       * Specify which "association" endpoints to activate.
-       */
-      createAssociation: true,
-      findAssociation: true,
-      updateAssociation: true,
-      destroyAssociation: true
     }
   },
 

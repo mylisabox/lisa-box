@@ -1,7 +1,9 @@
 'use strict'
 const fs = require('fs')
+const multer = require('multer')
 const sslKeyPath = __dirname + '/ssl/server.key'
 const sslCertPath = __dirname + '/ssl/server.crt'
+const storage = multer({ dest: 'uploads/' })
 
 let ssl = undefined
 if (fs.existsSync(sslKeyPath)) {
@@ -24,7 +26,7 @@ if (fs.existsSync(sslKeyPath)) {
 module.exports = {
   express: require('express'),
   init: (app, express) => {
-
+    express.multer = storage
   },
   /**
    * CORS options

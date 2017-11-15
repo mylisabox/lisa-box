@@ -46,6 +46,15 @@ module.exports = [
   },
   {
     method: 'GET',
+    path: '/avatar',
+    handler: {
+      directory: {
+        path: 'uploads'
+      }
+    }
+  },
+  {
+    method: 'GET',
     path: '/fr',
     handler: {
       directory: {
@@ -92,6 +101,16 @@ module.exports = [
     method: 'DELETE',
     path: `${footprintsConfig.prefix}/{parentModel}/{parentId}/{childAttribute}/{childId?}`,
     handler: 'FootprintController.destroyAssociation'
+  },
+  {
+    method: 'POST',
+    path: `${footprintsConfig.prefix}/user`,
+    handler: 'UserController.updateProfile'
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/user`,
+    handler: 'UserController.getProfile'
   },
   {
     method: 'GET',

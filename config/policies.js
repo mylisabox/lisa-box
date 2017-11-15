@@ -12,6 +12,9 @@
  * @see http://trailsjs.io/doc/config/policies
  */
 module.exports = {
+  UserController: {
+    '*': ['Passport.jwt']
+  },
   AuthController: {
     connect: [
       'Passport.jwt'
