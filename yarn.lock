@@ -2379,16 +2379,16 @@ lisa-plugins-manager@0.0.17:
     snyk "^1.29.0"
     trailpack "^2.1.2"
 
-lisa-standalone-voice-command@^0.0.16:
-  version "0.0.16"
-  resolved "https://registry.yarnpkg.com/lisa-standalone-voice-command/-/lisa-standalone-voice-command-0.0.16.tgz#11538d743e697b5cac98fa6d86eda1986dc120e5"
+lisa-standalone-voice-command@^0.0.19:
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/lisa-standalone-voice-command/-/lisa-standalone-voice-command-0.0.19.tgz#57bef59c0c652c35d7f647c3c560417732248a62"
   dependencies:
     matrix-protos "^0.0.17"
-    mdns "^2.3.3"
+    mdns "^2.3.4"
     pico-speaker "^0.0.7"
     request "^2.83.0"
     request-promise-native "^1.0.5"
-    sonus "^0.1.9-2"
+    sonus "^0.1.9-4"
     uuid "^3.1.0"
     zmq "^2.15.3"
 
@@ -2598,6 +2598,13 @@ matrix-protos@^0.0.17:
 mdns@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/mdns/-/mdns-2.3.3.tgz#bbc6ad5407a230133d62e0da692f29f0bd49728e"
+  dependencies:
+    bindings "~1.2.1"
+    nan "~2.3.0"
+
+mdns@^2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/mdns/-/mdns-2.3.4.tgz#650380ac76089430cf6c8981a945dbd27d02f5b7"
   dependencies:
     bindings "~1.2.1"
     nan "~2.3.0"
@@ -3810,7 +3817,7 @@ snyk@^1.22.1, snyk@^1.29.0, snyk@^1.44.1:
     url "^0.11.0"
     uuid "^3.0.1"
 
-sonus@^0.1.9-2:
+sonus@^0.1.9-4:
   version "0.1.9-4"
   resolved "https://registry.yarnpkg.com/sonus/-/sonus-0.1.9-4.tgz#7a9ab7c9b09bec6a0a0f85302e252619043cdf56"
   dependencies:
