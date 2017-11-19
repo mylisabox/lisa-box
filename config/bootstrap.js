@@ -12,6 +12,27 @@ module.exports = (app) => {
   app.services.IRService.init()
   app.lisa = new LISA(app)
 
+  require('greenlock-express').create({
+
+    server: 'staging'
+
+    , approveDomains: (opts, certs, cb) => {
+      if (certs) {
+        // change domain list here
+        opts.domains = ['mylisabox.com']
+      } else {
+        // change default email to accept agreement
+        opts.email = 'jimmy.aumard@gmail.com'
+        opts.agreeTos = true
+      }
+      cb(null, { options: opts, certs: certs })
+    }
+
+    , app: app.packs.express.server
+
+  }).listen(3000, 3443)
+
+
   if (app.env.NODE_ENV !== 'testing') {
     // advertise an HTTP server on configured port
     const VoiceCommand = require('lisa-standalone-voice-command')

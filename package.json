@@ -44,6 +44,7 @@
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "fstream": "^1.0.11",
+    "greenlock-express": "^2.0.11",
     "infrared": "^0.0.4",
     "joi": "^12.0.0",
     "jpeg-extractor": "^0.1.3",
