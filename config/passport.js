@@ -42,7 +42,7 @@ module.exports = {
         secretOrKey: SECRET,
         issuer: ISSUER,
         audience: AUDIENCE,
-        jwtFromRequest: ExtractJwt.fromExtractors([ExtractJwt.fromAuthHeader(), ExtractJwt.fromUrlQueryParameter('token')]) //Authorization: JWT JSON_WEB_TOKEN_STRING
+        jwtFromRequest: ExtractJwt.fromExtractors([ExtractJwt.fromAuthHeaderWithScheme('jwt'), ExtractJwt.fromUrlQueryParameter('token')]) //Authorization: JWT JSON_WEB_TOKEN_STRING
       }
     }, /*
      //Enable twitter strategy
