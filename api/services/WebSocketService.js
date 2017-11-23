@@ -42,8 +42,8 @@ module.exports = class WebSocketService extends Service {
   }
 
   init() {
-    this.app.sockets.use('rooms', rooms)
-    this.app.sockets.use('emitter', emitter)
+    this.app.sockets.plugin('rooms', rooms);
+    this.app.sockets.plugin('emitter', emitter)
     this.app.sockets.authorize(this._authorize)
 
     this.app.sockets.on('connection', spark => {

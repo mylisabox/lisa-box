@@ -24,7 +24,10 @@ module.exports = {
       migrate: 'none'
     }
   },
-
+  greenlock: {
+    server: 'https://acme-v01.api.letsencrypt.org/directory',
+    debug: false
+  },
   log: {
     logger: new winston.Logger({
       level: 'info',

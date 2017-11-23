@@ -22,7 +22,7 @@ module.exports = {
     require('trailpack-chatbot'),
     require('trailpack-cache'),
     require('trailpack-bootstrap'),
-    require('trailpack-greenlock'),
+    //require('trailpack-greenlock'),
     //require('trailpack-email'),
     //require('trailpack-cron'),
     require('trailpack-footprints'),

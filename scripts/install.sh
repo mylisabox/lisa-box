@@ -32,6 +32,7 @@ apt-get install lirc
 apt-get install libasound2-dev
 
 #rsync -avz config/speech/LISA-gfile.json root@192.168.1.10:/var/www/lisa-box/config/speech/
+#rsync -avz lisa.sqlite root@192.168.1.10:/var/www/lisa-box/
 #rsync -avz lisa.sqlite root@mylisabox:/var/www/lisa-box
 #rsync -avzL --delete --exclude 'node_modules' plugins/ root@mylisabox:/var/www/lisa-box/plugins
 
