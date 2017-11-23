@@ -306,6 +306,10 @@ base64-arraybuffer@0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/base64-arraybuffer/-/base64-arraybuffer-0.1.5.tgz#73926771923b5a19747ad666aa5cd4bf9c6e9ce8"
 
+base64-js@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-0.0.2.tgz#024f0f72afa25b75f9c0ee73cd4f55ec1bed9784"
+
 base64-js@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-0.0.8.tgz#1101e9544f4a76b1bc3b26d452ca96d7a35e7978"
@@ -407,6 +411,13 @@ boom@5.x.x:
   resolved "https://registry.yarnpkg.com/boom/-/boom-5.2.0.tgz#5dd9da6ee3a5f302077436290cb717d3f4a54e02"
   dependencies:
     hoek "4.x.x"
+
+bops@~0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/bops/-/bops-0.1.1.tgz#062e02a8daa801fa10f2e5dbe6740cff801fe17e"
+  dependencies:
+    base64-js "0.0.2"
+    to-utf8 "0.0.1"
 
 boxen@^0.3.1:
   version "0.3.1"
@@ -919,7 +930,7 @@ debug@2.6.9, debug@^2.1.2, debug@^2.2.0:
   dependencies:
     ms "2.0.0"
 
-debug@^3.0.1:
+debug@^3.0.1, debug@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
@@ -1195,6 +1206,10 @@ error-ex@^1.2.0:
 es6-promise@3.2.1, es6-promise@^3.0.2, es6-promise@^3.1.2:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-3.2.1.tgz#ec56233868032909207170c39448e24449dd1fc4"
+
+es6-promise@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.1.1.tgz#8811e90915d9a0dba36274f0b242dbda78f9c92a"
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -2368,7 +2383,7 @@ lisa-lirc@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/lisa-lirc/-/lisa-lirc-0.0.1.tgz#65b8747f1aa220dc57f3b218e18407e4a4e14bea"
 
-lisa-plugins-manager@0.0.17:
+lisa-plugins-manager@^0.0.17:
   version "0.0.17"
   resolved "https://registry.yarnpkg.com/lisa-plugins-manager/-/lisa-plugins-manager-0.0.17.tgz#fecd00437f891761b186d2c87bfc1d9099d3311c"
   dependencies:
@@ -2379,22 +2394,22 @@ lisa-plugins-manager@0.0.17:
     snyk "^1.29.0"
     trailpack "^2.1.2"
 
-lisa-standalone-voice-command@^0.0.19:
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/lisa-standalone-voice-command/-/lisa-standalone-voice-command-0.0.19.tgz#57bef59c0c652c35d7f647c3c560417732248a62"
+lisa-standalone-voice-command@^0.0.20:
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/lisa-standalone-voice-command/-/lisa-standalone-voice-command-0.0.20.tgz#005780c47d0c826ff902c3246330df69cd3077d0"
   dependencies:
     matrix-protos "^0.0.17"
     mdns "^2.3.4"
     pico-speaker "^0.0.7"
     request "^2.83.0"
     request-promise-native "^1.0.5"
-    sonus "^0.1.9-4"
+    sonus "^0.1.9"
     uuid "^3.1.0"
     zmq "^2.15.3"
 
-lisa-ui@^0.0.12:
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/lisa-ui/-/lisa-ui-0.0.12.tgz#c646f52026ef7ade493fa209500757fa098d5641"
+lisa-ui@^0.0.14:
+  version "0.0.14"
+  resolved "https://registry.yarnpkg.com/lisa-ui/-/lisa-ui-0.0.14.tgz#110b3adf0780207ae1acd97919e5a1f6099fcaf1"
 
 load-json-file@^1.0.0:
   version "1.1.0"
@@ -2594,13 +2609,6 @@ matrix-protos@^0.0.17:
   resolved "https://registry.yarnpkg.com/matrix-protos/-/matrix-protos-0.0.17.tgz#dd65a7e98d7eb5a7b391e068b8519dabc6773609"
   dependencies:
     protobufjs "^6.8.0"
-
-mdns@^2.3.3:
-  version "2.3.3"
-  resolved "https://registry.yarnpkg.com/mdns/-/mdns-2.3.3.tgz#bbc6ad5407a230133d62e0da692f29f0bd49728e"
-  dependencies:
-    bindings "~1.2.1"
-    nan "~2.3.0"
 
 mdns@^2.3.4:
   version "2.3.4"
@@ -3218,6 +3226,10 @@ proxy-addr@~2.0.2:
     forwarded "~0.1.2"
     ipaddr.js "1.5.2"
 
+proxy-from-env@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/proxy-from-env/-/proxy-from-env-1.0.0.tgz#33c50398f70ea7eb96d21f7b817630a55791c7ee"
+
 pseudomap@^1.0.1, pseudomap@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
@@ -3536,6 +3548,10 @@ safe-buffer@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.0.1.tgz#d263ca54696cd8a306b5ca6551e92de57918fbe7"
 
+sax@>=0.6.0:
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+
 seek-bzip@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/seek-bzip/-/seek-bzip-1.0.5.tgz#cfe917cb3d274bcffac792758af53173eb1fabdc"
@@ -3694,6 +3710,13 @@ snyk-go-plugin@1.3.7:
     graphlib "^2.1.1"
     toml "^2.3.2"
 
+snyk-go-plugin@1.3.8:
+  version "1.3.8"
+  resolved "https://registry.yarnpkg.com/snyk-go-plugin/-/snyk-go-plugin-1.3.8.tgz#77f7fc663b276d4e6007c5bd23ec2453c35a45ee"
+  dependencies:
+    graphlib "^2.1.1"
+    toml "^2.3.2"
+
 snyk-gradle-plugin@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/snyk-gradle-plugin/-/snyk-gradle-plugin-1.2.0.tgz#ef5aea5d132905cbf0315c72d9d96b24aa4a75dd"
@@ -3710,6 +3733,15 @@ snyk-module@1.8.1, snyk-module@^1.6.0, snyk-module@^1.8.1:
 snyk-mvn-plugin@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/snyk-mvn-plugin/-/snyk-mvn-plugin-1.1.0.tgz#6ad3fb670cd22972094f065ab99b90d286c8ad6f"
+
+snyk-nuget-plugin@1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/snyk-nuget-plugin/-/snyk-nuget-plugin-1.3.2.tgz#c054b3868444435de587df4a86048323f6d4e95f"
+  dependencies:
+    debug "^3.1.0"
+    es6-promise "^4.1.1"
+    xml2js "^0.4.17"
+    zip "^1.2.0"
 
 snyk-policy@1.7.1:
   version "1.7.1"
@@ -3781,7 +3813,7 @@ snyk-try-require@^1.1.1, snyk-try-require@^1.2.0:
     lru-cache "^4.0.0"
     then-fs "^2.0.0"
 
-snyk@^1.22.1, snyk@^1.29.0, snyk@^1.44.1:
+snyk@^1.22.1, snyk@^1.29.0:
   version "1.44.1"
   resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.44.1.tgz#45ad1ebaba1cb9f9b9baee840d661574ef107919"
   dependencies:
@@ -3817,9 +3849,47 @@ snyk@^1.22.1, snyk@^1.29.0, snyk@^1.44.1:
     url "^0.11.0"
     uuid "^3.0.1"
 
-sonus@^0.1.9-4:
-  version "0.1.9-4"
-  resolved "https://registry.yarnpkg.com/sonus/-/sonus-0.1.9-4.tgz#7a9ab7c9b09bec6a0a0f85302e252619043cdf56"
+snyk@^1.49.5:
+  version "1.49.5"
+  resolved "https://registry.yarnpkg.com/snyk/-/snyk-1.49.5.tgz#3cce8e6863b1d7d95bbf1a6e4a571482f5aeb444"
+  dependencies:
+    abbrev "^1.0.7"
+    ansi-escapes "^1.3.0"
+    chalk "^1.1.1"
+    configstore "^1.2.0"
+    debug "^2.2.0"
+    es6-promise "^3.0.2"
+    hasbin "^1.2.3"
+    inquirer "1.0.3"
+    needle "^2.0.1"
+    open "^0.0.5"
+    os-name "^1.0.3"
+    proxy-from-env "^1.0.0"
+    semver "^5.1.0"
+    snyk-config "1.0.1"
+    snyk-go-plugin "1.3.8"
+    snyk-gradle-plugin "1.2.0"
+    snyk-module "1.8.1"
+    snyk-mvn-plugin "1.1.0"
+    snyk-nuget-plugin "1.3.2"
+    snyk-policy "1.7.1"
+    snyk-python-plugin "1.4.0"
+    snyk-recursive-readdir "^2.0.0"
+    snyk-resolve "1.0.0"
+    snyk-resolve-deps "1.7.0"
+    snyk-sbt-plugin "1.2.0"
+    snyk-tree "^1.0.0"
+    snyk-try-require "^1.2.0"
+    tempfile "^1.1.1"
+    then-fs "^2.0.0"
+    undefsafe "0.0.3"
+    update-notifier "^0.5.0"
+    url "^0.11.0"
+    uuid "^3.0.1"
+
+sonus@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/sonus/-/sonus-0.1.9.tgz#1d4a3944ad5fea6511f828109bf594414fff1c1a"
   dependencies:
     "@google-cloud/speech" "^0.10.3"
     node-record-lpcm16 "^0.3.0"
@@ -4134,6 +4204,10 @@ tmp@^0.0.31:
   dependencies:
     os-tmpdir "~1.0.1"
 
+to-utf8@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/to-utf8/-/to-utf8-0.0.1.tgz#d17aea72ff2fba39b9e43601be7b3ff72e089852"
+
 toml@^2.3.2:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/toml/-/toml-2.3.3.tgz#8d683d729577cb286231dfc7a8affe58d31728fb"
@@ -4185,7 +4259,7 @@ trailpack-cache@^3.0.0:
     cache-manager "^2.4.0"
     trailpack "^2.1.2"
 
-trailpack-chatbot@^2.0.6:
+trailpack-chatbot@^2.0.7:
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/trailpack-chatbot/-/trailpack-chatbot-2.0.7.tgz#1aeb5a74d2e8698cef52537326c7c38184dfde4d"
   dependencies:
@@ -4587,6 +4661,17 @@ xdg-basedir@^2.0.0:
   dependencies:
     os-homedir "^1.0.0"
 
+xml2js@^0.4.17:
+  version "0.4.19"
+  resolved "https://registry.yarnpkg.com/xml2js/-/xml2js-0.4.19.tgz#686c20f213209e94abf0d1bcf1efaa291c7827a7"
+  dependencies:
+    sax ">=0.6.0"
+    xmlbuilder "~9.0.1"
+
+xmlbuilder@~9.0.1:
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/xmlbuilder/-/xmlbuilder-9.0.4.tgz#519cb4ca686d005a8420d3496f3f0caeecca580f"
+
 xtend@^4.0.0, xtend@^4.0.1, xtend@~4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
@@ -4644,6 +4729,12 @@ yauzl@^2.4.2:
 yeast@0.1.x:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
+
+zip@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/zip/-/zip-1.2.0.tgz#ad0ad42265309be42eb56fc86194e17c24e66a9c"
+  dependencies:
+    bops "~0.1.1"
 
 zmq@^2.15.3:
   version "2.15.3"
