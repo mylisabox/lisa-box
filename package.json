@@ -50,7 +50,7 @@
     "lisa-lirc": "^0.0.1",
     "lisa-plugins-manager": "^0.0.17",
     "lisa-standalone-voice-command": "^0.0.20",
-    "lisa-ui": "^0.0.13",
+    "lisa-ui": "^0.0.14",
     "lodash": "^4.17.4",
     "mdns": "^2.3.4",
     "mjpeg-proxy": "^0.2.0",
