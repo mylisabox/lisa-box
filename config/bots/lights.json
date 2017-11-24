@@ -10,7 +10,11 @@
         "en": [
           "turn all lights off",
           "switch off all lights"
-        ]
+        ],
+        "ru": [
+          "Выключить весь свет",
+          "Выключить все светильники"
+        ]        
       },
       "responses": {
         "fr": [
@@ -20,7 +24,11 @@
         "en": [
           "Lights are off",
           "It's done"
-        ]
+        ],
+        "ru": [
+          "Свет выключен",
+          "Готово"
+        ]        
       }
     },
     "LIGHT_TURN_ON": {
@@ -52,6 +60,14 @@
           "(?:turn|switch)(?: +\\w+){0,2} +%room% on(?: +\\w+){0,2} +(?: +\\w+){0,2} +%number%(?:percent|%)",
           "(?:turn|switch)(?: +\\w+){0,2} +%room% on",
           "(?:turn|switch) on(?: +\\w+){0,2} +%room%"
+        ],
+        "ru": [
+          "(?:включи|зажги)(?: +\\w+){0,5} +(?:светильник|светильники) на %number%(?:percent|%)(?: +\\w+){0,5} +%color%",
+          "(?:включи|зажги)(?: +\\w+){0,5} +(?:светильник|светильники) на %number%(?:percent|%)",
+          "(?:включи|зажги)(?: +\\w+){0,5} +(?:светильник|светильники)",
+          "(?:включи|зажги)(?: +\\w+){0,2} +%room% (?: +\\w+){0,2} +(?: +\\w+){0,2} +%number%(?:percent|%)",
+          "(?:включи|зажги)(?: +\\w+){0,2} +%room%",
+          "(?:включи|зажги) в(?: +\\w+){0,2} +%room%"
         ]
       },
       "responses": {
@@ -62,7 +78,11 @@
         "en": [
           "Light is on",
           "It's done"
-        ]
+        ],
+        "ru": [
+          "Свет включен",
+          "Готово"
+        ]                
       }
     },
     "LIGHT_TURN_OFF": {
@@ -77,7 +97,12 @@
           "(?:turn|switch) (?:light|lights) off",
           "(?:turn|switch) off(?: +\\w+){0,2} +%room%",
           "(?:turn|switch)(?: +\\w+){0,2} +%room% off"
-        ]
+        ],
+        "ru": [
+          "(?:выключи|потуши) (?:светильник|светильники) off",
+          "(?:выключи|потуши) (?: +\\w+){0,2} +%room%",
+          "(?:выключи|потуши)(?: +\\w+){0,2} +%room%"
+        ]        
       },
       "responses": {
         "fr": [
@@ -87,7 +112,11 @@
         "en": [
           "Light is off",
           "It's done"
-        ]
+        ],
+        "ru": [
+          "Свет выключен",
+          "Готово"
+        ]        
       }
     },
     "LIGHT_BRIGHTNESS": {
@@ -102,7 +131,14 @@
           "(?:light|lights)(?: +\\w+){0,5} +to %number%(?:percent|%)",
           "brightness(?: +\\w+){0,5} +%room% to %number%(?:percent|%)",
           "brightness(?: +\\w+){0,5} +%number%(?:percent|%)"
+        ],
+        "ru": [
+          "(?:светильник|светильники)(?: +\\w+){0,5} +%room% на %number%(?:percent|%)",
+          "(?:светильник|светильники)(?: +\\w+){0,5} +на %number%(?:percent|%)",
+          "яркость(?: +\\w+){0,5} +%room% на %number%(?:percent|%)",
+          "яркость(?: +\\w+){0,5} +%number%(?:percent|%)"
         ]
+        
       },
       "responses": {
         "fr": [
@@ -112,6 +148,10 @@
         "en": [
           "Done",
           "It's done"
+        ],
+        "ru": [
+          "Готово",
+          "Сделано"
         ]
       }
     },
@@ -126,6 +166,10 @@
           "decrease(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)",
           "lower(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
           "lower(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)"
+        ],
+        "ru": [
+          "сделать глуше(?: +\\w+){0,2} +(?:светильник|светильники)(?: +\\w+){0,5} +%room% на %number%(?:percent|%)",
+          "сделать глуше(?: +\\w+){0,2} +(?:светильник|светильники)(?: +\\w+){0,5} +%number%(?:percent|%)"
         ]
       },
       "responses": {
@@ -136,6 +180,10 @@
         "en": [
           "Done",
           "It's done"
+        ],
+        "ru": [
+          "Готово",
+          "Сделано"
         ]
       }
     },
@@ -150,6 +198,10 @@
           "increase(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)",
           "raise(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%room% of %number%(?:percent|%)",
           "raise(?: +\\w+){0,2} +(?:light|lights)(?: +\\w+){0,5} +%number%(?:percent|%)"
+        ],
+        "ru": [
+          "сделать ярче(?: +\\w+){0,2} +(?:светильник|светильники)(?: +\\w+){0,5} +%room% на %number%(?:percent|%)",
+          "сделать ярче(?: +\\w+){0,2} +(?:светильник|светильники)(?: +\\w+){0,5} +%number%(?:percent|%)"
         ]
       },
       "responses": {
@@ -160,6 +212,10 @@
         "en": [
           "Done",
           "It's done"
+        ],
+        "ru": [
+          "Готово",
+          "Сделано"
         ]
       }
     }
@@ -173,6 +229,9 @@
         ],
         "en": [
           "do you want to decrease more ?"
+        ],
+        "ru": [
+          "Уменьшить еще ?"
         ]
       }
     },
@@ -184,6 +243,9 @@
         ],
         "en": [
           "do you want to increase more ?"
+        ],
+        "ru": [
+          "Увеличить еще ?"
         ]
       }
     }
@@ -198,6 +260,9 @@
         ],
         "en": [
           "%acceptance%"
+        ],
+        "ru": [
+          "%acceptance%"
         ]
       }
     },
@@ -209,6 +274,9 @@
           "%acceptance%"
         ],
         "en": [
+          "%acceptance%"
+        ],
+        "ru": [
           "%acceptance%"
         ]
       }
@@ -222,6 +290,9 @@
         ],
         "en": [
           "%acceptance%"
+        ],
+        "ru": [
+          "%acceptance%"
         ]
       }
     },
@@ -233,6 +304,9 @@
           "%acceptance%"
         ],
         "en": [
+          "%acceptance%"
+        ],
+        "ru": [
           "%acceptance%"
         ]
       }

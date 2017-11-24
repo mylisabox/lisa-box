@@ -12,6 +12,10 @@
         "en": [
           "can you hear me",
           "are you there"
+        ],
+        "ru": [
+          "Ты меня слышишь?",
+          "Ты тут?"
         ]
       },
       "responses": {
@@ -22,6 +26,10 @@
         "en": [
           "Yes",
           "loud and clear"
+        ],
+        "ru": [
+          "Да",
+          "Четко и разборчиво"
         ]
       }
     },
@@ -33,6 +41,9 @@
         ],
         "en": [
           "(?:hello|morning)"
+        ],
+        "ru": [
+          "(?:Привет|Доброе утро)"
         ]
       },
       "responses": {
@@ -43,6 +54,10 @@
         "en": [
           "Hello",
           "hi"
+        ],
+        "ru": [
+          "Привет",
+          "Хай"
         ]
       }
     },
@@ -54,6 +69,9 @@
         ],
         "en": [
           "(?:thanks|thank you)"
+        ],
+        "ru": [
+          "(?:Спасибо)"
         ]
       },
       "responses": {
@@ -67,6 +85,9 @@
           "At your service",
           "My pleasure",
           "No problem"
+        ],
+        "ru": [
+          "Без проблем"
         ]
       }
     }

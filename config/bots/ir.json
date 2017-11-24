@@ -11,7 +11,11 @@
         "en": [
           "execute(?: +\\w+){0,2} +command %device%",
           "execute(?: +\\w+){0,2} +command %action%(?: +\\w+){0,2} +remote %remote%"
-        ]
+        ],
+        "ru": [
+          "выполнить(?: +\\w+){0,2} +команду %device%",
+          "выполнить(?: +\\w+){0,2} +команду %action%(?: +\\w+){0,2} +удаленно %remote%"
+        ]        
       },
       "responses": {
         "fr": [
@@ -19,7 +23,11 @@
         ],
         "en": [
           "Command has been sent"
+        ],
+        "ru": [
+          "Команда отправлена"
         ]
+        
       }
     }
   },
