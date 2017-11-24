@@ -49,7 +49,7 @@ module.exports = class PluginService extends Service {
           regexp: '^[A-zÀ-ÿ0-9_ -]+$',
           minLength: 3,
           maxLength: 20,
-          label: this._translateField(lang, { en: 'Name', fr: 'Nom' }),
+          label: this._translateField(lang, { en: 'Name', fr: 'Nom' , ru: 'Имя'}),
           required: true
         }].concat(settings),
         pairing: device.pairing
