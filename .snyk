@@ -35,17 +35,19 @@ ignore:
   'npm:debug:20170905':
     - trailpack-realtime > primus > setheader > debug:
         reason: None given
-        expires: '2017-11-21T09:59:12.915Z'
+        expires: '2017-12-23T21:23:51.651Z'
     - trailpack-realtime > primus > access-control > setheader > debug:
         reason: None given
-        expires: '2017-11-21T09:59:12.915Z'
+        expires: '2017-12-23T21:23:51.651Z'
+  'npm:ws:20171108':
+    - trailpack-realtime > engine.io > ws:
+        reason: None given
+        expires: '2017-12-23T21:23:51.651Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:ms:20170412':
     - node-pre-gyp > tar-pack > debug > ms:
         patched: '2017-06-17T07:35:57.866Z'
-      trailpack-realtime > engine.io > debug > ms:
-        patched: '2017-10-22T09:55:35.049Z'
     - primus-rooms > debug > ms:
         patched: '2017-10-22T09:55:35.049Z'
     - trailpack-express > compression > debug > ms:
@@ -54,12 +56,14 @@ patch:
         patched: '2017-06-17T07:35:57.866Z'
     - trailpack-passport > jsonwebtoken > ms:
         patched: '2017-06-17T07:35:57.866Z'
+    - trailpack-realtime > engine.io > debug > ms:
+        patched: '2017-10-22T09:55:35.049Z'
   'npm:debug:20170905':
     - primus-rooms > debug:
         patched: '2017-10-01T08:00:10.258Z'
-      trailpack-realtime > engine.io > debug:
-        patched: '2017-10-22T09:55:35.049Z'
     - trailpack-realtime > engine.io > debug:
         patched: '2017-10-01T08:00:10.258Z'
-      primus-rooms > debug:
+    - trailpack-realtime > engine.io > debug:
+        patched: '2017-10-22T09:55:35.049Z'
+    - primus-rooms > debug:
         patched: '2017-10-22T09:55:35.049Z'
