@@ -11,6 +11,7 @@ module.exports = {
       name: 'preferences',
       store: mongoStore,
       options: {
+        ttl: -1,
         host: 'localhost',
         port: '27017',
         database: 'lisa',
@@ -24,6 +25,7 @@ module.exports = {
       name: 'settings',
       store: mongoStore,
       options: {
+        ttl: -1,
         host: 'localhost',
         port: '27017',
         database: 'lisa',
