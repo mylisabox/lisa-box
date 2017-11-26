@@ -15,7 +15,18 @@ module.exports = {
   defaultLang: (process.env.LANG || 'en').substr(0, 2),
   defaultAnswer: (app, data) => {
     data.action = 'UNKNOWN'
-    data.responses = [data.lang === 'fr' ? 'Je n\'ai pas compris votre phrase' : 'I didn\'t understand your command']
+    switch (data.lang) {
+	case fr:
+	   data.responses = ['Je n\'ai pas compris votre phrase'];
+	   break;
+	case en:
+	   data.responses = ['I didn\'t understand your command'];
+	   break;
+	case ru:
+	   data.responses = ['Не понимаю команды'];
+	   break;
+}
+//    data.responses = [data.lang === 'fr' ? 'Je n\'ai pas compris votre phrase' : 'I didn\'t understand your command']
     data.response = data.responses[0]
     return Promise.resolve(data)
   },
