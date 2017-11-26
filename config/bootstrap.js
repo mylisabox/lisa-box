@@ -4,6 +4,8 @@
  */
 const LISA = require('../lisa')
 const fs = require('fs')
+const os = require('os')
+const polly = require('lisa-speaker-polly')
 //const serialPort = require('serialport')
 const bonjour = require('bonjour')()
 
@@ -15,6 +17,7 @@ module.exports = (app) => {
   if (app.env.NODE_ENV !== 'testing') {
     // advertise an HTTP server on configured port
     const VoiceCommand = require('lisa-standalone-voice-command')
+    const pico = require('lisa-standalone-voice-command/lib/speaker')
     const mdns = require('mdns')
     const service = mdns.createAdvertisement(mdns.tcp('http'), app.config.web.port, {
       name: 'LISA',
@@ -30,10 +33,17 @@ module.exports = (app) => {
     app.bonjour = bonjour
 
     const language = app.env.LANG || 'en-US'
+    const isPollyCredentialsPresent = fs.existsSync(os.homedir() + '/.aws/credentials')
 
     const voiceCommand = new VoiceCommand({
       matrix: '127.0.0.1',
       log: app.log,
+      speaker: {
+        module: isPollyCredentialsPresent ? polly : pico,
+        options: {
+          voiceId: language === 'fr-FR' ? 'Celine' : 'Kimberly' // see http://docs.aws.amazon.com/polly/latest/dg/voicelist.html for other voices
+        }
+      },
       url: 'http://127.0.0.1:3000',
       gSpeech: './config/speech/LISA-gfile.json',
       language: language
