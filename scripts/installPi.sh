@@ -5,6 +5,7 @@ apt-get upgrade -y
 
 apt-get install -y curl
 apt-get install -y build-essential
+apt-get install -y libttspico-utils
 
 #install node
 if which node > /dev/null ; then
@@ -35,12 +36,12 @@ apt-get install -y libzmq3-dev libavahi-compat-libdnssd-dev
 apt-get install -y lirc
 
 #matrix board
-echo "deb http://packages.matrix.one/matrix-creator/ ./" | sudo tee --append /etc/apt/sources.list
+echo "deb http://packages.matrix.one/matrix-creator/ ./" | tee --append /etc/apt/sources.list
 apt-get update
 apt-get install -y matrix-creator-openocd matrix-creator-init matrix-creator-malos --allow-unauthenticated
-echo 'export AUDIODEV=mic_channel8' >>~/.bash_profile
-echo 'export LANG=en-US' >>~/.bash_profile
-source ~/.bash_profile
+#echo 'export AUDIODEV=mic_channel8' >>~/.bash_profile
+#echo 'export LANG=en-US' >>~/.bash_profile
+#source ~/.bash_profile
 
 if [ ! -d "/var/www" ]; then
   mkdir /var/www
@@ -54,6 +55,24 @@ cd lisa-box
 
 yarn
 yarn global add forever
+
+plugins=('lisa-plugin-hue' 'lisa-plugin-kodi' 'lisa-plugin-ir' 'lisa-plugin-voice' 'lisa-plugin-cam-mjpeg' 'lisa-plugin-sony-vpl' 'lisa-plugin-bose-soundtouch')
+
+for plugin in "${plugins[@]}"
+do
+     cd /var/www/lisa-box/plugins
+     if [ ! -d ${plugin} ]; then
+        echo "Cloning ${plugin}"
+        git clone "https://github.com/mylisabox/${plugin}"
+        cd ${plugin}
+     else
+        echo "${plugin} already exist, updating"
+        cd ${plugin}
+        git pull
+     fi
+     echo "Installing deps ${plugin}"
+     yarn
+done
 
 cd /etc/init.d/
 wget https://raw.githubusercontent.com/mylisabox/lisa-box/master/scripts/lisa

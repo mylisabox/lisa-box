@@ -11,7 +11,7 @@
 
 export NODE_ENV=production
 #export AUDIODEV=mic_channel8 #for pi3 and matrix board
-#export LANG=fr-FR #force env lang constant
+#export LANG=en-US #force env lang constant
 
 case "$1" in
   start)
