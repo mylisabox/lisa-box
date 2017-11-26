@@ -5,7 +5,6 @@ apt-get upgrade -y
 
 apt-get install -y curl
 apt-get install -y build-essential
-apt-get install -y libttspico-utils
 
 #install node
 if which node > /dev/null ; then
@@ -34,6 +33,9 @@ apt-get install -y libzmq3-dev libavahi-compat-libdnssd-dev
 
 #install lirc
 apt-get install -y lirc
+
+# speaker
+apt -get install -y libttspico-utils libasound2-dev
 
 #matrix board
 echo "deb http://packages.matrix.one/matrix-creator/ ./" | tee --append /etc/apt/sources.list
