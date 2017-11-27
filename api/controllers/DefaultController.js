@@ -2,7 +2,7 @@
 
 const Controller = require('trails/controller')
 const path = require('path')
-const supportedLanguage = ['en', 'fr','ru']
+const supportedLanguage = ['en', 'fr']
 
 /**
  * @module DefaultController
@@ -26,7 +26,7 @@ module.exports = class DefaultController extends Controller {
    * @param res
    */
   default(req, res) {
-    let lang = req.acceptsLanguages('en', 'en-US', 'en-UK', 'fr', 'fr-FR','ru','ru-RU')
+    let lang = req.acceptsLanguages('en', 'en-US', 'en-UK', 'fr', 'fr-FR')
     if (lang) {
       lang = lang.substr(0, 2)
     }
