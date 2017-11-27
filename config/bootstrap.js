@@ -34,6 +34,17 @@ module.exports = (app) => {
 
     const language = app.env.LANG || 'en-US'
     const isPollyCredentialsPresent = fs.existsSync(os.homedir() + '/.aws/credentials')
+    let voiceId
+    switch (language) {
+      case 'fr-FR':
+        voiceId = 'Celine'
+        break
+      case 'ru-RU':
+        voiceId = 'Tatyana'
+        break
+      default:
+        voiceId = 'Kimberly'
+    }
 
     const voiceCommand = new VoiceCommand({
       matrix: '127.0.0.1',
@@ -41,7 +52,7 @@ module.exports = (app) => {
       speaker: {
         module: isPollyCredentialsPresent ? polly : pico,
         options: {
-          voiceId: language === 'fr-FR' ? 'Celine' : 'Kimberly' // see http://docs.aws.amazon.com/polly/latest/dg/voicelist.html for other voices
+          voiceId: voiceId // see http://docs.aws.amazon.com/polly/latest/dg/voicelist.html for other voices
         }
       },
       url: 'http://127.0.0.1:3000',
