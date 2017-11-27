@@ -69,7 +69,7 @@
     "trailpack-acl": "^2.0.0",
     "trailpack-bootstrap": "^2.0.0",
     "trailpack-cache": "^3.0.0",
-    "trailpack-chatbot": "^2.0.7",
+    "trailpack-chatbot": "^2.0.8",
     "trailpack-cron": "^2.0.0",
     "trailpack-email": "^2.0.1",
     "trailpack-express": "^2.0.6",
