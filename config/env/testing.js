@@ -1,7 +1,6 @@
 'use strict'
 
 const winston = require('winston')
-const mongoStore = require('cache-manager-mongodb')
 
 module.exports = {
 
@@ -45,32 +44,6 @@ module.exports = {
   },
   caches: {
     stores: [
-      {
-        name: 'preferences',
-        store: mongoStore,
-        options: {
-          host: 'localhost',
-          port: '27017',
-          database: 'lisaTest',
-          collection: 'preferencesManager',
-          compression: false,
-          poolSize: 5,
-          auto_reconnect: true
-        }
-      },
-      {
-        name: 'settings',
-        store: mongoStore,
-        options: {
-          host: 'localhost',
-          port: '27017',
-          database: 'lisaTest',
-          collection: 'settingsManager',
-          compression: false,
-          poolSize: 5,
-          auto_reconnect: true
-        }
-      },
       {
         name: 'chatbot',
         store: 'memory',

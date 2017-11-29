@@ -23,7 +23,7 @@ fi
 
 
 #install basic utils
-apt-get install -y git mongodb-server
+apt-get install -y git
 
 #sox install for sonus speech recognition
 apt-get install -y sox libsox-fmt-all alsa-utils libatlas-base-dev
@@ -38,12 +38,14 @@ apt-get install -y lirc
 apt -get install -y libttspico-utils libasound2-dev
 
 #matrix board
-echo "deb http://packages.matrix.one/matrix-creator/ ./" | tee --append /etc/apt/sources.list
-apt-get update
-apt-get install -y matrix-creator-openocd matrix-creator-init matrix-creator-malos --allow-unauthenticated
-#echo 'export AUDIODEV=mic_channel8' >>~/.bash_profile
-#echo 'export LANG=en-US' >>~/.bash_profile
-#source ~/.bash_profile
+if which malos > /dev/null ; then
+  echo "deb http://packages.matrix.one/matrix-creator/ ./" | tee --append /etc/apt/sources.list
+  apt-get update
+  apt-get install -y matrix-creator-openocd matrix-creator-init matrix-creator-malos --allow-unauthenticated
+  #echo 'export AUDIODEV=mic_channel8' >>~/.bash_profile
+  #echo 'export LANG=en-US' >>~/.bash_profile
+  #source ~/.bash_profile
+fi
 
 if [ ! -d "/var/www" ]; then
   mkdir /var/www

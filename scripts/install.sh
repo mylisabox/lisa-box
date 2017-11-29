@@ -11,7 +11,7 @@ apt-get install -y build-essential
 apt-get update && apt-get install -y firmware-brcm80211 pi-bluetooth wpasupplicant
 
 #install basic utils
-apt-get install -y nano curl git unzip mongodb-server
+apt-get install -y nano curl git unzip
 
 #install node
 curl -sL https://deb.nodesource.com/setup_7.x | bash -

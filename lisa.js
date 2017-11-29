@@ -204,15 +204,8 @@ module.exports = (function () {
     getPreferences() {
       const plugin = getCurrentPlugin()
       this.log.debug(plugin)
-      const cache = app.services.CacheService.getStore('preferences')
-
-      return new Promise((resolve, reject) => {
-        cache.get(plugin + '_prefs', (err, preferences) => {
-          if (err) {
-            reject(err)
-          }
-          resolve(preferences || {})
-        })
+      return app.orm.Preference.findById(plugin + '_prefs').then(preferences => {
+        return preferences ? preferences.value : {}
       })
     }
 
@@ -224,15 +217,11 @@ module.exports = (function () {
     setPreferences(preferences) {
       const plugin = getCurrentPlugin()
       this.log.debug(plugin)
-      const cache = app.services.CacheService.getStore('preferences')
-
-      return new Promise((resolve, reject) => {
-        cache.set(plugin + '_prefs', preferences, err => {
-          if (err) {
-            reject(err)
-          }
-          resolve(preferences)
-        })
+      return app.orm.Preference.upsert({
+        key: plugin + '_prefs',
+        value: preferences
+      }).then(() => {
+        return preferences
       })
     }
 
