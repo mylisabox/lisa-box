@@ -43,6 +43,22 @@ ignore:
     - trailpack-realtime > engine.io > ws:
         reason: None given
         expires: '2017-12-23T21:23:51.651Z'
+  'npm:moment:20170905':
+    - trailpack-cron > cron > moment-timezone > moment:
+        reason: None given
+        expires: '2017-12-29T19:29:39.532Z'
+    - trailpack-cron > cron-cluster > cron > moment-timezone > moment:
+        reason: None given
+        expires: '2017-12-29T19:29:39.532Z'
+    - passport-jwt > jsonwebtoken > joi > moment:
+        reason: None given
+        expires: '2017-12-29T19:29:39.532Z'
+    - trailpack-sequelize > sequelize > moment:
+        reason: None given
+        expires: '2017-12-29T19:29:39.532Z'
+    - trailpack-sequelize > sequelize > moment-timezone > moment:
+        reason: None given
+        expires: '2017-12-29T19:29:39.532Z'
 # patches apply the minimum changes required to fix a vulnerability
 patch:
   'npm:ms:20170412':
@@ -61,6 +77,8 @@ patch:
   'npm:debug:20170905':
     - primus-rooms > debug:
         patched: '2017-10-01T08:00:10.258Z'
+      lisa-standalone-voice-command > sonus > @google-cloud/speech > google-gax > grpc > node-pre-gyp > tar-pack > debug:
+        patched: '2017-11-29T19:26:49.774Z'
     - trailpack-realtime > engine.io > debug:
         patched: '2017-10-01T08:00:10.258Z'
     - trailpack-realtime > engine.io > debug:
