@@ -296,7 +296,7 @@ module.exports = (function () {
     }
 
     get mdns() {
-      return app.mdns
+      return app.services.MdnsService.mdns
     }
 
     get serialPort() {

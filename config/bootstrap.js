@@ -12,24 +12,15 @@ const bonjour = require('bonjour')()
 module.exports = (app) => {
   app.services.WebSocketService.init()
   app.services.IRService.init()
+  app.services.MdnsService.init()
   app.lisa = new LISA(app)
 
   if (app.env.NODE_ENV !== 'testing') {
     // advertise an HTTP server on configured port
     const VoiceCommand = require('lisa-standalone-voice-command')
     const pico = require('lisa-standalone-voice-command/lib/speaker')
-    const mdns = require('mdns')
-    const service = mdns.createAdvertisement(mdns.tcp('http'), app.config.web.port, {
-      name: 'LISA',
-      txtRecord: {
-        port: app.config.web.port,
-        secure: app.config.web.ssl !== undefined
-      }
-    })
-    service.start()
 
     //app.serialPort = serialPort
-    app.mdns = mdns
     app.bonjour = bonjour
 
     const language = app.env.LANG || 'en-US'
