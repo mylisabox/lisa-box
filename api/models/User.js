@@ -63,6 +63,6 @@ module.exports = class User extends ModelPassport {
       }
     }
 
-    return _.defaults(userTrailpackSchema, schema)
+    return _.assign({}, userTrailpackSchema, schema)
   }
 }
