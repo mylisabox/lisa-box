@@ -38,7 +38,7 @@ module.exports = class MdnsService extends Service {
       setTimeout(this._createAdvertisement, 5000)
       break
     default:
-      this.error.warn(error)
+      this.log.error(error)
       throw error
     }
   }

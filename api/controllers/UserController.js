@@ -31,7 +31,7 @@ module.exports = class UserController extends Controller {
         user.id = req.user.id
         this.app.orm.User.update(user, { where: { id: req.user.id } })
           .then(() => {
-            if (user.password && user.password != "") {
+            if (user.password && user.password != '') {
               return this.app.services.PassportService.updateLocalPassword(user, user.password)
                 .then(() => res.json(user))
             }

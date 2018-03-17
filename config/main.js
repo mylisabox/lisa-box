@@ -20,6 +20,7 @@ module.exports = {
     require('trailpack-express'),
     require('trailpack-sequelize'),
     require('trailpack-chatbot'),
+    require('trailpack-greenlock'),
     require('trailpack-cache'),
     require('trailpack-bootstrap'),
     //require('trailpack-email'),
