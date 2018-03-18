@@ -61,7 +61,7 @@
     "primus-rooms": "^3.4.1",
     "request": "^2.83.0",
     "snyk": "^1.49.5",
-    "sqlite3": "^3.1.13",
+    "sqlite3": "^4.0.0",
     "trailpack-acl": "^2.0.0",
     "trailpack-bootstrap": "^2.0.0",
     "trailpack-cache": "^3.0.0",
