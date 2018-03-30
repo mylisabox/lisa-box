@@ -1,6 +1,6 @@
 'use strict'
 
-const domains = ['localhost']
+const domains = []
 
 if (process.env.DOMAIN) {
   domains.push(process.env.DOMAIN)

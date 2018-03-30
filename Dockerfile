@@ -22,7 +22,6 @@ RUN	apt-get install -y nodejs \
         libavahi-compat-libdnssd-dev \
         sox \
         libsox-fmt-all \
-        alsa-utils \
         libzmq3-dev \
         libasound2-dev;
 
@@ -35,6 +34,6 @@ COPY . .
 
 EXPOSE 3000
 
-ENTRYPOINT [ "tini", "--" ]
+#ENTRYPOINT [ "tini", "--" ]
 
 CMD [ "node", "server.js" ]

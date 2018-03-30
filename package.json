@@ -69,7 +69,7 @@
     "trailpack-email": "^2.0.1",
     "trailpack-express": "^2.0.6",
     "trailpack-footprints": "^2.0.0",
-    "trailpack-greenlock": "^0.2.0",
+    "trailpack-greenlock": "^0.2.1",
     "trailpack-passport": "^2.2.2",
     "trailpack-realtime": "^2.0.0",
     "trailpack-repl": "^2.1.0",
