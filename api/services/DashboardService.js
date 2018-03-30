@@ -13,7 +13,7 @@ module.exports = class DashboardService extends Service {
     dashboard.widgets.forEach(value => {
       const device = devices.find(device => device.id === value)
       if (device) {
-        widgets.push(devices.find(device => device.id === value))
+        widgets.push(device)
       }
     })
     devices.forEach(device => {
@@ -41,7 +41,7 @@ module.exports = class DashboardService extends Service {
       promises.push(this.app.services.DeviceService.findWithFavorites(userId, { roomId: roomId }))
     }
     else {
-      promises.push(this.app.services.FavoritesService.getFavorites(userId))
+      promises.push(this.app.services.FavoritesService.getFavoritesAndSyncData(userId))
     }
 
     return Promise.all(promises).then(results => {

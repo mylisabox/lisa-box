@@ -25,7 +25,11 @@ module.exports = class FavoritesService extends Service {
         device.favorite = true
       })
       return devices
-    }).then(devices => this.app.services.DeviceService.aggregateDevicesData(devices))
+    })
+  }
+
+  getFavoritesAndSyncData(userId) {
+    return this.getFavorites(userId).then(devices => this.app.services.DeviceService.aggregateDevicesData(devices))
   }
 
   putFavorite(userId, deviceId) {

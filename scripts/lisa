@@ -9,7 +9,6 @@
 # Description:       lisa server
 ### END INIT INFO
 
-export NODE_ENV=production
 #export AUDIODEV=mic_channel8 #for pi3 and matrix board
 #export LANG=en-US #force env lang constant
 
@@ -18,7 +17,7 @@ case "$1" in
     echo "Starting L.I.S.A."
     rm /var/log/lisa*
     cd /var/www/lisa-box/
-    forever start --uid "lisa" -l /var/log/lisa.log server.js
+    NODE_ENV=production PORT_HTTP=80 PORT=443 forever start --uid "lisa" -l /var/log/lisa.log server.js
     ;;
   stop)
     echo "Stopping L.I.S.A."

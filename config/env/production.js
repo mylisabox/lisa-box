@@ -3,7 +3,11 @@
 const winston = require('winston')
 
 module.exports = {
-
+  greenlock: {
+    enabled: false,
+    debug: false,
+    server: 'https://acme-v01.api.letsencrypt.org/directory'
+  },
   database: {
     stores: {
 
@@ -24,7 +28,10 @@ module.exports = {
       migrate: 'none'
     }
   },
-
+  web: {
+    port: process.env.PORT || 443,
+    portHttp: process.env.PORT_HTTP || 80
+  },
   log: {
     logger: new winston.Logger({
       level: 'info',
