@@ -29,16 +29,27 @@ module.exports = class ChatBotService extends Service {
   }
 
   interact(requestId, lang, sentence, botId, context) {
-    return super.interact(requestId, lang, sentence, botId)
-      .then(result => {
-        result.context = context || {}
-        if (result.botId === CUSTOM_BOT_ID) {
-          return this.executeUserActions(requestId, lang, context, result)
-        }
-        else {
-          return this.app.services.PluginService.interact(result)
-        }
-      })
+    let before
+    if (context.roomId) {
+      before = this.app.orm.Room.findById(context.roomId)
+    }
+    else {
+      before = Promise.resolve()
+    }
+
+    return before.then(room => {
+      return super.interact(requestId, lang, sentence, botId)
+        .then(result => {
+          context.room = room || context.room
+          result.context = context || {}
+          if (result.botId === CUSTOM_BOT_ID) {
+            return this.executeUserActions(requestId, lang, context, result)
+          }
+          else {
+            return this.app.services.PluginService.interact(result)
+          }
+        })
+    })
   }
 
   getUserBot() {

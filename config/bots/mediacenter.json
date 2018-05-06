@@ -22,7 +22,7 @@
           "выключить звук",
           "заглушить(?: +\\w+){0,3} +%device%",
           "заглушить"
-        ]        
+        ]
       }
     },
     "UNMUTE_VOLUME": {
@@ -50,7 +50,7 @@
           "включить звук",
           "восстановить звук"
         ]
-        
+
       }
     },
     "SET_VOLUME": {
@@ -66,7 +66,7 @@
         "ru": [
           "устоновить(?: +\\w+){0,3} +(?:громкость|звук) на %number% of %device%",
           "установить(?: +\\w+){0,3} +(?:громкость|звук) на %number%"
-        ]        
+        ]
       }
     },
     "INCREASE_VOLUME": {
@@ -116,7 +116,7 @@
           "тише (?:громкость|звук)",
           "тише"
         ]
-        
+
       }
     },
     "NEXT_SONG": {
@@ -173,7 +173,7 @@
           "предыдущая песня в(?: +\\w+){0,2} +%room%",
           "предыдущая песня на %device%",
           "предыдущая песня"
-        ]        
+        ]
       },
       "responses": {
         "fr": [
@@ -187,7 +187,7 @@
         "ru": [
           "Сделано",
           "Исполнено"
-        ]        
+        ]
       }
     },
     "PLAY_SONG": {
@@ -208,7 +208,7 @@
           "играть(?: +\\w+){0,5} +песню %song% на (?: +\\w+){0,2} +%room%",
           "играть(?: +\\w+){0,5} +песню %song%"
         ]
-        
+
       },
       "responses": {
         "fr": [
@@ -222,7 +222,7 @@
         "ru": [
           "Сделано",
           "Исполнено"
-        ]        
+        ]
       }
     },
     "PLAY_PLAYLIST": {
@@ -242,7 +242,7 @@
           "играть(?: +\\w+){0,5} +список %playlist% на %device%",
           "играть(?: +\\w+){0,5} +список %playlist% на (?: +\\w+){0,2} +%room%",
           "играть(?: +\\w+){0,5} +список %playlist%"
-        ]        
+        ]
       },
       "responses": {
         "fr": [
@@ -256,7 +256,7 @@
         "ru": [
           "Сделано",
           "Исполнено"
-        ]                
+        ]
       }
     },
     "PLAY_MOVIE": {
@@ -287,7 +287,7 @@
         "ru": [
           "Сделано",
           "Исполнено"
-        ]        
+        ]
       }
     },
     "PLAY_TV_SHOW": {
@@ -362,7 +362,7 @@
         "ru": [
           "Сделано",
           "Исполнено"
-        ]        
+        ]
       }
     },
     "STOP_MEDIA_CENTER": {
@@ -393,7 +393,7 @@
         "ru": [
           "Сделано",
           "Исполнено"
-        ]          
+        ]
       }
     },
     "PLAY_MEDIA_CENTER": {
@@ -424,7 +424,67 @@
         "ru": [
           "Сделано",
           "Исполнено"
-        ]         
+        ]
+      }
+    },
+    "SET_SOURCE": {
+      "name": "Set source",
+      "sentences": {
+        "fr": [
+          "(?:passe|mettre|met|mais|mes)(?: +\\w+){0,3} +(?:source|mode) %text_source% %number_index%(?: +\\w+){0,2} +%room%",
+          "(?:passe|mettre|met|mais|mes)(?: +\\w+){0,3} +(?:source|mode) %text_source% %number_index%",
+          "(?:passe|mettre|met|mais|mes)(?: +\\w+){0,3} +(?:source|mode) %text_source%(?: +\\w+){0,2} +%room%",
+          "(?:passe|mettre|met|mais|mes)(?: +\\w+){0,3} +(?:source|mode) %text_source%"
+        ],
+        "en": [
+          "(?:put|set|switch|change)(?: +\\w+){0,3} +(?:source|mode) %text_source% %number_index%(?: +\\w+){0,2} +%room%",
+          "(?:put|set|switch|change)(?: +\\w+){0,3} +(?:source|mode) %text_source% %number_index%",
+          "(?:put|set|switch|change)(?: +\\w+){0,3} +(?:source|mode) %text_source%(?: +\\w+){0,2} +%room%",
+          "(?:put|set|switch|change)(?: +\\w+){0,3} +(?:source|mode) %text_source%"
+        ],
+        "ru": []
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ],
+        "ru": [
+          "Сделано",
+          "Исполнено"
+        ]
+      }
+    },
+    "SET_CHANNEL": {
+      "name": "Set channel",
+      "sentences": {
+        "fr": [
+          "(?:passe|mettre|met|mais|mes)(?: +\\w+){0,3} +(?:canal|mode) %number_channel%(?: +\\w+){0,2} +%room%",
+          "(?:passe|mettre|met|mais|mes)(?: +\\w+){0,3} +(?:canal|mode) %number_channel%"
+        ],
+        "en": [
+          "(?:put|set|switch|change)(?: +\\w+){0,3} +(?:channel|mode) %number_channel%(?: +\\w+){0,2} +%room%",
+          "(?:put|set|switch|change)(?: +\\w+){0,3} +(?:channel|mode) %number_channel%"
+        ],
+        "ru": []
+      },
+      "responses": {
+        "fr": [
+          "Voila",
+          "C'est fait"
+        ],
+        "en": [
+          "Done",
+          "It's done"
+        ],
+        "ru": [
+          "Сделано",
+          "Исполнено"
+        ]
       }
     }
   },
@@ -468,7 +528,7 @@
         ],
         "ru": [
           "Дальше?"
-        ]        
+        ]
       }
     },
     "INCREASE_VOLUME_AGAIN": {
@@ -518,7 +578,7 @@
         "ru": [
           "Снова",
           "Еще"
-        ]        
+        ]
       }
     },
     {
@@ -570,7 +630,7 @@
         "ru": [
           "Снова",
           "Еще"
-        ]        
+        ]
       }
     },
     {
@@ -588,7 +648,7 @@
         "ru": [
           "Снова",
           "Еще"
-        ]        
+        ]
       }
     },
     {
@@ -604,7 +664,7 @@
         "ru": [
           "Снова",
           "Еще"
-        ]        
+        ]
       }
     },
     {
@@ -620,7 +680,7 @@
         "ru": [
           "Снова",
           "Еще"
-        ]        
+        ]
       }
     }
   ]
