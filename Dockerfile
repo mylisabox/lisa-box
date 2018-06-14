@@ -1,6 +1,7 @@
 FROM debian:jessie
 
 ARG tag=latest
+ARG VOICE_ACTIVATED=false
 
 LABEL image=mylisabox/lisa-box:${tag} \
       maintainer="Jaumard" \
@@ -8,32 +9,28 @@ LABEL image=mylisabox/lisa-box:${tag} \
 
 WORKDIR /opt/app
 
-RUN set -ex;
-RUN apt-get update;
-RUN	apt-get install -y curl;
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update;
-RUN	apt-get install -y nodejs \
-        yarn \
-        git \
-        build-essential \
-        libavahi-compat-libdnssd-dev \
-        sox \
-        libsox-fmt-all \
-        libzmq3-dev \
-        libasound2-dev;
+COPY scripts/dockerSetup.sh /
+
+RUN bash -c "/dockerSetup.sh"
 
 COPY package*.json ./
 COPY yarn.lock ./
 
 RUN yarn
+#RUN if [ "$VOICE_ACTIVATED" == "true" ] ; then yarn add lisa-standalone-voice-command lisa-speaker-polly ; fi;
+
+ENV VOICE_ACTIVATED=$VOICE_ACTIVATED
+ENV LOGGER=no
 
 COPY . .
+
+COPY config configBackup
+
+VOLUME /opt/app/config
+VOLUME /opt/app/plugins
 
 EXPOSE 3000
 
 #ENTRYPOINT [ "tini", "--" ]
 
-CMD [ "node", "server.js" ]
+CMD ["sh","-c", "service dbus start && service avahi-daemon start && rsync -a -v --ignore-existing configBackup/** config && node server.js" ]

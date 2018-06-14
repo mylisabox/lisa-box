@@ -23,7 +23,7 @@ module.exports = {
      */
     sqlite: {
       database: 'lisa',
-      storage: './lisa.sqlite',
+      storage: './config/lisa.sqlite',
       host: '127.0.0.1',
       dialect: 'sqlite',
       logging: process.env.LOGGER ? false : logger.debug,
@@ -64,7 +64,7 @@ module.exports = {
             }
           },
           afterBulkUpdate: (instance, fn) => {
-            if (!instance.attributes.id) return fn()
+            if (!instance.attributes.id) return fn && fn()
 
             const app = instance.model.sequelize.trailsApp
             const modelName = instance.model.name.toLowerCase()
