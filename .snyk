@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.12.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:jwt-simple:20160804':
@@ -77,11 +77,14 @@ patch:
   'npm:debug:20170905':
     - primus-rooms > debug:
         patched: '2017-10-01T08:00:10.258Z'
-      lisa-standalone-voice-command > sonus > @google-cloud/speech > google-gax > grpc > node-pre-gyp > tar-pack > debug:
-        patched: '2017-11-29T19:26:49.774Z'
     - trailpack-realtime > engine.io > debug:
         patched: '2017-10-01T08:00:10.258Z'
     - trailpack-realtime > engine.io > debug:
         patched: '2017-10-22T09:55:35.049Z'
     - primus-rooms > debug:
         patched: '2017-10-22T09:55:35.049Z'
+    - lisa-standalone-voice-command > sonus > @google-cloud/speech > google-gax > grpc > node-pre-gyp > tar-pack > debug:
+        patched: '2017-11-29T19:26:49.774Z'
+  'npm:lodash:20180130':
+    - lisa-standalone-voice-command > pico-speaker > lodash:
+        patched: '2018-07-08T01:36:28.101Z'
