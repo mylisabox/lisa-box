@@ -59,7 +59,7 @@
     "primus-emitter": "^3.1.1",
     "primus-rooms": "^3.4.1",
     "request": "^2.83.0",
-    "snyk": "^1.49.5",
+    "snyk": "^1.76.0",
     "sqlite3": "^4.0.0",
     "trailpack-acl": "^2.0.0",
     "trailpack-bootstrap": "^2.0.0",
