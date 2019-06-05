@@ -14,25 +14,27 @@ module.exports = {
    *
    * Exposed on app.log
    */
-  logger: new winston.Logger({
+  logger: winston.createLogger({
     level: 'debug',
     exitOnError: true,
+    format: winston.format.combine(
+      winston.format.colorize({all: true}),
+      winston.format.cli(),
+    ),
     transports: [
-      new (winston.transports.Console)({
-        prettyPrint: true,
-        colorize: true
-      })
+      new winston.transports.Console()
     ]
   }),
 
-  pluginLogger: new winston.Logger({
+  pluginLogger: winston.createLogger({
     level: 'debug',
     exitOnError: true,
+    format: winston.format.combine(
+      winston.format.colorize({all: true}),
+      winston.format.cli(),
+    ),
     transports: [
-      new (winston.transports.Console)({
-        prettyPrint: true,
-        colorize: true
-      })
+      new winston.transports.Console()
     ]
   })
 

@@ -14,33 +14,10 @@ const Joi = require('joi')
 module.exports = [
   {
     method: 'GET',
-    path: '*',
-    handler: 'DefaultController.default'
-  },
-  {
-    method: 'GET',
     path: '/images',
     handler: {
       directory: {
-        path: 'node_modules/lisa-ui/bundle-en/images'
-      }
-    }
-  },
-  {
-    method: 'GET',
-    path: '/images',
-    handler: {
-      directory: {
-        path: 'node_modules/lisa-ui/bundle-en/images'
-      }
-    }
-  },
-  {
-    method: 'GET',
-    path: '/en',
-    handler: {
-      directory: {
-        path: 'node_modules/lisa-ui/bundle-en'
+        path: 'web/assets/assets/images'
       }
     }
   },
@@ -50,15 +27,6 @@ module.exports = [
     handler: {
       directory: {
         path: 'uploads'
-      }
-    }
-  },
-  {
-    method: 'GET',
-    path: '/fr',
-    handler: {
-      directory: {
-        path: 'node_modules/lisa-ui/bundle-fr'
       }
     }
   },

@@ -32,8 +32,8 @@ module.exports = {
     port: process.env.PORT || 443,
     portHttp: process.env.PORT_HTTP || 80
   },
-  log: {
-    logger: new winston.Logger({
+  log: {/*
+    logger: winston.createLogger({
       level: 'info',
       exitOnError: false,
       transports: [
@@ -53,7 +53,7 @@ module.exports = {
           timestamp: true
         })
       ]
-    })
+    })*/
   }
 
 }
