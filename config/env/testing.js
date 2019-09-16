@@ -4,8 +4,8 @@ const winston = require('winston')
 
 module.exports = {
 
-  log: {
-    logger: new winston.Logger({
+  log: {/*
+    logger: winston.createLogger({
       level: 'info',
       exitOnError: true,
       transports: [
@@ -13,7 +13,8 @@ module.exports = {
           timestamp: true
         })
       ]
-    })
+    })¨
+   */
   },
   routes: [
     {

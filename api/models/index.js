@@ -1,5 +1,6 @@
 'use strict'
 exports.Device = require('./Device')
+exports.DeviceTemplate = require('./DeviceTemplate')
 exports.Plugin = require('./Plugin')
 exports.User = require('./User')
 exports.Notification = require('./Notification')

@@ -86,14 +86,14 @@ module.exports = (function () {
     }
 
     createRoom(name) {
-      return app.orm.Room.create({ name: name }).then(room => {
+      return app.orm.Room.create({name: name}).then(room => {
         return Promise.resolve(room.toJSON())
       })
     }
 
     createOrUpdateDevices(device, criteria) {
       const plugin = getCurrentPlugin()
-      //this.log.debug(plugin)
+      //app.log.debug(plugin)
       let promise
 
       if (Array.isArray(device)) {
@@ -160,7 +160,7 @@ module.exports = (function () {
     findDevices(criteria) {
       criteria = criteria || {}
       const plugin = getCurrentPlugin()
-      //this.log.debug(plugin)
+      //app.log.debug(plugin)
       criteria.pluginName = plugin
 
       const promise = criteria.id ? app.orm.Device.find({
@@ -203,7 +203,7 @@ module.exports = (function () {
      */
     getPreferences() {
       const plugin = getCurrentPlugin()
-      this.log.debug(plugin)
+      app.log.debug(plugin)
       return app.orm.Preference.findById(plugin + '_prefs').then(preferences => {
         return preferences ? preferences.value : {}
       })
@@ -216,7 +216,7 @@ module.exports = (function () {
      */
     setPreferences(preferences) {
       const plugin = getCurrentPlugin()
-      this.log.debug(plugin)
+      app.log.debug(plugin)
       return app.orm.Preference.upsert({
         key: plugin + '_prefs',
         value: preferences
@@ -261,24 +261,25 @@ module.exports = (function () {
         const mainArguments = Array.prototype.slice.call(args)
         return [plugin + ':'].concat(mainArguments)
       }
+      const logger = app.config.log.pluginLogger
       return {
         debug: function () {
-          app.config.log.pluginLogger.debug.apply(this, getArguments(arguments))
+          logger.debug(JSON.stringify(getArguments(arguments)))
         },
         info: function () {
-          app.config.log.pluginLogger.info.apply(this, getArguments(arguments))
+          logger.info(JSON.stringify(getArguments(arguments)))
         },
         error: function () {
-          app.config.log.pluginLogger.error.apply(this, getArguments(arguments))
+          logger.error(JSON.stringify(getArguments(arguments)))
         },
         silly: function () {
-          app.config.log.pluginLogger.silly.apply(this, getArguments(arguments))
+          logger.silly(JSON.stringify(getArguments(arguments)))
         },
         verbose: function () {
-          app.config.log.pluginLogger.verbose.apply(this, getArguments(arguments))
+          logger.verbose(JSON.stringify(getArguments(arguments)))
         },
         warn: function () {
-          app.config.log.pluginLogger.warn.apply(arguments)
+          logger.warn(JSON.stringify(getArguments(arguments)))
         }
       }
     }
@@ -296,7 +297,7 @@ module.exports = (function () {
     }
 
     get mdns() {
-      return app.services.MdnsService.mdns
+      return app.mdns
     }
 
     get serialPort() {

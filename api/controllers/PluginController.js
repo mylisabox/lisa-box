@@ -2,6 +2,7 @@
 
 const Controller = require('trails/controller')
 const path = require('path')
+const _ = require('lodash')
 const manageErrors = require('../utils/error')
 
 /**
@@ -22,7 +23,8 @@ module.exports = class PluginController extends Controller {
     delete req.query.query
     this.log.debug(query)
     const options = this.app.packs.express.getOptionsFromQuery(req.query)
-    const criteria = req.params.id || this.app.packs.express.getCriteriaFromQuery(req.query)
+    const criteria = req.params.id || {where: options}
+
     this.app.services.PluginService.find(req.user.lang, criteria, options).then(elements => {
       res.status(elements ? 200 : 404).json(elements || {})
     }).catch(error => {
@@ -40,7 +42,7 @@ module.exports = class PluginController extends Controller {
 
   find(req, res) {
     const options = this.app.packs.express.getOptionsFromQuery(req.query)
-    const criteria = req.params.id || this.app.packs.express.getCriteriaFromQuery(req.query)
+    const criteria = req.params.id || options
 
     this.app.services.PluginService.find(req.user.lang, criteria, options).then(elements => {
       res.status(elements ? 200 : 404).json(elements || {})

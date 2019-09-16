@@ -4,24 +4,27 @@
  */
 const LISA = require('../lisa')
 const fs = require('fs')
-const os = require('os')
-const polly = require('lisa-speaker-polly')
+//const os = require('os')
+//const polly = require('lisa-speaker-polly')
 //const serialPort = require('serialport')
+const mdns = require('mdns-js')
 const bonjour = require('bonjour')()
 
 module.exports = (app) => {
   app.services.WebSocketService.init()
   app.services.IRService.init()
-  app.services.MdnsService.init()
+  app.services.DiscoveryService.init()
   app.lisa = new LISA(app)
 
+  app.bonjour = bonjour
+  app.mdns = mdns
   if (app.env.NODE_ENV !== 'testing') {
+    /*
     // advertise an HTTP server on configured port
     const VoiceCommand = require('lisa-standalone-voice-command')
     const pico = require('lisa-standalone-voice-command/lib/speaker')
 
     //app.serialPort = serialPort
-    app.bonjour = bonjour
 
     const language = app.env.LANG || 'en-US'
     const isPollyCredentialsPresent = fs.existsSync(os.homedir() + '/.aws/credentials')
@@ -53,7 +56,7 @@ module.exports = (app) => {
     voiceCommand.on('hotword', () => app.log.debug('hey lisa detected'))
     voiceCommand.on('error', error => app.log.error(error))
     voiceCommand.on('final-result', sentence => app.log.debug(sentence + ' detected'))
-    voiceCommand.on('bot-result', result => app.log.debug(result))
+    voiceCommand.on('bot-result', result => app.log.debug(result))*/
 
     /*eslint-disable */
     //FIXME plugins should be manage from an online store

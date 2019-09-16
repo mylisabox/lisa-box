@@ -38,6 +38,7 @@ module.exports = {
    */
   paths: {
     root: path.resolve(__dirname, '..'),
-    templates: path.resolve(__dirname, '..', 'api', 'templates')
+    templates: path.resolve(__dirname, '..', 'api', 'templates'),
+    www: path.resolve(__dirname, '..', 'web')
   }
 }

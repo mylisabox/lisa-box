@@ -1,20 +1,22 @@
 {
-  "type": "hbox",
+  "type": "row",
+  "flex": 3,
   "children": [
     {
-      "type": "space",
-      "flex": 0.6
+      "type": "spacer",
+      "flex": 1
     },
     {
-      "type": "image-button",
-      "name": "onoff",
+      "type": "image_button",
+      "id": "onoff",
+      "flex": 2,
       "mainIndicator": true,
-      "values": "images",
-      "value": "onoff"
+      "values": "$images$",
+      "value": "$onoff$"
     },
     {
-      "type": "space",
-      "flex": 0.6
+      "type": "spacer",
+      "flex": 1
     }
   ]
 }

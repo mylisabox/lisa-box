@@ -1,31 +1,36 @@
 {
-  "type": "vbox",
+  "type": "column",
   "children": [
     {
-      "type": "hbox",
+      "type": "row",
+      "flex": 3,
       "children": [
         {
-          "type": "space",
-          "flex": 0.6
+          "type": "spacer",
+          "flex": 1
         },
         {
-          "type": "image-button",
-          "name": "onoff",
+          "type": "image_button",
+          "id": "onoff",
+          "flex": 2,
           "mainIndicator": true,
-          "values": "images",
-          "value": "onoff"
+          "values": "$images$",
+          "value": "$onoff$"
         },
         {
-          "type": "space",
-          "flex": 0.6
+          "type": "spacer",
+          "flex": 1
         }
       ]
     },
     {
       "type": "slider",
-      "name": "dim",
-      "flex": 0.4,
-      "value": "dim"
+      "id": "dim",
+      "flex": 1,
+      "min": 0,
+      "divisions": 100,
+      "max": 100,
+      "value": "$dim$"
     }
   ]
 }
