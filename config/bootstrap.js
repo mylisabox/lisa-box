@@ -4,11 +4,32 @@
  */
 const LISA = require('../lisa')
 const fs = require('fs')
-//const os = require('os')
-//const polly = require('lisa-speaker-polly')
 //const serialPort = require('serialport')
 const mdns = require('mdns-js')
 const bonjour = require('bonjour')()
+
+function getArgs() {
+  const args = {};
+  process.argv
+    .slice(2, process.argv.length)
+    .forEach( arg => {
+      // long arg
+      if (arg.slice(0,2) === '--') {
+        const longArg = arg.split('=');
+        const longArgFlag = longArg[0].slice(2,longArg[0].length);
+        const longArgValue = longArg.length > 1 ? longArg[1] : true;
+        args[longArgFlag] = longArgValue;
+      }
+      // flags
+      else if (arg[0] === '-') {
+        const flags = arg.slice(1,arg.length).split('');
+        flags.forEach(flag => {
+          args[flag] = true;
+        });
+      }
+    });
+  return args;
+}
 
 module.exports = (app) => {
   app.services.WebSocketService.init()
@@ -18,9 +39,12 @@ module.exports = (app) => {
 
   app.bonjour = bonjour
   app.mdns = mdns
-  if (app.env.NODE_ENV !== 'testing') {
-    /*
+  const args = getArgs()
+  if (args['enable-voice-commands']) {
+
     // advertise an HTTP server on configured port
+    const os = require('os')
+    const polly = require('lisa-speaker-polly')
     const VoiceCommand = require('lisa-standalone-voice-command')
     const pico = require('lisa-standalone-voice-command/lib/speaker')
 
@@ -56,8 +80,10 @@ module.exports = (app) => {
     voiceCommand.on('hotword', () => app.log.debug('hey lisa detected'))
     voiceCommand.on('error', error => app.log.error(error))
     voiceCommand.on('final-result', sentence => app.log.debug(sentence + ' detected'))
-    voiceCommand.on('bot-result', result => app.log.debug(result))*/
+    voiceCommand.on('bot-result', result => app.log.debug(result))
+  }
 
+  if(app.env.NODE_ENV !== 'testing') {
     /*eslint-disable */
     //FIXME plugins should be manage from an online store
     fs.readdirSync('./plugins').forEach(plugin => {

@@ -17,7 +17,7 @@ case "$1" in
     echo "Starting L.I.S.A."
     rm /var/log/lisa*
     cd /var/www/lisa-box/
-    NODE_ENV=production PORT_HTTP=80 PORT=443 forever start --uid "lisa" -l /var/log/lisa.log server.js
+    NODE_ENV=production PORT_HTTP=80 PORT=443 forever start --uid "lisa" -l /var/log/lisa.log server.js --enable-voice-commands
     ;;
   stop)
     echo "Stopping L.I.S.A."

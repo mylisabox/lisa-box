@@ -35,7 +35,7 @@ apt-get install -y libzmq3-dev libavahi-compat-libdnssd-dev
 apt-get install -y lirc
 
 # speaker
-apt -get install -y libttspico-utils libasound2-dev
+apt-get install -y libttspico-utils libasound2-dev
 
 #matrix board
 if which malos > /dev/null ; then

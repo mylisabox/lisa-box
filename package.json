@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint --fix . && NODE_ENV=testing mocha",
-    "snyk-protect": "snyk protect",
-    "snyk": "snyk wizard",
     "publishPatch": "npm version patch && npm run push",
     "publishMinor": "npm version minor && npm run push",
     "publishMajor": "npm version major && npm run push",
@@ -56,7 +54,6 @@
     "primus-emitter": "^3.1.1",
     "primus-rooms": "^3.4.1",
     "request": "^2.88.0",
-    "snyk": "^1.164.0",
     "sqlite3": "^4.0.8",
     "trailpack-acl": "^2.0.0",
     "trailpack-bootstrap": "^2.0.0",
@@ -66,7 +63,7 @@
     "trailpack-email": "^2.0.1",
     "trailpack-express": "^2.0.6",
     "trailpack-footprints": "^2.0.0",
-    "trailpack-greenlock": "^0.2.1",
+    "trailpack-greenlock": "^0.2.2",
     "trailpack-passport": "^2.2.2",
     "trailpack-realtime": "^2.0.0",
     "trailpack-repl": "^2.1.0",
@@ -75,6 +72,10 @@
     "trails": "^2.0.2",
     "uuid": "^3.3.2",
     "winston": "^3.2.1"
+  },
+  "optionalDependencies": {
+    "lisa-speaker-polly": "^1.0.3",
+    "lisa-standalone-voice-command": "^1.0.0"
   },
   "snyk": true
 }

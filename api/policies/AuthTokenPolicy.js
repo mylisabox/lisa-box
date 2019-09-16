@@ -39,18 +39,17 @@ module.exports = class AuthTokenPolicy extends Policy {
       }).catch(err => nextPolicy())
     }
 
-    if (header) {
-      checkHeaderKnownDevice()
-    }
-    else if (req.connection.remoteAddress === '127.0.0.1' ||
+    if (req.connection.remoteAddress === '127.0.0.1' ||
       req.connection.remoteAddress === '::ffff:127.0.0.1' ||
       req.connection.remoteAddress === '::1') {
       next()
     }
+    else if (header) {
+      checkHeaderKnownDevice()
+    }
     else {
       nextPolicy()
     }
-
   }
 }
 
