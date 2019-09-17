@@ -75,7 +75,7 @@
   },
   "optionalDependencies": {
     "lisa-speaker-polly": "^1.0.3",
-    "lisa-standalone-voice-command": "^1.0.0"
+    "lisa-standalone-voice-command": "^1.0.1"
   },
   "snyk": true
 }

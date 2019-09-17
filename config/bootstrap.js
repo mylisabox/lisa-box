@@ -73,7 +73,7 @@ module.exports = (app) => {
           voiceId: voiceId // see http://docs.aws.amazon.com/polly/latest/dg/voicelist.html for other voices
         }
       },
-      url: 'http://127.0.0.1:3000',
+      url: (app.config.web.ssl == null ? 'http' : 'https')+'://127.0.0.1:'+app.config.web.port,
       gSpeech: './config/speech/LISA-gfile.json',
       language: language
     })
