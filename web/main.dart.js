@@ -70736,7 +70736,7 @@ t2:function(a,b){return this.ac5(a,b)},
 ac5:function(a,b){var u=0,t=P.F(M.ie),s,r=this,q
 var $async$t2=P.B(function(c,d){if(c===1)return P.C(d,t)
 while(true)switch(u){case 0:q=M.ie
-s=T.mQ(r.b).bB(0,r.C5$).bB(0,"/api/v1/auth/register").jI(0,r.c.h(0,"application/json").i0(0,b),!0).d8(0,!0).c8(0,H.d4(r.gmy(),q),q)
+s=T.mQ(r.b).bB(0,r.C5$).bB(0,"/api/v1/auth/local/register").jI(0,r.c.h(0,"application/json").i0(0,b),!0).d8(0,!0).c8(0,H.d4(r.gmy(),q),q)
 u=1
 break
 case 1:return P.D(s,t)}})
