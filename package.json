@@ -74,8 +74,8 @@
     "winston": "^3.2.1"
   },
   "optionalDependencies": {
-    "lisa-speaker-polly": "^1.0.3",
-    "lisa-standalone-voice-command": "^1.0.1"
+    "lisa-speaker-polly": "^1.0.4",
+    "lisa-standalone-voice-command": "^1.0.3"
   },
   "snyk": true
 }
