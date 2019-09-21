@@ -51,6 +51,7 @@ module.exports = (app) => {
     //app.serialPort = serialPort
 
     const language = app.env.LANG || 'en-US'
+    app.log.info('set lang to ' + language)
     const isPollyCredentialsPresent = fs.existsSync(os.homedir() + '/.aws/credentials')
     let voiceId
     switch (language) {

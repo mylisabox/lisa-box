@@ -8,7 +8,7 @@ apt-get install -y build-essential
 
 #install node
 if which node > /dev/null ; then
-    curl -sL https://deb.nodesource.com/setup_8.x | bash -
+    curl -sL https://deb.nodesource.com/setup_10.x | bash -
     apt-get install -y nodejs
 else
     echo "node is installed, skipping..."
@@ -39,12 +39,13 @@ apt-get install -y libttspico-utils libasound2-dev
 
 #matrix board
 if which malos > /dev/null ; then
-  echo "deb http://packages.matrix.one/matrix-creator/ ./" | tee --append /etc/apt/sources.list
+  curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
+  echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
   apt-get update
-  apt-get install -y matrix-creator-openocd matrix-creator-init matrix-creator-malos --allow-unauthenticated
+  apt-get install -y matrixio-openocd matrixio-malos
   #echo 'export AUDIODEV=mic_channel8' >>~/.bash_profile
-  #echo 'export LANG=en-US' >>~/.bash_profile
-  #source ~/.bash_profile
+  echo 'export LANG=en-US' >>~/.bash_profile
+  source ~/.bash_profile
 fi
 
 if [ ! -d "/var/www" ]; then
