@@ -2726,7 +2726,7 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lisa-discovery@^1.0.0, lisa-discovery@^1.0.1:
+lisa-discovery@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/lisa-discovery/-/lisa-discovery-1.0.1.tgz#1e9b7db4c187f84843fd97111ab5be9d78d6a30e"
 
@@ -2752,11 +2752,11 @@ lisa-speaker-polly@^1.0.3:
     aws-sdk "^2.101.0"
     speaker "^0.3.0"
 
-lisa-standalone-voice-command@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/lisa-standalone-voice-command/-/lisa-standalone-voice-command-1.0.0.tgz#47e8d5585c21a850c4151fdee0980492129b763c"
+lisa-standalone-voice-command@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/lisa-standalone-voice-command/-/lisa-standalone-voice-command-1.0.1.tgz#76b1eb8bc5ad4c0d92039067eaac07426f7c3a6e"
   dependencies:
-    lisa-discovery "^1.0.0"
+    lisa-discovery "^1.0.1"
     lisa-speaker-polly "^1.0.3"
     matrix-protos "^0.0.27"
     pico-speaker "^0.0.7"
