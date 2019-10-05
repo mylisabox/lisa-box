@@ -42,16 +42,7 @@ module.exports = class PluginService extends Service {
         pluginName: plugin.name,
         type: device.type,
         image: image ? '/plugin/' + plugin.name + '/images/' + image : null,
-        settings: [{
-          controlType: 'textbox',
-          type: 'text',
-          name: 'name',
-          regexp: '^[A-zÀ-ÿ0-9_ -]+$',
-          minLength: 3,
-          maxLength: 20,
-          label: this._translateField(lang, { en: 'Name', fr: 'Nom' , ru: 'Имя'}),
-          required: true
-        }].concat(settings),
+        settings: settings,
         pairing: device.pairing
       })
     }
@@ -59,25 +50,19 @@ module.exports = class PluginService extends Service {
   }
 
   _translateSettings(lang, settings) {
-    const translatedSettings = []
+    const translatedSettings = ['labelText', 'text', 'hintText', 'errorText', 'counterText', 'helperText', 'prefixText', 'suffixText']
     if (settings) {
-      for (const setting of settings) {
-        translatedSettings.push({
-          controlType: setting.controlType,
-          type: setting.type,
-          maxLength: setting.maxLength || 255,
-          minLength: setting.minLength || 0,
-          regexp: this._translateField(lang, setting.regexp),
-          defaultValue: setting.defaultValue,
-          name: setting.name,
-          label: this._translateField(lang, setting.label),
-          help: this._translateField(lang, setting.help),
-          required: setting.required,
-          private: setting.private,
-        })
+      for (const setting in settings) {
+        if(typeof settings[setting] === 'object') {
+          settings[setting] = this._translateSettings(lang, settings[setting])
+        } else {
+          if(translatedSettings.includes(setting)) {
+            settings[setting] = this._translateField(lang, settings[setting])
+          }
+        }
       }
     }
-    return translatedSettings
+    return settings
   }
 
   _translateField(lang, field) {

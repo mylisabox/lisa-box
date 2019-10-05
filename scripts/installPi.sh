@@ -35,6 +35,12 @@ apt-get install -y libzmq3-dev libavahi-compat-libdnssd-dev
 apt-get install -y lirc
 
 # speaker
+## first enable non free repo as libttspico-utils is on it
+wget -q https://ftp-master.debian.org/keys/release-10.asc -O- | apt-key add -
+echo "deb http://deb.debian.org/debian buster non-free" | tee -a /etc/apt/sources.list
+apt-get update
+apt-get install libttspico-utils
+
 apt-get install -y libttspico-utils libasound2-dev
 
 #matrix board
