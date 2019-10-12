@@ -12,3 +12,7 @@ const server = new TrailsApp(app)
 
 server.start().catch(err => server.stop(err))
 
+process.on('uncaughtException', function (err) {
+  console.log('Caught exception: ' + err);
+  console.log(err.stack);
+});
