@@ -21,18 +21,8 @@ if which yarn > /dev/null ; then
     apt-get update && apt-get install -y yarn
 fi
 
-
 #install basic utils
 apt-get install -y git
-
-#sox install for sonus speech recognition
-apt-get install -y sox libsox-fmt-all alsa-utils libatlas-base-dev
-
-# others
-apt-get install -y libzmq3-dev libavahi-compat-libdnssd-dev
-
-#install lirc
-apt-get install -y lirc
 
 # speaker
 ## first enable non free repo as libttspico-utils is on it
@@ -48,11 +38,21 @@ if which malos > /dev/null ; then
   curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
   echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
   apt-get update
-  apt-get install -y matrixio-openocd matrixio-malos
+  apt-get install -y raspberrypi-kernel-headers
+  apt-get install -y matrixio-malos matrixio-kernel-modules
   #echo 'export AUDIODEV=mic_channel8' >>~/.bash_profile
   echo 'export LANG=en-US' >>~/.bash_profile
   source ~/.bash_profile
 fi
+
+#sox install for sonus speech recognition
+apt-get install -y sox libsox-fmt-all alsa-utils libatlas-base-dev
+
+# others
+apt-get install -y libzmq3-dev libavahi-compat-libdnssd-dev
+
+#install lirc
+apt-get install -y lirc
 
 if [ ! -d "/var/www" ]; then
   mkdir /var/www
@@ -67,6 +67,7 @@ cd lisa-box
 yarn
 yarn global add forever
 
+#FIXME doesn't like syntax here
 plugins=('lisa-plugin-hue' 'lisa-plugin-kodi' 'lisa-plugin-ir' 'lisa-plugin-voice' 'lisa-plugin-cam-mjpeg' 'lisa-plugin-sony-vpl' 'lisa-plugin-bose-soundtouch')
 
 for plugin in "${plugins[@]}"
@@ -95,3 +96,4 @@ RED='\033[0;31m'
 NC='\033[0m'
 echo -e "${RED}To make speech working you need to add a Google configuration file manually at /var/www/lisa-box/config/speech/LISA-gfile.json${NC}"
 echo -e "${RED}See https://cloud.google.com/speech/docs/getting-started${NC}"
+echo -e "${RED}please reboot now to finish the installation${NC}"
