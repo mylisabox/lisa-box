@@ -51,8 +51,8 @@ apt-get install -y sox libsox-fmt-all alsa-utils libatlas-base-dev
 # others
 apt-get install -y libzmq3-dev libavahi-compat-libdnssd-dev
 
-#install lirc
-apt-get install -y lirc
+#FIXME install lirc doesn't work on buster
+#apt-get install -y lirc
 
 if [ ! -d "/var/www" ]; then
   mkdir /var/www
@@ -67,7 +67,6 @@ cd lisa-box
 yarn
 yarn global add forever
 
-#FIXME doesn't like syntax here
 plugins=('lisa-plugin-hue' 'lisa-plugin-kodi' 'lisa-plugin-ir' 'lisa-plugin-voice' 'lisa-plugin-cam-mjpeg' 'lisa-plugin-sony-vpl' 'lisa-plugin-bose-soundtouch')
 
 for plugin in "${plugins[@]}"
