@@ -29,7 +29,6 @@ apt-get install -y git
 wget -q https://ftp-master.debian.org/keys/release-10.asc -O- | apt-key add -
 echo "deb http://deb.debian.org/debian buster non-free" | tee -a /etc/apt/sources.list
 apt-get update
-apt-get install libttspico-utils
 
 apt-get install -y libttspico-utils libasound2-dev
 
@@ -38,7 +37,6 @@ if which malos > /dev/null ; then
   curl https://apt.matrix.one/doc/apt-key.gpg | sudo apt-key add -
   echo "deb https://apt.matrix.one/raspbian $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/matrixlabs.list
   apt-get update
-  apt-get install -y raspberrypi-kernel-headers
   apt-get install -y matrixio-malos matrixio-kernel-modules
   #echo 'export AUDIODEV=mic_channel8' >>~/.bash_profile
   echo 'export LANG=en-US' >>~/.bash_profile
