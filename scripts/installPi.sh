@@ -49,7 +49,7 @@ apt-get install -y sox libsox-fmt-all alsa-utils libatlas-base-dev
 # others
 apt-get install -y libzmq3-dev libavahi-compat-libdnssd-dev
 
-#FIXME install lirc doesn't work on buster
+#FIXME install lirc doesn't work on buster, patch here https://www.raspberrypi.org/forums/viewtopic.php?t=235256
 #apt-get install -y lirc
 
 if [ ! -d "/var/www" ]; then

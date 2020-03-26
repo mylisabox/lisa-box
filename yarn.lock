@@ -2740,6 +2740,10 @@ lisa-discovery@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/lisa-discovery/-/lisa-discovery-1.0.1.tgz#1e9b7db4c187f84843fd97111ab5be9d78d6a30e"
 
+lisa-discovery@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/lisa-discovery/-/lisa-discovery-1.0.2.tgz#8534a813db55d0e513353f2bcbf3d0204376e823"
+
 lisa-lirc@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/lisa-lirc/-/lisa-lirc-0.0.1.tgz#65b8747f1aa220dc57f3b218e18407e4a4e14bea"
