@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.14.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:jwt-simple:20160804':
@@ -77,11 +77,86 @@ patch:
   'npm:debug:20170905':
     - primus-rooms > debug:
         patched: '2017-10-01T08:00:10.258Z'
-      lisa-standalone-voice-command > sonus > @google-cloud/speech > google-gax > grpc > node-pre-gyp > tar-pack > debug:
-        patched: '2017-11-29T19:26:49.774Z'
     - trailpack-realtime > engine.io > debug:
         patched: '2017-10-01T08:00:10.258Z'
     - trailpack-realtime > engine.io > debug:
         patched: '2017-10-22T09:55:35.049Z'
     - primus-rooms > debug:
         patched: '2017-10-22T09:55:35.049Z'
+    - lisa-standalone-voice-command > sonus > @google-cloud/speech > google-gax > grpc > node-pre-gyp > tar-pack > debug:
+        patched: '2017-11-29T19:26:49.774Z'
+  SNYK-JS-LODASH-567746:
+    - lisa-plugins-manager > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-acl > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-bootstrap > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-email > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-express > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-footprints > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-passport > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-repl > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-router > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-sequelize > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trails > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - lisa-plugins-manager > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-acl > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-bootstrap > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-cache > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-chatbot > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-cron > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-email > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-express > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-greenlock > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-passport > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-realtime > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - primus-rooms > async > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-footprints > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-repl > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-router > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-sequelize > trailpack-datastore > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - lisa-plugins-manager > snyk > inquirer > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-sequelize > snyk > inquirer > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - lisa-plugins-manager > snyk > snyk-resolve-deps > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-sequelize > snyk > snyk-resolve-deps > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-sequelize > trailpack-datastore > trailpack > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - lisa-plugins-manager > snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-sequelize > snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - winston > async > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
+    - trailpack-greenlock > lodash:
+        patched: '2020-05-03T22:44:33.286Z'
