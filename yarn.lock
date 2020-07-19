@@ -2203,7 +2203,7 @@ hoek@2.x.x:
   version "2.16.3"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-2.16.3.tgz#20bb7403d3cea398e91dc4710a8ff1b8274a25ed"
 
-hoek@4.x.x, hoek@^4.1.0:
+hoek@4.x.x:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.0.tgz#72d9d0754f7fe25ca2d01ad8f8f9a9449a89526d"
 
@@ -2244,10 +2244,6 @@ https-proxy-agent@^2.2.1:
   dependencies:
     agent-base "^4.1.0"
     debug "^3.1.0"
-
-i18next@^3.4.1:
-  version "3.5.2"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-3.5.2.tgz#930390d5c318ceaa4858b52dd0e40e6b203f9f41"
 
 iconv-lite@0.4.19, iconv-lite@^0.4.4:
   version "0.4.19"
@@ -2496,7 +2492,7 @@ jmespath@0.15.0:
   version "0.15.0"
   resolved "https://registry.yarnpkg.com/jmespath/-/jmespath-0.15.0.tgz#a3f222a9aae9f966f5d27c796510e28091764217"
 
-joi@^10.0.5, joi@^10.1.0, joi@^10.2.2, joi@^10.4.1, joi@^10.6.0:
+joi@^10.0.5, joi@^10.1.0, joi@^10.4.1, joi@^10.6.0:
   version "10.6.0"
   resolved "https://registry.yarnpkg.com/joi/-/joi-10.6.0.tgz#52587f02d52b8b75cdb0c74f0b164a191a0e1fc2"
   dependencies:
@@ -2913,6 +2909,11 @@ lodash.keys@^3.0.0:
     lodash._getnative "^3.0.0"
     lodash.isarguments "^3.0.0"
     lodash.isarray "^3.0.0"
+
+lodash.merge@4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
+  integrity sha1-aYhLoUSsM/5plzemCG3v+t0PicU=
 
 lodash.merge@^4.6.1:
   version "4.6.2"
@@ -5011,35 +5012,25 @@ trailpack@v2-latest:
   dependencies:
     lodash "^4.17.2"
 
-trails-controller@^2:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/trails-controller/-/trails-controller-2.0.0.tgz#e3cda85f951ca425d5896201305b98423ca4dcff"
-
-trails-model@^2, trails-model@^2.0.1:
+trails-model@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/trails-model/-/trails-model-2.0.1.tgz#c44cff8fea9198694af1115257d27dd17a8cdd61"
 
-trails-policy@^2, trails-policy@^2.0.0:
+trails-policy@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/trails-policy/-/trails-policy-2.0.0.tgz#88adb79934829fb814b8a28d1f83579b9a41ac4e"
 
-trails-service@^2, trails-service@^2.0.0:
+trails-service@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/trails-service/-/trails-service-2.0.0.tgz#c37ecff1d91013ad9136fd92e585e91adcd3f019"
 
-trails@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/trails/-/trails-2.0.2.tgz#58b4b4bc0f49f18a279a0aa3afce813ab4594431"
+trails@^3.0.0:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/trails/-/trails-3.2.2.tgz#31056d900917b25273b47695abb5a071039eeaed"
+  integrity sha1-MQVtkAkXslJztHaVq7WgcQOe6u0=
   dependencies:
-    hoek "^4.1.0"
-    i18next "^3.4.1"
-    joi "^10.2.2"
-    lodash "^4.17.2"
-    mkdirp "^0.5.1"
-    trails-controller "^2"
-    trails-model "^2"
-    trails-policy "^2"
-    trails-service "^2"
+    lodash.merge "4.6.0"
+    mkdirp "0.5.1"
 
 trim-repeated@^1.0.0:
   version "1.0.0"
