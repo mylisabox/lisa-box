@@ -1,7 +1,7 @@
 'use strict'
 const EventEmitter = require('events')
-const NOTIFICATION_TYPE = require('./api/utils/enums').NOTIFICATION_TYPE
-const DEVICE_TYPE = require('./api/utils/enums').DEVICE_TYPE
+const NOTIFICATION_TYPE = require('./src/api/utils/enums').NOTIFICATION_TYPE
+const DEVICE_TYPE = require('./src/api/utils/enums').DEVICE_TYPE
 
 module.exports = (function () {
   //private

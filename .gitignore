@@ -40,7 +40,7 @@ jspm_packages
 *.sqlite
 /typings/
 /plugins/*
-/config/speech/LISA-gfile.json
+/src/config/speech/LISA-gfile.json
 /identifier
-/config/ssl/server.*
+/src/config/ssl/server.*
 /uploads/*

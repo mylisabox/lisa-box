@@ -2,7 +2,7 @@
 /* global describe, it */
 
 const assert = require('assert')
-const NOTIFICATION_TYPE = require('../../../api/utils/enums').NOTIFICATION_TYPE
+const NOTIFICATION_TYPE = require('../../../src/api/utils/enums').NOTIFICATION_TYPE
 
 describe('NotificationService', () => {
   let notificationService

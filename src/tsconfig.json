@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "baseUrl": "./",
+    "outDir": "../dist",
+    "target": "es2016",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "lib": ["es2016", "es2017.object"]
+  },
+  "watch": ["./"],
+  "include": ["../package.json", "test/**/*.ts", "**/*.ts", "index.ts", "public"],
+  "exclude": ["../node_modules"],
+  "paths": {}
+}
