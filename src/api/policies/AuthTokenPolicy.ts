@@ -16,7 +16,14 @@ export class AuthTokenPolicy extends Policy {
       }).then(devices => {
         const results = devices.filter(device => device.privateData.identifier === header)
         if (!devices || devices.length === 0 || results.length === 0) {
-          nextPolicy()
+          // if device not known but coming form localhost we authorized it
+          if (req.connection.remoteAddress === '127.0.0.1' ||
+            req.connection.remoteAddress === '::ffff:127.0.0.1' ||
+            req.connection.remoteAddress === '::1') {
+            next()
+          } else {
+            nextPolicy()
+          }
         }
         else {
           if (!req.body.context) {
@@ -37,15 +44,13 @@ export class AuthTokenPolicy extends Policy {
       }).catch(err => nextPolicy())
     }
 
-    if (req.connection.remoteAddress === '127.0.0.1' ||
+    if (header) {
+      checkHeaderKnownDevice()
+    } else if (req.connection.remoteAddress === '127.0.0.1' ||
       req.connection.remoteAddress === '::ffff:127.0.0.1' ||
       req.connection.remoteAddress === '::1') {
       next()
-    }
-    else if (header) {
-      checkHeaderKnownDevice()
-    }
-    else {
+    } else {
       nextPolicy()
     }
   }

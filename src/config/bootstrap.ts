@@ -65,6 +65,21 @@ export const bootstrap = (app) => {
         voiceId = 'Kimberly'
     }
 
+    const hotwords = [{
+      file: './node_modules/lisa-standalone-voice-command/speech/hey_lisa.pmdl',
+      hotword: 'hey lisa'
+    }]
+
+    fs.readdirSync('./config/speech').forEach(file => {
+      if (file.endsWith('.pmdl')) {
+        console.log(file)
+        hotwords.push({
+          file: './config/speech/'+file,
+          hotword: file.replace('.pmdl', '')
+        })
+      }
+    })
+
     const voiceCommand = new VoiceCommand({
       matrix: '127.0.0.1',
       log: app.log,
@@ -76,6 +91,7 @@ export const bootstrap = (app) => {
       },
       url: (app.config.web.ssl == null ? 'http' : 'https')+'://127.0.0.1:'+app.config.web.port,
       gSpeech: './config/speech/LISA-gfile.json',
+      hotwords: hotwords,
       language: language
     })
     voiceCommand.on('hotword', () => app.log.debug('hey lisa detected'))

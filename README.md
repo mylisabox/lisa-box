@@ -9,6 +9,10 @@
 [![Code Climate][codeclimate-image]][codeclimate-url]
 [![Follow @mylisabox on Twitter][twitter-image]][twitter-url]
 
+<img alt="JetBrains' support" src="jetbrains.png" data-canonical-src="jetbrains.png" width="100" />
+
+[JetBrains' support](https://www.jetbrains.com/?from=mylisabox)
+
 Home automation system L.I.S.A. http://mylisabox.com
 
 WORK IN PROGRESS
