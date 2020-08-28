@@ -14,7 +14,7 @@ apt-get update && apt-get install -y firmware-brcm80211 pi-bluetooth wpasupplica
 apt-get install -y nano curl git unzip
 
 #install node
-curl -sL https://deb.nodesource.com/setup_7.x | bash -
+curl -sL https://deb.nodesource.com/setup_10.x | bash -
 apt-get install -y nodejs
 
 #install yarn
@@ -44,3 +44,7 @@ apt-get install libasound2-dev
 #export AUDIODEV=hw:1,0
 
 #install a picam https://hackmypi.com/PiCamPart1.php
+
+# diskutil list and save diskN
+# save a SD image dd if=/dev/diskN of=~/sauvegardeCarteSD.dmg
+# restore a SD image dd if=~/sauvegardeCarteSD.dmg of=/dev/diskN
