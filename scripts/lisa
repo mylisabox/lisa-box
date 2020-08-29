@@ -1,7 +1,7 @@
 #!/bin/sh
 ### BEGIN INIT INFO
 # Provides:          lisa
-# Required-Start:    avahi-daemon alsa-utils mongodb $all
+# Required-Start:    avahi-daemon alsa-utils $all
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
