@@ -39,8 +39,9 @@ jspm_packages
 /dist/
 /typings/
 /plugins/*
-/config/speech/LISA-gfile.json
+/config/speech/*.json
 /identifier
 /config/ssl/server.*
 /uploads/*
 *.pmdl
+/test/lisa.sqlite

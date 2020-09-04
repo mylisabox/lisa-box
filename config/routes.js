@@ -76,6 +76,11 @@ module.exports = [
     handler: 'UserController.updateProfile'
   },
   {
+    method: 'POST',
+    path: `${footprintsConfig.prefix}/setup/voice_commands`,
+    handler: 'VoiceCommandsController.setupVoiceCommands'
+  },
+  {
     method: 'GET',
     path: `${footprintsConfig.prefix}/user`,
     handler: 'UserController.getProfile'
@@ -119,6 +124,21 @@ module.exports = [
     method: 'GET',
     path: `${footprintsConfig.prefix}/plugin/search`,
     handler: 'PluginController.search'
+  },
+  {
+    method: 'POST',
+    path: `${footprintsConfig.prefix}/plugin/install`,
+    handler: 'PluginController.installPlugin'
+  },
+  {
+    method: 'DELETE',
+    path: `${footprintsConfig.prefix}/plugin/{id}/uninstall`,
+    handler: 'PluginController.uninstallPlugin'
+  },
+  {
+    method: 'GET',
+    path: `${footprintsConfig.prefix}/plugin/store`,
+    handler: 'PluginController.getStorePlugins'
   },
   {
     method: 'POST',

@@ -44,7 +44,7 @@
     "jpeg-extractor": "^0.1.3",
     "lisa-discovery": "^1.0.3",
     "lisa-lirc": "^0.0.1",
-    "lisa-plugins-manager": "^0.0.17",
+    "lisa-plugins-manager": "^0.0.18",
     "lodash": "^4.17.15",
     "mdns-js": "^1.0.3",
     "mjpeg-proxy": "^0.2.0",
@@ -75,7 +75,7 @@
   },
   "optionalDependencies": {
     "lisa-speaker-polly": "^1.0.5",
-    "lisa-standalone-voice-command": "^1.0.11"
+    "lisa-standalone-voice-command": "^1.0.13"
   },
   "snyk": true
 }

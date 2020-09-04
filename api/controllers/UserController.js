@@ -16,7 +16,7 @@ module.exports = class UserController extends Controller {
   }
 
   updateProfile(req, res) {
-    req.app.multer.single('avatar')(req, res, err => {
+    req.app.multerAvatar.single('avatar')(req, res, err => {
       if (err) {
         res.serverError(err)
       }
@@ -31,7 +31,7 @@ module.exports = class UserController extends Controller {
         user.id = req.user.id
         this.app.orm.User.update(user, { where: { id: req.user.id } })
           .then(() => {
-            if (user.password && user.password != '') {
+            if (user.password && user.password !== '') {
               return this.app.services.PassportService.updateLocalPassword(user, user.password)
                 .then(() => res.json(user))
             }

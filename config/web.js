@@ -3,7 +3,16 @@ const fs = require('fs')
 const multer = require('multer')
 const sslKeyPath = __dirname + '/ssl/server.key'
 const sslCertPath = __dirname + '/ssl/server.crt'
-const storage = multer({ dest: 'uploads/' })
+const storageAvatar = multer({dest: 'uploads/'})
+const storageVoiceConfig = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'config/speech/')
+    }, filename: function (req, file, cb) {
+      cb(null, 'LISA-gfile.json')
+    }
+  })
+})
 
 let ssl = undefined
 if (fs.existsSync(sslKeyPath)) {
@@ -26,7 +35,8 @@ if (fs.existsSync(sslKeyPath)) {
 module.exports = {
   express: require('express'),
   init: (app, express) => {
-    express.multer = storage
+    express.multerAvatar = storageAvatar
+    express.multerVoiceConfig = storageVoiceConfig
   },
   /**
    * CORS options

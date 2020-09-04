@@ -46,5 +46,6 @@ module.exports = {
   ChatBotController: {
     '*': ['Passport.jwt'],
     'interact': ['AuthTokenPolicy.protect']
-  }
+  },
+  VoiceCommandsController: ['Passport.jwt'],
 }
