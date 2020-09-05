@@ -53,12 +53,12 @@ module.exports = class VoiceCommandsService extends Service {
     const voiceCommand = new VoiceCommand({
       matrix: '127.0.0.1',
       log: this.app.log,
-      speaker: {
+      speaker: null,/*{
         module: isPollyCredentialsPresent ? polly : pico,
         options: {
           voiceId: voiceId // see http://docs.aws.amazon.com/polly/latest/dg/voicelist.html for other voices
         }
-      },
+      },*/
       url: (this.app.config.web.ssl == null ? 'http' : 'https') + '://127.0.0.1:' + this.app.config.web.port,
       gSpeech: './config/speech/LISA-gfile.json',
       hotwords: hotwords,
