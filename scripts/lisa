@@ -31,7 +31,8 @@ case "$1" in
     /etc/init.d/lisa stop
     cd /var/www/lisa-box
     git pull
-    yarn
+    npm i --only=prod --unsafe-perm
+    sh ./scripts/plugins.sh
     /etc/init.d/lisa start
     ;;
   status)
