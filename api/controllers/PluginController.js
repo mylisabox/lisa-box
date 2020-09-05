@@ -116,7 +116,7 @@ module.exports = class PluginController extends Controller {
 
   uninstallPlugin(req, res) {
     const plugin = req.params.id
-    this.app.services.PluginService.uninstalSlPlugin(plugin).then(results => {
+    this.app.services.PluginService.uninstallPlugin(plugin).then(results => {
       res.json(results)
     }).catch(err => {
       res.status(500).send(res.boom.wrap(manageErrors(this.app, err), 500))

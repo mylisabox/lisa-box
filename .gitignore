@@ -44,4 +44,4 @@ jspm_packages
 /config/ssl/server.*
 /uploads/*
 *.pmdl
-/test/lisa.sqlite
+**/*.sqlite
