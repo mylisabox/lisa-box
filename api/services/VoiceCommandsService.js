@@ -50,6 +50,10 @@ module.exports = class VoiceCommandsService extends Service {
       }
     })
 
+    if (hotwords.length > 1) {
+      hotwords.shift();
+    }
+
     const voiceCommand = new VoiceCommand({
       matrix: '127.0.0.1',
       log: this.app.log,
