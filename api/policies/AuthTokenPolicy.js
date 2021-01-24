@@ -7,6 +7,13 @@ const Policy = require('trails/policy')
  * @description Protect registration when there already users in DB
  */
 module.exports = class AuthTokenPolicy extends Policy {
+  asQueryParam(req, res, next) {
+    const token = req.query.token.replace('/', '')
+    delete req.query.token
+    req.headers['Authorization'] = 'JWT '+token
+    return this.app.policies['Passport'].jwt(req, res, next)
+  }
+
   protect(req, res, next) {
     const header = req.headers['device-id']
     const nextPolicy = () => this.app.policies['Passport'].jwt(req, res, next)

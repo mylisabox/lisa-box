@@ -1,0 +1,101 @@
+name: lisa_flutter
+description: L.I.S.A. cross platform application
+
+version: 0.0.1+2
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependencies:
+  dio:
+  built_value:
+  built_collection:
+  flutter_vector_icons: ^0.2.1
+  nymea_network_manager: ^0.0.1
+    #path: '../../../nymea_network_manager'
+  flutter_sickchill: ^0.0.3
+    #path: '../../../flutter_sickchill'
+  flutter_transmission: ^0.0.3
+    #path: '../../../flutter_transmission'
+  sentry_flutter: ^4.0.2
+  logging: ^0.11.4
+  file_picker: ^2.1.5+1
+  file_chooser:
+    path: ../../../flutter-desktop-embedding/plugins/file_chooser
+  flutter_staggered_animations: ^0.1.2
+  keyboard_avoider: ^0.1.2
+  flutter_speech: ^1.1.0
+  pubspec_parse: ^0.1.7
+    #path: '../../../flutter_speech_recognition'
+  lisa_server_sdk:
+    path: '../api'
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  shared_preferences: ^0.5.12+4
+  connectivity: ^2.0.2
+  wifi_info_flutter: ^1.0.3
+  image_picker: ^0.6.7+21
+  flutter_staggered_grid_view: ^0.4.0-nullsafety.2
+  mobx: ^1.2.1+4
+  flutter_mobx: ^1.1.0+2
+  remote_ui: ^0.0.9
+  remote_form: ^0.0.3
+  remote_color_picker: ^0.0.3
+  remote_ip_camera: ^1.1.4
+  remote_image_button: ^0.0.5
+  proxy_layout: ^2.1.0
+  provider: ^4.3.3
+  flare_splash_screen: ^3.0.1
+    #path: '../../../../StudioProjects/flare_splash_screen'
+  flare_checkbox: ^1.0.3
+  flutter_hooks: ^0.15.0
+  multicast_lock: ^0.0.5
+  path_provider: ^1.6.27
+  flare_flutter: ^2.0.6
+  toast: ^0.1.5
+  #firebase_analytics: ^3.0.1
+
+  cupertino_icons: ^0.1.3
+
+dev_dependencies:
+  mobx_codegen: ^1.1.2
+  build_runner: ^1.10.2
+  flutter_test:
+    sdk: flutter
+
+dependency_overrides:
+#  remote_form:
+#    path: '../../../remote_ui/packages/remote_form'
+#  remote_color_picker:
+#    path: '../../../remote_ui/packages/remote_color_picker'
+#  remote_ip_camera:
+#    path: '../../../remote_ui/packages/remote_ip_camera'
+#  flutter_mjpeg:
+#    path: '../../../flutter_mjpeg'
+#  remote_image_button:
+#    path: '../../../remote_ui/packages/remote_image_button'
+#  remote_ui:
+#    path: '../../../remote_ui/packages/remote_ui'
+
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - pubspec.yaml
+    - assets/images/
+    - assets/animations/
+
+  fonts:
+     - family: Raleway
+       fonts:
+         - asset: assets/fonts/Raleway-Regular.ttf
+         - asset: assets/fonts/Raleway-Italic.ttf
+           style: italic
+         - asset: assets/fonts/Raleway-Bold.ttf
+           weight: 700
+         - asset: assets/fonts/Raleway-SemiBold.ttf
+           weight: 600

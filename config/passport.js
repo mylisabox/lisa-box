@@ -4,7 +4,7 @@
 const JwtStrategy = require('passport-jwt').Strategy
 const ExtractJwt = require('passport-jwt').ExtractJwt
 
-const EXPIRES_IN_SECONDS = 60 * 60 * 24
+const EXPIRES_IN_SECONDS = 60 * 60 * 24 * 7 // 7 days then expires
 const ALGORITHM = 'HS256'
 const ISSUER = 'localhost'
 const AUDIENCE = 'localhost'

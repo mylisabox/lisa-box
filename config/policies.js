@@ -30,7 +30,8 @@ module.exports = {
     ]
   },
   DefaultController: {
-    'test': ['Passport.jwt']
+    'test': ['Passport.jwt'],
+    'proxy': ['AuthTokenPolicy.asQueryParam']
   },
   IRController: ['Passport.jwt'],
   CameraController: ['Passport.jwt'],

@@ -91,6 +91,11 @@ module.exports = [
     handler: 'DefaultController.isAlive'
   },
   {
+    method: '*',
+    path: `${footprintsConfig.prefix}/proxy`,
+    handler: 'DefaultController.proxy'
+  },
+  {
     method: 'GET',
     path: `${footprintsConfig.prefix}/initialized`,
     handler: 'DefaultController.isInitialized'

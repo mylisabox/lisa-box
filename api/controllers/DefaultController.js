@@ -1,5 +1,7 @@
 'use strict'
 
+
+const request = require('request')
 const Controller = require('trails/controller')
 const path = require('path')
 const supportedLanguage = ['en', 'fr']
@@ -27,6 +29,19 @@ module.exports = class DefaultController extends Controller {
    */
   isAlive(req, res) {
     res.json({ alive: true })
+  }
+
+  proxy(req, res) {
+    const reqStream = request({uri: decodeURIComponent(req.query.url), headers: req.headers, method: req.method, json: req.body}, err => {
+      if (err) {
+        this.log.error(err)
+        res.status(500).end()
+      }
+    })
+    req.connection.on('close', () => {
+      reqStream.abort()
+    })
+    reqStream.pipe(res)
   }
 
   /**
