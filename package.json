@@ -69,7 +69,7 @@
     "trailpack-repl": "^2.1.0",
     "trailpack-router": "^2.1.0",
     "trailpack-sequelize": "2.0.0",
-    "trails": "^2.0.2",
+    "trails": "^3.0.0",
     "uuid": "^3.3.2",
     "winston": "^3.2.1"
   },
