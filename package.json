@@ -8,7 +8,9 @@
     "publishPatch": "npm version patch && npm run push",
     "publishMinor": "npm version minor && npm run push",
     "publishMajor": "npm version major && npm run push",
-    "push": "git push --tags && git push"
+    "push": "git push --tags && git push",
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -71,7 +73,8 @@
     "trailpack-sequelize": "2.0.0",
     "trails": "^2.0.2",
     "uuid": "^3.3.2",
-    "winston": "^3.2.1"
+    "winston": "^3.2.1",
+    "snyk": "^1.658.0"
   },
   "optionalDependencies": {
     "lisa-speaker-polly": "^1.0.5",
