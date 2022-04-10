@@ -37,7 +37,7 @@
   },
   "dependencies": {
     "bonjour": "^3.5.0",
-    "cache-manager": "^2.9.0",
+    "cache-manager": "^3.4.0",
     "ejs": "^2.7.4",
     "express": "^4.17.1",
     "joi": "^12.0.0",
